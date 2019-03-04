@@ -6,57 +6,37 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  NavLink
+} from 'reactstrap';
+import {NavLink as RRNavLink} from 'react-router-dom';
 
 class MyNavbar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
+  state = {
+    isOpen: false
+  };
   
-  toggle() {
+  toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
     return (
-      <Navbar color="dark" inverse expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+      <Navbar color="dark" dark expand="md">
+        <NavbarBrand href="/">Movie-SB</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink tag={RRNavLink} to='/account'>Acount</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink tag={RRNavLink} to='/login'>Login</NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Option 1
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            <NavItem>
+              <NavLink tag={RRNavLink} to='/random'>Random</NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
