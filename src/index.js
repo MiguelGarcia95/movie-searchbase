@@ -25,11 +25,11 @@ const RootWithRouter = () => {
         <Route path='/' component={MyNavbar} />
         <Switch>
           <Route exact path='/' component={App} />
-          {/* <Route path='/login' component={App} />
-          <Route path='/account' component={App} />
-          <Route path='/search' component={App} />
-          <Route path='/tv/{tvId}' component={App} />
-          <Route path='/movie/{movieId}' component={App} /> */}
+          {/* <Route path='/login' component={Login} />
+          <Route path='/account' component={Account} />
+          <Route path='/search' component={SearchResults} />
+          <Route path='/tv/{tvId}' component={DisplayTv} />
+          <Route path='/movie/{movieId}' component={DisplayMovie} /> */}
         </Switch>
       </React.Fragment>
     </BrowserRouter>
