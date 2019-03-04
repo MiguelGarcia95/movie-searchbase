@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route, withRouter, Redirect} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 /*
  Routes
@@ -21,6 +22,11 @@ const RootWithRouter = () => {
     <BrowserRouter>
       <Switch>
         <Route path='/' component={App} />
+        {/* <Route path='/login' component={App} />
+        <Route path='/account' component={App} />
+        <Route path='/search' component={App} />
+        <Route path='/tv/{tvId}' component={App} />
+        <Route path='/movie/{movieId}' component={App} /> */}
       </Switch>
     </BrowserRouter>
   )
