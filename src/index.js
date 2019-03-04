@@ -4,6 +4,11 @@ import {BrowserRouter, Switch, Route, withRouter, Redirect} from 'react-router-d
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './components/App';
+import Login from './components/Login';
+import Account from './components/Account';
+import SearchResults from './components/SearchResults';
+import DisplayTv from './components/DisplayTv';
+import DisplayMovie from './components/DisplayMovie';
 import MyNavbar from './components/layout/MyNavbar';
 import * as serviceWorker from './serviceWorker';
 
@@ -25,11 +30,11 @@ const RootWithRouter = () => {
         <Route path='/' component={MyNavbar} />
         <Switch>
           <Route exact path='/' component={App} />
-          {/* <Route path='/login' component={Login} />
+          <Route path='/login' component={Login} />
           <Route path='/account' component={Account} />
           <Route path='/search' component={SearchResults} />
           <Route path='/tv/{tvId}' component={DisplayTv} />
-          <Route path='/movie/{movieId}' component={DisplayMovie} /> */}
+          <Route path='/movie/{movieId}' component={DisplayMovie} />
         </Switch>
       </React.Fragment>
     </BrowserRouter>
