@@ -6,10 +6,9 @@ import Slider from "react-slick";
 class ContentSlider extends React.Component {
   render() {
     const settings = {
-      className: "center",
-      centerMode: true,
+      rtl: true,
       infinite: true,
-      slidesToShow: 5,
+      slidesToShow: 8,
       autoplay: true,
       arrows: false,
       speed: 500
@@ -17,7 +16,7 @@ class ContentSlider extends React.Component {
 
     return (
       <div style={{padding: '100px 0'}}>
-        <h2> Multiple items </h2>
+        <h4 style={{marginBottom: '25px'}}> Multiple items </h4>
         <Slider {...settings}>
           <div>
             <h3 style={{textAlign: 'center'}}>1</h3>
