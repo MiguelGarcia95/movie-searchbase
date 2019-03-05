@@ -1,7 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
+import ContentSlider from './layout/ContentSlider';
 import './App.css';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css'; 
 
 class App extends React.Component {
   render() {
@@ -29,6 +32,8 @@ class App extends React.Component {
             <Col xs="2" style={{background: 'blue', padding: '0'}}>.col-2</Col>
             <Col xs="2" style={{background: 'blue', padding: '0'}}>.col-2</Col>
           </Row>
+
+          <ContentSlider />
         </Container>
       </section>
     );
