@@ -39,6 +39,15 @@ class App extends React.Component {
           <ContentSlider />
           <ContentSlider />
         </Container>
+        {/* Footer */}
+        <Container fluid={true} style={{height: '400px', width: '100%', padding: '0', backgroundColor: '#232323'}}>
+          <Row style={{height: '50%', margin: '0'}}>
+          </Row>
+          <Row style={{height: '25%', margin: '0'}}>
+          </Row>
+          <Row style={{height: '25%', margin: '0'}}>
+          </Row>
+        </Container>
       </section>
     );
   }
