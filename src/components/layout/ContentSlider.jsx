@@ -18,6 +18,7 @@ class ContentSlider extends React.Component {
     return (
       <div>
       {/* <div style={{padding: '0 50px'}}> */}
+        <h2> Multiple items </h2>
         <Slider {...settings}>
           <div>
             <h3 style={{textAlign: 'center'}}>1</h3>
