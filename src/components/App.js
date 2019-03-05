@@ -32,7 +32,10 @@ class App extends React.Component {
             <Col xs="2" style={{background: 'blue', padding: '0'}}>.col-2</Col>
             <Col xs="2" style={{background: 'blue', padding: '0'}}>.col-2</Col>
           </Row>
-
+        </Container>
+        {/* <Container fluid={true} style={{height: '100vh', width: '100%', padding: '0', paddingTop: '56px'}}> */}
+        <Container fluid={true} style={{width: '100%', padding: '0'}}>
+          <ContentSlider />
           <ContentSlider />
         </Container>
       </section>
