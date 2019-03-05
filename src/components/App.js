@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <section className="App">
-        <Container fluid={true} style={{background: 'red', height: '100vh', width: '100%', padding: '0'}}>
+        <Container fluid={true} style={{background: 'red', height: '100vh', width: '100%', padding: '0', paddingTop: '60px'}}>
           <Row style={{margin: '0'}} >
           <Col xs="6">.col-6</Col>
           <Col xs="6">

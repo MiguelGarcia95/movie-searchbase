@@ -23,7 +23,7 @@ class MyNavbar extends React.Component {
 
   render() {
     return (
-      <Navbar color="dark" fixed='true' dark expand="md">
+      <Navbar color="dark" dark expand="md" style={{position: 'fixed', width: '100%'}}>
         <NavbarBrand tag={RRNavLink} to='/'>Movie-SB</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
