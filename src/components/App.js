@@ -21,6 +21,14 @@ class App extends React.Component {
               </Row>
             </Col>
           </Row>
+          <Row style={{margin: '0', height: '20%'}} >
+            <Col xs="2" style={{background: 'blue', padding: '0'}}>.col-2</Col>
+            <Col xs="2" style={{background: 'blue', padding: '0'}}>.col-2</Col>
+            <Col xs="2" style={{background: 'blue', padding: '0'}}>.col-2</Col>
+            <Col xs="2" style={{background: 'blue', padding: '0'}}>.col-2</Col>
+            <Col xs="2" style={{background: 'blue', padding: '0'}}>.col-2</Col>
+            <Col xs="2" style={{background: 'blue', padding: '0'}}>.col-2</Col>
+          </Row>
         </Container>
       </section>
     );
