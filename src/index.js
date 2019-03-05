@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Switch, Route, withRouter, Redirect} from 'react-router-dom';
+// import {BrowserRouter, Switch, Route, withRouter, Redirect} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './components/App';
@@ -20,6 +21,7 @@ import * as serviceWorker from './serviceWorker';
  /login -> redirec to movieDB to autheticate
  /account -> account display
  /search -> search with string or requirements ie: genre/year ect...
+
  /random -> get a random movie/show
 */
 
