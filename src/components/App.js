@@ -34,7 +34,7 @@ class App extends React.Component {
           </Row>
         </Container>
         {/* <Container fluid={true} style={{height: '100vh', width: '100%', padding: '0', paddingTop: '56px'}}> */}
-        <Container fluid={true} style={{width: '100%', padding: '0'}}>
+        <Container fluid={true} style={{width: '100%', padding: '100px 50px'}}>
           <ContentSlider />
           <ContentSlider />
         </Container>
