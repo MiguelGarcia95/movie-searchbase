@@ -1,1 +1,2 @@
+export const LOGIN = 'LOGIN';
 export const FETCH_POPULAR_MOVIES = 'FETCH_POPULAR_MOVIES';
