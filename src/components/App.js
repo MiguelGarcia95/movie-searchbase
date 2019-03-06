@@ -47,6 +47,7 @@ class App extends React.Component {
             <Col xs='1' style={{padding: '0'}}><p>Account</p></Col>
             <Col xs='1' style={{padding: '0'}}><p>Login</p></Col> */}
             {/* <Col xs='2' style={{padding: '0'}}> */}
+            {/* <Col xs={{ size: '2', offset: 10 }} style={{padding: '0'}}> */}
             <Col xs={{ size: '2', offset: 5 }} style={{padding: '0'}}>
               <CardImg top width="100%" src="/images/logos/408x161-powered-by-rectangle-green-bb4301c10ddc749b4e79463811a68afebeae66ef43d17bcfd8ff0e60ded7ce99.png" alt="Card image cap" />
             </Col>
