@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import {BrowserRouter, Switch, Route, withRouter, Redirect} from 'react-router-dom';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, withRouter} from 'react-router-dom';
+import {Provider, connect} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import store from './store';
 
 import App from './components/App';
 import Login from './components/Login';
@@ -27,7 +28,7 @@ import * as serviceWorker from './serviceWorker';
  /random -> get a random movie/show
 */
 
-const RootWithRouter = () => {
+const Root = () => {
   return (
     <BrowserRouter>
       <React.Fragment>
@@ -43,6 +44,18 @@ const RootWithRouter = () => {
         <Route path='/' component={MyFooter} />
       </React.Fragment>
     </BrowserRouter>
+  )
+}
+
+const RootWithAuth = withRouter(connect()(Root));
+
+const RootWithRouter = () => {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <RootWithAuth />
+      </BrowserRouter>
+    </Provider>
   )
 }
 
