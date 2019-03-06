@@ -13,3 +13,7 @@ export const getToken = () => {
     })
   }
 }
+
+export const login = () => {
+  
+}
