@@ -12,6 +12,7 @@ import SearchResults from './components/SearchResults';
 import DisplayTv from './components/DisplayTv';
 import DisplayMovie from './components/DisplayMovie';
 import MyNavbar from './components/layout/MyNavbar';
+import MyFooter from './components/layout/MyFooter';
 import * as serviceWorker from './serviceWorker';
 
 /*
@@ -39,6 +40,7 @@ const RootWithRouter = () => {
           <Route path='/tv/{tvId}' component={DisplayTv} />
           <Route path='/movie/{movieId}' component={DisplayMovie} />
         </Switch>
+        <Route path='/' component={MyFooter} />
       </React.Fragment>
     </BrowserRouter>
   )
