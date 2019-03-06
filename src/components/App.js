@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick.css';
 class App extends React.Component {
   render() {
     return (
-      <section className="App">
+      <section className="App" style={{backgroundColor: '#ddd'}}>
         <Container fluid={true} style={{height: '100vh', width: '100%', padding: '0', paddingTop: '56px'}}>
           <Row style={{margin: '0', height: '80%'}} >
             <Col xs="6" style={{background: 'red', padding: '0'}}>.col-6</Col>
