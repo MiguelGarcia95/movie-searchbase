@@ -1,6 +1,8 @@
 import React from 'react';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import {NavLink as RRNavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {login} from '../../actions/authActions';
 
 class MyNavbar extends React.Component {
   state = {
@@ -24,7 +26,8 @@ class MyNavbar extends React.Component {
               <NavLink tag={RRNavLink} to='/account'>Acount</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={RRNavLink} to='/login'>Login</NavLink>
+              {/* <NavLink tag={RRNavLink} to='/login'>Login</NavLink> */}
+              <NavLink onClick={() => this.props.login()}>Login</NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag={RRNavLink} to='/random'>Random</NavLink>
@@ -36,4 +39,10 @@ class MyNavbar extends React.Component {
   }
 }
 
-export default MyNavbar;
+const mapDispatchToProps = dispatch => {
+  return {
+    login: () => dispatch(login())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(MyNavbar);
