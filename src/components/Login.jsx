@@ -24,7 +24,7 @@ class Login extends React.Component {
         <Container>
           <Row>
             <Col xs={{ size: '4', offset: 4 }} style={{padding: '0'}}>
-              <Button color="success" href='' size="lg" block>Block level button</Button>
+              <Button color="success" href={loginHref} size="lg" block>Block level button</Button>
             </Col>
           </Row>
         </Container>
@@ -35,7 +35,7 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    token: state.auth.token_id
+    token_id: state.auth.token_id
   }
 }
 

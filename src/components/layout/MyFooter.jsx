@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink as RRNavLink, Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import { Container, Row, Col, CardImg} from 'reactstrap';
 
 const MyFooter = () => {
