@@ -1,15 +1,23 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {getToken} from '../actions/authActions';
 
 import './App.css';
 
 class Login extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Login</h1>
-      </div>
+      <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
+        
+      </section>
     );
   }
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => {
+  return {
+    getToken: () => dispatch(getToken())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login);
