@@ -14,49 +14,25 @@ export const getToken = () => {
   }
 }
 
-// export const getSession = (url, token) => {
-  export const getSession = (token) => {
+export const setSession = (token) => {
   return async (dispatch) => {
-    // axios({
-    //   method: 'post',
-    //   url: url,
-    //   headers: {'Access-Control-Allow-Origin': '*'},
-    //   data: {
-    //     request_token: token
-    //   } 
-    // }).then(function (response) {
-    //   console.log(response);
-    // })
     axios.post(`https://api.themoviedb.org/3/authentication/session/new?api_key=${MOVIEDBAPI}`, {
-        request_token: token
-    }).then(function (response) {
-      console.log(response);
+       request_token: token
+    }).then((response) => {
+      dispatch({
+        type: actionTypes.SET_SESSION,
+
+      })
+      console.log(response.data.session_id);
     }).catch(err => {
       console.log(err)
     })
+    // const res = await axios.post(`https://api.themoviedb.org/3/authentication/session/new?api_key=${MOVIEDBAPI}`, {
+    //   request_token: token
+    // });
+    // console.log(res.data.session_id)
   }
 }
-// 'Content-Type': 'application/json'
-
-// const saveSession = payload => ({
-//   type: GET_SESSION,
-//   payload
-// });
-
-// const getSession = (url, token) => {
-//   return dispatch => {
-//     fetch(url, {
-//       method: 'POST',
-//       body: JSON.stringify({ request_token: token }),
-//       headers:{
-//         'Content-Type': 'application/json'
-//       }
-//     })
-//     .then(res => res.json())
-//     .then(data => dispatch(saveSession(data)))
-//     .catch(error => console.log(error))
-//   };
-// };
 
 export const login = () => {
 
