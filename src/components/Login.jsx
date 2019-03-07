@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Jumbotron, Container, Button, Row, Col} from 'reactstrap';
 
-import {getToken} from '../actions/authActions';
+import {getToken, getSession} from '../actions/authActions';
 
 import './App.css';
 
@@ -11,7 +11,10 @@ class Login extends React.Component {
     this.props.getToken();
   }
 
+  onLoginClick = url => this.props.getSession(url);
+
   render() {
+    // const loginHref = `https://api.themoviedb.org/3/authentication/session/new?/${this.props.token_id}`;
     const loginHref = `https://www.themoviedb.org/authenticate/${this.props.token_id}?redirect_to=http://localhost:3000/account/approved`;
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
@@ -24,6 +27,7 @@ class Login extends React.Component {
         <Container>
           <Row>
             <Col xs={{ size: '4', offset: 4 }} style={{padding: '0'}}>
+              {/* <Button color="success" onClick={() => this.onLoginClick(loginHref)} size="lg" block>Block level button</Button> */}
               <Button color="success" href={loginHref} size="lg" block>Block level button</Button>
             </Col>
           </Row>
@@ -41,7 +45,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getToken: () => dispatch(getToken())
+    getToken: () => dispatch(getToken()),
+    getSession: url => dispatch(getSession(url))
   }
 }
 

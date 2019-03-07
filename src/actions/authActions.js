@@ -14,6 +14,28 @@ export const getToken = () => {
   }
 }
 
+export const getSession = (url, token) => {
+  return async (dispatch) => {
+    // axios({
+    //   method: 'post',
+    //   url: url,
+    //   headers: {'Access-Control-Allow-Origin': '*'},
+    //   data: {
+    //     request_token: token
+    //   } 
+    // }).then(function (response) {
+    //   console.log(response);
+    // })
+    axios.post(url, {
+        request_token: token
+    }).then(function (response) {
+      console.log(response);
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+}
+
 export const login = () => {
-  
+
 }
