@@ -8,12 +8,19 @@ import {setSession} from '../actions/authActions';
 class Account extends React.Component {
   componentDidMount() {
     const path = this.props.location.search;
-    this.props.setSession(this.getRequestToken(path))
+    if (this.getApproved(path) && this.getApproved !== null) {
+      this.props.setSession(this.getRequestToken(path))
+    }
   }
 
   getApproved = path => {
-    const approvedPath = path.match(new RegExp('&approved=(.*)'));
-    return approvedPath.length > 1 ? approvedPath[1] : null;
+    if (path) {
+      const approvedPath = path.match(new RegExp('&approved=(.*)'));
+      return approvedPath.length > 1 ? approvedPath[1] : null;
+    } else {
+      return false;
+    }
+    
   }
 
   getRequestToken = path => {
