@@ -21,16 +21,13 @@ export const setSession = (token) => {
     }).then((response) => {
       dispatch({
         type: actionTypes.SET_SESSION,
-
+        payload: {
+          session_id: response.data.session_id
+        }
       })
-      console.log(response.data.session_id);
     }).catch(err => {
       console.log(err)
     })
-    // const res = await axios.post(`https://api.themoviedb.org/3/authentication/session/new?api_key=${MOVIEDBAPI}`, {
-    //   request_token: token
-    // });
-    // console.log(res.data.session_id)
   }
 }
 

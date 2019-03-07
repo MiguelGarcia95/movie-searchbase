@@ -10,6 +10,8 @@ class Account extends React.Component {
     const path = this.props.location.search;
     if (this.getApproved(path) && this.getApproved !== null) {
       this.props.setSession(this.getRequestToken(path))
+    } else {
+      console.log('getSession')
     }
   }
 
