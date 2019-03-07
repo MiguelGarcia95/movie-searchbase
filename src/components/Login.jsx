@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Jumbotron, Container, Button, Form } from 'reactstrap';
+import { Jumbotron, Container, Button } from 'reactstrap';
 
 import {getToken} from '../actions/authActions';
 
@@ -17,11 +17,6 @@ class Login extends React.Component {
           </Container>
         </Jumbotron>
         <Button color="primary" size="lg" block>Block level button</Button>
-        <Form>
-          <Button color="primary" size="lg" block>Block level button</Button>
-
-          <Button>Submit</Button>
-        </Form>
       </section>
     );
   }
