@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Jumbotron, Container, Button } from 'reactstrap';
+import { Jumbotron, Container, Button, Row, Col} from 'reactstrap';
 
 import {getToken} from '../actions/authActions';
 
