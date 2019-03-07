@@ -12,6 +12,7 @@ class Login extends React.Component {
   }
 
   render() {
+    const loginHref = `https://www.themoviedb.org/authenticate/${this.props.token_id}?redirect_to=http://localhost:3000/account/approved`;
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
         <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444', color: 'white'}}>
@@ -23,7 +24,7 @@ class Login extends React.Component {
         <Container>
           <Row>
             <Col xs={{ size: '4', offset: 4 }} style={{padding: '0'}}>
-              <Button color="success" size="lg" block>Block level button</Button>
+              <Button color="success" href='' size="lg" block>Block level button</Button>
             </Col>
           </Row>
         </Container>
