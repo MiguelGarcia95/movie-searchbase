@@ -4,9 +4,11 @@ import './App.css';
 
 class Account extends React.Component {
   componentDidMount() {
-    console.log(this.props.location.search)
-    console.log(this.getRequestToken(this.props.location.search))
-    console.log(this.getApproved(this.props.location.search))
+    const path = this.props.location.search;
+    console.log(this.getRequestToken(path))
+    console.log(this.getApproved(path))
+    console.log(this.getPathParams(path, true));
+    console.log(this.getPathParams(path, false));
   }
 
   getApproved = path => {
@@ -19,13 +21,9 @@ class Account extends React.Component {
     return tokenPath.length > 1 ? tokenPath[1] : null;
   }
 
-  getPathParam = (path, params) => {
-    let paramUrl;
-    if (params === 2) {
-      paramUrl = path.match(new RegExp(`request_token=(.*)&`))
-    } else if (params === 1) {
-      paramUrl = path.match(new RegExp(`approved=(.*)`))
-    }
+  getPathParams = (path, many) => {
+    let paramUrl = many ? path.match(new RegExp(`request_token=(.*)&`)) : path.match(new RegExp(`approved=(.*)`));
+    return paramUrl.length > 1 ? paramUrl[1] : null;
   }
 
   render() {
