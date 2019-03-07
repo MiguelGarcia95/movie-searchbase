@@ -36,7 +36,7 @@ const Root = () => {
         <Switch>
           <Route exact path='/' component={App} />
           <Route path='/login' component={Login} />
-          <Route path='/account/:approved' component={Account} />
+          <Route path='/account' component={Account} />
           <Route path='/search' component={SearchResults} />
           <Route path='/tv/{tvId}' component={DisplayTv} />
           <Route path='/movie/{movieId}' component={DisplayMovie} />

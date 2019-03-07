@@ -5,8 +5,14 @@ import './App.css';
 class Account extends React.Component {
   componentDidMount() {
     console.log(this.props.location.search)
-    console.log(this.props.match.params.status)
-    // console.log(this.props.location.query.__request_token)
+  }
+
+  getApproved = path => {
+
+  }
+
+  getRequestToken = path => {
+    
   }
 
   render() {
