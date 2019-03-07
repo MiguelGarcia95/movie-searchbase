@@ -39,10 +39,16 @@ class Account extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    session_id: state.auth.session_id
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     setSession: (token) => dispatch(setSession(token))
   }
 }
 
-export default connect(null, mapDispatchToProps)(Account);
+export default connect(mapStateToProps, mapDispatchToProps)(Account);
