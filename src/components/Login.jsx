@@ -16,7 +16,14 @@ class Login extends React.Component {
             <p className="lead">It'll redirect you to The MovieDB</p>
           </Container>
         </Jumbotron>
-        <Button color="primary" size="lg" block>Block level button</Button>
+        <Container>
+          {/* <Row style={{height: '25%', margin: '0', marginTop: '50px'}}> */}
+          <Row>
+            <Col xs='3' style={{padding: '0'}}>
+              <Button color="primary" size="lg" block>Block level button</Button>
+            </Col>
+          </Row>
+        </Container>
       </section>
     );
   }
