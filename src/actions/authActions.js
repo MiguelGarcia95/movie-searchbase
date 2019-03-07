@@ -35,6 +35,27 @@ export const getSession = (url, token) => {
     })
   }
 }
+// 'Content-Type': 'application/json'
+
+// const saveSession = payload => ({
+//   type: GET_SESSION,
+//   payload
+// });
+
+// const getSession = (url, token) => {
+//   return dispatch => {
+//     fetch(url, {
+//       method: 'POST',
+//       body: JSON.stringify({ request_token: token }),
+//       headers:{
+//         'Content-Type': 'application/json'
+//       }
+//     })
+//     .then(res => res.json())
+//     .then(data => dispatch(saveSession(data)))
+//     .catch(error => console.log(error))
+//   };
+// };
 
 export const login = () => {
 
