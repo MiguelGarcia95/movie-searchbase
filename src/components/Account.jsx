@@ -12,11 +12,11 @@ class Account extends React.Component {
   getApproved = path => {
     const approvedPath = path.match(new RegExp('&approved=(.*)'));
     return approvedPath.length > 1 ? approvedPath[1] : null;
-    // if (approvedPath.length > 1) {
-    //   return approvedPath[1];
-    // } else {
-    //   return null
-    // }
+  }
+
+  getRequestToken = path => {
+    const tokenPath = path.match(new RegExp('request_token=(.*)&'));
+    return tokenPath.length > 1 ? tokenPath[1] : null;
   }
 
   getPathParam = (path, params) => {
@@ -25,16 +25,6 @@ class Account extends React.Component {
       paramUrl = path.match(new RegExp(`request_token=(.*)&`))
     } else if (params === 1) {
       paramUrl = path.match(new RegExp(`approved=(.*)`))
-    }
-
-  }
-
-  getRequestToken = path => {
-    const tokenPath = path.match(new RegExp('request_token=(.*)&'));
-    if (tokenPath.length > 1) {
-      return tokenPath[1];
-    } else {
-      return null
     }
   }
 
