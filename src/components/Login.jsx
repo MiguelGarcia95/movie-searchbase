@@ -19,7 +19,7 @@ class Login extends React.Component {
         <Container>
           {/* <Row style={{height: '25%', margin: '0', marginTop: '50px'}}> */}
           <Row>
-            <Col xs='3' style={{padding: '0'}}>
+            <Col xs={{ size: '4', offset: 4 }} style={{padding: '0'}}>
               <Button color="primary" size="lg" block>Block level button</Button>
             </Col>
           </Row>
