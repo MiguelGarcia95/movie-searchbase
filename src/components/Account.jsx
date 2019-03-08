@@ -15,6 +15,7 @@ class Account extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
+    console.log(JSON.parse(localStorage.getItem('account')))
     if (nextProps.session_id) {
       nextProps.getAccount(nextProps.session_id)
     }
