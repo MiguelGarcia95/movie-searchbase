@@ -23,6 +23,10 @@ class MyNavbar extends React.Component {
     });
   }
 
+  onLogoutClick = () => {
+    console.log('attempted to logout')
+  }
+
   render() {
     const {session_id} = this.props;
     return (
@@ -35,6 +39,12 @@ class MyNavbar extends React.Component {
               {session_id && <NavLink tag={RRNavLink} to='/account'>Acount</NavLink>}
               {!session_id && <NavLink tag={RRNavLink} to='/login'>Login</NavLink>}
             </NavItem>
+            {session_id && (
+              <NavItem>
+                <NavLink style={{cursor: 'pointer'}} onClick={() => this.onLogoutClick()} >Logout</NavLink>
+              </NavItem>
+            )}
+            
             <NavItem>
               <NavLink tag={RRNavLink} to='/random'>Random</NavLink>
             </NavItem>
