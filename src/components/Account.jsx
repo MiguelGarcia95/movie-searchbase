@@ -25,7 +25,6 @@ class Account extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    console.log('test')
     this.setState({tryToRedirect: true});
     if (nextProps.session_id && !localStorage.getItem('account')) {
       nextProps.getAccount(nextProps.session_id)
@@ -77,8 +76,6 @@ class Account extends React.Component {
   render() {
     const redirectToLogin = this.shouldRedirectToLogin();
     const redirectToAccount = this.shouldRedirectToAccount();
-    console.log('redirectToLogin', redirectToLogin);
-    console.log('redirectToAccount', redirectToAccount);
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
         {redirectToLogin && <Redirect to='/login'/>}
