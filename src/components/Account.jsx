@@ -10,16 +10,8 @@ class Account extends React.Component {
     const path = this.props.location.search;
     if (this.getApproved(path) && this.getApproved !== null) {
       this.props.getSession(this.getRequestToken(path))
-    } else if (localStorage.getItem('session_id')) {
-      this.props.setSession(localStorage.getItem('session_id'));
     }
   }
-
-  // static getDerivedStateFromProps(props, state) {
-  //   return {
-  //     ...state
-  //   }
-  // }
 
   getApproved = path => {
     if (path) {

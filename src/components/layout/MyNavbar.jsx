@@ -1,6 +1,9 @@
 import React from 'react';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import {NavLink as RRNavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {setSession} from '../../actions/authActions';
+
 
 class MyNavbar extends React.Component {
   state = {
@@ -8,7 +11,9 @@ class MyNavbar extends React.Component {
   };
 
   componentDidMount() {
-    // console.log(localStorage.getItem('session_id'));
+    if (localStorage.getItem('session_id')) {
+      this.props.setSession(localStorage.getItem('session_id'));
+    }
   }
   
   toggle = () => {
@@ -46,4 +51,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default MyNavbar;
+const mapDispatchToProps = dispatch => {
+  return {
+    setSession: session_id => dispatch(setSession(session_id))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(MyNavbar);
