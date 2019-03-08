@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { Jumbotron, Container} from 'reactstrap';
 
 import './App.css';
-import {getSession, setSession} from '../actions/authActions';
+import {getSession, setSession, getAccount} from '../actions/authActions';
 
 
 class Account extends React.Component {
@@ -14,6 +14,12 @@ class Account extends React.Component {
     }
   }
 
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.session_id) {
+      nextProps.getAccount(nextProps.session_id)
+    }
+  }
+
   getApproved = path => {
     if (path) {
       const approvedPath = path.match(new RegExp('&approved=(.*)'));
@@ -21,7 +27,6 @@ class Account extends React.Component {
     } else {
       return false;
     }
-    
   }
 
   getRequestToken = path => {
@@ -52,7 +57,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getSession: token => dispatch(getSession(token)),
-    setSession: session_id => dispatch(setSession(session_id))
+    setSession: session_id => dispatch(setSession(session_id)),
+    getAccount: session_id => dispatch(getAccount(session_id))
   }
 }
 
