@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { Jumbotron, Container} from 'reactstrap';
+import {Redirect} from 'react-router-dom';
 
 import './App.css';
 import {getSession, setSession, getAccount, setAccount} from '../actions/authActions';
@@ -9,7 +10,7 @@ import {getSession, setSession, getAccount, setAccount} from '../actions/authAct
 class Account extends React.Component {
   componentDidMount() {
     const path = this.props.location.search;
-    if (this.getApproved(path) && this.getApproved !== null) {
+    if (this.getApproved(path) && this.getApproved() !== null) {
       this.props.getSession(this.getRequestToken(path))
     }
   }
@@ -20,6 +21,18 @@ class Account extends React.Component {
     } else if (nextProps.session_id  && localStorage.getItem('account')) {
       nextProps.setAccount(JSON.parse(localStorage.getItem('account')))
     }
+    console.log(this.shouldRedirect());
+  }
+
+  shouldRedirect = () => {
+    let redirect = false;
+    if (this.getApproved(this.props.location.search)) {
+      if (!localStorage.getItem('account') && !localStorage.getItem('session_id')) {
+        console.log('should redirect')
+        redirect = true;
+      }
+    }
+    return redirect;
   }
 
   getApproved = path => {
@@ -37,6 +50,7 @@ class Account extends React.Component {
   }
 
   render() {
+    console.log(this.shouldRedirect());
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
         <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444', color: 'white'}}>
