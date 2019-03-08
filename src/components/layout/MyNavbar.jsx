@@ -2,7 +2,7 @@ import React from 'react';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import {NavLink as RRNavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {setSession} from '../../actions/authActions';
+import {setSession, getToken} from '../../actions/authActions';
 
 
 class MyNavbar extends React.Component {
@@ -13,6 +13,7 @@ class MyNavbar extends React.Component {
   componentDidMount() {
     if (localStorage.getItem('session_id')) {
       this.props.setSession(localStorage.getItem('session_id'));
+      this.props.getToken();
     }
   }
   
@@ -23,6 +24,7 @@ class MyNavbar extends React.Component {
   }
 
   render() {
+    const {session_id} = this.props;
     return (
       <Navbar color="dark" dark expand="md" style={{position: 'fixed', width: '100%'}}>
         <NavbarBrand tag={RRNavLink} to='/'>Movie-SB</NavbarBrand>
@@ -30,10 +32,8 @@ class MyNavbar extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink tag={RRNavLink} to='/account'>Acount</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={RRNavLink} to='/login'>Login</NavLink>
+              {session_id && <NavLink tag={RRNavLink} to='/account'>Acount</NavLink>}
+              {!session_id && <NavLink tag={RRNavLink} to='/login'>Login</NavLink>}
             </NavItem>
             <NavItem>
               <NavLink tag={RRNavLink} to='/random'>Random</NavLink>
@@ -53,8 +53,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setSession: session_id => dispatch(setSession(session_id))
+    setSession: session_id => dispatch(setSession(session_id)),
+    getToken: () => dispatch(getToken())
   }
 }
 
-export default connect(null, mapDispatchToProps)(MyNavbar);
+export default connect(mapStateToProps, mapDispatchToProps)(MyNavbar);
