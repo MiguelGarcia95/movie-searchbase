@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import './App.css';
-import {getSession} from '../actions/authActions';
+import {getSession, setSession} from '../actions/authActions';
 
 
 class Account extends React.Component {
@@ -10,11 +10,16 @@ class Account extends React.Component {
     const path = this.props.location.search;
     if (this.getApproved(path) && this.getApproved !== null) {
       this.props.getSession(this.getRequestToken(path))
-    } else {
-      // console.log(localStorage.getItem('session_id'));
-      console.log('getSession')
+    } else if (localStorage.getItem('session_id')) {
+      this.props.setSession(localStorage.getItem('session_id'));
     }
   }
+
+  // static getDerivedStateFromProps(props, state) {
+  //   return {
+  //     ...state
+  //   }
+  // }
 
   getApproved = path => {
     if (path) {
@@ -48,7 +53,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getSession: (token) => dispatch(getSession(token))
+    getSession: token => dispatch(getSession(token)),
+    setSession: session_id => dispatch(setSession(session_id))
   }
 }
 

@@ -8,7 +8,7 @@ class MyNavbar extends React.Component {
   };
 
   componentDidMount() {
-    console.log(localStorage.getItem('session_id'));
+    // console.log(localStorage.getItem('session_id'));
   }
   
   toggle = () => {
@@ -37,6 +37,12 @@ class MyNavbar extends React.Component {
         </Collapse>
       </Navbar>
     );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    session_id: state.auth.session_id
   }
 }
 
