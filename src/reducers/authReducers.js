@@ -30,6 +30,11 @@ const authReducers = (state = initialState, action) => {
         ...state,
         token_id: action.payload.token_id
       }
+    case actionTypes.SET_TOKEN:
+      return {
+        ...state,
+        token_id: action.payload.token_id
+      }
     case actionTypes.GET_SESSION:
       return {
         ...state,

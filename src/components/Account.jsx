@@ -15,7 +15,7 @@ class Account extends React.Component {
     const path = this.props.location.search;
     if (this.getApproved(path) && this.getApproved() !== null) {
       this.props.getSession(this.getRequestToken(path))
-    }
+    } 
     this.setState({tryToRedirect: true});
   }
 
@@ -74,6 +74,8 @@ class Account extends React.Component {
     console.log('redirectToAccount', redirectToAccount);
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
+        {/* {redirectToLogin && <Redirect to='/login'/>} */}
+        {redirectToAccount && <Redirect to='/account'/>}
         <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444', color: 'white'}}>
           <Container fluid style={{textAlign:'center'}}>
             <h1 className="display-3">Account</h1>

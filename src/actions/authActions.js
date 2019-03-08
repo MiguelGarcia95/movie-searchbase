@@ -67,6 +67,17 @@ export const setAccount = account => {
   }
 }
 
+export const setToken = token_id => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.SET_TOKEN,
+      payload: {
+        token_id: token_id
+      }
+    })
+  }
+}
+
 export const logout = () => {
   return (dispatch) => {
     localStorage.clear()
