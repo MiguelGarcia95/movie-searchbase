@@ -58,6 +58,7 @@ export const getAccount = session_id => {
 
 export const logout = () => {
   return (dispatch) => {
+    localStorage.clear()
     dispatch({
       type: actionTypes.LOGOUT,
       payload: {
