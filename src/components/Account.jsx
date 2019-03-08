@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { Jumbotron, Container} from 'reactstrap';
 
 import './App.css';
-import {getSession, setSession, getAccount} from '../actions/authActions';
+import {getSession, setSession, getAccount, setAccount} from '../actions/authActions';
 
 
 class Account extends React.Component {
@@ -15,9 +15,10 @@ class Account extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    console.log(JSON.parse(localStorage.getItem('account')))
-    if (nextProps.session_id) {
+    if (nextProps.session_id && !localStorage.getItem('account')) {
       nextProps.getAccount(nextProps.session_id)
+    } else if (nextProps.session_id  && localStorage.getItem('account')) {
+      nextProps.setAccount(JSON.parse(localStorage.getItem('account')))
     }
   }
 
@@ -59,7 +60,8 @@ const mapDispatchToProps = dispatch => {
   return {
     getSession: token => dispatch(getSession(token)),
     setSession: session_id => dispatch(setSession(session_id)),
-    getAccount: session_id => dispatch(getAccount(session_id))
+    getAccount: session_id => dispatch(getAccount(session_id)),
+    setAccount: account => dispatch(setAccount(account))
   }
 }
 

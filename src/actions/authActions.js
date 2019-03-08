@@ -56,6 +56,17 @@ export const getAccount = session_id => {
   }
 }
 
+export const setAccount = account => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.SET_ACCOUNT,
+      payload: {
+        account: account
+      }
+    })
+  }
+}
+
 export const logout = () => {
   return (dispatch) => {
     localStorage.clear()
