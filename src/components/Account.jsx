@@ -27,28 +27,30 @@ class Account extends React.Component {
     }
   }
 
-  shouldRedirect = () => {
+  shouldRedirect = (type) => {
     let redirect = false;
     if (this.getApproved(this.props.location.search) && this.state.tryToRedirect) {
       if (!localStorage.getItem('account') && !localStorage.getItem('session_id')) {
-        console.log('should redirect to account')
-        redirect = true;
+        if (type === 'account') {
+          redirect = true;
+        } 
       }
-    } else if (this.state.tryToRedirect) {
+    } else if (this.state.tryToRedirect && type === 'login') {
       if (!localStorage.getItem('account') && !localStorage.getItem('session_id')) {
-        console.log('should redirect to login')
-        redirect = true;
+        if (type === 'login') {
+          redirect = true;
+        } 
       }
     }
     return redirect;
   }
 
-  shouldRedirectToHome = () => {
-
+  shouldRedirectToLogin = () => {
+    return this.shouldRedirect('login');
   }
 
   shouldRedirectToAccount = () => {
-    
+    return this.shouldRedirect('account');
   }
 
   getApproved = path => {
@@ -66,7 +68,10 @@ class Account extends React.Component {
   }
 
   render() {
-    // const redirectToHome = this.shouldRedirect();
+    const redirectToLogin = this.shouldRedirectToLogin();
+    const redirectToAccount = this.shouldRedirectToAccount();
+    console.log('redirectToLogin', redirectToLogin);
+    console.log('redirectToAccount', redirectToAccount);
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
         <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444', color: 'white'}}>
