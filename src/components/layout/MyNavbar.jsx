@@ -37,7 +37,7 @@ class MyNavbar extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              {session_id && <NavLink tag={RRNavLink} to='/account'>Acount</NavLink>}
+              {session_id && <NavLink tag={RRNavLink} to='/account'>Account</NavLink>}
               {!session_id && <NavLink tag={RRNavLink} to='/login'>Login</NavLink>}
             </NavItem>
             {session_id && (
