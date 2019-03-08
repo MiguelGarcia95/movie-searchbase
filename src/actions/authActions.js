@@ -21,7 +21,7 @@ export const getSession = (token) => {
     }).then((response) => {
       localStorage.setItem('session_id', response.data.session_id);
       dispatch({
-        type: actionTypes.SET_SESSION,
+        type: actionTypes.GET_SESSION,
         payload: {
           session_id: response.data.session_id
         }
@@ -32,8 +32,15 @@ export const getSession = (token) => {
   }
 }
 
-export const setSession = () => {
-
+export const setSession = session_id => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.SET_SESSION,
+      payload: {
+        session_id: session_id
+      }
+    })
+  }
 }
 
 export const login = () => {
