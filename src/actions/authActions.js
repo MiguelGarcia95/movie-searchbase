@@ -55,3 +55,16 @@ export const getAccount = session_id => {
     })
   }
 }
+
+export const logout = () => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.LOGOUT,
+      payload: {
+        token_id: null,
+        session_id: null,
+        account: null
+      }
+    })
+  }
+}

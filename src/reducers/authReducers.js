@@ -13,6 +13,13 @@ const authReducers = (state = initialState, action) => {
         ...state,
         account: action.payload.account
       }
+    case actionTypes.LOGOUT:
+      return {
+        ...state,
+        token_id: action.payload.token_id,
+        account: action.payload.account,
+        session_id: action.payload.session_id
+      }
     case actionTypes.GET_TOKEN:
       return {
         ...state,
