@@ -4,11 +4,11 @@ import {MOVIEDBAPI} from '../api_keys';
 
 export const getToken = () => {
   return async (dispatch) => {
-    const res = await axios.get(`https://api.themoviedb.org/3/authentication/token/new?api_key=${MOVIEDBAPI}`);
+    const response = await axios.get(`https://api.themoviedb.org/3/authentication/token/new?api_key=${MOVIEDBAPI}`);
     dispatch({
       type: actionTypes.GET_TOKEN,
       payload: {
-        token_id: res.data.request_token
+        token_id: response.data.request_token
       }
     })
   }
@@ -44,8 +44,16 @@ export const setSession = session_id => {
 }
 
 export const getAccount = session_id => {
-  return (dispatch) => {
+  return async (dispatch) => {
     console.log(session_id);
-    console.log(`https://api.themoviedb.org/3/account?api_key=${MOVIEDBAPI}`);
+    console.log();
+    const response = await axios.get(`https://api.themoviedb.org/3/account?api_key=${MOVIEDBAPI}&session_id=${session_id}`);
+    console.log(response);
+    // dispatch({
+    //   type: actionTypes.GET_ACCOUNT,
+    //   payload: {
+    //     account: response.data
+    //   }
+    // })
   }
 }
