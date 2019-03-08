@@ -25,8 +25,6 @@ class Account extends React.Component {
     } else if (nextProps.session_id  && localStorage.getItem('account')) {
       nextProps.setAccount(JSON.parse(localStorage.getItem('account')))
     }
-
-    console.log(this.shouldRedirect());
   }
 
   shouldRedirect = () => {
@@ -45,6 +43,14 @@ class Account extends React.Component {
     return redirect;
   }
 
+  shouldRedirectToHome = () => {
+
+  }
+
+  shouldRedirectToAccount = () => {
+    
+  }
+
   getApproved = path => {
     if (path) {
       const approvedPath = path.match(new RegExp('&approved=(.*)'));
@@ -60,7 +66,7 @@ class Account extends React.Component {
   }
 
   render() {
-    console.log(this.shouldRedirect());
+    // const redirectToHome = this.shouldRedirect();
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
         <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444', color: 'white'}}>
