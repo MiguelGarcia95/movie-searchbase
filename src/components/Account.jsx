@@ -8,11 +8,15 @@ import {getSession, setSession, getAccount, setAccount} from '../actions/authAct
 
 
 class Account extends React.Component {
+  state = {
+    tryToRedirect: false
+  }
   componentDidMount() {
     const path = this.props.location.search;
     if (this.getApproved(path) && this.getApproved() !== null) {
       this.props.getSession(this.getRequestToken(path))
     }
+    this.setState({tryToRedirect: true});
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -21,14 +25,20 @@ class Account extends React.Component {
     } else if (nextProps.session_id  && localStorage.getItem('account')) {
       nextProps.setAccount(JSON.parse(localStorage.getItem('account')))
     }
+
     console.log(this.shouldRedirect());
   }
 
   shouldRedirect = () => {
     let redirect = false;
-    if (this.getApproved(this.props.location.search)) {
+    if (this.getApproved(this.props.location.search) && this.state.tryToRedirect) {
       if (!localStorage.getItem('account') && !localStorage.getItem('session_id')) {
-        console.log('should redirect')
+        console.log('should redirect to account')
+        redirect = true;
+      }
+    } else if (this.state.tryToRedirect) {
+      if (!localStorage.getItem('account') && !localStorage.getItem('session_id')) {
+        console.log('should redirect to login')
         redirect = true;
       }
     }
