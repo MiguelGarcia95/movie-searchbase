@@ -2,7 +2,7 @@ import React from 'react';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import {NavLink as RRNavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {setSession, getToken} from '../../actions/authActions';
+import {setSession, getToken, logout} from '../../actions/authActions';
 
 
 class MyNavbar extends React.Component {
@@ -25,6 +25,7 @@ class MyNavbar extends React.Component {
 
   onLogoutClick = () => {
     console.log('attempted to logout')
+    this.props.logout();
   }
 
   render() {
@@ -64,7 +65,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     setSession: session_id => dispatch(setSession(session_id)),
-    getToken: () => dispatch(getToken())
+    getToken: () => dispatch(getToken()),
+    logout: () => dispatch(logout())
   }
 }
 
