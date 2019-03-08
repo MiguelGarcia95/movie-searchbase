@@ -7,7 +7,7 @@ const initialState = {
 
 const authReducers = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.LOGIN:
+    case actionTypes.GET_ACCOUNT:
       return {
         ...state
       }

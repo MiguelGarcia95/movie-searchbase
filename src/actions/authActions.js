@@ -43,6 +43,9 @@ export const setSession = session_id => {
   }
 }
 
-export const login = () => {
-
+export const getAccount = session_id => {
+  return (dispatch) => {
+    console.log(session_id);
+    console.log(`https://api.themoviedb.org/3/account?api_key=${MOVIEDBAPI}`);
+  }
 }
