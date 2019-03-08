@@ -2,15 +2,16 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import './App.css';
-import {setSession} from '../actions/authActions';
+import {getSession} from '../actions/authActions';
 
 
 class Account extends React.Component {
   componentDidMount() {
     const path = this.props.location.search;
     if (this.getApproved(path) && this.getApproved !== null) {
-      this.props.setSession(this.getRequestToken(path))
+      this.props.getSession(this.getRequestToken(path))
     } else {
+      // console.log(localStorage.getItem('session_id'));
       console.log('getSession')
     }
   }
@@ -47,7 +48,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setSession: (token) => dispatch(setSession(token))
+    getSession: (token) => dispatch(getSession(token))
   }
 }
 

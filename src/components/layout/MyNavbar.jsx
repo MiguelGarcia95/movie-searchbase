@@ -6,6 +6,10 @@ class MyNavbar extends React.Component {
   state = {
     isOpen: false
   };
+
+  componentDidMount() {
+    console.log(localStorage.getItem('session_id'));
+  }
   
   toggle = () => {
     this.setState({

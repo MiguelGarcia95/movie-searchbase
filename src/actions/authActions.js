@@ -14,11 +14,12 @@ export const getToken = () => {
   }
 }
 
-export const setSession = (token) => {
+export const getSession = (token) => {
   return async (dispatch) => {
     axios.post(`https://api.themoviedb.org/3/authentication/session/new?api_key=${MOVIEDBAPI}`, {
        request_token: token
     }).then((response) => {
+      localStorage.setItem('session_id', response.data.session_id);
       dispatch({
         type: actionTypes.SET_SESSION,
         payload: {
@@ -29,6 +30,10 @@ export const setSession = (token) => {
       console.log(err)
     })
   }
+}
+
+export const setSession = () => {
+
 }
 
 export const login = () => {
