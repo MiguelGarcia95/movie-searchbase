@@ -4,12 +4,13 @@ import { Jumbotron, Container} from 'reactstrap';
 import {Redirect} from 'react-router-dom';
 
 import './App.css';
-import {getSession, setSession, getAccount, setAccount, setToken} from '../actions/authActions';
+import {getSession, setSession, getAccount, setAccount, setToken, getToken} from '../actions/authActions';
 
 
 class Account extends React.Component {
   state = {
-    tryToRedirect: false
+    tryToRedirect: false,
+    pathHasNoParams: false
   }
 
   componentDidMount() {
@@ -17,10 +18,14 @@ class Account extends React.Component {
     if (this.getApproved(path) && this.getApproved() !== null) {
       this.props.getSession(this.getRequestToken(path))
       this.props.setToken(this.getRequestToken(path))
-    } 
+    } else {
+      // this.setState({pathHasNoParams: true})
+      this.props.getToken();
+    }
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
+    console.log('test')
     this.setState({tryToRedirect: true});
     if (nextProps.session_id && !localStorage.getItem('account')) {
       nextProps.getAccount(nextProps.session_id)
@@ -91,7 +96,8 @@ class Account extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    session_id: state.auth.session_id
+    session_id: state.auth.session_id,
+    token_id: state.auth.token_id
   }
 }
 
@@ -101,7 +107,8 @@ const mapDispatchToProps = dispatch => {
     setSession: session_id => dispatch(setSession(session_id)),
     getAccount: session_id => dispatch(getAccount(session_id)),
     setAccount: account => dispatch(setAccount(account)),
-    setToken: token => dispatch(setToken(token))
+    setToken: token => dispatch(setToken(token)),
+    getToken: () => dispatch(getToken())
   }
 }
 
