@@ -45,15 +45,12 @@ export const setSession = session_id => {
 
 export const getAccount = session_id => {
   return async (dispatch) => {
-    console.log(session_id);
-    console.log();
     const response = await axios.get(`https://api.themoviedb.org/3/account?api_key=${MOVIEDBAPI}&session_id=${session_id}`);
-    console.log(response);
-    // dispatch({
-    //   type: actionTypes.GET_ACCOUNT,
-    //   payload: {
-    //     account: response.data
-    //   }
-    // })
+    dispatch({
+      type: actionTypes.GET_ACCOUNT,
+      payload: {
+        account: response.data
+      }
+    })
   }
 }

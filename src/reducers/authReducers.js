@@ -2,14 +2,16 @@ import * as actionTypes from '../actions/types';
 
 const initialState = {
   token_id: null,
-  session_id: null
+  session_id: null,
+  account: null
 };
 
 const authReducers = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_ACCOUNT:
       return {
-        ...state
+        ...state,
+        account: action.payload.account
       }
     case actionTypes.GET_TOKEN:
       return {
