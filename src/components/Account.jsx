@@ -4,22 +4,24 @@ import { Jumbotron, Container} from 'reactstrap';
 import {Redirect} from 'react-router-dom';
 
 import './App.css';
-import {getSession, setSession, getAccount, setAccount} from '../actions/authActions';
+import {getSession, setSession, getAccount, setAccount, setToken} from '../actions/authActions';
 
 
 class Account extends React.Component {
   state = {
     tryToRedirect: false
   }
+
   componentDidMount() {
     const path = this.props.location.search;
     if (this.getApproved(path) && this.getApproved() !== null) {
       this.props.getSession(this.getRequestToken(path))
+      this.props.setToken(this.getRequestToken(path))
     } 
-    this.setState({tryToRedirect: true});
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
+    this.setState({tryToRedirect: true});
     if (nextProps.session_id && !localStorage.getItem('account')) {
       nextProps.getAccount(nextProps.session_id)
     } else if (nextProps.session_id  && localStorage.getItem('account')) {
@@ -74,7 +76,7 @@ class Account extends React.Component {
     console.log('redirectToAccount', redirectToAccount);
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
-        {/* {redirectToLogin && <Redirect to='/login'/>} */}
+        {redirectToLogin && <Redirect to='/login'/>}
         {redirectToAccount && <Redirect to='/account'/>}
         <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444', color: 'white'}}>
           <Container fluid style={{textAlign:'center'}}>
@@ -98,7 +100,8 @@ const mapDispatchToProps = dispatch => {
     getSession: token => dispatch(getSession(token)),
     setSession: session_id => dispatch(setSession(session_id)),
     getAccount: session_id => dispatch(getAccount(session_id)),
-    setAccount: account => dispatch(setAccount(account))
+    setAccount: account => dispatch(setAccount(account)),
+    setToken: token => dispatch(setToken(token))
   }
 }
 
