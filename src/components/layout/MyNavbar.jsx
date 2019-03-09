@@ -2,7 +2,7 @@ import React from 'react';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import {NavLink as RRNavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {setSession, getToken, logout} from '../../actions/authActions';
+import {setSession, logout} from '../../actions/authActions';
 
 
 class MyNavbar extends React.Component {
@@ -13,7 +13,6 @@ class MyNavbar extends React.Component {
   componentDidMount() {
     if (localStorage.getItem('session_id')) {
       this.props.setSession(localStorage.getItem('session_id'));
-      this.props.getToken();
     }
   }
   
@@ -24,7 +23,6 @@ class MyNavbar extends React.Component {
   }
 
   onLogoutClick = () => {
-    console.log('attempted to logout')
     this.props.logout();
   }
 
@@ -45,7 +43,6 @@ class MyNavbar extends React.Component {
                 <NavLink style={{cursor: 'pointer'}} onClick={() => this.onLogoutClick()} >Logout</NavLink>
               </NavItem>
             )}
-            
             <NavItem>
               <NavLink tag={RRNavLink} to='/random'>Random</NavLink>
             </NavItem>
@@ -58,15 +55,13 @@ class MyNavbar extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    session_id: state.auth.session_id,
-    account: state.auth.account
+    session_id: state.auth.session_id
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     setSession: session_id => dispatch(setSession(session_id)),
-    getToken: () => dispatch(getToken()),
     logout: () => dispatch(logout())
   }
 }

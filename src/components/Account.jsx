@@ -26,18 +26,13 @@ class Account extends React.Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     let accountReached = false;
     let tryToRedirect = false;
-    if (nextProps.session_id && !localStorage.getItem('account')) {
+    if (nextProps.session_id && !localStorage.getItem('account') && !nextProps.account) {
       nextProps.getAccount(nextProps.session_id)
       accountReached = true;
-    } else if (nextProps.session_id  && localStorage.getItem('account')) {
+    } else if (nextProps.session_id  && localStorage.getItem('account') && !nextProps.account) {
       nextProps.setAccount(JSON.parse(localStorage.getItem('account')))
       accountReached = true;
     }
-    console.log(this.props.account)
-    // console.log('----------------------')
-    // console.log(nextProps.session_id)
-    // console.log(localStorage.getItem('account'))
-    // console.log('----------------------')
     if (nextProps.session_id) {
       tryToRedirect = true;
     }
@@ -47,8 +42,7 @@ class Account extends React.Component {
 
   shouldRedirectToLogin = () => {
     let redirect = false;
-    // console.log(this.props.account)
-    if (!this.props.location.search && this.state.tryToRedirect && !this.state.accountReached) {
+    if (!this.props.location.search) {
       if (!localStorage.getItem('session_id') && !localStorage.getItem('account')) {
         redirect = true;
       }
@@ -58,8 +52,8 @@ class Account extends React.Component {
 
   shouldRedirectToAccount = () => {
     let redirect = false;
-    if (this.getApproved(this.props.location.search) && this.state.accountReached) {
-      if (localStorage.getItem('account')) {
+    if (this.getApproved(this.props.location.search)) {
+      if (this.props.account) {
         redirect = true;
       }
     }
@@ -83,12 +77,10 @@ class Account extends React.Component {
   render() {
     const redirectToAccount = this.shouldRedirectToAccount();
     const redirectToLogin = this.shouldRedirectToLogin();
-    console.log('redirectToLogin', redirectToLogin);
-    console.log('redirectToAccount', redirectToAccount);
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
-        {/* {redirectToLogin && <Redirect to='/login'/>} */}
-        {/* {redirectToAccount && <Redirect to='/account'/>} */}
+        {redirectToLogin && <Redirect to='/login'/>}
+        {redirectToAccount && <Redirect to='/account'/>}
         <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444', color: 'white'}}>
           <Container fluid style={{textAlign:'center'}}>
             <h1 className="display-3">Account</h1>
@@ -102,7 +94,8 @@ class Account extends React.Component {
 const mapStateToProps = state => {
   return {
     session_id: state.auth.session_id,
-    token_id: state.auth.token_id
+    token_id: state.auth.token_id,
+    account: state.auth.account
   }
 }
 
