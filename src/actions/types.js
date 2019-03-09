@@ -5,4 +5,8 @@ export const GET_TOKEN = 'GET_TOKEN';
 export const SET_TOKEN = 'SET_TOKEN';
 export const GET_SESSION  = 'GET_SESSION';
 export const SET_SESSION = 'SET_SESSION';
+
+export const REDIRECT_TO_LOGIN = 'REDIRECT_TO_LOGIN';
+export const REDIRECT_TO_ACCOUNT = 'REDIRECT_TO_ACCOUNT';
+
 export const FETCH_POPULAR_MOVIES = 'FETCH_POPULAR_MOVIES';

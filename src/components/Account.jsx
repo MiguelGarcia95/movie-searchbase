@@ -39,13 +39,10 @@ class Account extends React.Component {
 
     this.setState({tryToRedirect, accountReached});
   }
-  
+
   shouldRedirectToLogin = () => {
-    // console.log('in', this.state.accountReached);
-    // console.log('inn', this.state.tryToRedirect);
-    // console.log('innn ', (!localStorage.getItem('session_id') && !localStorage.getItem('account')))
     let redirect = false;
-    if (this.state.tryToRedirect) {
+    if (this.state.tryToRedirect && this.getApproved(this.props.location.search) && this.state.tryToRedirect && !this.state.accountReached) {
       if (!localStorage.getItem('session_id') && !localStorage.getItem('account')) {
         redirect = true;
       }
@@ -55,6 +52,9 @@ class Account extends React.Component {
 
   shouldRedirectToAccount = () => {
     let redirect = false;
+    console.log('approved', this.getApproved(this.props.location.search));
+    console.log('tryToRedirect', this.state.tryToRedirect);
+    console.log('accountReached', this.state.accountReached);
     if (this.getApproved(this.props.location.search) && this.state.tryToRedirect && this.state.accountReached) {
       if (localStorage.getItem('account')) {
         redirect = true;
@@ -85,7 +85,7 @@ class Account extends React.Component {
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
         {/* {redirectToLogin && <Redirect to='/login'/>} */}
-        {/* {redirectToAccount && <Redirect to='/account'/>} */}
+        {redirectToAccount && <Redirect to='/account'/>}
         <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444', color: 'white'}}>
           <Container fluid style={{textAlign:'center'}}>
             <h1 className="display-3">Account</h1>

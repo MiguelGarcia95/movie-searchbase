@@ -32,6 +32,28 @@ export const getSession = (token) => {
   }
 }
 
+export const redirectToAccount = () => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.REDIRECT_TO_ACCOUNT,
+      payload: {
+        redirect: true
+      }
+    })
+  }
+}
+
+export const redirectToLogin = () => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.REDIRECT_TO_LOGIN,
+      payload: {
+        redirect: true
+      }
+    })
+  }
+}
+
 export const setSession = session_id => {
   return (dispatch) => {
     dispatch({
