@@ -10,7 +10,7 @@ import {getSession, setSession, getAccount, setAccount, setToken, getToken} from
 class Account extends React.Component {
   state = {
     tryToRedirect: false,
-    accountReached: true
+    accountReached: false
   }
 
   componentDidMount() {
@@ -25,6 +25,7 @@ class Account extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     let accountReached = false;
+    let tryToRedirect = false;
     if (nextProps.session_id && !localStorage.getItem('account')) {
       nextProps.getAccount(nextProps.session_id)
       accountReached = true;
@@ -33,38 +34,33 @@ class Account extends React.Component {
       accountReached = true;
     }
     if (nextProps.session_id) {
-      this.setState({tryToRedirect: true, accountReached});
+      tryToRedirect = true;
     }
-  }
 
-  shouldRedirect = (type) => {
-    console.log('ran', type)
-    console.log('ran', this.state.accountReached)
-    console.log('ran', this.state.tryToRedirect)
+    this.setState({tryToRedirect, accountReached});
+  }
+  
+  shouldRedirectToLogin = () => {
+    // console.log('in', this.state.accountReached);
+    // console.log('inn', this.state.tryToRedirect);
+    // console.log('innn ', (!localStorage.getItem('session_id') && !localStorage.getItem('account')))
     let redirect = false;
-    if (this.getApproved(this.props.location.search) && this.state.accountReached) {
-      console.log(localStorage.getItem('account'))
-      if (localStorage.getItem('account')) {
-        if (type === 'account') {
-          redirect = true;
-        } 
-      }
-    } else if (this.state.tryToRedirect) {
-      if (!localStorage.getItem('account') && !localStorage.getItem('session_id')) {
-        if (type === 'login') {
-          redirect = true;
-        } 
+    if (this.state.tryToRedirect) {
+      if (!localStorage.getItem('session_id') && !localStorage.getItem('account')) {
+        redirect = true;
       }
     }
     return redirect;
   }
 
-  shouldRedirectToLogin = () => {
-    return this.shouldRedirect('login');
-  }
-
   shouldRedirectToAccount = () => {
-    return this.shouldRedirect('account');
+    let redirect = false;
+    if (this.getApproved(this.props.location.search) && this.state.tryToRedirect && this.state.accountReached) {
+      if (localStorage.getItem('account')) {
+        redirect = true;
+      }
+    }
+    return redirect;
   }
 
   getApproved = path => {
@@ -82,14 +78,14 @@ class Account extends React.Component {
   }
 
   render() {
-    const redirectToLogin = this.shouldRedirectToLogin();
     const redirectToAccount = this.shouldRedirectToAccount();
+    const redirectToLogin = this.shouldRedirectToLogin();
     console.log('redirectToLogin', redirectToLogin);
     console.log('redirectToAccount', redirectToAccount);
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
-        {redirectToLogin && <Redirect to='/login'/>}
-        {redirectToAccount && <Redirect to='/account'/>}
+        {/* {redirectToLogin && <Redirect to='/login'/>} */}
+        {/* {redirectToAccount && <Redirect to='/account'/>} */}
         <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444', color: 'white'}}>
           <Container fluid style={{textAlign:'center'}}>
             <h1 className="display-3">Account</h1>
