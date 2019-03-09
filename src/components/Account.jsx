@@ -9,8 +9,7 @@ import {getSession, setSession, getAccount, setAccount, setToken, getToken} from
 
 class Account extends React.Component {
   state = {
-    tryToRedirect: false,
-    accountReached: false
+    tryToRedirect: false
   }
 
   componentDidMount() {
@@ -24,20 +23,18 @@ class Account extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    let accountReached = false;
     let tryToRedirect = false;
     if (nextProps.session_id && !localStorage.getItem('account') && !nextProps.account) {
       nextProps.getAccount(nextProps.session_id)
-      accountReached = true;
     } else if (nextProps.session_id  && localStorage.getItem('account') && !nextProps.account) {
       nextProps.setAccount(JSON.parse(localStorage.getItem('account')))
-      accountReached = true;
     }
+    
     if (nextProps.session_id) {
       tryToRedirect = true;
     }
 
-    this.setState({tryToRedirect, accountReached});
+    this.setState({tryToRedirect});
   }
 
   shouldRedirectToLogin = () => {
