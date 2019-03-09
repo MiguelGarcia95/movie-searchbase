@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Jumbotron, Container} from 'reactstrap';
+import { Jumbotron, Container, Col, Row} from 'reactstrap';
 import {Redirect} from 'react-router-dom';
 
 import './App.css';
@@ -74,14 +74,25 @@ class Account extends React.Component {
   render() {
     const redirectToAccount = this.shouldRedirectToAccount();
     const redirectToLogin = this.shouldRedirectToLogin();
+    const {account} = this.props;
     return (
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
         {redirectToLogin && <Redirect to='/login'/>}
         {redirectToAccount && <Redirect to='/account'/>}
-        <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444', color: 'white'}}>
-          <Container fluid style={{textAlign:'center'}}>
-            <h1 className="display-3">Account</h1>
-          </Container>
+        <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444'}}>
+          <Row style={{margin: '0'}}>
+            {account && (
+              <React.Fragment>
+                <Col xs={{ size: '1', offset: 2 }}>
+                  <img className='rounded float-left' style={{width: '100%'}} src={`https://gravatar.com/avatar/${account.avatar.gravatar.hash}?d=identicon`} />
+                </Col>
+                <Col xs={{ size: '3' }}>
+                  <h1 className="display-3">{account.username}</h1>
+                </Col>
+              </React.Fragment>
+            )}
+          </Row>
+          {/* <h1 className="display-3">Account</h1> */}
         </Jumbotron>
       </section>
     );
