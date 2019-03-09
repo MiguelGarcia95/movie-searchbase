@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Jumbotron, Container, Col, Row} from 'reactstrap';
+import { Jumbotron, Col, Row} from 'reactstrap';
 import {Redirect} from 'react-router-dom';
 
 import './App.css';
-import {getSession, setSession, getAccount, setAccount, setToken, getToken} from '../actions/authActions';
+import {getSession, setSession, getAccount, setAccount, setToken} from '../actions/authActions';
 
 
 class Account extends React.Component {
@@ -17,8 +17,6 @@ class Account extends React.Component {
     if (this.getApproved(path)) {
       this.props.getSession(this.getRequestToken(path))
       this.props.setToken(this.getRequestToken(path))
-    } else {
-      this.props.getToken();
     }
   }
 
@@ -79,7 +77,7 @@ class Account extends React.Component {
       <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
         {redirectToLogin && <Redirect to='/login'/>}
         {redirectToAccount && <Redirect to='/account'/>}
-        <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: '#444'}}>
+        <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: 'rgba(54,54,54,0.8)'}}>
           <Row style={{margin: '0'}}>
             {account && (
               <React.Fragment>
@@ -92,7 +90,6 @@ class Account extends React.Component {
               </React.Fragment>
             )}
           </Row>
-          {/* <h1 className="display-3">Account</h1> */}
         </Jumbotron>
       </section>
     );
@@ -113,8 +110,7 @@ const mapDispatchToProps = dispatch => {
     setSession: tokenId => dispatch(setSession(tokenId)),
     getAccount: session_id => dispatch(getAccount(session_id)),
     setAccount: account => dispatch(setAccount(account)),
-    setToken: token => dispatch(setToken(token)),
-    getToken: () => dispatch(getToken())
+    setToken: token => dispatch(setToken(token))
   }
 }
 
