@@ -58,7 +58,8 @@ class MyNavbar extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    session_id: state.auth.session_id
+    session_id: state.auth.session_id,
+    account: state.auth.account
   }
 }
 
