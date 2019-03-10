@@ -9,14 +9,16 @@ body {
 @navbarHeight: 80px;
 @navLinkHeight: 60px;
 @navbarTopPadding: 10px;
+@navbarSidePadding: 50px;
 @navbarWidth: 100%;
 @navbarBG: #222222;
 @navbarColor: #fff;
+@font: 'Lato';
 
 .navbar {
   height: @navbarHeight; width: @navbarWidth;
   background-color: @navbarBG;
-  padding: @navbarTopPadding 0;
+  padding: @navbarTopPadding @navbarSidePadding;
   box-sizing: border-box;
 
   .navbar_brand, .navbar_links {
@@ -25,6 +27,7 @@ body {
       color: @navbarColor;
       text-decoration: none;
       line-height: @navLinkHeight;
+      font-family: @font;
     }
   }
 
