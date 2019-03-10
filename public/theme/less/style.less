@@ -1,5 +1,42 @@
 // out: ../css/style.css, compress: true, sourceMap: false
 
 body {
-  background-color: red;
+  background-color: rgba(255,0,0,0.5);
+  padding: 0; margin: 0;
+}
+
+// navbar
+@navbarHeight: 80px;
+@navLinkHeight: 60px;
+@navbarTopPadding: 10px;
+@navbarWidth: 100%;
+@navbarBG: #222222;
+@navbarColor: #fff;
+
+.navbar {
+  height: @navbarHeight; width: @navbarWidth;
+  background-color: @navbarBG;
+  padding: @navbarTopPadding 0;
+  box-sizing: border-box;
+
+  .navbar_brand, .navbar_links {
+    height: @navLinkHeight; 
+    .navbar_link {
+      color: @navbarColor;
+      text-decoration: none;
+      line-height: @navLinkHeight;
+    }
+  }
+
+  .navbar_brand {
+    float: left;
+    .navbar_link {
+    }
+  }
+
+  .navbar_links{
+    float: right;
+    .navbar_link {
+    }
+  }
 }
