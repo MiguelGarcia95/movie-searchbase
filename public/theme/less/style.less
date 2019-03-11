@@ -1,7 +1,6 @@
 // out: ../css/style.css, compress: true, sourceMap: false
 
 body {
-  background-color: rgba(255,0,0,0.5);
   padding: 0; margin: 0;
 }
 
@@ -20,6 +19,7 @@ body {
   background-color: @navbarBG;
   padding: @navbarTopPadding @navbarSidePadding;
   box-sizing: border-box;
+  position: fixed;
 
   .navbar_brand, .navbar_links {
     height: @navLinkHeight; 
@@ -79,6 +79,13 @@ body {
   }
 }
 .home_display {
+  width: 100vw;
+  max-width:100%;
+  height: 100vh;
+  max-height: 100%;
+  background-color: black;
+  padding-top: @navbarHeight;
+  box-sizing: border-box;
   .home_display_row {
     .home_display_col {
       .home_display_inner_row {
