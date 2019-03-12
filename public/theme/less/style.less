@@ -245,6 +245,21 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button {
         color: white; text-decoration: none; padding: 0 10px;
         i {margin-right: 5px;}
       }
+      .navbar_search {
+        width: 200px;
+        border: none;
+        height: 40px;
+        box-sizing: border-box;
+        padding: 5px 10px;
+        margin-top: 20px;
+        margin-left: 15px;
+        background-color: transparent;
+        color: @navbarColor;
+        &:focus {
+          margin-bottom: 1px;
+          border-bottom: 1px solid rgba(255,255,255,0.8);
+        }
+      }
     }
     img {
       width: 401px; height: 161px; float: right;
