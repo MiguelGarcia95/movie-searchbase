@@ -339,6 +339,12 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
   max-height: 100%;
   padding-top: @navbarHeight;
   box-sizing: border-box;
+  .results {
+    width: 1000px;
+    height: 20px;
+    margin: auto;
+    p {line-height: 20px; margin-left: 10px; color: white;}
+  }
   .search_data {
     box-sizing: border-box;
     width: 100%;
@@ -389,6 +395,12 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
   .search_results {
     width: 1000px;  
     margin: auto;
+    .search_result {
+      width: 180px; height: 250px;
+      background-color: red;
+      margin: 10px;
+      float: left;
+    }
   }
 }
 
