@@ -58,13 +58,15 @@ class MyNavbar extends React.Component {
           <a class="nav_icon" title='Search' href="/theme/search.html"><i class="fas fa-2x fa-search"></i></a>
           <a class="nav_icon" title='Random' href="/theme"><i class="fas fa-2x fa-random"></i></a>
           {session_id && (
-            <a class="nav_icon" title="Account" href="/theme/account.html"><i class="far fa-2x fa-user-circle"></i></a>
-          )}
-          {session_id && (
-            <a class="nav_icon" title='Signout' href="/theme"><i class="fas fa-2x fa-sign-out-alt"></i></a>
+            <React.Fragment>
+              <a class="nav_icon" title="Account" href="/theme/account.html"><i class="far fa-2x fa-user-circle"></i></a>
+              <a class="nav_icon" title='Signout' href="/theme"><i class="fas fa-2x fa-sign-out-alt"></i></a>
+            </React.Fragment>
           )}
           {!session_id && (
-            <a class="navbar_link" href="/theme">Sign In</a>
+            <React.Fragment>
+              <a class="navbar_link" href="/theme">Sign In</a>
+            </React.Fragment>
           )}
         </section>
       </nav>
