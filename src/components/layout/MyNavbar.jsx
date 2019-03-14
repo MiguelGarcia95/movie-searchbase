@@ -1,6 +1,6 @@
 import React from 'react';
-import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
-import {NavLink as RRNavLink} from 'react-router-dom';
+// import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
+import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setSession, logout} from '../../actions/authActions';
 import './css/MyNavbar.css';
@@ -29,44 +29,23 @@ class MyNavbar extends React.Component {
   render() {
     const {session_id} = this.props;
     return (
-      // <Navbar  dark expand="md" style={{position: 'fixed', width: '100%', backgroundColor: '#232323'}}>
-      //   <NavbarBrand tag={RRNavLink} to='/'>Movie-SB</NavbarBrand>
-      //   <NavbarToggler onClick={this.toggle} />
-      //   <Collapse isOpen={this.state.isOpen} navbar>
-      //     <Nav className="ml-auto" navbar>
-      //       <NavItem>
-      //         {session_id && <NavLink tag={RRNavLink} to='/account'>Account</NavLink>}
-      //         {!session_id && <NavLink tag={RRNavLink} to='/login'>Login</NavLink>}
-      //       </NavItem>
-      //       {session_id && (
-      //         <NavItem>
-      //           <NavLink style={{cursor: 'pointer'}} onClick={() => this.onLogoutClick()} >Logout</NavLink>
-      //         </NavItem>
-      //       )}
-      //       <NavItem>
-      //         <NavLink tag={RRNavLink} to='/random'>Random</NavLink>
-      //       </NavItem>
-      //     </Nav>
-      //   </Collapse>
-      // </Navbar>
       <nav class='navbar'>
         <section class="navbar_brand">
-          <a class="navbar_link" href="/theme">Movie SearchBase</a>
+          <NavLink class="navbar_link" to="/">Movie SearchBase</NavLink>
           <input class='navbar_search' type='text' placeholder="Search" />
         </section>
         <section class='navbar_links'>
-          <a class="nav_icon" title='Search' href="/theme/search.html"><i class="fas fa-2x fa-search"></i></a>
-          <a class="nav_icon" title='Random' href="/theme"><i class="fas fa-2x fa-random"></i></a>
+          <NavLink class="nav_icon" title='Search' to="/search"><i class="fas fa-2x fa-search"></i></NavLink>
+          <NavLink class="nav_icon" title='Random' to="/random"><i class="fas fa-2x fa-random"></i></NavLink>
           {session_id && (
             <React.Fragment>
-              <a class="nav_icon" title="Account" href="/theme/account.html"><i class="far fa-2x fa-user-circle"></i></a>
-              <a class="nav_icon" title='Signout' href="/theme"><i class="fas fa-2x fa-sign-out-alt"></i></a>
-              <a class="navbar_link signout" href="/theme">Sign Out</a>
+              <NavLink class="nav_icon" title="Account" to="/account"><i class="far fa-2x fa-user-circle"></i></NavLink>
+              <NavLink class="navbar_link signout" to="/">Sign Out</NavLink>
             </React.Fragment>
           )}
           {!session_id && (
             <React.Fragment>
-              <a class="navbar_link signin" href="/theme">Sign In</a>
+              <NavLink class="navbar_link signin" to="/login">Sign In</NavLink>
             </React.Fragment>
           )}
         </section>
