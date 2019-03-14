@@ -61,11 +61,12 @@ class MyNavbar extends React.Component {
             <React.Fragment>
               <a class="nav_icon" title="Account" href="/theme/account.html"><i class="far fa-2x fa-user-circle"></i></a>
               <a class="nav_icon" title='Signout' href="/theme"><i class="fas fa-2x fa-sign-out-alt"></i></a>
+              <a class="navbar_link signout" href="/theme">Sign Out</a>
             </React.Fragment>
           )}
           {!session_id && (
             <React.Fragment>
-              <a class="navbar_link" href="/theme">Sign In</a>
+              <a class="navbar_link signin" href="/theme">Sign In</a>
             </React.Fragment>
           )}
         </section>
