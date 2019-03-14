@@ -425,11 +425,14 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
         text-align: center;
         p {margin: 0;}
         .search_result_movie_meta {
-          font-size: 0.8em; font-weight: 300;
-
+          font-size: 0.8em; 
         }
         .search_result_movie_title {
-
+          p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
         }
       }
     }
