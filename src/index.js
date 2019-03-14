@@ -7,8 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './store';
 
 import App from './components/App';
-import Login from './components/Login';
-import Account from './components/Login/Account';
+import Login from './components/Auth/Login';
+import Account from './components/Auth/Account';
 import SearchResults from './components/SearchResults';
 import DisplayTv from './components/DisplayTv';
 import DisplayMovie from './components/DisplayMovie';
