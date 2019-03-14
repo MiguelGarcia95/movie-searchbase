@@ -14,12 +14,12 @@ class App extends React.Component {
       <section className="App">
         <HomeDisplay />
         <HomeContent />
-        {/* <Container fluid={true} style={{width: '100%', padding: '100px 50px'}}>
+        {/* 
           <ContentSlider />
           <ContentSlider />
           <ContentSlider />
           <ContentSlider />
-        </Container> */}
+        */}
       </section>
     );
   }

@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import { Jumbotron, Col, Row} from 'reactstrap';
 import {Redirect} from 'react-router-dom';
 
-import './App.css';
-import {getSession, setSession, getAccount, setAccount, setToken} from '../actions/authActions';
+import '../App.css';
+import {getSession, setSession, getAccount, setAccount, setToken} from '../../actions/authActions';
 
 
 class Account extends React.Component {
