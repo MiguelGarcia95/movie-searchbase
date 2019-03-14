@@ -455,7 +455,7 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
   .account_sidepanel {
     width: 250px; min-height: 100vh;
     float: left;
-    padding: 50px 20px 0px 20px;
+    // padding: 50px 20px 0px 20px;
     box-sizing: border-box;
     position: absolute;
     text-align: center;
@@ -487,7 +487,10 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
       }
       .panel_info {
         width: 100%;
-        height: 30px;
+        height: 90px;
+        padding: 30px;
+        box-sizing: border-box;
+        &:hover {background-color: rgba(0,0,0,0.5)}
         h2 {
           font-weight: 300;
           font-size: 1.2em;
@@ -497,9 +500,12 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
           float: left;
         }
         .category {
-
+          width: 160px;
+          text-align: left;
         }
         .count {
+          width: 30px; 
+          text-align: left;
         }
       }
     }
