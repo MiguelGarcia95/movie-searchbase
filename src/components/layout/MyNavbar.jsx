@@ -1,5 +1,4 @@
 import React from 'react';
-// import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setSession, logout} from '../../actions/authActions';
@@ -29,23 +28,23 @@ class MyNavbar extends React.Component {
   render() {
     const {session_id} = this.props;
     return (
-      <nav class='navbar'>
-        <section class="navbar_brand">
-          <NavLink class="navbar_link" to="/">Movie SearchBase</NavLink>
-          <input class='navbar_search' type='text' placeholder="Search" />
+      <nav className='navbar'>
+        <section className="navbar_brand">
+          <NavLink className="navbar_link" to="/">Movie SearchBase</NavLink>
+          <input className='navbar_search' type='text' placeholder="Search" />
         </section>
-        <section class='navbar_links'>
-          <NavLink class="nav_icon" title='Search' to="/search"><i class="fas fa-2x fa-search"></i></NavLink>
-          <NavLink class="nav_icon" title='Random' to="/random"><i class="fas fa-2x fa-random"></i></NavLink>
+        <section className='navbar_links'>
+          <NavLink className="nav_icon" title='Search' to="/search"><i className="fas fa-2x fa-search"></i></NavLink>
+          <NavLink className="nav_icon" title='Random' to="/random"><i className="fas fa-2x fa-random"></i></NavLink>
           {session_id && (
             <React.Fragment>
-              <NavLink class="nav_icon" title="Account" to="/account"><i class="far fa-2x fa-user-circle"></i></NavLink>
-              <NavLink class="navbar_link signout" to="/">Sign Out</NavLink>
+              <NavLink className="nav_icon" title="Account" to="/account"><i className="far fa-2x fa-user-circle"></i></NavLink>
+              <NavLink className="navbar_link signout" to="/">Sign Out</NavLink>
             </React.Fragment>
           )}
           {!session_id && (
             <React.Fragment>
-              <NavLink class="navbar_link signin" to="/login">Sign In</NavLink>
+              <NavLink className="navbar_link signin" to="/login">Sign In</NavLink>
             </React.Fragment>
           )}
         </section>
