@@ -48,10 +48,12 @@ const HomeContent = ({fetchType, setFetchType}) => {
 
 const mapStateToProps = state => {
   return {
-    topRatedMovies: state.movies.topRatedMovies,
     popularMovies: state.movies.popularMovies,
     upcomingMovies: state.movies.upcomingMovies,
-    nowPlayingMovies: state.movies.nowPlayingMovies
+    nowPlayingMovies: state.movies.nowPlayingMovies,
+    onTheAirShows: state.shows.onTheAirShows,
+    onTheAirTodayShows: state.shows.onTheAirTodayShows,
+    popularShows: state.shows.popularShows
   }
 }
 

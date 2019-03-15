@@ -1,6 +1,7 @@
 import * as actionTypes from '../actions/types';
 import axios from 'axios';
 import {MOVIEDBAPI} from '../api_keys';
+import { async } from 'q';
 
 export const fetchOnTheAirShows = () => {
   return async (dispatch) => {
@@ -33,6 +34,18 @@ export const fetchTopRatedShows = () => {
       type: actionTypes.FETCH_TOP_RATED_SHOWS,
       payload: {
         topRatedShows: results.data.results
+      }
+    })
+  }
+}
+
+export const fetchOnTheAirTodayShows = () => {
+  return async (dispatch) => {
+    const results = await axios.get(` https://api.themoviedb.org/3/tv/airing_today?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
+    dispatch({
+      type: actionTypes.FETCH_ON_THE_AIR_TODAY_SHOWS,
+      payload: {
+        onTheAirTodayShows: results.data.results
       }
     })
   }

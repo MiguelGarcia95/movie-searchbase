@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import HomeDisplay from './Home/HomeDisplay';
 import HomeContent from './Home/HomeContent';
 import {fetchNowPlayingMovies, fetchTopRatedMovies, fetchPopularMovies, fetchUpcomingMovies} from '../actions/movieActions';
-import {fetchOnTheAirShows, fetchTopRatedShows, fetchPopularShows} from '../actions/tvShowActions';
+import {fetchOnTheAirShows, fetchTopRatedShows, fetchPopularShows, fetchOnTheAirTodayShows} from '../actions/tvShowActions';
 
 import './App.css';
 import "slick-carousel/slick/slick.css"; 
@@ -27,6 +27,7 @@ class App extends React.Component {
       this.props.fetchOnTheAirShows();
       this.props.fetchPopularShows();
       this.props.fetchTopRatedShows();
+      this.props.fetchOnTheAirTodayShows();
     }
   }
 
@@ -65,7 +66,8 @@ const mapDispatchToProps = dispatch => {
     fetchUpcomingMovies: () => dispatch(fetchUpcomingMovies()),
     fetchOnTheAirShows: () => dispatch(fetchOnTheAirShows()),
     fetchTopRatedShows: () => dispatch(fetchTopRatedShows()),
-    fetchPopularShows: () => dispatch(fetchPopularShows())
+    fetchPopularShows: () => dispatch(fetchPopularShows()),
+    fetchOnTheAirTodayShows: () => dispatch(fetchOnTheAirTodayShows())
   }
 }
 

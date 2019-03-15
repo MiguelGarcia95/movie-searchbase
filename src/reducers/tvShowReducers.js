@@ -3,6 +3,7 @@ import * as actionTypes from '../actions/types';
 const initialState = {
   topRatedShows: [],
   onTheAirShows: [],
+  onTheAirTodayShows: [],
   popularShows: []
 };
 
@@ -17,6 +18,11 @@ const tvShowsReducer = (state = initialState, action) => {
       return {
         ...state,
         onTheAirShows: action.payload.onTheAirShows
+      }
+    case actionTypes.FETCH_ON_THE_AIR_TODAY_SHOWS:
+      return {
+        ...state,
+        onTheAirTodayShows: action.payload.onTheAirTodayShows
       }
     case actionTypes.FETCH_TOP_RATED_SHOWS:
       return {
