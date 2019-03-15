@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/types';
 
 const initialState = {
   upcomingMovies: [],
-  latestsMovies: [],
+  topRatedMovies: [],
   nowPlayingMovies: [],
   popularMovies: []
 };
@@ -19,10 +19,10 @@ const movieReducer = (state = initialState, action) => {
         ...state,
         nowPlayingMovies: action.payload.nowPlayingMovies
       }
-    case actionTypes.FETCH_LATEST_MOVIES:
+    case actionTypes.FETCH_TOP_RATED_MOVIES:
       return {
         ...state,
-        latestsMovies: action.payload.latestsMovies
+        topRatedMovies: action.payload.topRatedMovies
       }
     case actionTypes.FETCH_UPCOMING_MOVIES:
       return {

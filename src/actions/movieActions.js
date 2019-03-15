@@ -38,13 +38,13 @@ export const fetchUpcomingMovies = () => {
   }
 }
 
-export const fetchLatestMovies = () => {
+export const fetchTopRatedMovies = () => {
   return async (dispatch) => {
-    const results = await axios.get(` https://api.themoviedb.org/3/movie/latest?api_key=${MOVIEDBAPI}&language=en-US`);
+    const results = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
     dispatch({
-      type: actionTypes.FETCH_LATEST_MOVIES,
+      type: actionTypes.FETCH_TOP_RATED_MOVIES,
       payload: {
-        latestMovies: results.data.results
+        topRatedMovies: results.data.results
       }
     })
   }
