@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Jumbotron, Col, Row} from 'reactstrap';
 import {Redirect} from 'react-router-dom';
 
 import {getSession, setSession, getAccount, setAccount, setToken} from '../../actions/authActions';
@@ -75,68 +74,58 @@ class Account extends React.Component {
     const redirectToLogin = this.shouldRedirectToLogin();
     const {account} = this.props;
     return (
-      // <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
-      //   {redirectToLogin && <Redirect to='/login'/>}
-      //   {redirectToAccount && <Redirect to='/account'/>}
-      //   <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: 'rgba(54,54,54,0.8)'}}>
-      //     <Row style={{margin: '0'}}>
-      //       {account && (
-      //       )}
-      //     </Row>
-      //   </Jumbotron>
-      // </section>
-      <section class="account_page">
+      <section className="account_page">
         {redirectToLogin && <Redirect to='/login'/>}
         {redirectToAccount && <Redirect to='/account'/>}
         {account && (
           <React.Fragment>
-            <section class="account_sidepanel">
-              <section class="user_panel">
-                <section class="user_avatar"><img src={`https://gravatar.com/avatar/${account.avatar.gravatar.hash}?d=identicon`} alt={`${account.username} avatar`} /></section>
-                <section class="user_name"><h1>{account.username}</h1></section>
+            <section className="account_sidepanel">
+              <section className="user_panel">
+                <section className="user_avatar"><img src={`https://gravatar.com/avatar/${account.avatar.gravatar.hash}?d=identicon`} alt={`${account.username} avatar`} /></section>
+                <section className="user_name"><h1>{account.username}</h1></section>
               </section>
-              <section class="content_panel">
-                <section class="panel_info">
-                  <h2 class="count">0</h2>
-                  <h2 class="category">Favorite Movies</h2>
+              <section className="content_panel">
+                <section className="panel_info">
+                  <h2 className="count">0</h2>
+                  <h2 className="category">Favorite Movies</h2>
                 </section>
               </section>
-              <section class="content_panel">
-                <section class="panel_info">
-                  <h2 class="count">0</h2>
-                  <h2 class="category">Favorite Tv Shows</h2>
+              <section className="content_panel">
+                <section className="panel_info">
+                  <h2 className="count">0</h2>
+                  <h2 className="category">Favorite Tv Shows</h2>
                 </section>
               </section>
-              <section class="content_panel">
-                <section class="panel_info">
-                  <h2 class="count">0</h2>
-                  <h2 class="category">Rated Movies</h2>
+              <section className="content_panel">
+                <section className="panel_info">
+                  <h2 className="count">0</h2>
+                  <h2 className="category">Rated Movies</h2>
                 </section>
               </section>
-              <section class="content_panel">
-                <section class="panel_info">
-                  <h2 class="count">0</h2>
-                  <h2 class="category">Rated Shows</h2>
+              <section className="content_panel">
+                <section className="panel_info">
+                  <h2 className="count">0</h2>
+                  <h2 className="category">Rated Shows</h2>
                 </section>
               </section>
             </section>
-            
-            <section class="account_content">
-              <section class="account_content_section">
-                <section class="account_content_name"><h2>Favorite Movies</h2></section>
-                <section class="account_content_slide"></section>
+
+            <section className="account_content">
+              <section className="account_content_section">
+                <section className="account_content_name"><h2>Favorite Movies</h2></section>
+                <section className="account_content_slide"></section>
               </section>
-              <section class="account_content_section">
-                <section class="account_content_name"><h2>Favorite Shows</h2></section>
-                <section class="account_content_slide"></section>
+              <section className="account_content_section">
+                <section className="account_content_name"><h2>Favorite Shows</h2></section>
+                <section className="account_content_slide"></section>
               </section>
-              <section class="account_content_section">
-                <section class="account_content_name"><h2>Rated Movies</h2></section>
-                <section class="account_content_slide"></section>
+              <section className="account_content_section">
+                <section className="account_content_name"><h2>Rated Movies</h2></section>
+                <section className="account_content_slide"></section>
               </section>
-              <section class="account_content_section">
-                <section class="account_content_name"><h2>Rated Shows</h2></section>
-                <section class="account_content_slide"></section>
+              <section className="account_content_section">
+                <section className="account_content_name"><h2>Rated Shows</h2></section>
+                <section className="account_content_slide"></section>
               </section>
             </section>
           </React.Fragment>
