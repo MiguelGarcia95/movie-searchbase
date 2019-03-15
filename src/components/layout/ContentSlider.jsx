@@ -1,8 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 
-
-
 class ContentSlider extends React.Component {
   render() {
     const settings = {
@@ -15,8 +13,7 @@ class ContentSlider extends React.Component {
     };
 
     return (
-      <div style={{padding: '100px 0'}}>
-        <h4 style={{marginBottom: '25px'}}> Multiple items </h4>
+      <div>
         <Slider {...settings}>
           <div>
             <h3 style={{textAlign: 'center'}}>1</h3>

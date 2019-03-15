@@ -1,4 +1,6 @@
 import React from 'react';
+
+import ContentSlider from '../layout/ContentSlider';
 import './style/css/HomeContent.css';
 
 const HomeContent = () => {
@@ -20,19 +22,19 @@ const HomeContent = () => {
       <section className="home_slider">
         <h3 className="home_slider_name">Top Movies</h3>
         <section className="home_slider_container">
-          <h1>Slider Here</h1>
+          <ContentSlider />
         </section>
       </section>
       <section className="home_slider">
         <h3 className="home_slider_name">Top Movies</h3>
         <section className="home_slider_container">
-          <h1>Slider Here</h1>
+          <ContentSlider />
         </section>
       </section>
       <section className="home_slider">
         <h3 className="home_slider_name">Top Movies</h3>
         <section className="home_slider_container">
-          <h1>Slider Here</h1>
+          <ContentSlider />
         </section>
       </section>
     </section>
