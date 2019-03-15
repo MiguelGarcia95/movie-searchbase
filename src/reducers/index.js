@@ -1,11 +1,11 @@
 import {combineReducers} from 'redux';
 import movieReducers from './movieReducers';
 import authReducers from './authReducers';
-import tvShowsReducer from './tvShowsReducer';
+import tvShowsReducers from './tvShowsReducers';
 
 const rootReducer = combineReducers({
   movies: movieReducers,
-  shows:  tvShowsReducer,
+  shows:  tvShowsReducers,
   auth: authReducers
 });
 

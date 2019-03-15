@@ -5,7 +5,7 @@ const HomeSwitch = () => {
   return (
     <section className="home_switch_container">
       <section className="home_switch">
-        <section className="home_switch_select">
+        <section className="home_switch_select"> {/* active */}
           <p className="home_switch_select_content">Movies</p>
           <section className="home_switch_select_color"></section>
         </section>
