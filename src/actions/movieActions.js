@@ -37,3 +37,15 @@ export const fetchUpcomingMovies = () => {
     })
   }
 }
+
+export const fetchLatestMovies = () => {
+  return async (dispatch) => {
+    const results = await axios.get(` https://api.themoviedb.org/3/movie/latest?api_key=${MOVIEDBAPI}&language=en-US`);
+    dispatch({
+      type: actionTypes.FETCH_LATEST_MOVIES,
+      payload: {
+        latestMovies: results.data.results
+      }
+    })
+  }
+}
