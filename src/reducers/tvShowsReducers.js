@@ -7,7 +7,7 @@ const initialState = {
   popularTvShows: []
 };
 
-const movieReducer = (state = initialState, action) => {
+const tvShowsReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_POPULAR_SHOWS:
       return {
@@ -34,4 +34,4 @@ const movieReducer = (state = initialState, action) => {
   }
 }
 
-export default movieReducer;
+export default tvShowsReducer;
