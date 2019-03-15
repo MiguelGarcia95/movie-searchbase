@@ -13,3 +13,27 @@ export const fetchNowPlayingMovies = () => {
     })
   }
 }
+
+export const fetchPopularMovies = () => {
+  return async (dispatch) => {
+    const results = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
+    dispatch({
+      type: actionTypes.FETCH_POPULAR_MOVIES,
+      payload: {
+        popularMovies: results.data.results
+      }
+    })
+  }
+}
+
+export const fetchUpcomingMovies = () => {
+  return async (dispatch) => {
+    const results = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
+    dispatch({
+      type: actionTypes.FETCH_UPCOMING_MOVIES,
+      payload: {
+        upcomingMovies: results.data.results
+      }
+    })
+  }
+}
