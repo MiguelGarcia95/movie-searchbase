@@ -1,11 +1,22 @@
 import React from "react";
 import Slider from "react-slick";
+import Slide from './Slide';
 
 const ContentSlider = ({slides, settings}) => {
   return (
     <div>
       <Slider {...settings}>
-        <div>
+        <Slide />
+        <Slide />
+        <Slide />
+        <Slide />
+        <Slide />
+        <Slide />
+        <Slide />
+        <Slide />
+        <Slide />
+        <Slide />
+        {/* <div>
           <h3 style={{textAlign: 'center'}}>1</h3>
           <h3 style={{textAlign: 'center'}}>1</h3>
           <h3 style={{textAlign: 'center'}}>1</h3>
@@ -64,7 +75,7 @@ const ContentSlider = ({slides, settings}) => {
           <h3 style={{textAlign: 'center'}}>10</h3>
           <h3 style={{textAlign: 'center'}}>10</h3>
           <h3 style={{textAlign: 'center'}}>10</h3>
-        </div>
+        </div> */}
       </Slider>
     </div>
   );

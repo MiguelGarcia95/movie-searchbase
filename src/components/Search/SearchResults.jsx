@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../App.css';
-import MovieResult from '../layout/MovieResult';
+import MovieResult from './MovieResult';
 import './style/css/SearchResults.css';
 
 class SearchResults extends React.Component {
