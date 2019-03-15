@@ -23,12 +23,16 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.fetchType !== prevState.fetchType && this.state.fetchType === 'shows' && this.props.topRatedShows.length === 0) {
+    if (this.shouldComponentFetchShows(this.state.fetchType, prevState.fetchType, this.props.topRatedShows)) {
       this.props.fetchOnTheAirShows();
       this.props.fetchPopularShows();
       this.props.fetchTopRatedShows();
     }
   }
+
+  shouldComponentFetchShows = (newType, oldType, showArray) => {
+    return newType !== oldType && newType === 'shows' && showArray.length === 0;
+  } 
 
   setFetchType = type => this.setState({fetchType: type});
 
@@ -46,9 +50,7 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     topRatedMovies: state.movies.topRatedMovies,
-    topRatedShows: state.shows.topRatedShows,
-    onTheAirShows: state.shows.onTheAirShows,
-    popularShows: state.shows.popularShows
+    topRatedShows: state.shows.topRatedShows
   }
 }
 
