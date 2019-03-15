@@ -24,10 +24,11 @@ class App extends React.Component {
   setFetchType = type => this.setState({fetchType: type});
 
   render() {
+    const {fetchType} = this.state;
     return (
       <section className="App">
-        <HomeDisplay />
-        <HomeContent />
+        <HomeDisplay  />
+        <HomeContent fetchType={fetchType} />
       </section>
     );
   }
