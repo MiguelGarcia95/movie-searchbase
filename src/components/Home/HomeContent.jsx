@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import ContentSlider from '../layout/ContentSlider';
 import HomeSwitch from './HomeSwitch';
@@ -45,4 +46,13 @@ const HomeContent = ({fetchType, setFetchType}) => {
   )
 }
 
-export default HomeContent;
+const mapStateToProps = state => {
+  return {
+    topRatedMovies: state.movies.topRatedMovies,
+    popularMovies: state.movies.popularMovies,
+    upcomingMovies: state.movies.upcomingMovies,
+    nowPlayingMovies: state.movies.nowPlayingMovies
+  }
+}
+
+export default connect(mapStateToProps)(HomeContent);
