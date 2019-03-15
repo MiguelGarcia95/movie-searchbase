@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import HomeDisplay from './Home/HomeDisplay';
 import HomeContent from './Home/HomeContent';
 import {fetchNowPlayingMovies, fetchTopRatedMovies, fetchPopularMovies, fetchUpcomingMovies} from '../actions/movieActions';
-import {fetchNowPlayingShows, fetchTopRatedShows, fetchPopularShows} from '../actions/tvShowActions';
+import {fetchOnTheAirShows, fetchTopRatedShows, fetchPopularShows} from '../actions/tvShowActions';
 
 import './App.css';
 import "slick-carousel/slick/slick.css"; 
@@ -20,6 +20,14 @@ class App extends React.Component {
     this.props.fetchUpcomingMovies();
     this.props.fetchTopRatedMovies();
     this.props.fetchPopularMovies();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.fetchType !== prevState.fetchType && this.state.fetchType === 'shows' && this.props.topRatedShows.length === 0) {
+      this.props.fetchOnTheAirShows();
+      this.props.fetchPopularShows();
+      this.props.fetchTopRatedShows();
+    }
   }
 
   setFetchType = type => this.setState({fetchType: type});
@@ -40,7 +48,7 @@ const mapStateToProps = state => {
     topRatedMovies: state.movies.topRatedMovies,
     topRatedShows: state.shows.topRatedShows,
     onTheAirShows: state.shows.onTheAirShows,
-    popularTvShows: state.shows.popularTvShows
+    popularShows: state.shows.popularShows
   }
 }
 
@@ -50,10 +58,9 @@ const mapDispatchToProps = dispatch => {
     fetchTopRatedMovies: () => dispatch(fetchTopRatedMovies()),
     fetchPopularMovies: () => dispatch(fetchPopularMovies()),
     fetchUpcomingMovies: () => dispatch(fetchUpcomingMovies()),
-    fetchNowPlayingShows: () => dispatch(fetchNowPlayingShows()),
+    fetchOnTheAirShows: () => dispatch(fetchOnTheAirShows()),
     fetchTopRatedShows: () => dispatch(fetchTopRatedShows()),
     fetchPopularShows: () => dispatch(fetchPopularShows())
-
   }
 }
 

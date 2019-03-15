@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/types';
 import axios from 'axios';
 import {MOVIEDBAPI} from '../api_keys';
 
-export const fetchNowPlayingShows = () => {
+export const fetchOnTheAirShows = () => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
     dispatch({
