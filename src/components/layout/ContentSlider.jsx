@@ -16,6 +16,9 @@ const ContentSlider = ({slides, settings}) => {
         <Slide />
         <Slide />
         <Slide />
+        <Slide />
+        <Slide />
+        <Slide />
         {/* <div>
           <h3 style={{textAlign: 'center'}}>1</h3>
           <h3 style={{textAlign: 'center'}}>1</h3>

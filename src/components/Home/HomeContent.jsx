@@ -8,10 +8,12 @@ const HomeContent = () => {
   const settings = {
     rtl: true,
     infinite: true,
-    slidesToShow: 8,
-    autoplay: true,
+    slidesToShow: 6,
+    // autoplay: true,
     arrows: false,
-    speed: 500
+    swipeToSlide: true,
+    speed: 500,
+    slidesToScroll: 1
   };
 
   return (
