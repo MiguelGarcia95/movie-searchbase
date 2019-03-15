@@ -32,15 +32,18 @@ class App extends React.Component {
 
   shouldComponentFetchShows = (newType, oldType, showArray) => {
     return newType !== oldType && newType === 'shows' && showArray.length === 0;
-  } 
+  }
+
+  homeDisplayMovies = fetchType => fetchType === 'movies' ? this.props.topRatedMovies : this.props.topRatedShows;
 
   setFetchType = type => this.setState({fetchType: type});
 
   render() {
     const {fetchType} = this.state;
+    const displayMovies = this.homeDisplayMovies(fetchType);
     return (
       <section className="App">
-        <HomeDisplay  />
+        <HomeDisplay movies={displayMovies} />
         <HomeContent fetchType={fetchType} setFetchType={this.setFetchType}/>
       </section>
     );
