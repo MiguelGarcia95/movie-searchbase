@@ -27,9 +27,10 @@
       cursor: pointer;
       float: left;
       position: relative;
+      transition: 0.5s;
       &.active {
         .home_switch_select_color {
-          width: 100%; 
+          width: 100px; 
         }
       }
       .home_switch_select_content {
@@ -41,7 +42,7 @@
         color: white;
       }
       .home_switch_select_color {
-        width: 100%; height: 100%;
+        width: 0px; height: 100%;
         position: absolute;
         z-index: 2;
         transition: 0.5s;
