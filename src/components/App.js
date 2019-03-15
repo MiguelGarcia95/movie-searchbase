@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import HomeDisplay from './Home/HomeDisplay';
 import HomeContent from './Home/HomeContent';
-import {fetchNowPlayingMovies} from '../actions/movieActions';
+import {fetchNowPlayingMovies, fetchLatestMovies, fetchPopularMovies, fetchUpcomingMovies} from '../actions/movieActions';
 
 import './App.css';
 import "slick-carousel/slick/slick.css"; 
@@ -16,6 +16,9 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.fetchNowPlayingMovies();
+    this.props.fetchUpcomingMovies();
+    this.props.fetchLatestMovies();
+    this.props.fetchPopularMovies();
   }
 
   setFetchType = type => this.setState({fetchType: type});
@@ -41,7 +44,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchNowPlayingMovies: () => dispatch(fetchNowPlayingMovies())
+    fetchNowPlayingMovies: () => dispatch(fetchNowPlayingMovies()),
+    fetchLatestMovies: () => dispatch(fetchLatestMovies()),
+    fetchPopularMovies: () => dispatch(fetchPopularMovies()),
+    fetchUpcomingMovies: () => dispatch(fetchUpcomingMovies())
   }
 }
 
