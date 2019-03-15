@@ -14,6 +14,10 @@ class App extends React.Component {
     fetchType: 'movies'
   }
 
+  componentDidMount() {
+    this.props.fetchNowPlayingMovies();
+  }
+
   setFetchType = type => this.setState({fetchType: type});
 
   render() {
