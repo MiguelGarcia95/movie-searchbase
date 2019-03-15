@@ -4,7 +4,7 @@ import ContentSlider from '../layout/ContentSlider';
 import HomeSwitch from './HomeSwitch';
 import './style/css/HomeContent.css';
 
-const HomeContent = ({fetchType}) => {
+const HomeContent = ({fetchType, setFetchType}) => {
   const settings = {
     rtl: true,
     infinite: true,
@@ -18,7 +18,7 @@ const HomeContent = ({fetchType}) => {
 
   return (
     <section className="home_movies">
-      <HomeSwitch fetchType={fetchType} />
+      <HomeSwitch fetchType={fetchType} setFetchType={setFetchType} />
 
       <section className="home_slider">
         <h3 className="home_slider_name">Top Movies</h3>

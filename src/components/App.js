@@ -28,7 +28,7 @@ class App extends React.Component {
     return (
       <section className="App">
         <HomeDisplay  />
-        <HomeContent fetchType={fetchType} />
+        <HomeContent fetchType={fetchType} setFetchType={this.setFetchType}/>
       </section>
     );
   }
