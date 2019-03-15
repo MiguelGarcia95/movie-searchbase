@@ -5,8 +5,6 @@ import {BrowserRouter, Switch, Route, withRouter} from 'react-router-dom';
 import {Provider, connect} from 'react-redux';
 import store from './store';
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
 import App from './components/App';
 import Login from './components/Auth/Login';
 import Account from './components/Account/Account';

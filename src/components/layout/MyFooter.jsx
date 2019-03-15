@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, NavLink } from 'react-router-dom';
-import './css/MyFooter.css';
+import './style/css/MyFooter.css';
 
 const MyFooter = () => {
   return (

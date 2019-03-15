@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setSession, logout} from '../../actions/authActions';
-import './css/MyNavbar.css';
+import './style/css/MyNavbar.css';
 
 class MyNavbar extends React.Component {
   state = {
