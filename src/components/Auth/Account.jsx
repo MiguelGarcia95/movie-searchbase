@@ -75,23 +75,72 @@ class Account extends React.Component {
     const redirectToLogin = this.shouldRedirectToLogin();
     const {account} = this.props;
     return (
-      <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
+      // <section className="App" style={{backgroundColor: '#ddd', width: '100%', height: '100vh'}}>
+      //   {redirectToLogin && <Redirect to='/login'/>}
+      //   {redirectToAccount && <Redirect to='/account'/>}
+      //   <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: 'rgba(54,54,54,0.8)'}}>
+      //     <Row style={{margin: '0'}}>
+      //       {account && (
+      //       )}
+      //     </Row>
+      //   </Jumbotron>
+      // </section>
+      <section class="account_page">
         {redirectToLogin && <Redirect to='/login'/>}
         {redirectToAccount && <Redirect to='/account'/>}
-        <Jumbotron fluid style={{paddingTop: '110px', backgroundColor: 'rgba(54,54,54,0.8)'}}>
-          <Row style={{margin: '0'}}>
-            {account && (
-              <React.Fragment>
-                <Col xs={{ size: '1', offset: 2 }}>
-                  <img className='rounded float-left' style={{width: '100%'}} src={`https://gravatar.com/avatar/${account.avatar.gravatar.hash}?d=identicon`} />
-                </Col>
-                <Col xs={{ size: '3' }}>
-                  <h1 className="display-3">{account.username}</h1>
-                </Col>
-              </React.Fragment>
-            )}
-          </Row>
-        </Jumbotron>
+        {account && (
+          <React.Fragment>
+            <section class="account_sidepanel">
+              <section class="user_panel">
+                <section class="user_avatar"><img src={`https://gravatar.com/avatar/${account.avatar.gravatar.hash}?d=identicon`} alt={`${account.username} avatar`} /></section>
+                <section class="user_name"><h1>{account.username}</h1></section>
+              </section>
+              <section class="content_panel">
+                <section class="panel_info">
+                  <h2 class="count">0</h2>
+                  <h2 class="category">Favorite Movies</h2>
+                </section>
+              </section>
+              <section class="content_panel">
+                <section class="panel_info">
+                  <h2 class="count">0</h2>
+                  <h2 class="category">Favorite Tv Shows</h2>
+                </section>
+              </section>
+              <section class="content_panel">
+                <section class="panel_info">
+                  <h2 class="count">0</h2>
+                  <h2 class="category">Rated Movies</h2>
+                </section>
+              </section>
+              <section class="content_panel">
+                <section class="panel_info">
+                  <h2 class="count">0</h2>
+                  <h2 class="category">Rated Shows</h2>
+                </section>
+              </section>
+            </section>
+            
+            <section class="account_content">
+              <section class="account_content_section">
+                <section class="account_content_name"><h2>Favorite Movies</h2></section>
+                <section class="account_content_slide"></section>
+              </section>
+              <section class="account_content_section">
+                <section class="account_content_name"><h2>Favorite Shows</h2></section>
+                <section class="account_content_slide"></section>
+              </section>
+              <section class="account_content_section">
+                <section class="account_content_name"><h2>Rated Movies</h2></section>
+                <section class="account_content_slide"></section>
+              </section>
+              <section class="account_content_section">
+                <section class="account_content_name"><h2>Rated Shows</h2></section>
+                <section class="account_content_slide"></section>
+              </section>
+            </section>
+          </React.Fragment>
+        )}
       </section>
     );
   }
