@@ -14,7 +14,6 @@ export const fetchNowPlayingShows = () => {
   }
 }
 
-
 export const fetchPopularShows = () => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
