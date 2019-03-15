@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
 import {getSession, setSession, getAccount, setAccount, setToken} from '../../actions/authActions';
+
 import '../App.css';
 import './style/css/Account.css';
 

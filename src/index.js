@@ -8,7 +8,7 @@ import store from './store';
 
 import App from './components/App';
 import Login from './components/Auth/Login';
-import Account from './components/Auth/Account';
+import Account from './components/Account/Account';
 import SearchResults from './components/Search/SearchResults';
 import DisplayTv from './components/DisplayTv';
 import DisplayMovie from './components/DisplayMovie';
