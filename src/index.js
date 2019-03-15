@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 // import {BrowserRouter, Switch, Route, withRouter, Redirect} from 'react-router-dom';
 import {BrowserRouter, Switch, Route, withRouter} from 'react-router-dom';
 import {Provider, connect} from 'react-redux';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './store';
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './components/App';
 import Login from './components/Auth/Login';
@@ -15,18 +16,6 @@ import DisplayMovie from './components/DisplayMovie';
 import MyNavbar from './components/layout/MyNavbar';
 import MyFooter from './components/layout/MyFooter';
 import * as serviceWorker from './serviceWorker';
-
-/*
- Routes
- / -> home
- /tv/id -> Tv Show
- /movie/id -> Movie
- /login -> redirec to movieDB to autheticate
- /account -> account display
- /search -> search with string or requirements ie: genre/year ect...
-
- /random -> get a random movie/show
-*/
 
 const Root = () => {
   return (

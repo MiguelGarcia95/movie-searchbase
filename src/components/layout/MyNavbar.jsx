@@ -39,7 +39,7 @@ class MyNavbar extends React.Component {
           {session_id && (
             <React.Fragment>
               <NavLink className="nav_icon" title="Account" to="/account"><i className="far fa-2x fa-user-circle"></i></NavLink>
-              <NavLink className="navbar_link signout" to="/">Sign Out</NavLink>
+              <NavLink className="navbar_link signout" to="" onClick={() => this.onLogoutClick()} >Sign Out</NavLink>
             </React.Fragment>
           )}
           {!session_id && (
