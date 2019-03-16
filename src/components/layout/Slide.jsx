@@ -6,7 +6,7 @@ const getTitle = (movie, type) => {
   if (type === 'movies') {
     title = movie.title
   } else {
-    title = movie.original_name
+    title = movie.name
   }
   return title;
 }
@@ -16,7 +16,7 @@ const Slide = ({movie, type}) => {
     <section className="search_result">
       <section className="search_result_movie">
         <section className="search_result_movie_image"></section>
-        <p className="search_result_movie_rating">5.0</p>  
+        <p className="search_result_movie_rating">{movie.vote_average}</p>  
       </section>
       <section className="search_result_movie_data">
           <section className="search_result_movie_meta"><p>2015 / Genre</p></section>  
