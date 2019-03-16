@@ -39,6 +39,20 @@ class App extends React.Component {
 
   setFetchType = type => this.setState({fetchType: type});
 
+  getContentMovies = (fetchType) => {
+    let movies = {};
+    if (fetchType === 'movies') {
+      movies = {
+
+      }
+    } else {
+      movies = {
+
+      }
+    }
+    return movies;
+  }
+
   render() {
     const {fetchType} = this.state;
     const displayMovies = this.homeDisplayMovies(fetchType);
