@@ -11,11 +11,21 @@ const displayBottomCol = movies => {
 }
 
 const displayTopInnerCol = movies => {
-
+  let newMovies = movies.slice(1, 3);
+  return newMovies.map(movie => {
+    return (
+      <section key={movie.id} className="home_display_inner_col"><section className="display_content"></section></section>
+    )
+  })
 }
 
 const displayBottomInnerCol = movies => {
-  
+  let newMovies = movies.slice(3, 5);
+  return newMovies.map(movie => {
+    return (
+      <section key={movie.id} className="home_display_inner_col"><section className="display_content"></section></section>
+    )
+  })
 }
 
 const displayHomeCol = movies => {
@@ -26,15 +36,13 @@ const HomeDisplay = ({movies}) => {
   return (
     <section className='home_display'>
       <section className="home_display_row">
-        {movies && displayHomeCol()}
+        {movies && displayHomeCol(movies)}
         <section className="home_display_col">
           <section className="home_display_inner_row">
-            <section className="home_display_inner_col"><section className="display_content"></section></section>
-            <section className="home_display_inner_col"><section className="display_content"></section></section>
+            {movies && displayTopInnerCol(movies)}
           </section>  
           <section className="home_display_inner_row">
-            <section className="home_display_inner_col"><section className="display_content"></section></section>
-            <section className="home_display_inner_col"><section className="display_content"></section></section>
+            {movies && displayBottomInnerCol(movies)}
           </section>  
         </section>
       </section>
