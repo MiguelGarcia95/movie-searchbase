@@ -21,11 +21,23 @@ const getYear = (movie, type) => {
   return year;
 }
 
-const getGenre = ({movie, type, genres}) => {
-
+const getGenreFromId = (genreId, genres) => {
+  return genres.reduce((genreName, genre) => {
+    let genreIdName = '';
+    if (genre.id === genreId) {
+      genreName = genre.name;
+    }
+    return genreName;
+  }, '');
 }
 
-const Slide = ({movie, type}) => {
+const getGenre = ({movie, genres}) => {
+  let genre = '';
+  genre = getGenreFromId(movie.genre_ids[0], genres);
+  return genre;
+}
+
+const Slide = ({movie, type, genres}) => {
   return (
     <section className="search_result">
       <section className="search_result_movie">
@@ -33,7 +45,7 @@ const Slide = ({movie, type}) => {
         <p className="search_result_movie_rating">{movie.vote_average}</p>  
       </section>
       <section className="search_result_movie_data">
-          <section className="search_result_movie_meta"><p>{getYear(movie, type)} / Genre</p></section>  
+          <section className="search_result_movie_meta"><p>{getYear(movie, type)} / {getGenre(movie, genres)}</p></section>  
           <section className="search_result_movie_title"><p>{getTitle(movie, type)}</p></section>  
       </section>
     </section>

@@ -14,24 +14,24 @@ const settings = {
   slidesToScroll: 1
 };
 
-const dispalySliders = movies => {
+const dispalySliders = (movies, genres) => {
   return movies.map(movieSlider => {
     return (
       <section className="home_slider" key={movieSlider.title}>
         <h3 className="home_slider_name">{movieSlider.title}</h3>
         <section className="home_slider_container">
-          <ContentSlider settings={settings} movies={movieSlider.movies} type={movieSlider.type} />
+          <ContentSlider settings={settings} movies={movieSlider.movies} type={movieSlider.type} genres={genres} />
         </section>
       </section>
     )
   })
 }
 
-const HomeContent = ({fetchType, setFetchType, movies}) => {
+const HomeContent = ({fetchType, setFetchType, movies, genres}) => {
   return (
     <section className="home_movies">
       <HomeSwitch fetchType={fetchType} setFetchType={setFetchType} />
-      {dispalySliders(movies)}
+      {dispalySliders(movies, genres)}
     </section>
   )
 }
