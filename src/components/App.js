@@ -54,7 +54,13 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     topRatedMovies: state.movies.topRatedMovies,
-    topRatedShows: state.shows.topRatedShows
+    topRatedShows: state.shows.topRatedShows,
+    popularMovies: state.movies.popularMovies,
+    upcomingMovies: state.movies.upcomingMovies,
+    nowPlayingMovies: state.movies.nowPlayingMovies,
+    onTheAirShows: state.shows.onTheAirShows,
+    onTheAirTodayShows: state.shows.onTheAirTodayShows,
+    popularShows: state.shows.popularShows
   }
 }
 

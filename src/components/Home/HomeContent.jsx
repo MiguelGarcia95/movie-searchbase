@@ -46,15 +46,16 @@ const HomeContent = ({fetchType, setFetchType}) => {
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    popularMovies: state.movies.popularMovies,
-    upcomingMovies: state.movies.upcomingMovies,
-    nowPlayingMovies: state.movies.nowPlayingMovies,
-    onTheAirShows: state.shows.onTheAirShows,
-    onTheAirTodayShows: state.shows.onTheAirTodayShows,
-    popularShows: state.shows.popularShows
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     popularMovies: state.movies.popularMovies,
+//     upcomingMovies: state.movies.upcomingMovies,
+//     nowPlayingMovies: state.movies.nowPlayingMovies,
+//     onTheAirShows: state.shows.onTheAirShows,
+//     onTheAirTodayShows: state.shows.onTheAirTodayShows,
+//     popularShows: state.shows.popularShows
+//   }
+// }
 
-export default connect(mapStateToProps)(HomeContent);
+export default HomeContent;
+// export default connect(mapStateToProps)(HomeContent);
