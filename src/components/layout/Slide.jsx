@@ -1,7 +1,17 @@
 import React from 'react';
 import './style/css/Slide.css';
 
-const Slide = ({movie}) => {
+const getTitle = (movie, type) => {
+  let title = '';
+  if (type === 'movies') {
+    title = movie.title
+  } else {
+    title = movie.original_name
+  }
+  return title;
+}
+
+const Slide = ({movie, type}) => {
   return (
     <section className="search_result">
       <section className="search_result_movie">
@@ -10,7 +20,7 @@ const Slide = ({movie}) => {
       </section>
       <section className="search_result_movie_data">
           <section className="search_result_movie_meta"><p>2015 / Genre</p></section>  
-          <section className="search_result_movie_title"><p>Movie Title</p></section>  
+          <section className="search_result_movie_title"><p>{getTitle(movie, type)}</p></section>  
       </section>
     </section>
   )

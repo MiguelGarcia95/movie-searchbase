@@ -20,7 +20,7 @@ const dispalySliders = movies => {
       <section className="home_slider" key={movieSlider.title}>
         <h3 className="home_slider_name">{movieSlider.title}</h3>
         <section className="home_slider_container">
-          <ContentSlider settings={settings} movies={movieSlider.movies} />
+          <ContentSlider settings={settings} movies={movieSlider.movies} type={movieSlider.type} />
         </section>
       </section>
     )

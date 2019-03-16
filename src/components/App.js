@@ -43,15 +43,15 @@ class App extends React.Component {
     let movies = [];
     if (fetchType === 'movies') {
       movies = [
-        {title: 'Now Playing', movies: this.props.nowPlayingMovies},
-        {title: 'Popular', movies: this.props.popularMovies},
-        {title: 'Upcoming', movies: this.props.upcomingMovies}
+        {type: fetchType, title: 'Now Playing', movies: this.props.nowPlayingMovies},
+        {type: fetchType, title: 'Popular', movies: this.props.popularMovies},
+        {type: fetchType, title: 'Upcoming', movies: this.props.upcomingMovies}
       ]
     } else {
       movies = [
-        {title: 'On The Air Today', movies: this.props.onTheAirTodayShows},
-        {title: 'On The Air', movies: this.props.onTheAirShows},
-        {title: 'Popular', movies: this.props.popularShows}
+        {type: fetchType, title: 'On The Air Today', movies: this.props.onTheAirTodayShows},
+        {type: fetchType, title: 'On The Air', movies: this.props.onTheAirShows},
+        {type: fetchType, title: 'Popular', movies: this.props.popularShows}
       ]
     }
     return movies;
