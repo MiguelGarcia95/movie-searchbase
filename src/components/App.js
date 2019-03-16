@@ -49,8 +49,8 @@ class App extends React.Component {
       ]
     } else {
       movies = [
-        {title: 'On The Air', movies: this.props.onTheAirShows},
         {title: 'On The Air Today', movies: this.props.onTheAirTodayShows},
+        {title: 'On The Air', movies: this.props.onTheAirShows},
         {title: 'Popular', movies: this.props.popularShows}
       ]
     }

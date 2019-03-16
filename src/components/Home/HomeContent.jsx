@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 
 import ContentSlider from '../layout/ContentSlider';
 import HomeSwitch from './HomeSwitch';
@@ -15,47 +14,26 @@ const settings = {
   slidesToScroll: 1
 };
 
-const HomeContent = ({fetchType, setFetchType}) => {
+const dispalySliders = movies => {
+  return movies.map(movieSlider => {
+    return (
+      <section className="home_slider" key={movieSlider.title}>
+        <h3 className="home_slider_name">{movieSlider.title}</h3>
+        <section className="home_slider_container">
+          <ContentSlider settings={settings} movies={movieSlider.movies} />
+        </section>
+      </section>
+    )
+  })
+}
+
+const HomeContent = ({fetchType, setFetchType, movies}) => {
   return (
     <section className="home_movies">
       <HomeSwitch fetchType={fetchType} setFetchType={setFetchType} />
-
-      <section className="home_slider">
-        <h3 className="home_slider_name">Top Movies</h3>
-        <section className="home_slider_container">
-          <ContentSlider settings={settings} />
-        </section>
-      </section>
-
-      <section className="home_slider">
-        <h3 className="home_slider_name">Top Movies</h3>
-        <section className="home_slider_container">
-          <ContentSlider settings={settings} />
-
-        </section>
-      </section>
-
-      <section className="home_slider">
-        <h3 className="home_slider_name">Top Movies</h3>
-        <section className="home_slider_container">
-          <ContentSlider settings={settings} />
-        </section>
-      </section>
-
+      {dispalySliders(movies)}
     </section>
   )
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     popularMovies: state.movies.popularMovies,
-//     upcomingMovies: state.movies.upcomingMovies,
-//     nowPlayingMovies: state.movies.nowPlayingMovies,
-//     onTheAirShows: state.shows.onTheAirShows,
-//     onTheAirTodayShows: state.shows.onTheAirTodayShows,
-//     popularShows: state.shows.popularShows
-//   }
-// }
-
 export default HomeContent;
-// export default connect(mapStateToProps)(HomeContent);

@@ -2,23 +2,17 @@ import React from "react";
 import Slider from "react-slick";
 import Slide from './Slide';
 
-const ContentSlider = ({slides, settings}) => {
+const displayMovies = (movies) => {
+  return movies.map(movie => {
+    return <Slide key={movie.id} movie={movie} />
+  })
+}
+
+const ContentSlider = ({movies, settings}) => {
   return (
     <div>
       <Slider {...settings}>
-        <Slide />
-        <Slide />
-        <Slide />
-        <Slide />
-        <Slide />
-        <Slide />
-        <Slide />
-        <Slide />
-        <Slide />
-        <Slide />
-        <Slide />
-        <Slide />
-        <Slide />
+        {displayMovies(movies)}
       </Slider>
     </div>
   );
