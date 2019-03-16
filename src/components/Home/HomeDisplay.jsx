@@ -6,7 +6,13 @@ const displayBottomCol = movies => {
   return newMovies.map(movie => {
     return (
       <section key={movie.id} className="home_display_bottom_col">
-        <section className="display_content"></section>
+        <section className="display_content">
+          <section className="content_image"></section>
+          <section className="content_data">
+            <section className="content_title"></section>
+            <section className="content_details"></section>
+          </section>
+        </section>
       </section>
     )
   })
@@ -17,7 +23,13 @@ const displayTopInnerCol = movies => {
   return newMovies.map(movie => {
     return (
       <section key={movie.id} className="home_display_inner_col">
-        <section className="display_content"></section>
+        <section className="display_content">
+          <section className="content_image"></section>
+          <section className="content_data">
+            <section className="content_title"></section>
+            <section className="content_details"></section>
+          </section>
+        </section>
       </section>
     )
   })
@@ -28,7 +40,13 @@ const displayBottomInnerCol = movies => {
   return newMovies.map(movie => {
     return (
       <section key={movie.id} className="home_display_inner_col">
-        <section className="display_content"></section>
+        <section className="display_content">
+          <section className="content_image"></section>
+          <section className="content_data">
+            <section className="content_title"></section>
+            <section className="content_details"></section>
+          </section>
+        </section>
       </section>
     )
   })
@@ -37,7 +55,13 @@ const displayBottomInnerCol = movies => {
 const displayHomeCol = movies => {
   return (
     <section className="home_display_col">
-      <section className="display_content"></section>
+      <section className="display_content">
+        <section className="content_image"></section>
+        <section className="content_data">
+          <section className="content_title"></section>
+          <section className="content_details"></section>
+        </section>
+      </section>
     </section>
   )
 }
