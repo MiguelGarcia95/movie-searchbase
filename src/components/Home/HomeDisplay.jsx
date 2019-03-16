@@ -3,9 +3,9 @@ import './style/css/HomeDisplay.css';
 
 const displayBottomCol = (movies) => {
   let newMovies = movies.slice(5, 11);
-  return newMovies.forEach(movie => {
+  return newMovies.map(movie => {
     return (
-      <section className="home_display_bottom_col"><section className="display_content"></section></section>
+      <section key={movie.id} className="home_display_bottom_col"><section className="display_content"></section></section>
     )
   })
 }
