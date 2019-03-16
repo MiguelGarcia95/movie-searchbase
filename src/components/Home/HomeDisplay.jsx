@@ -9,8 +9,8 @@ const displayBottomCol = movies => {
         <section className="display_content">
           <section className="content_image"></section>
           <section className="content_data">
-            <section className="content_title"></section>
-            <section className="content_details"></section>
+            <section className="content_title"><h1>Title Here</h1></section>
+            <section className="content_details"><p>Movies data goes here here here here here</p></section>
           </section>
         </section>
       </section>
@@ -26,8 +26,8 @@ const displayTopInnerCol = movies => {
         <section className="display_content">
           <section className="content_image"></section>
           <section className="content_data">
-            <section className="content_title"></section>
-            <section className="content_details"></section>
+            <section className="content_title"><h1>Title Here</h1></section>
+            <section className="content_details"><p>Movies data goes here here here here here</p></section>
           </section>
         </section>
       </section>
@@ -43,8 +43,8 @@ const displayBottomInnerCol = movies => {
         <section className="display_content">
           <section className="content_image"></section>
           <section className="content_data">
-            <section className="content_title"></section>
-            <section className="content_details"></section>
+            <section className="content_title"><h1>Title Here</h1></section>
+            <section className="content_details"><p>Movies data goes here here here here here</p></section>
           </section>
         </section>
       </section>
@@ -58,8 +58,8 @@ const displayHomeCol = movies => {
       <section className="display_content">
         <section className="content_image"></section>
         <section className="content_data">
-          <section className="content_title"></section>
-          <section className="content_details"></section>
+          <section className="content_title"><h1>Title Here</h1></section>
+          <section className="content_details"><p>Movies data goes here here here here here</p></section>
         </section>
       </section>
     </section>
