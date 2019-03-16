@@ -4,7 +4,8 @@ const initialState = {
   upcomingMovies: [],
   topRatedMovies: [],
   nowPlayingMovies: [],
-  popularMovies: []
+  popularMovies: [],
+  movieGenres: []
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -23,6 +24,11 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         topRatedMovies: action.payload.topRatedMovies
+      }
+    case actionTypes.FETCH_MOVIE_GENRES:
+      return {
+        ...state,
+        movieGenres: action.payload.movieGenres
       }
     case actionTypes.FETCH_UPCOMING_MOVIES:
       return {

@@ -50,3 +50,15 @@ export const fetchOnTheAirTodayShows = () => {
     })
   }
 }
+
+export const fetchShowGenres = () => {
+  return async (dispatch) => {
+    const results = await axios.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=${MOVIEDBAPI}&language=en-US`);
+    dispatch({
+      type: actionTypes.FETCH_SHOW_GENRES,
+      payload: {
+        showGenres: results.data.genres
+      }
+    })
+  }
+}
