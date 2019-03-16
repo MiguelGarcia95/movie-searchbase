@@ -53,7 +53,6 @@ export const fetchTopRatedMovies = () => {
 export const fetchMovieGenres = () => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${MOVIEDBAPI}&language=en-US`);
-    console.log(results.data.genres)
     dispatch({
       type: actionTypes.FETCH_MOVIE_GENRES,
       payload: {

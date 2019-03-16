@@ -39,6 +39,8 @@ class App extends React.Component {
 
   homeDisplayMovies = fetchType => fetchType === 'movies' ? this.props.topRatedMovies : this.props.topRatedShows;
 
+  getGenres = fetchType => fetchType === 'movies' ? this.props.movieGenres : this.props.showGenres;
+
   setFetchType = type => this.setState({fetchType: type});
 
   getContentMovies = (fetchType) => {
@@ -63,10 +65,11 @@ class App extends React.Component {
     const {fetchType} = this.state;
     const displayMovies = this.homeDisplayMovies(fetchType);
     const contentMovies = this.getContentMovies(fetchType);
+    const genres = this.getGenres(fetchType);
     return (
       <section className="App">
-        <HomeDisplay movies={displayMovies} />
-        <HomeContent fetchType={fetchType} setFetchType={this.setFetchType} movies={contentMovies}/>
+        <HomeDisplay movies={displayMovies} genres={genres} />
+        <HomeContent fetchType={fetchType} setFetchType={this.setFetchType} movies={contentMovies} genres={genres}/>
       </section>
     );
   }
@@ -75,13 +78,15 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     topRatedMovies: state.movies.topRatedMovies,
-    topRatedShows: state.shows.topRatedShows,
     popularMovies: state.movies.popularMovies,
     upcomingMovies: state.movies.upcomingMovies,
     nowPlayingMovies: state.movies.nowPlayingMovies,
+    movieGenres: state.movies.movieGenres,
+    topRatedShows: state.shows.topRatedShows,
     onTheAirShows: state.shows.onTheAirShows,
     onTheAirTodayShows: state.shows.onTheAirTodayShows,
-    popularShows: state.shows.popularShows
+    popularShows: state.shows.popularShows,
+    showGenres: state.shows.showGenres
   }
 }
 

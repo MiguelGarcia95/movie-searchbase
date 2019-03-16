@@ -25,7 +25,7 @@ const tvShowsReducer = (state = initialState, action) => {
         ...state,
         onTheAirTodayShows: action.payload.onTheAirTodayShows
       }
-    case actionTypes.FETCH_MOVIE_GENRES:
+    case actionTypes.FETCH_SHOW_GENRES:
       return {
         ...state,
         showGenres: action.payload.showGenres
