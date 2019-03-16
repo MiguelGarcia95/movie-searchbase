@@ -21,6 +21,10 @@ const getYear = (movie, type) => {
   return year;
 }
 
+const getGenre = ({movie, type, genres}) => {
+
+}
+
 const Slide = ({movie, type}) => {
   return (
     <section className="search_result">

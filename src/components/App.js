@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import HomeDisplay from './Home/HomeDisplay';
 import HomeContent from './Home/HomeContent';
-import {fetchNowPlayingMovies, fetchTopRatedMovies, fetchPopularMovies, fetchUpcomingMovies} from '../actions/movieActions';
+import {fetchNowPlayingMovies, fetchTopRatedMovies, fetchPopularMovies, fetchUpcomingMovies, fetchMovieGenres} from '../actions/movieActions';
 import {fetchOnTheAirShows, fetchTopRatedShows, fetchPopularShows, fetchOnTheAirTodayShows} from '../actions/tvShowActions';
 
 import './App.css';
@@ -20,6 +20,7 @@ class App extends React.Component {
     this.props.fetchNowPlayingMovies();
     this.props.fetchUpcomingMovies();
     this.props.fetchPopularMovies();
+    this.props.fetchMovieGenres();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -92,7 +93,8 @@ const mapDispatchToProps = dispatch => {
     fetchOnTheAirShows: () => dispatch(fetchOnTheAirShows()),
     fetchTopRatedShows: () => dispatch(fetchTopRatedShows()),
     fetchPopularShows: () => dispatch(fetchPopularShows()),
-    fetchOnTheAirTodayShows: () => dispatch(fetchOnTheAirTodayShows())
+    fetchOnTheAirTodayShows: () => dispatch(fetchOnTheAirTodayShows()),
+    fetchMovieGenres: () => dispatch(fetchMovieGenres())
   }
 }
 
