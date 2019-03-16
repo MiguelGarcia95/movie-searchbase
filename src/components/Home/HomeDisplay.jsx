@@ -5,7 +5,9 @@ const displayBottomCol = movies => {
   let newMovies = movies.slice(5, 11);
   return newMovies.map(movie => {
     return (
-      <section key={movie.id} className="home_display_bottom_col"><section className="display_content"></section></section>
+      <section key={movie.id} className="home_display_bottom_col">
+        <section className="display_content"></section>
+      </section>
     )
   })
 }
@@ -14,7 +16,9 @@ const displayTopInnerCol = movies => {
   let newMovies = movies.slice(1, 3);
   return newMovies.map(movie => {
     return (
-      <section key={movie.id} className="home_display_inner_col"><section className="display_content"></section></section>
+      <section key={movie.id} className="home_display_inner_col">
+        <section className="display_content"></section>
+      </section>
     )
   })
 }
@@ -23,13 +27,19 @@ const displayBottomInnerCol = movies => {
   let newMovies = movies.slice(3, 5);
   return newMovies.map(movie => {
     return (
-      <section key={movie.id} className="home_display_inner_col"><section className="display_content"></section></section>
+      <section key={movie.id} className="home_display_inner_col">
+        <section className="display_content"></section>
+      </section>
     )
   })
 }
 
 const displayHomeCol = movies => {
-  return <section className="home_display_col"><section className="display_content"></section></section>
+  return (
+    <section className="home_display_col">
+      <section className="display_content"></section>
+    </section>
+  )
 }
 
 const HomeDisplay = ({movies}) => {
