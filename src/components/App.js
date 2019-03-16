@@ -16,17 +16,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchTopRatedMovies();
     this.props.fetchNowPlayingMovies();
     this.props.fetchUpcomingMovies();
-    this.props.fetchTopRatedMovies();
     this.props.fetchPopularMovies();
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.shouldComponentFetchShows(this.state.fetchType, prevState.fetchType, this.props.topRatedShows)) {
+      this.props.fetchTopRatedShows();
       this.props.fetchOnTheAirShows();
       this.props.fetchPopularShows();
-      this.props.fetchTopRatedShows();
       this.props.fetchOnTheAirTodayShows();
     }
   }
@@ -40,15 +40,19 @@ class App extends React.Component {
   setFetchType = type => this.setState({fetchType: type});
 
   getContentMovies = (fetchType) => {
-    let movies = {};
+    let movies = [];
     if (fetchType === 'movies') {
-      movies = {
-
-      }
+      movies = [
+        {title: 'Now Playing', movies: this.props.nowPlayingMovies},
+        {title: 'Popular', movies: this.props.popularMovies},
+        {title: 'Upcoming', movies: this.props.upcomingMovies}
+      ]
     } else {
-      movies = {
-
-      }
+      movies = [
+        {title: 'On The Air', movies: this.props.onTheAirShows},
+        {title: 'On The Air Today', movies: this.props.onTheAirTodayShows},
+        {title: 'Popular', movies: this.props.popularShows}
+      ]
     }
     return movies;
   }
