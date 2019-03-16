@@ -60,10 +60,11 @@ class App extends React.Component {
   render() {
     const {fetchType} = this.state;
     const displayMovies = this.homeDisplayMovies(fetchType);
+    const contentMovies = this.getContentMovies(fetchType);
     return (
       <section className="App">
         <HomeDisplay movies={displayMovies} />
-        <HomeContent fetchType={fetchType} setFetchType={this.setFetchType}/>
+        <HomeContent fetchType={fetchType} setFetchType={this.setFetchType} movies={contentMovies}/>
       </section>
     );
   }
