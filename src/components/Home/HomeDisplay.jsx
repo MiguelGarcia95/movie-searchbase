@@ -46,7 +46,7 @@ const displayBottomCol = (movies, genres, fetchType) => {
           <section className="content_image"></section>
           <section className="content_data">
             <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
-            <section className="content_details"><p>Movies data goes here here here here here</p></section>
+            <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
           </section>
         </section>
       </section>
@@ -63,7 +63,7 @@ const displayTopInnerCol = (movies, genres, fetchType) => {
           <section className="content_image"></section>
           <section className="content_data">
             <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
-            <section className="content_details"><p>Movies data goes here here here here here</p></section>
+            <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
           </section>
         </section>
       </section>
@@ -80,7 +80,7 @@ const displayBottomInnerCol = (movies, genres, fetchType) => {
           <section className="content_image"></section>
           <section className="content_data">
             <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
-            <section className="content_details"><p>Movies data goes here here here here here</p></section>
+            <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
           </section>
         </section>
       </section>
@@ -95,7 +95,7 @@ const displayHomeCol = (movies, genres, fetchType) => {
         <section className="content_image"></section>
         <section className="content_data">
           <section className="content_title"><h1>{getTitle(movies[0], fetchType)}</h1></section>
-          <section className="content_details"><p>Movies data goes here here here here here</p></section>
+          <section className="content_details"><p>{getYear(movies[0], fetchType)} / {getGenre(movies[0], genres)}</p></section>
         </section>
       </section>
     </section>
