@@ -42,10 +42,11 @@ class MyNavbar extends React.Component {
 
   render() {
     const {session_id} = this.props;
+    const {isMobile} = this.state;
     return (
       <nav className='navbar' ref={ node => this.navbar = node }>
         <section className="navbar_brand">
-          <NavLink className="navbar_link" to="/">Movie SearchBase</NavLink>
+          {isMobile ? <NavLink className="navbar_link" to="/">M SB</NavLink> : <NavLink className="navbar_link" to="/">Movie SearchBase</NavLink>}
           <input className='navbar_search' type='text' placeholder="Search" />
         </section>
         <section className='navbar_links'>
