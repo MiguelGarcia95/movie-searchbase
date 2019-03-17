@@ -6,7 +6,8 @@ import './style/css/MyNavbar.css';
 
 class MyNavbar extends React.Component {
   state = {
-    isOpen: false
+    isOpen: false,
+    width: null
   };
 
   componentDidMount() {
@@ -14,11 +15,19 @@ class MyNavbar extends React.Component {
       this.props.setSession(localStorage.getItem('session_id'));
     }
   }
+
+  componentWillUpdate() {
+    this.isMobile()
+  }
   
   toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
+  }
+
+  isMobile = () => {
+    console.log(this.navbar.clientWidth)
   }
 
   onLogoutClick = () => {
@@ -28,14 +37,14 @@ class MyNavbar extends React.Component {
   render() {
     const {session_id} = this.props;
     return (
-      <nav className='navbar'>
+      <nav className='navbar' ref={ node => this.navbar = node }>
         <section className="navbar_brand">
           <NavLink className="navbar_link" to="/">Movie SearchBase</NavLink>
           <input className='navbar_search' type='text' placeholder="Search" />
         </section>
         <section className='navbar_links'>
-          <NavLink className="nav_icon" title='Search' to="/search"><i className="fas fa-2x fa-search"></i></NavLink>
-          <NavLink className="nav_icon" title='Random' to="/random"><i className="fas fa-2x fa-random"></i></NavLink>
+          {/* <NavLink className="nav_icon" title='Search' to="/search"><i className="fas fa-2x fa-search"></i></NavLink> */}
+          {/* <NavLink className="nav_icon" title='Random' to="/random"><i className="fas fa-2x fa-random"></i></NavLink> */}
           {session_id && (
             <React.Fragment>
               <NavLink className="nav_icon" title="Account" to="/account"><i className="far fa-2x fa-user-circle"></i></NavLink>
