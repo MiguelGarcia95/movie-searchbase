@@ -34,11 +34,24 @@ const getGenre = (movie, genres) => {
   return getGenreFromId(movie.genre_ids[0], genres);
 }
 
+// const movieRatingColor = rating => {
+//   if (rating > 7) {
+//     return 'rgb(70, 182, 98)';
+//   } else {
+//     return 'rgb(139, 54, 54)';
+//   }
+// }
+
 const Slide = ({movie, type, genres}) => {
+  const imageStyle = {
+    backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }
   return (
     <section className="search_result">
       <section className="search_result_movie">
-        <section className="search_result_movie_image"></section>
+        <section className="search_result_movie_image" style={imageStyle}></section>
         <p className="search_result_movie_rating">{movie.vote_average}</p>  
       </section>
       <section className="search_result_movie_data">
