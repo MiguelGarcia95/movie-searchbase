@@ -7,27 +7,33 @@ import './style/css/MyNavbar.css';
 class MyNavbar extends React.Component {
   state = {
     isOpen: false,
-    width: null
+    isMobile: false
   };
 
   componentDidMount() {
+    this.onWindowResize();
     if (localStorage.getItem('session_id')) {
       this.props.setSession(localStorage.getItem('session_id'));
     }
+    window.addEventListener('resize', this.onWindowResize);
   }
 
-  componentWillUpdate() {
-    this.isMobile()
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResize);
   }
-  
+
   toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
 
-  isMobile = () => {
-    console.log(this.navbar.clientWidth)
+  onWindowResize = () => {
+    if (this.navbar.clientWidth < 750 && !this.state.isMobile) {
+      this.setState({isMobile: true})
+    } else if (this.navbar.clientWidth >= 750 && this.state.isMobile) {
+      this.setState({isMobile: false})
+    }
   }
 
   onLogoutClick = () => {
