@@ -11,13 +11,6 @@ const getTitle = (movie, type) => {
   return title;
 }
 
-// const getImage = (movie, type) => {
-//   // poster_path
-
-//   // backdrop_path
-//   // poster_path
-// }
-
 const getYear = (movie, type) => {
   let year = '';
   if (type === 'movies') {
