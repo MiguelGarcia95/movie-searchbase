@@ -85,14 +85,14 @@ const displayBottomInnerCol = (movies, genres, fetchType) => {
   })
 }
 
-const displayHomeCol = (movies, genres, fetchType) => {
+const displayHomeCol = (movie, genres, fetchType) => {
   return (
     <section className="home_display_col">
       <section className="display_content">
         <section className="content_image"></section>
         <section className="content_data">
-          <section className="content_title"><h1>{getTitle(movies[0], fetchType)}</h1></section>
-          <section className="content_details"><p>{getYear(movies[0], fetchType)} / {getGenre(movies[0], genres)}</p></section>
+          <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
+          <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
         </section>
       </section>
     </section>
@@ -103,7 +103,7 @@ const HomeDisplay = ({movies, genres, fetchType}) => {
   return (
     <section className='home_display'>
       <section className="home_display_row">
-        {movies.length > 0 && displayHomeCol(movies, genres, fetchType)}
+        {movies.length > 0 && displayHomeCol(movies[0], genres, fetchType)}
         <section className="home_display_col">
           <section className="home_display_inner_row">
             {movies && displayTopInnerCol(movies, genres, fetchType)}
