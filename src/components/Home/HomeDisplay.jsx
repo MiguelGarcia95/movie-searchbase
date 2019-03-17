@@ -23,7 +23,6 @@ const getYear = (movie, type) => {
 
 const getGenreFromId = (genreId, genres) => {
   return genres.reduce((genreName, genre) => {
-    let genreIdName = '';
     if (genre.id === genreId) {
       genreName = genre.name;
     }
@@ -32,9 +31,7 @@ const getGenreFromId = (genreId, genres) => {
 }
 
 const getGenre = (movie, genres) => {
-  let genre = '';
-  genre = getGenreFromId(movie.genre_ids[0], genres);
-  return genre;
+  return getGenreFromId(movie.genre_ids[0], genres);
 }
 
 const displayBottomCol = (movies, genres, fetchType) => {
