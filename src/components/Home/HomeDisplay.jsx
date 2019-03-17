@@ -66,7 +66,43 @@ const displayHomeCol = movies => {
   )
 }
 
-const HomeDisplay = ({movies}) => {
+const getTitle = (movie, type) => {
+  let title = '';
+  if (type === 'movies') {
+    title = movie.title
+  } else {
+    title = movie.name
+  }
+  return title;
+}
+
+const getYear = (movie, type) => {
+  let year = '';
+  if (type === 'movies') {
+    year = movie.release_date.slice(0,4);
+  } else {
+    year = movie.first_air_date.slice(0,4);
+  }
+  return year;
+}
+
+const getGenreFromId = (genreId, genres) => {
+  return genres.reduce((genreName, genre) => {
+    let genreIdName = '';
+    if (genre.id === genreId) {
+      genreName = genre.name;
+    }
+    return genreName;
+  }, '');
+}
+
+const getGenre = (movie, genres) => {
+  let genre = '';
+  genre = getGenreFromId(movie.genre_ids[0], genres);
+  return genre;
+}
+
+const HomeDisplay = ({movies, genres, fetchType}) => {
   return (
     <section className='home_display'>
       <section className="home_display_row">

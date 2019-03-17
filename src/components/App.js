@@ -68,7 +68,7 @@ class App extends React.Component {
     const genres = this.getGenres(fetchType);
     return (
       <section className="App">
-        <HomeDisplay movies={displayMovies} genres={genres} />
+        <HomeDisplay movies={displayMovies} genres={genres} fetchType={fetchType} />
         <HomeContent fetchType={fetchType} setFetchType={this.setFetchType} movies={contentMovies} genres={genres}/>
       </section>
     );
