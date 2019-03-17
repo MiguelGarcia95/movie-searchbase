@@ -11,6 +11,13 @@ const getTitle = (movie, type) => {
   return title;
 }
 
+// const getImage = (movie, type) => {
+//   // poster_path
+
+//   // backdrop_path
+//   // poster_path
+// }
+
 const getYear = (movie, type) => {
   let year = '';
   if (type === 'movies') {
@@ -37,10 +44,15 @@ const getGenre = (movie, genres) => {
 const displayBottomCol = (movies, genres, fetchType) => {
   let newMovies = movies.slice(5, 11);
   return newMovies.map(movie => {
+    const imageStyle = {
+      backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+    }
     return (
       <section key={movie.id} className="home_display_bottom_col">
         <section className="display_content">
-          <section className="content_image"></section>
+          <section className="content_image" style={imageStyle}></section>
           <section className="content_data">
             <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
             <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
@@ -54,10 +66,15 @@ const displayBottomCol = (movies, genres, fetchType) => {
 const displayTopInnerCol = (movies, genres, fetchType) => {
   let newMovies = movies.slice(1, 3);
   return newMovies.map(movie => {
+    const imageStyle = {
+      backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+    }
     return (
       <section key={movie.id} className="home_display_inner_col">
         <section className="display_content">
-          <section className="content_image"></section>
+          <section className="content_image" style={imageStyle}></section>
           <section className="content_data">
             <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
             <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
@@ -71,10 +88,15 @@ const displayTopInnerCol = (movies, genres, fetchType) => {
 const displayBottomInnerCol = (movies, genres, fetchType) => {
   let newMovies = movies.slice(3, 5);
   return newMovies.map(movie => {
+    const imageStyle = {
+      backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+    }
     return (
       <section key={movie.id} className="home_display_inner_col">
         <section className="display_content">
-          <section className="content_image"></section>
+          <section className="content_image" style={imageStyle}></section>
           <section className="content_data">
             <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
             <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
@@ -86,10 +108,15 @@ const displayBottomInnerCol = (movies, genres, fetchType) => {
 }
 
 const displayHomeCol = (movie, genres, fetchType) => {
+  const imageStyle = {
+    backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }
   return (
     <section className="home_display_col">
       <section className="display_content">
-        <section className="content_image"></section>
+        <section className="content_image" style={imageStyle} ></section>
         <section className="content_data">
           <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
           <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
