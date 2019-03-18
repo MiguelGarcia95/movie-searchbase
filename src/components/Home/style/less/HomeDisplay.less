@@ -63,7 +63,12 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
       &:hover {
         padding: 0px;
       }
-      .display_content {width: 100%; height: 100%;}
+      .display_content {
+        width: 100%; height: 100%;
+        .content_data {
+          min-height: 85px;
+        }
+      }
     }
     .home_display_col {
       width: 50%; height: 100%;
@@ -147,6 +152,7 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
               padding-top: 0px;
             }
           }
+          .content_details {display: none;}
         }
       }
     }
