@@ -20,6 +20,38 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
   box-sizing: border-box;
   position: fixed;
   z-index: 9;
+  &.mobile {
+    padding: @navbarTopPadding 5px ;
+    .navbar_brand {
+      .navbar_link {
+        font-size: 1.1em;
+      }
+      .navbar_search {
+        width: 100px;
+        height: 30px;
+        padding: 5px 10px;
+        margin-top: 15px;
+        margin-left: 15px;
+        &:focus {
+          margin-bottom: 1px;
+          border-bottom: 1px solid rgba(255,255,255,0.8);
+        }
+      }
+    }
+    .navbar_links{
+      .navbar_link {
+        margin: 10px 0px 0px 10px;
+        padding: 10px 10px;
+        border-radius: 20px;
+        box-sizing: content-box;
+        height: 20px;
+        width: 20px;
+        text-align: center;
+        &.signin {}
+        &.signout {}
+      }
+    }
+  }
 
   .navbar_brand, .navbar_links {
     height: @navLinkHeight; 

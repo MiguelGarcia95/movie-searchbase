@@ -40,27 +40,41 @@ class MyNavbar extends React.Component {
     this.props.logout();
   }
 
+  navbarClass = (isMobile) => isMobile ? 'mobile' : '';
+
   render() {
     const {session_id} = this.props;
     const {isMobile} = this.state;
     return (
-      <nav className='navbar' ref={ node => this.navbar = node }>
+      <nav className={`navbar ${this.navbarClass(isMobile)}`} ref={ node => this.navbar = node }>
         <section className="navbar_brand">
           {isMobile ? <NavLink className="navbar_link" to="/">M SB</NavLink> : <NavLink className="navbar_link" to="/">Movie SearchBase</NavLink>}
           <input className='navbar_search' type='text' placeholder="Search" />
         </section>
         <section className='navbar_links'>
-          {/* <NavLink className="nav_icon" title='Search' to="/search"><i className="fas fa-2x fa-search"></i></NavLink> */}
-          {/* <NavLink className="nav_icon" title='Random' to="/random"><i className="fas fa-2x fa-random"></i></NavLink> */}
-          {session_id && (
+          {session_id && isMobile && (
             <React.Fragment>
               <NavLink className="nav_icon" title="Account" to="/account"><i className="far fa-2x fa-user-circle"></i></NavLink>
-              <NavLink className="navbar_link signout" to="" onClick={() => this.onLogoutClick()} >Sign Out</NavLink>
+              <NavLink className="navbar_link signout" title="Sign Out" to="" onClick={() => this.onLogoutClick()} ><i className="fas fa-sign-out-alt"></i></NavLink>
             </React.Fragment>
           )}
-          {!session_id && (
+
+          {session_id && !isMobile && (
             <React.Fragment>
-              <NavLink className="navbar_link signin" to="/login">Sign In</NavLink>
+              <NavLink className="nav_icon" title="Account" to="/account"><i className="far fa-2x fa-user-circle"></i></NavLink>
+              <NavLink className="navbar_link signout" title="Sign Out" to="" onClick={() => this.onLogoutClick()} >Sign Out</NavLink>
+            </React.Fragment>
+          )}
+          
+          {!session_id && isMobile && (
+            <React.Fragment>
+              <NavLink className="navbar_link signin" title="Sign In" to="/login"><i className="fas fa-sign-in-alt"></i></NavLink>
+            </React.Fragment>
+          )}
+
+          {!session_id && !isMobile && (
+            <React.Fragment>
+              <NavLink className="navbar_link signin" title="Sign In" to="/login">Sign In</NavLink>
             </React.Fragment>
           )}
         </section>
