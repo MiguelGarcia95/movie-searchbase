@@ -81,7 +81,7 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
           .display_content {
             width: 100%; height: 100%;
             .content_data {
-              min-height: 65px;
+              min-height: 75px;
             }
           }
         }
@@ -122,6 +122,38 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
 }
 
 @media (max-width: 1450px) {
+  .home_display {
+    .home_display_row {
+      .home_display_col {
+        .home_display_inner_row {
+          .home_display_inner_col {
+            .display_content {
+              .content_title {
+                h1 {
+                  font-size: 1.5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .home_display_bottom_row {
+      .home_display_bottom_col {
+        .display_content {
+          .content_title {
+            h1 {
+              font-size: 1rem;
+              padding-top: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1150px) {
   .home_display {
     padding-top: @navbarHeight;
     .display_content {
