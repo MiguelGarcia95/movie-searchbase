@@ -48,7 +48,7 @@ const displayBottomCol = (movies, genres, fetchType) => {
           <section className="content_image" style={imageStyle}></section>
           <section className="content_data">
             <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
-            <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
+            {/* <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section> */}
           </section>
         </section>
       </section>
