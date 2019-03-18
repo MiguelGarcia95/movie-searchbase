@@ -117,3 +117,31 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
     }
   }
 }
+
+@media (max-width: 350px) {
+  .navbar {
+    &.mobile {
+      .navbar_brand {
+        .navbar_search {
+          width: 80px;
+          margin-left: 5px;
+        }
+      }
+      .navbar_links{
+        .navbar_link {margin: 10px 0px 0px 0px;}
+      }
+    }
+  
+    .navbar_brand, .navbar_links {
+      .nav_icon {
+        color: @navbarColor;
+        height: 32px;
+        margin: 14px 10px 0px 10px;
+      }
+    }
+  
+    .navbar_links{
+      .navbar_link {margin: 10px 0px 0px 20px;}
+    }
+  }
+}
