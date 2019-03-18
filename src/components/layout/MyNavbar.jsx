@@ -29,9 +29,9 @@ class MyNavbar extends React.Component {
   }
 
   onWindowResize = () => {
-    if (this.navbar.clientWidth < 750 && !this.state.isMobile) {
+    if (this.navbar.clientWidth < 780 && !this.state.isMobile) {
       this.setState({isMobile: true})
-    } else if (this.navbar.clientWidth >= 750 && this.state.isMobile) {
+    } else if (this.navbar.clientWidth >= 780 && this.state.isMobile) {
       this.setState({isMobile: false})
     }
   }
