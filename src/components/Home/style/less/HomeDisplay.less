@@ -146,11 +146,11 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
     .home_display_bottom_row {
       .home_display_bottom_col {
         .display_content {
+          .content_data {
+            min-height: 20px;
+          }
           .content_title {
-            h1 {
-              font-size: 1rem;
-              padding-top: 0px;
-            }
+            h1 {font-size: 1rem;}
           }
           .content_details {display: none;}
         }
@@ -159,7 +159,7 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
   }
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
   .home_display {
     padding-top: @navbarHeight;
     .display_content {
@@ -196,9 +196,18 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
           .home_display_inner_col {
             // width: 50%; height: 100%; float: left;
             .display_content {
-              .content_title {
-                h1 {
-                  font-size: 1.5rem;
+              .content_data {
+                .content_title {
+                  h1 {
+                    font-size: 1.2rem;
+                  }
+                }
+                min-height: 55px;
+                .content_details {
+                  p {
+                    margin-top: 5px;
+                    font-size: 0.9em;
+                  }
                 }
               }
             }
