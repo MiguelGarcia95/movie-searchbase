@@ -7,11 +7,26 @@ import './style/css/HomeContent.css';
 const settings = {
   rtl: true,
   infinite: true,
-  slidesToShow: 6,
+  slidesToShow: 8,
   arrows: false,
   swipeToSlide: true,
   speed: 500,
-  slidesToScroll: 1
+  slidesToScroll: 1,
+  initialSlide: 0,
+  responsive: [
+    {
+      breakpoint: 1720,
+      settings: {
+        slidesToShow: 7
+      }
+    },
+    {
+      breakpoint: 1520,
+      settings: {
+        slidesToShow: 6
+      }
+    }
+  ]
 };
 
 const dispalySliders = (movies, genres) => {
