@@ -5,7 +5,7 @@ import HomeSwitch from './HomeSwitch';
 import './style/css/HomeContent.css';
 
 const settings = {
-  rtl: true,
+  // rtl: true,
   infinite: true,
   slidesToShow: 8,
   arrows: false,
@@ -47,9 +47,7 @@ const settings = {
     {
       breakpoint: 500,
       settings: {
-        slidesToShow: 1,
-        centerMode: true,
-        className: 'center'
+        slidesToShow: 1
       }
     }
   ]
