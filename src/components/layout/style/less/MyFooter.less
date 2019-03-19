@@ -89,18 +89,30 @@
 
 @media (max-width: 800px) {
   .footer {
-    height: 360px;
+    .footer_content {
+      .footer_nav {
+        .nav_icon {
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .footer {
+    // height: 360px;
     // padding: 0 50px; 
     .footer_content {
-      height: 300px; 
+      // height: 300px; 
       .footer_nav {
-        float: none;
-        margin: auto;
-        margin-bottom: 50px;
+        // float: none;
+        // margin: auto;
+        // margin-bottom: 50px;
         .nav_icon {
-          // padding: 0 10px;
+          padding: 0 5px;
           // i {margin-right: 5px;}
-          span {display: none;}
+          // span {display: none;}
         }
         .navbar_search {
           // width: 200px;
@@ -112,8 +124,8 @@
       }
       img {
         // width: 300px; height: 121px; 
-        float: none;
-        margin: auto;
+        // float: none;
+        // margin: auto;
       }
     }
     .footer_meta {
@@ -125,7 +137,7 @@
       }
       .nav_icon {
         // i {margin-right: 5px;}
-        span {display: none;}
+        // span {display: none;}
       }
       // #meta_left {float: left;} 
       // #meta_center {margin: auto; display: inline-block;}
