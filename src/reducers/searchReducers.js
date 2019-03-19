@@ -1,7 +1,10 @@
 import * as actionTypes from '../actions/types';
 
 const initialState = {
-  searchResults: []
+  searchResults: [],
+  currentPage: null,
+  totalPages: null,
+  totalResults: null
 }
 
 const searchReducer = (state = initialState, action) => {
@@ -9,7 +12,10 @@ const searchReducer = (state = initialState, action) => {
     case actionTypes.FETCH_SEARCH_RESULTS:
       return {
         ...state,
-        searchResults: action.payload.searchResults
+        searchResults: action.payload.searchResults,
+        currentPage: action.payload.currentPage,
+        totalPages: action.payload.totalPages,
+        totalResults: action.payload.totalResults
       }
     default:
       return state;
