@@ -7,7 +7,8 @@ import './style/css/MyNavbar.css';
 class MyNavbar extends React.Component {
   state = {
     isOpen: false,
-    isMobile: false
+    isMobile: false,
+    searchQuery: ''
   };
 
   componentDidMount() {
@@ -30,6 +31,10 @@ class MyNavbar extends React.Component {
     }
   }
 
+  onSearchChange = e => {
+    this.setState({searchQuery: e.target.value});
+  }
+
   onLogoutClick = () => this.props.logout();
 
   navbarClass = (isMobile) => isMobile ? 'mobile' : '';
@@ -42,7 +47,7 @@ class MyNavbar extends React.Component {
       <nav className={`navbar ${this.navbarClass(isMobile)}`} ref={ node => this.navbar = node }>
         <section className="navbar_brand">
           {isMobile ? <NavLink className="navbar_link" to="/">M SB</NavLink> : <NavLink className="navbar_link" to="/">Movie SearchBase</NavLink>}
-          <input className='navbar_search' type='text' placeholder="Search" />
+          <input className='navbar_search' type='text' placeholder="Search" onChange={this.onSearchChange} />
         </section>
         <section className='navbar_links'>
           {session_id && isMobile && (
