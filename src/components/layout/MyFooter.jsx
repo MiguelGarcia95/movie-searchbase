@@ -7,8 +7,8 @@ const MyFooter = () => {
     <footer className="footer">
       <section className="footer_content">
         <section className="footer_nav">
-          <a className="nav_icon" href="/theme/"><i className="fa fa-2x fa-home"></i> Home</a>
-          <a className="nav_icon" href="/theme/account.hmtl"><i className="far fa-2x fa-user-circle"></i> Account</a>
+          <a className="nav_icon" href="/theme/"><i className="fa fa-2x fa-home"></i> <span>Home</span></a>
+          <a className="nav_icon" href="/theme/account.hmtl"><i className="far fa-2x fa-user-circle"></i> <span>Account</span></a>
           <input className='navbar_search' type='text' placeholder="Search" />
         </section>
         <a href='https://www.themoviedb.org/'>
