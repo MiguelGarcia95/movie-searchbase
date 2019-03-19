@@ -22,12 +22,6 @@ class MyNavbar extends React.Component {
     window.removeEventListener('resize', this.onWindowResize);
   }
 
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
-
   onWindowResize = () => {
     if (this.navbar.clientWidth < 780 && !this.state.isMobile) {
       this.setState({isMobile: true})
@@ -36,15 +30,14 @@ class MyNavbar extends React.Component {
     }
   }
 
-  onLogoutClick = () => {
-    this.props.logout();
-  }
+  onLogoutClick = () => this.props.logout();
 
   navbarClass = (isMobile) => isMobile ? 'mobile' : '';
 
   render() {
     const {session_id} = this.props;
     const {isMobile} = this.state;
+    // console.log(this.props)
     return (
       <nav className={`navbar ${this.navbarClass(isMobile)}`} ref={ node => this.navbar = node }>
         <section className="navbar_brand">

@@ -44,8 +44,8 @@ const displayBottomCol = (movies, genres, fetchType) => {
       backgroundSize: 'cover',
     }
     return (
-      <Link to={`${fetchType}/${movie.id}`}>
-        <section key={movie.id} className="home_display_bottom_col">
+      <Link key={movie.id} to={`${fetchType}/${movie.id}`}>
+        <section  className="home_display_bottom_col">
           <section className="display_content">
             <section className="content_image" style={imageStyle}></section>
             <section className="content_data">
@@ -68,8 +68,8 @@ const displayTopInnerCol = (movies, genres, fetchType) => {
       backgroundSize: 'cover',
     }
     return (
-      <Link to={`${fetchType}/${movie.id}`}>
-        <section key={movie.id} className="home_display_inner_col">
+      <Link key={movie.id} to={`${fetchType}/${movie.id}`}>
+        <section className="home_display_inner_col">
           <section className="display_content">
             <section className="content_image" style={imageStyle}></section>
             <section className="content_data">
@@ -92,8 +92,8 @@ const displayBottomInnerCol = (movies, genres, fetchType) => {
       backgroundSize: 'cover',
     }
     return (
-      <Link to={`${fetchType}/${movie.id}`}>
-        <section key={movie.id} className="home_display_inner_col">
+      <Link key={movie.id} to={`${fetchType}/${movie.id}`}>
+        <section className="home_display_inner_col">
           <section className="display_content">
             <section className="content_image" style={imageStyle}></section>
             <section className="content_data">
@@ -114,7 +114,7 @@ const displayHomeCol = (movie, genres, fetchType) => {
     backgroundSize: 'cover',
   }
   return (
-    <Link to={`${fetchType}/${movie.id}`}>
+    <Link key={movie.id} to={`${fetchType}/${movie.id}`}>
       <section className="home_display_col">
         <section className="display_content">
           <section className="content_image" style={imageStyle} ></section>

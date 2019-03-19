@@ -24,7 +24,7 @@ const Root = () => {
           <Route exact path='/' component={App} />
           <Route path='/login' component={Login} />
           <Route path='/account' component={Account} />
-          <Route path='/search' component={SearchResults} />
+          <Route path='/search/{searchQuery}' component={SearchResults} />
           <Route path='/shows/{tvId}' component={DisplayTv} />
           <Route path='/movies/{movieId}' component={DisplayMovie} />
         </Switch>
