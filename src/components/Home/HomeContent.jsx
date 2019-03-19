@@ -5,13 +5,11 @@ import HomeSwitch from './HomeSwitch';
 import './style/css/HomeContent.css';
 
 const settings = {
-  // rtl: true,
   infinite: true,
   slidesToShow: 8,
   arrows: true,
   swipeToSlide: true,
   speed: 500,
-  // slidesToScroll: 1,
   initialSlide: 0,
   responsive: [
     {

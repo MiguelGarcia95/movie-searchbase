@@ -5,6 +5,10 @@ import MovieResult from './MovieResult';
 import './style/css/SearchResults.css';
 
 class SearchResults extends React.Component {
+  componentDidMount() {
+    console.log(this.props.match.params.searchQuery)
+  }
+
   render() {
     return (
       <section className="search_page">
