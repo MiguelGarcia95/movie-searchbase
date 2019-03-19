@@ -7,6 +7,9 @@ export const SET_TOKEN = 'SET_TOKEN';
 export const GET_SESSION  = 'GET_SESSION';
 export const SET_SESSION = 'SET_SESSION';
 
+// Search
+export const FETCH_SEARCH_RESULTS = 'FETCH_SEARCH_RESULTS';
+
 // Movies
 export const FETCH_POPULAR_MOVIES = 'FETCH_POPULAR_MOVIES';
 export const FETCH_TOP_RATED_MOVIES = 'FETCH_TOP_RATED_MOVIES';
