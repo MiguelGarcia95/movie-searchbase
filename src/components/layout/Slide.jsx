@@ -55,7 +55,7 @@ const Slide = ({movie, type, genres}) => {
         <section className="search_result_movie_image" style={imageStyle}></section>
         <p className="search_result_movie_rating">{movie.vote_average}</p>  
         <Link to={`${type}/${movie.id}`}>
-          <p className="search_result_movie_link"><i className="fas fa-link"></i></p>  
+          <p className="search_result_movie_link"><i className="fas fa-expand-arrows-alt "></i></p>  
         </Link>
       </section>
       <section className="search_result_movie_data">
