@@ -51,12 +51,13 @@ const Slide = ({movie, type, genres}) => {
   }
   return (
     <section className="search_result">
-      <Link to={`${type}/${movie.id}`}>
-        <section className="search_result_movie">
-          <section className="search_result_movie_image" style={imageStyle}></section>
-          <p className="search_result_movie_rating">{movie.vote_average}</p>  
-        </section>
-      </Link>
+      <section className="search_result_movie">
+        <section className="search_result_movie_image" style={imageStyle}></section>
+        <p className="search_result_movie_rating">{movie.vote_average}</p>  
+        <Link to={`${type}/${movie.id}`}>
+          <p className="search_result_movie_link"><i className="fas fa-link"></i></p>  
+        </Link>
+      </section>
       <section className="search_result_movie_data">
           <section className="search_result_movie_meta"><p>{getYear(movie, type)} / {getGenre(movie, genres)}</p></section>  
           <section className="search_result_movie_title"><p>{getTitle(movie, type)}</p></section>  
