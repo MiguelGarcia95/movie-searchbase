@@ -37,6 +37,18 @@ const settings = {
       settings: {
         slidesToShow: 4
       }
+    },
+    {
+      breakpoint: 620,
+      settings: {
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 2
+      }
     }
   ]
 };
