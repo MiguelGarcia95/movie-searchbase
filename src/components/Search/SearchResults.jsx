@@ -1,12 +1,14 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-import '../App.css';
+import {fetchSearchResults} from '../../actions/searchActions';
 import MovieResult from './MovieResult';
+import '../App.css';
 import './style/css/SearchResults.css';
 
 class SearchResults extends React.Component {
   componentDidMount() {
-    console.log(this.props.match.params.searchQuery)
+    this.props.fetchSearchResults(this.props.match.params.searchQuery, 1);
   }
 
   render() {
@@ -37,4 +39,10 @@ class SearchResults extends React.Component {
   }
 }
 
-export default SearchResults;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchSearchResults: (searchQuery, page) => dispatch(fetchSearchResults(searchQuery, page))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SearchResults);
