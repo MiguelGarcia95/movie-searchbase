@@ -31,8 +31,15 @@ class MyNavbar extends React.Component {
     }
   }
 
-  onSearchChange = e => {
-    this.setState({searchQuery: e.target.value});
+  // onSearchChange = e => {
+  //   this.setState({searchQuery: e.target.value});
+  // }
+
+  onSearchKeyDown = e => {
+    if (e.keyCode === 13) {
+      console.log('Shoud search for: ', e.target.value)
+      // redirect to link
+    }
   }
 
   onLogoutClick = () => this.props.logout();
@@ -47,7 +54,7 @@ class MyNavbar extends React.Component {
       <nav className={`navbar ${this.navbarClass(isMobile)}`} ref={ node => this.navbar = node }>
         <section className="navbar_brand">
           {isMobile ? <NavLink className="navbar_link" to="/">M SB</NavLink> : <NavLink className="navbar_link" to="/">Movie SearchBase</NavLink>}
-          <input className='navbar_search' type='text' placeholder="Search" onChange={this.onSearchChange} />
+          <input className='navbar_search' type='text' placeholder="Search" onKeyDown={this.onSearchKeyDown} />
         </section>
         <section className='navbar_links'>
           {session_id && isMobile && (
