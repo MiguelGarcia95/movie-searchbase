@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Link, NavLink } from 'react-router-dom';
 import './style/css/MyFooter.css';
 
@@ -24,4 +25,10 @@ const MyFooter = () => {
   );
 }
 
-export default MyFooter;
+const mapStateToProps = state => {
+  return {
+    session_id: state.auth.session_id
+  }
+}
+
+export default connect(mapStateToProps)(MyFooter);
