@@ -3,13 +3,15 @@ import {connect} from 'react-redux';
 import {Link, NavLink } from 'react-router-dom';
 import './style/css/MyFooter.css';
 
-const MyFooter = () => {
+const MyFooter = ({session_id}) => {
   return (
     <footer className="footer">
       <section className="footer_content">
         <section className="footer_nav">
-          <a className="nav_icon" href="/theme/"><i className="fa fa-2x fa-home"></i> <span>Home</span></a>
-          <a className="nav_icon" href="/theme/account.hmtl"><i className="far fa-2x fa-user-circle"></i> <span>Account</span></a>
+          <NavLink className="nav_icon" to="/"><i className="fa fa-2x fa-home"></i> <span>Home</span></NavLink>
+          {session_id && (
+            <NavLink className="nav_icon" to="/account"><i className="far fa-2x fa-user-circle"></i> <span>Account</span></NavLink>
+          )}
           <input className='navbar_search' type='text' placeholder="Search" />
         </section>
         <a href='https://www.themoviedb.org/'>
