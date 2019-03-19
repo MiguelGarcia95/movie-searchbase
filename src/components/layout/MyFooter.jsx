@@ -4,9 +4,8 @@ import {NavLink } from 'react-router-dom';
 import './style/css/MyFooter.css';
 
 const onSearchKeyDown = e => {
-  if (e.keyCode === 13) {
-    console.log('Shoud search for: ', e.target.value)
-    // redirect to link
+  if (e.keyCode === 13 && e.target.value) {
+    this.props.history.push(`/search/${e.target.value}`)
   }
 }
 
