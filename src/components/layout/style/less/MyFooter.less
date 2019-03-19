@@ -48,7 +48,10 @@
       i {margin-right: 5px;}
     }
     #meta_left {float: left;} 
-    #meta_center {margin: auto; display: inline-block;}
+    #meta_center {
+      margin: auto; display: inline-block;
+      a {color: white; text-decoration: none;}
+    }
     #meta_right {float: right;} 
   }
 }
@@ -78,6 +81,7 @@
           margin: auto;
           display: block;
           text-align: center;
+          margin-top: 20px;
         }
       }
       img {
@@ -107,6 +111,13 @@
 
 @media (max-width: 550px) {
   .footer {
+    .footer_content {
+      .footer_nav {
+        .navbar_search {
+          width: 100%;
+        }
+      }
+    }
     .footer_meta {
       #meta_center {font-size: 0.7em;}
     }
@@ -115,47 +126,24 @@
 
 @media (max-width: 500px) {
   .footer {
-    // height: 360px;
-    // padding: 0 50px; 
-    .footer_content {
-      // height: 300px; 
-      .footer_nav {
-        // float: none;
-        // margin: auto;
-        // margin-bottom: 50px;
-        .nav_icon {
-          // padding: 0 5px;
-          // i {margin-right: 5px;}
-          // span {display: none;}
-        }
-        .navbar_search {
-          width: 150px;
-          // height: 40px;
-          // padding: 5px 10px;
-          // margin-top: 20px;
-          margin-left: 5px;
-        }
-      }
+    padding: 0 25px;
       img {
-        // width: 300px; height: 121px; 
-        // float: none;
-        // margin: auto;
+        width: 250px; height: 101px; 
       }
+    .footer_meta {
+      #meta_center {font-size: 0.7em;}
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .footer {
+    .footer_content {
+      img {width: 100%;}
     }
     .footer_meta {
-      // height: 30px; 
-      // margin: 15px 0;
-      .nav_icon, p {
-        // line-height: 30px; 
-        // font-size: 0.9em;
-      }
-      .nav_icon {
-        // i {margin-right: 5px;}
-        // span {display: none;}
-      }
-      // #meta_left {float: left;} 
-      #meta_center {font-size: 0.7em;}
-      // #meta_right {float: right;} 
+      #meta_left {display: none;} 
+      #meta_right {display: none;} 
     }
   }
 }
