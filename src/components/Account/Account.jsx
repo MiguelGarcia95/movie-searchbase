@@ -4,6 +4,8 @@ import {Redirect} from 'react-router-dom';
 
 import {getSession, setSession, getAccount, setAccount, setToken} from '../../actions/authActions';
 
+import ContentSlider from '../layout/ContentSlider';
+
 import '../App.css';
 import './style/css/Account.css';
 
