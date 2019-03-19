@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 import {getSession, setSession, getAccount, setAccount, setToken} from '../../actions/authActions';
 
@@ -80,7 +80,7 @@ class Account extends React.Component {
       <section className="account_page">
         {redirectToLogin && <Redirect to='/login'/>}
         {redirectToAccount && <Redirect to='/account'/>}
-        {account && (
+        {account ? (
           <React.Fragment>
             <section className="account_sidepanel">
               <section className="user_panel">
@@ -132,7 +132,7 @@ class Account extends React.Component {
               </section>
             </section>
           </React.Fragment>
-        )}
+        ) : (<Link to='account' className='tryagain'>Try Again</Link>)}
       </section>
     );
   }
