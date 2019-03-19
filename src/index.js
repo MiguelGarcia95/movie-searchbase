@@ -25,8 +25,8 @@ const Root = () => {
           <Route path='/login' component={Login} />
           <Route path='/account' component={Account} />
           <Route path='/search' component={SearchResults} />
-          <Route path='/tv/{tvId}' component={DisplayTv} />
-          <Route path='/movie/{movieId}' component={DisplayMovie} />
+          <Route path='/shows/{tvId}' component={DisplayTv} />
+          <Route path='/movies/{movieId}' component={DisplayMovie} />
         </Switch>
         <Route path='/' component={MyFooter} />
       </React.Fragment>

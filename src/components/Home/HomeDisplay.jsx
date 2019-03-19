@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './style/css/HomeDisplay.css';
 
 const getTitle = (movie, type) => {
@@ -43,16 +44,18 @@ const displayBottomCol = (movies, genres, fetchType) => {
       backgroundSize: 'cover',
     }
     return (
-      <section key={movie.id} className="home_display_bottom_col">
-        <section className="display_content">
-          <section className="content_image" style={imageStyle}></section>
-          <section className="content_data">
-            <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
-            <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
+      <Link to={`${fetchType}/${movie.id}`}>
+        <section key={movie.id} className="home_display_bottom_col">
+          <section className="display_content">
+            <section className="content_image" style={imageStyle}></section>
+            <section className="content_data">
+              <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
+              <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
+            </section>
           </section>
         </section>
-      </section>
-    )
+      </Link>
+    );
   })
 }
 
@@ -65,16 +68,18 @@ const displayTopInnerCol = (movies, genres, fetchType) => {
       backgroundSize: 'cover',
     }
     return (
-      <section key={movie.id} className="home_display_inner_col">
-        <section className="display_content">
-          <section className="content_image" style={imageStyle}></section>
-          <section className="content_data">
-            <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
-            <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
+      <Link to={`${fetchType}/${movie.id}`}>
+        <section key={movie.id} className="home_display_inner_col">
+          <section className="display_content">
+            <section className="content_image" style={imageStyle}></section>
+            <section className="content_data">
+              <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
+              <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
+            </section>
           </section>
         </section>
-      </section>
-    )
+      </Link>
+    );
   })
 }
 
@@ -87,16 +92,18 @@ const displayBottomInnerCol = (movies, genres, fetchType) => {
       backgroundSize: 'cover',
     }
     return (
-      <section key={movie.id} className="home_display_inner_col">
-        <section className="display_content">
-          <section className="content_image" style={imageStyle}></section>
-          <section className="content_data">
-            <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
-            <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
+      <Link to={`${fetchType}/${movie.id}`}>
+        <section key={movie.id} className="home_display_inner_col">
+          <section className="display_content">
+            <section className="content_image" style={imageStyle}></section>
+            <section className="content_data">
+              <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
+              <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
+            </section>
           </section>
         </section>
-      </section>
-    )
+      </Link>
+    );
   })
 }
 
@@ -107,16 +114,18 @@ const displayHomeCol = (movie, genres, fetchType) => {
     backgroundSize: 'cover',
   }
   return (
-    <section className="home_display_col">
-      <section className="display_content">
-        <section className="content_image" style={imageStyle} ></section>
-        <section className="content_data">
-          <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
-          <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
+    <Link to={`${fetchType}/${movie.id}`}>
+      <section className="home_display_col">
+        <section className="display_content">
+          <section className="content_image" style={imageStyle} ></section>
+          <section className="content_data">
+            <section className="content_title"><h1>{getTitle(movie, fetchType)}</h1></section>
+            <section className="content_details"><p>{getYear(movie, fetchType)} / {getGenre(movie, genres)}</p></section>
+          </section>
         </section>
       </section>
-    </section>
-  )
+    </Link>
+  );
 }
 
 const HomeDisplay = ({movies, genres, fetchType}) => {

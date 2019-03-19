@@ -8,10 +8,10 @@ const settings = {
   // rtl: true,
   infinite: true,
   slidesToShow: 8,
-  arrows: false,
+  arrows: true,
   swipeToSlide: true,
   speed: 500,
-  slidesToScroll: 1,
+  // slidesToScroll: 1,
   initialSlide: 0,
   responsive: [
     {
