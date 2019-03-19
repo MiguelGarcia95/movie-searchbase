@@ -16,9 +16,9 @@ const MyFooter = () => {
         </a>
       </section>
       <section className="footer_meta">
-        <a className="nav_icon" id='meta_left' href="mailto:miguel@miguelgarcia.app"><i className="fas fa-envelope-open"></i> miguel@miguelgarcia.app</a> 
+        <a className="nav_icon" id='meta_left' href="mailto:miguel@miguelgarcia.app"><i className="fas fa-envelope-open"></i> <span>miguel@miguelgarcia.app</span></a> 
         <p id='meta_center'>Copyright ©2019 - Created by Miguel Garcia</p> 
-        <a className="nav_icon" id='meta_right' href="https://www.miguelgarcia.app"><i className="far fa-window-maximize"></i> miguelgarcia.app</a>
+        <a className="nav_icon" id='meta_right' href="https://www.miguelgarcia.app"><i className="far fa-window-maximize"></i> <span>miguelgarcia.app</span></a>
       </section>
     </footer>
   );
