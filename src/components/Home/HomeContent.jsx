@@ -47,7 +47,9 @@ const settings = {
     {
       breakpoint: 500,
       settings: {
-        slidesToShow: 2
+        slidesToShow: 1,
+        centerMode: true,
+        className: 'center'
       }
     }
   ]
