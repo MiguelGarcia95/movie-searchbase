@@ -20,6 +20,8 @@ class Account extends React.Component {
     if (this.getApproved(path)) {
       this.props.getSession(this.getRequestToken(path))
       this.props.setToken(this.getRequestToken(path))
+    } else if (localStorage.getItem('account')) {
+      this.props.setAccount(JSON.parse(localStorage.getItem('account')))
     }
   }
 
