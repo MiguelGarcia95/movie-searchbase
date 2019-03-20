@@ -4,9 +4,7 @@
 .search_page {
   width: 100vw;
   max-width:100%;
-  // height: 100vh;
   min-height: 400px;
-  // max-height: 100%;
   overflow: auto;
   padding-top: @navbarHeight;
   box-sizing: border-box;
@@ -45,17 +43,31 @@
   // }
   .search_results {
     width: 1000px;  
+    overflow: auto;
     margin: auto;
+    padding-bottom: 50px;
   }
-  .pagination {
-    .pagination_left {
 
+  .pagination {
+    width: 800px; height: 60px;
+    margin: auto;
+    padding-bottom: 50px;
+
+    .pagination_left, .pagination_right {
+      width: 100px; height: 60px;
+      background-color: red;
+    }
+
+    .pagination_left {
+      float: left;
     }
     .pagination_page {
-
+      width: 600px; height: 100%;
+      float: left;
+      background-color: green;
     }
     .pagination_right {
-      
+      float: right;
     }
   }
 }
