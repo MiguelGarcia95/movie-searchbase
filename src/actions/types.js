@@ -9,6 +9,7 @@ export const SET_SESSION = 'SET_SESSION';
 
 // Search
 export const FETCH_SEARCH_RESULTS = 'FETCH_SEARCH_RESULTS';
+export const RESET_RESULTS = 'RESET_RESULTS';
 
 // Movies
 export const FETCH_POPULAR_MOVIES = 'FETCH_POPULAR_MOVIES';
