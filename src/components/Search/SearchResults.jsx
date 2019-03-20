@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {fetchMoviesSearch, fetchShowsSearch} from '../../actions/searchActions';
+import {fetchMovieGenres} from '../../actions/movieActions';
+import {fetchShowGenres} from '../../actions/tvShowActions';
 import MovieResult from './MovieResult';
 import '../App.css';
 import './style/css/SearchResults.css';
@@ -10,14 +12,18 @@ class SearchResults extends React.Component {
   componentDidMount() {
     if (this.props.type === 'movies') {
       this.props.fetchMoviesSearch(this.props.match.params.searchQuery, 1);
+      this.props.fetchMovieGenres();
     } else {
       this.props.fetchShowsSearch(this.props.match.params.searchQuery, 1);
+      this.props.fetchShowGenres();
     }
   }
 
-  displayResults = (movies, type) => {
+
+
+  displayResults = (movies, type, genres) => {
     return movies.map(movie => {
-      return <MovieResult key={movie.id} movie={movie} type={type} />
+      return <MovieResult key={movie.id} movie={movie} type={type} genres={genres}/>
     })
   }
 
@@ -25,10 +31,13 @@ class SearchResults extends React.Component {
     return this.props.type === 'movies' ? this.props.moviesSearchResults : this.props.showsSearchResults;
   }
 
+  getGenres = fetchType => fetchType === 'movies' ? this.props.movieGenres : this.props.showGenres;
+
   render() {
     const {searchQuery} = this.props.match.params;
     const searchResults = this.getSearchResults();
     const {type} = this.props;
+    const genres = this.getGenres(type);
 
     return (
       <section className="search_page">
@@ -45,7 +54,7 @@ class SearchResults extends React.Component {
           </section>
         </section> */}
         <section className="search_results">
-          {this.displayResults(searchResults, type)}
+          {this.displayResults(searchResults, type, genres)}
         </section>
       </section>
     );
@@ -62,14 +71,18 @@ const mapStateToProps = state => {
     showsSearchResults: state.results.showsSearchResults,
     showsCurrentPage: state.results.showsCurrentPage,
     showsTotalPages: state.results.showsTotalPages,
-    showsTotalResults: state.results.showsTotalResults
+    showsTotalResults: state.results.showsTotalResults,
+    movieGenres: state.movies.movieGenres,
+    showGenres: state.shows.showGenres
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchMoviesSearch: (searchQuery, page) => dispatch(fetchMoviesSearch(searchQuery, page)),
-    fetchShowsSearch: (searchQuery, page) => dispatch(fetchShowsSearch(searchQuery, page))
+    fetchShowsSearch: (searchQuery, page) => dispatch(fetchShowsSearch(searchQuery, page)),
+    fetchMovieGenres: () => dispatch(fetchMovieGenres()),
+    fetchShowGenres: () => dispatch(fetchShowGenres())
   }
 }
 
