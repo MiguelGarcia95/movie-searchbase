@@ -1,14 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchSearchResults} from '../../actions/searchActions';
+import {fetchMoviesSearch, fetchShowsSearch} from '../../actions/searchActions';
 import MovieResult from './MovieResult';
 import '../App.css';
 import './style/css/SearchResults.css';
 
 class SearchResults extends React.Component {
   componentDidMount() {
-    this.props.fetchSearchResults(this.props.match.params.searchQuery, 1);
+    if (this.props.type === 'movies') {
+      this.props.fetchMoviesSearch(this.props.match.params.searchQuery, 1);
+    } else {
+      this.props.fetchShowsSearch(this.props.match.params.searchQuery, 1);
+    }
   }
 
   displayResults = movies => {
@@ -17,9 +21,13 @@ class SearchResults extends React.Component {
     })
   }
 
+  getSearchResults = () => {
+    return this.props.type === 'movies' ? this.props.moviesSearchResults : this.props.showsSearchResults;
+  }
+
   render() {
-    const {searchResults} = this.props;
     const {searchQuery} = this.props.match.params;
+    const searchResults = this.getSearchResults();
 
     return (
       <section className="search_page">
@@ -45,16 +53,22 @@ class SearchResults extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    searchResults: state.results.searchResults,
-    currentPage: state.results.currentPage,
-    totalPages: state.results.totalPages,
-    totalResults: state.results.totalResults,
+    moviesSearchResults: state.results.moviesSearchResults,
+    moviesCurrentPage: state.results.moviesCurrentPage,
+    moviesTotalPages: state.results.moviesTotalPages,
+    moviesTotalResults: state.results.moviesTotalResults,
+    type: state.settings.type,
+    showsSearchResults: state.results.showsSearchResults,
+    showsCurrentPage: state.results.showsCurrentPage,
+    showsTotalPages: state.results.showsTotalPages,
+    showsTotalResults: state.results.showsTotalResults
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSearchResults: (searchQuery, page) => dispatch(fetchSearchResults(searchQuery, page))
+    fetchMoviesSearch: (searchQuery, page) => dispatch(fetchMoviesSearch(searchQuery, page)),
+    fetchShowsSearch: (searchQuery, page) => dispatch(fetchShowsSearch(searchQuery, page))
   }
 }
 
