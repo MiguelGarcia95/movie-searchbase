@@ -11,29 +11,35 @@ import '../App.css';
 import './style/css/SearchResults.css';
 
 class SearchResults extends React.Component {
+
   componentDidMount() {
     if (this.props.type === 'movies') {
-      this.props.fetchMoviesSearch(this.props.match.params.searchQuery, 1);
-      this.props.fetchMovieGenres();
+      this.fetchMovies(1);
     } else {
-      this.props.fetchShowsSearch(this.props.match.params.searchQuery, 1);
-      this.props.fetchShowGenres();
+      this.fetchShows(1);
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.type !== prevProps.type && this.props.type === 'shows' && this.props.showsSearchResults.length === 0) {
-      this.props.fetchShowsSearch(this.props.match.params.searchQuery, 1);
-      this.props.fetchShowGenres();
+      this.fetchShows(1);
     } else if (this.props.match.params.searchQuery !== prevProps.match.params.searchQuery) {
       if (this.props.type === 'movies') {
-        this.props.fetchMoviesSearch(this.props.match.params.searchQuery, 1);
-        this.props.fetchMovieGenres();
+        this.fetchMovies(1);
       } else {
-        this.props.fetchShowsSearch(this.props.match.params.searchQuery, 1);
-        this.props.fetchShowGenres();
+        this.fetchShows(1);
       }
     }
+  }
+
+  fetchMovies = page => {
+    this.props.fetchMoviesSearch(this.props.match.params.searchQuery, page);
+    this.props.fetchMovieGenres();
+  }
+
+  fetchShows = page => {
+    this.props.fetchShowsSearch(this.props.match.params.searchQuery, page);
+    this.props.fetchShowGenres();
   }
 
   displayResults = (movies, type, genres) => {
