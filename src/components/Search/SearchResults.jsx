@@ -65,9 +65,9 @@ class SearchResults extends React.Component {
 
   isNextPaginationDisabled = type => {
     let isDisabled = false;
-    if (type === 'movies' && this.props.moviesCurrentPage < this.props.moviesTotalPages) {
+    if (type === 'movies' && this.props.moviesCurrentPage >= this.props.moviesTotalPages) {
       isDisabled = true;
-    } else if (type === 'shows' && this.props.showsCurrentPage < this.props.showsTotalPages) {
+    } else if (type === 'shows' && this.props.showsCurrentPage >= this.props.showsTotalPages) {
       isDisabled = true;
     }
     return isDisabled;
