@@ -79,6 +79,8 @@ class SearchResults extends React.Component {
     const searchResults = this.getSearchResults();
     const {type} = this.props;
     const genres = this.getGenres(type);
+    const prevPaginationStatus = this.isPrevPaginationDisabled ? 'disabled' : '';
+    const nextPaginationStatus = this.isNextPaginationDisabled ? 'disabled' : '';
 
     return (
       <section className="search_page">
@@ -91,9 +93,13 @@ class SearchResults extends React.Component {
           {this.displayResults(searchResults, type, genres)}
         </section>
         <section className="pagination">
-          <section className={`pagination_left ${(this.isPrevPaginationDisabled ? 'disabled' : '')}`}></section>
+          <section className={`pagination_left ${prevPaginationStatus}`}>
+          
+          </section>
           <section className="pagination_page"></section>
-          <section className={`pagination_right ${(this.isNextPaginationDisabled ? 'disabled' : '')}`}></section>
+          <section className={`pagination_right ${nextPaginationStatus}`}>
+          
+          </section>
         </section>
       </section>
     );
