@@ -35,10 +35,16 @@ const getGenre = (movie, genres) => {
 }
 
 const MovieResult = ({movie, type, genres}) => {
+  const imageStyle = {
+    backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }
+  
   return (
     <section className="search_result">
       <section className="search_result_movie">
-        <section className="search_result_movie_image"></section>
+        <section className="search_result_movie_image" style={imageStyle}></section>
         <p className="search_result_movie_rating">{movie.vote_average}</p>  
       </section>
       <section className="search_result_movie_data">
