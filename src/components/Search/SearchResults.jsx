@@ -70,6 +70,11 @@ class SearchResults extends React.Component {
         <section className="search_results">
           {this.displayResults(searchResults, type, genres)}
         </section>
+        <section className="pagination">
+          <section className="pagination_left"></section>
+          <section className="pagination_page"></section>
+          <section className="pagination_right"></section>
+        </section>
       </section>
     );
   }
