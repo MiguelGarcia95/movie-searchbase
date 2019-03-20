@@ -66,9 +66,9 @@ class SearchResults extends React.Component {
 
   isNextPaginationDisabled = type => {
     let isDisabled = false;
-    if (type === 'movies' && this.props.moviesCurrentPage > this.props.moviesTotalPages) {
+    if (type === 'movies' && this.props.moviesCurrentPage < this.props.moviesTotalPages) {
       isDisabled = true;
-    } else if (type === 'shows' && this.props.showsCurrentPage > this.props.showsTotalPages) {
+    } else if (type === 'shows' && this.props.showsCurrentPage < this.props.showsTotalPages) {
       isDisabled = true;
     }
     return isDisabled;
@@ -79,8 +79,8 @@ class SearchResults extends React.Component {
     const searchResults = this.getSearchResults();
     const {type} = this.props;
     const genres = this.getGenres(type);
-    const prevPaginationStatus = this.isPrevPaginationDisabled ? 'disabled' : '';
-    const nextPaginationStatus = this.isNextPaginationDisabled ? 'disabled' : '';
+    const prevPaginationStatus = this.isPrevPaginationDisabled(type) ? 'disabled' : '';
+    const nextPaginationStatus = this.isNextPaginationDisabled(type) ? 'disabled' : '';
 
     return (
       <section className="search_page">
