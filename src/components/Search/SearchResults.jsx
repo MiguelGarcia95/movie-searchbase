@@ -15,9 +15,9 @@ class SearchResults extends React.Component {
     }
   }
 
-  displayResults = movies => {
+  displayResults = (movies, type) => {
     return movies.map(movie => {
-      return <MovieResult key={movie.id} movie={movie} />
+      return <MovieResult key={movie.id} movie={movie} type={type} />
     })
   }
 
@@ -28,6 +28,7 @@ class SearchResults extends React.Component {
   render() {
     const {searchQuery} = this.props.match.params;
     const searchResults = this.getSearchResults();
+    const {type} = this.props;
 
     return (
       <section className="search_page">
@@ -44,7 +45,7 @@ class SearchResults extends React.Component {
           </section>
         </section> */}
         <section className="search_results">
-          {this.displayResults(searchResults)}
+          {this.displayResults(searchResults, type)}
         </section>
       </section>
     );

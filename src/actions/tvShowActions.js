@@ -1,7 +1,6 @@
 import * as actionTypes from '../actions/types';
 import axios from 'axios';
 import {MOVIEDBAPI} from '../api_keys';
-import { async } from 'q';
 
 export const fetchOnTheAirShows = () => {
   return async (dispatch) => {

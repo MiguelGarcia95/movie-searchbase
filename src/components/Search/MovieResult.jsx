@@ -34,7 +34,7 @@ const getGenre = (movie, genres) => {
   return getGenreFromId(movie.genre_ids[0], genres);
 }
 
-const MovieResult = ({movie}) => {
+const MovieResult = ({movie, type}) => {
   return (
     <section className="search_result">
       <section className="search_result_movie">
@@ -43,7 +43,7 @@ const MovieResult = ({movie}) => {
       </section>
       <section className="search_result_movie_data">
           <section className="search_result_movie_meta"><p>2015 / Genre</p></section>  
-          <section className="search_result_movie_title"><p>Movie Title</p></section>  
+          <section className="search_result_movie_title"><p>{getTitle(movie, type)}</p></section>  
       </section>
     </section>
   )
