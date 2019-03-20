@@ -54,6 +54,26 @@ class SearchResults extends React.Component {
 
   getGenres = fetchType => fetchType === 'movies' ? this.props.movieGenres : this.props.showGenres;
 
+  isPrevPaginationDisabled = type => {
+    let isDisabled = false;
+    if (type === 'movies' && this.props.moviesCurrentPage === 1) {
+      isDisabled = true;
+    } else if (type === 'shows' && this.props.showsCurrentPage === 1) {
+      isDisabled = true;
+    }
+    return isDisabled;
+  }
+
+  isNextPaginationDisabled = type => {
+    let isDisabled = false;
+    if (type === 'movies' && this.props.moviesCurrentPage > this.props.moviesTotalPages) {
+      isDisabled = true;
+    } else if (type === 'shows' && this.props.showsCurrentPage > this.props.showsTotalPages) {
+      isDisabled = true;
+    }
+    return isDisabled;
+  }
+
   render() {
     const {searchQuery} = this.props.match.params;
     const searchResults = this.getSearchResults();
@@ -71,9 +91,9 @@ class SearchResults extends React.Component {
           {this.displayResults(searchResults, type, genres)}
         </section>
         <section className="pagination">
-          <section className="pagination_left"></section>
+          <section className={`pagination_left ${(this.isPrevPaginationDisabled ? 'disabled' : '')}`}></section>
           <section className="pagination_page"></section>
-          <section className="pagination_right"></section>
+          <section className={`pagination_right ${(this.isNextPaginationDisabled ? 'disabled' : '')}`}></section>
         </section>
       </section>
     );
