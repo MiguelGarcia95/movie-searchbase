@@ -11,7 +11,15 @@ class SearchResults extends React.Component {
     this.props.fetchSearchResults(this.props.match.params.searchQuery, 1);
   }
 
+  displayResults = movies => {
+    return movies.map(movie => {
+      return <MovieResult key={movie.id} />
+    })
+  }
+
   render() {
+    const {searchResults} = this.props;
+
     return (
       <section className="search_page">
         <section className="search_data">
@@ -27,15 +35,19 @@ class SearchResults extends React.Component {
           </section>
         </section> */}
         <section className="search_results">
-          <MovieResult />
-          <MovieResult />
-          <MovieResult />
-          <MovieResult />
-          <MovieResult />
-          <MovieResult />
+          {this.displayResults(searchResults)}
         </section>
       </section>
     );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    searchResults: state.results.searchResults,
+    currentPage: state.results.currentPage,
+    totalPages: state.results.totalPages,
+    totalResults: state.results.totalResults,
   }
 }
 
@@ -45,4 +57,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(SearchResults);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);
