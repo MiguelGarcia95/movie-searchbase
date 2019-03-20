@@ -64,10 +64,10 @@ const dispalySliders = (movies, genres) => {
   })
 }
 
-const HomeContent = ({fetchType, setFetchType, movies, genres}) => {
+const HomeContent = ({movies, genres}) => {
   return (
     <section className="home_movies">
-      <HomeSwitch fetchType={fetchType} setFetchType={setFetchType} />
+      <HomeSwitch />
       {dispalySliders(movies, genres)}
     </section>
   )

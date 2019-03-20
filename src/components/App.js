@@ -24,7 +24,7 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.shouldComponentFetchShows(this.state.fetchType, prevState.fetchType, this.props.topRatedShows)) {
+    if (this.shouldComponentFetchShows(this.props.type, prevProps.type, this.props.topRatedShows)) {
       this.props.fetchTopRatedShows();
       this.props.fetchOnTheAirShows();
       this.props.fetchPopularShows();
@@ -40,8 +40,6 @@ class App extends React.Component {
   homeDisplayMovies = fetchType => fetchType === 'movies' ? this.props.topRatedMovies : this.props.topRatedShows;
 
   getGenres = fetchType => fetchType === 'movies' ? this.props.movieGenres : this.props.showGenres;
-
-  setFetchType = type => this.setState({fetchType: type});
 
   getContentMovies = (fetchType) => {
     let movies = [];
@@ -62,14 +60,14 @@ class App extends React.Component {
   }
 
   render() {
-    const {fetchType} = this.state;
-    const displayMovies = this.homeDisplayMovies(fetchType);
-    const contentMovies = this.getContentMovies(fetchType);
-    const genres = this.getGenres(fetchType);
+    const {type} = this.props;
+    const displayMovies = this.homeDisplayMovies(type);
+    const contentMovies = this.getContentMovies(type);
+    const genres = this.getGenres(type);
     return (
       <section className="App">
-        <HomeDisplay movies={displayMovies} genres={genres} fetchType={fetchType} />
-        <HomeContent fetchType={fetchType} setFetchType={this.setFetchType} movies={contentMovies} genres={genres}/>
+        <HomeDisplay movies={displayMovies} genres={genres} fetchType={type} />
+        <HomeContent movies={contentMovies} genres={genres}/>
       </section>
     );
   }
@@ -86,7 +84,8 @@ const mapStateToProps = state => {
     onTheAirShows: state.shows.onTheAirShows,
     onTheAirTodayShows: state.shows.onTheAirTodayShows,
     popularShows: state.shows.popularShows,
-    showGenres: state.shows.showGenres
+    showGenres: state.shows.showGenres,
+    type: state.settings.type
   }
 }
 

@@ -1,19 +1,24 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
 import './style/css/HomeSwitch.css';
+import {setType} from '../../actions/settingsActions';
 
 const isFetchMovies = fetchType => fetchType === 'movies' ? 'active' : ''; 
 const isFetchShows = fetchType => fetchType === 'shows' ? 'active' : ''; 
 
-const HomeSwitch = ({fetchType, setFetchType}) => {
+const HomeSwitch = ({type, setType}) => {
   return (
     <section className="home_switch_container">
       <section className="home_switch">
-        <section className={`home_switch_select ${isFetchMovies(fetchType)}`}>
-          <p className="home_switch_select_content" onClick={() => setFetchType('movies')}>Movies</p>
+        <section className={`home_switch_select ${isFetchMovies(type)}`}>
+          {/* <p className="home_switch_select_content" onClick={() => setFetchType('movies')}>Movies</p> */}
+          <p className="home_switch_select_content" onClick={() => setType('movies')}>Movies</p>
           <section className="home_switch_select_color"></section>
         </section>
-        <section className={`home_switch_select ${isFetchShows(fetchType)}`}>
-          <p className="home_switch_select_content" onClick={() => setFetchType('shows')}>Shows</p>
+        <section className={`home_switch_select ${isFetchShows(type)}`}>
+          {/* <p className="home_switch_select_content" onClick={() => setFetchType('shows')}>Shows</p> */}
+          <p className="home_switch_select_content" onClick={() => setType('shows')}>Shows</p>
           <section className="home_switch_select_color"></section>
         </section>
       </section>
@@ -21,4 +26,16 @@ const HomeSwitch = ({fetchType, setFetchType}) => {
   )
 }
 
-export default HomeSwitch;
+const mapStateToProps = state => {
+  return {
+    type: state.settings.type
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setType: type => dispatch(setType(type))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeSwitch);
