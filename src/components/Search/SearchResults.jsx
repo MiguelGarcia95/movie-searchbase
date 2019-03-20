@@ -11,7 +11,6 @@ import '../App.css';
 import './style/css/SearchResults.css';
 
 class SearchResults extends React.Component {
-
   componentDidMount() {
     if (this.props.type === 'movies') {
       this.fetchMovies(1);
@@ -74,6 +73,22 @@ class SearchResults extends React.Component {
     return isDisabled;
   }
 
+  updateResults = direction => {
+    if (direction === 'next') {
+      if (this.props.type === 'movies') {
+        this.props.fetchMoviesSearch(this.props.match.params.searchQuery, this.props.moviesCurrentPage + 1);
+      } else {
+        this.props.fetchShowsSearch(this.props.match.params.searchQuery, this.props.moviesCurrentPage + 1);
+      }
+    } else {
+      if (this.props.type === 'movies') {
+        this.props.fetchMoviesSearch(this.props.match.params.searchQuery, this.props.moviesCurrentPage - 1);
+      } else {
+        this.props.fetchShowsSearch(this.props.match.params.searchQuery, this.props.moviesCurrentPage - 1);
+      }
+    }
+  }
+
   render() {
     const {searchQuery} = this.props.match.params;
     const searchResults = this.getSearchResults();
@@ -93,11 +108,11 @@ class SearchResults extends React.Component {
           {this.displayResults(searchResults, type, genres)}
         </section>
         <section className="pagination">
-          <section className={`pagination_left ${prevPaginationStatus}`}>
+          <section className={`pagination_left ${prevPaginationStatus}`} onClick={() => this.updateResults('prev')} >
           
           </section>
           <section className="pagination_page"></section>
-          <section className={`pagination_right ${nextPaginationStatus}`}>
+          <section className={`pagination_right ${nextPaginationStatus}`} onClick={() => this.updateResults('next')} >
           
           </section>
         </section>
