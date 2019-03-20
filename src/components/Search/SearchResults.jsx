@@ -48,14 +48,6 @@ class SearchResults extends React.Component {
           <ResultSwitch />
         </section>
         <section className="results"><p>Results: {searchResults.length}</p></section>
-        {/* <section className="search_filter">
-          <input type="text" className="search_bar" placeholder="Search">
-          <section className="filter_settings">
-            <select name="" id="">
-              <option value="">Sort By</option>
-            </select>
-          </section>
-        </section> */}
         <section className="search_results">
           {this.displayResults(searchResults, type, genres)}
         </section>
