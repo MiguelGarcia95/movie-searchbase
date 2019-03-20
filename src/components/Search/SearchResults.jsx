@@ -5,6 +5,8 @@ import {fetchMoviesSearch, fetchShowsSearch} from '../../actions/searchActions';
 import {fetchMovieGenres} from '../../actions/movieActions';
 import {fetchShowGenres} from '../../actions/tvShowActions';
 import MovieResult from './MovieResult';
+import ResultSwitch from './ResultSwitch';
+import HomeSwitch from '../Home/HomeSwitch';
 import '../App.css';
 import './style/css/SearchResults.css';
 
@@ -43,6 +45,7 @@ class SearchResults extends React.Component {
       <section className="search_page">
         <section className="search_data">
           <h1>Search Results For: <span>{searchQuery}</span></h1>
+          <ResultSwitch />
         </section>
         <section className="results"><p>Results: {searchResults.length}</p></section>
         {/* <section className="search_filter">
