@@ -90,12 +90,14 @@ class SearchResults extends React.Component {
   }
 
   render() {
-    const {searchQuery} = this.props.match.params;
-    const searchResults = this.getSearchResults();
     const {type} = this.props;
     const genres = this.getGenres(type);
-    const prevPaginationStatus = this.isPrevPaginationDisabled(type) ? 'disabled' : '';
-    const nextPaginationStatus = this.isNextPaginationDisabled(type) ? 'disabled' : '';
+    const {searchQuery} = this.props.match.params;
+    const searchResults = this.getSearchResults();
+    const prevPaginationStatus = this.isPrevPaginationDisabled(type);
+    const nextPaginationStatus = this.isNextPaginationDisabled(type);
+    const prevPaginationStatusClass = prevPaginationStatus ? 'disabled' : '';
+    const nextPaginationStatusClass = nextPaginationStatus ? 'disabled' : '';
 
     return (
       <section className="search_page">
@@ -108,15 +110,17 @@ class SearchResults extends React.Component {
           {this.displayResults(searchResults, type, genres)}
         </section>
         <section className="pagination">
-          <section className={`pagination_left ${prevPaginationStatus}`} onClick={() => this.updateResults('prev')} >
-            <section className="pagination-button">
-              <i className="fas fa-2x fa-arrow-left"></i>
+          <section className='pagination_left' >
+            <section className={`pagination_button ${prevPaginationStatusClass}`}>
+              {prevPaginationStatus &&  <i className="fas fa-3x fa-arrow-left"></i>}
+              {!prevPaginationStatus &&  <i className="fas fa-3x fa-arrow-left" onClick={() => this.updateResults('prev')}></i>}
             </section>
           </section>
           <section className="pagination_page"></section>
-          <section className={`pagination_right ${nextPaginationStatus}`} onClick={() => this.updateResults('next')} >
-            <section className="pagination-button">
-              <i className="fas fa-2x fa-arrow-right"></i>
+          <section className='pagination_right' >
+            <section className={`pagination_button ${nextPaginationStatusClass}`}>
+              {nextPaginationStatus && <i className="fas fa-3x fa-arrow-right"></i>}
+              {!nextPaginationStatus && <i className="fas fa-3x fa-arrow-right" onClick={() => this.updateResults('next')}></i>}
             </section>
           </section>
         </section>

@@ -41,9 +41,24 @@
 
     .pagination_left, .pagination_right {
       width: 100px; height: 60px;
-      background-color: red;
       &.disabled {
         background-color: grey;
+      }
+      .pagination_button {
+        width: 42px; height: 48px;
+        margin: auto;
+        border-radius: 50%;
+        margin-top: 6px;
+        color: white;
+        i {
+          cursor: pointer;
+        }
+        &.disabled {
+          color: grey;
+          i {
+            cursor: not-allowed;
+          }
+        }
       }
     }
 
