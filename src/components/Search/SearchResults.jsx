@@ -109,11 +109,15 @@ class SearchResults extends React.Component {
         </section>
         <section className="pagination">
           <section className={`pagination_left ${prevPaginationStatus}`} onClick={() => this.updateResults('prev')} >
-          
+            <section className="pagination-button">
+              <i className="fas fa-2x fa-arrow-left"></i>
+            </section>
           </section>
           <section className="pagination_page"></section>
           <section className={`pagination_right ${nextPaginationStatus}`} onClick={() => this.updateResults('next')} >
-          
+            <section className="pagination-button">
+              <i className="fas fa-2x fa-arrow-right"></i>
+            </section>
           </section>
         </section>
       </section>
