@@ -21,7 +21,20 @@ class SearchResults extends React.Component {
     }
   }
 
-
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.type !== prevProps.type && this.props.type === 'shows' && this.props.showsSearchResults.length === 0) {
+      this.props.fetchShowsSearch(this.props.match.params.searchQuery, 1);
+      this.props.fetchShowGenres();
+    } else if (this.props.match.params.searchQuery !== prevProps.match.params.searchQuery) {
+      if (this.props.type === 'movies') {
+        this.props.fetchMoviesSearch(this.props.match.params.searchQuery, 1);
+        this.props.fetchMovieGenres();
+      } else {
+        this.props.fetchShowsSearch(this.props.match.params.searchQuery, 1);
+        this.props.fetchShowGenres();
+      }
+    }
+  }
 
   displayResults = (movies, type, genres) => {
     return movies.map(movie => {
