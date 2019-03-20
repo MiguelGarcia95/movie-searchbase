@@ -4,7 +4,8 @@ import {MOVIEDBAPI} from '../api_keys';
 
 export const fetchSearchResults = (searchQuery, page) => {
   return async (dispatch) => {
-    const results = await axios.get(`https://api.themoviedb.org/3/search/company?api_key=${MOVIEDBAPI}&query=${searchQuery}&page=${page}`);
+    const url = `https://api.themoviedb.org/3/search/multi?api_key=${MOVIEDBAPI}&language=en-US&query=${searchQuery}&page=${page}&include_adult=false`;
+    const results = await axios.get(url);
     dispatch({
       type: actionTypes.FETCH_SEARCH_RESULTS,
       payload: {
@@ -14,6 +15,18 @@ export const fetchSearchResults = (searchQuery, page) => {
         totalResults: results.data.total_results
       }
     })
+  }
+}
+
+export const fetchMoviesSearch = (searchQuery, page) => {
+  return async (dispatch) => {
+
+  }
+}
+
+export const fetchResultsSearch = (searchQuery, page) => {
+  return async (dispatch) => {
+    
   }
 }
 

@@ -13,19 +13,20 @@ class SearchResults extends React.Component {
 
   displayResults = movies => {
     return movies.map(movie => {
-      return <MovieResult key={movie.id} />
+      return <MovieResult key={movie.id} movie={movie} />
     })
   }
 
   render() {
     const {searchResults} = this.props;
+    const {searchQuery} = this.props.match.params;
 
     return (
       <section className="search_page">
         <section className="search_data">
-          <h1>Search Results For Query</h1>
+          <h1>Search Results For: <span>{searchQuery}</span></h1>
         </section>
-        <section className="results"><p>Results: 22</p></section>
+        <section className="results"><p>Results: {searchResults.length}</p></section>
         {/* <section className="search_filter">
           <input type="text" className="search_bar" placeholder="Search">
           <section className="filter_settings">

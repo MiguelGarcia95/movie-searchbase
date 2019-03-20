@@ -7,8 +7,12 @@ export const SET_TOKEN = 'SET_TOKEN';
 export const GET_SESSION  = 'GET_SESSION';
 export const SET_SESSION = 'SET_SESSION';
 
+export const SET_TYPE = 'SET_TYPE';
+
 // Search
 export const FETCH_SEARCH_RESULTS = 'FETCH_SEARCH_RESULTS';
+export const SEARCH_MOVIE_RESULTS = 'SEARCH_MOVIE_RESULTS';
+export const SEARCH_SHOW_RESULTS = 'SEARCH_SHOW_RESULTS';
 export const RESET_RESULTS = 'RESET_RESULTS';
 
 // Movies
