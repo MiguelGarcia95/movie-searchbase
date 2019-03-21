@@ -93,6 +93,14 @@ class SearchResults extends React.Component {
   getLastPage = () => this.isTypeMovie() ? this.props.moviesTotalPages : this.props.showsTotalPages;
   getCurrentPage = () => this.isTypeMovie() ? this.props.moviesCurrentPage : this.props.showsCurrentPage;
 
+  goToPage = page => {
+    if (this.isTypeMovie()) {
+      this.props.fetchMoviesSearch(this.props.match.params.searchQuery, page)
+    } else {
+      this.props.fetchShowsSearch(this.props.match.params.searchQuery, page);
+    }
+  }
+
   render() {
     const {type} = this.props;
     const genres = this.getGenres(type);
@@ -112,6 +120,7 @@ class SearchResults extends React.Component {
         <section className="search_results">
           {this.displayResults(searchResults, type, genres)}
         </section>
+
         <section className="pagination">
           <section className='pagination_left' >
             <section className={`pagination_button ${prevPaginationStatusClass}`}>
@@ -120,8 +129,8 @@ class SearchResults extends React.Component {
             </section>
           </section>
           <section className="pagination_center">
-            <section className="first_page page"><p>1</p></section>
-            <section className="last_page page"><p>{this.getLastPage()}</p></section>
+            <section className="first_page page"><p onClick={() => this.goToPage(1)}>1</p></section>
+            <section className="last_page page"><p onClick={() => this.goToPage(this.getLastPage())} >{this.getLastPage()}</p></section>
             <section className="current_page page"><p>{this.getCurrentPage()}</p></section>
           </section>
           <section className='pagination_right' >
@@ -131,6 +140,7 @@ class SearchResults extends React.Component {
             </section>
           </section>
         </section>
+
       </section>
     );
   }
