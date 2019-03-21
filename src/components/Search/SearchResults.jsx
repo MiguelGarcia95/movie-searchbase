@@ -6,7 +6,6 @@ import {fetchMovieGenres} from '../../actions/movieActions';
 import {fetchShowGenres} from '../../actions/tvShowActions';
 import MovieResult from './MovieResult';
 import ResultSwitch from './ResultSwitch';
-import HomeSwitch from '../Home/HomeSwitch';
 import '../App.css';
 import './style/css/SearchResults.css';
 import Pagination from './Pagination';

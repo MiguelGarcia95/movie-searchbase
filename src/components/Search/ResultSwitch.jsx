@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 
 import './style/css/ResultSwitch.css';
 import {setType} from '../../actions/settingsActions';
-import Pagination from './Pagination';
 
 const isFetchMovies = fetchType => fetchType === 'movies' ? 'active' : ''; 
 const isFetchShows = fetchType => fetchType === 'shows' ? 'active' : ''; 
