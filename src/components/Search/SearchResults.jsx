@@ -91,7 +91,6 @@ class SearchResults extends React.Component {
   isDisabledClass = status => status ? 'disabled' : '';
 
   getLastPage = () => this.isTypeMovie() ? this.props.moviesTotalPages : this.props.showsTotalPages;
-
   getCurrentPage = () => this.isTypeMovie() ? this.props.moviesCurrentPage : this.props.showsCurrentPage;
 
   render() {
@@ -121,9 +120,9 @@ class SearchResults extends React.Component {
             </section>
           </section>
           <section className="pagination_center">
-            <section className="first_page">{}</section>
-            <section className="current_page"></section>
-            <section className="last_page"></section>
+            <section className="first_page page"><p>1</p></section>
+            <section className="last_page page"><p>{this.getLastPage()}</p></section>
+            <section className="current_page page"><p>{this.getCurrentPage()}</p></section>
           </section>
           <section className='pagination_right' >
             <section className={`pagination_button ${nextPaginationStatusClass}`}>
