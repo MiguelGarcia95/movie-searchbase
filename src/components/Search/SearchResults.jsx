@@ -89,6 +89,11 @@ class SearchResults extends React.Component {
     }
   }
 
+  isTypeMovie = () => this.props.type === 'movies' ? true : false;
+
+  isDisabledClass = status => status ? 'disabled' : '';
+
+
   render() {
     const {type} = this.props;
     const genres = this.getGenres(type);
@@ -96,8 +101,8 @@ class SearchResults extends React.Component {
     const searchResults = this.getSearchResults();
     const prevPaginationStatus = this.isPrevPaginationDisabled(type);
     const nextPaginationStatus = this.isNextPaginationDisabled(type);
-    const prevPaginationStatusClass = prevPaginationStatus ? 'disabled' : '';
-    const nextPaginationStatusClass = nextPaginationStatus ? 'disabled' : '';
+    const prevPaginationStatusClass = this.isDisabledClass(prevPaginationStatus);
+    const nextPaginationStatusClass = this.isDisabledClass(nextPaginationStatus);
 
     return (
       <section className="search_page">
@@ -116,7 +121,11 @@ class SearchResults extends React.Component {
               {!prevPaginationStatus &&  <i className="fas fa-3x fa-arrow-left" onClick={() => this.updateResults('prev')}></i>}
             </section>
           </section>
-          <section className="pagination_page"></section>
+          <section className="pagination_center">
+            <section className="first_page">{}</section>
+            <section className="current_page"></section>
+            <section className="last_page"></section>
+          </section>
           <section className='pagination_right' >
             <section className={`pagination_button ${nextPaginationStatusClass}`}>
               {nextPaginationStatus && <i className="fas fa-3x fa-arrow-right"></i>}
