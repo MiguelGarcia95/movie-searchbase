@@ -48,9 +48,7 @@ class SearchResults extends React.Component {
     })
   }
 
-  getSearchResults = () => {
-    return this.isTypeMovie() ? this.props.moviesSearchResults : this.props.showsSearchResults;
-  }
+  getSearchResults = () => this.isTypeMovie() ? this.props.moviesSearchResults : this.props.showsSearchResults;
 
   getGenres = () => this.isTypeMovie() ? this.props.movieGenres : this.props.showGenres;
 
