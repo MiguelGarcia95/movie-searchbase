@@ -83,15 +83,9 @@ class SearchResults extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    moviesSearchResults: state.results.moviesSearchResults,
-    // moviesCurrentPage: state.results.moviesCurrentPage,
-    // moviesTotalPages: state.results.moviesTotalPages,
-    // moviesTotalResults: state.results.moviesTotalResults,
     type: state.settings.type,
+    moviesSearchResults: state.results.moviesSearchResults,
     showsSearchResults: state.results.showsSearchResults,
-    // showsCurrentPage: state.results.showsCurrentPage,
-    // showsTotalPages: state.results.showsTotalPages,
-    // showsTotalResults: state.results.showsTotalResults,
     movieGenres: state.movies.movieGenres,
     showGenres: state.shows.showGenres
   }
