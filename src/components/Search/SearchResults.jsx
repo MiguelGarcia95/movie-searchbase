@@ -9,6 +9,7 @@ import ResultSwitch from './ResultSwitch';
 import HomeSwitch from '../Home/HomeSwitch';
 import '../App.css';
 import './style/css/SearchResults.css';
+import Pagination from './Pagination';
 
 class SearchResults extends React.Component {
   componentDidMount() {
@@ -23,7 +24,7 @@ class SearchResults extends React.Component {
     if (this.props.type !== prevProps.type && this.props.type === 'shows' && this.props.showsSearchResults.length === 0) {
       this.fetchShows(1);
     } else if (this.props.match.params.searchQuery !== prevProps.match.params.searchQuery) {
-      if (this.props.type === 'movies') {
+      if (this.isTypeMovie()) {
         this.fetchMovies(1);
       } else {
         this.fetchShows(1);
@@ -48,50 +49,50 @@ class SearchResults extends React.Component {
   }
 
   getSearchResults = () => {
-    return this.props.type === 'movies' ? this.props.moviesSearchResults : this.props.showsSearchResults;
+    return this.isTypeMovie() ? this.props.moviesSearchResults : this.props.showsSearchResults;
   }
 
-  getGenres = fetchType => fetchType === 'movies' ? this.props.movieGenres : this.props.showGenres;
+  getGenres = () => this.isTypeMovie() ? this.props.movieGenres : this.props.showGenres;
 
-  isPrevPaginationDisabled = type => {
-    let isDisabled = false;
-    if (type === 'movies' && this.props.moviesCurrentPage === 1) {
-      isDisabled = true;
-    } else if (type === 'shows' && this.props.showsCurrentPage === 1) {
-      isDisabled = true;
-    }
-    return isDisabled;
-  }
+  // isPrevPaginationDisabled = type => {
+  //   let isDisabled = false;
+  //   if (type === 'movies' && this.props.moviesCurrentPage === 1) {
+  //     isDisabled = true;
+  //   } else if (type === 'shows' && this.props.showsCurrentPage === 1) {
+  //     isDisabled = true;
+  //   }
+  //   return isDisabled;
+  // }
 
-  isNextPaginationDisabled = type => {
-    let isDisabled = false;
-    if (type === 'movies' && this.props.moviesCurrentPage >= this.props.moviesTotalPages) {
-      isDisabled = true;
-    } else if (type === 'shows' && this.props.showsCurrentPage >= this.props.showsTotalPages) {
-      isDisabled = true;
-    }
-    return isDisabled;
-  }
+  // isNextPaginationDisabled = type => {
+  //   let isDisabled = false;
+  //   if (type === 'movies' && this.props.moviesCurrentPage >= this.props.moviesTotalPages) {
+  //     isDisabled = true;
+  //   } else if (type === 'shows' && this.props.showsCurrentPage >= this.props.showsTotalPages) {
+  //     isDisabled = true;
+  //   }
+  //   return isDisabled;
+  // }
 
-  updateResults = direction => {
-    let moviePage = this.updatePage(this.props.moviesCurrentPage, direction);
-    let showPage = this.updatePage(this.props.showsCurrentPage, direction)
+  // updateResults = direction => {
+  //   let moviePage = this.updatePage(this.props.moviesCurrentPage, direction);
+  //   let showPage = this.updatePage(this.props.showsCurrentPage, direction)
 
-    if (this.isTypeMovie()) {
-      this.props.fetchMoviesSearch(this.props.match.params.searchQuery, moviePage);
-    } else {
-      this.props.fetchShowsSearch(this.props.match.params.searchQuery, showPage);
-    }
-  }
+  //   if (this.isTypeMovie()) {
+  //     this.props.fetchMoviesSearch(this.props.match.params.searchQuery, moviePage);
+  //   } else {
+  //     this.props.fetchShowsSearch(this.props.match.params.searchQuery, showPage);
+  //   }
+  // }
 
-  updatePage = (currentPage, direction) => direction === 'prev' ? currentPage - 1 : currentPage + 1; 
+  // updatePage = (currentPage, direction) => direction === 'prev' ? currentPage - 1 : currentPage + 1; 
 
   isTypeMovie = () => this.props.type === 'movies' ? true : false;
 
   isDisabledClass = status => status ? 'disabled' : '';
 
-  getLastPage = () => this.isTypeMovie() ? this.props.moviesTotalPages : this.props.showsTotalPages;
-  getCurrentPage = () => this.isTypeMovie() ? this.props.moviesCurrentPage : this.props.showsCurrentPage;
+  // getLastPage = () => this.isTypeMovie() ? this.props.moviesTotalPages : this.props.showsTotalPages;
+  // getCurrentPage = () => this.isTypeMovie() ? this.props.moviesCurrentPage : this.props.showsCurrentPage;
 
   goToPage = page => {
     if (this.isTypeMovie()) {
@@ -105,10 +106,11 @@ class SearchResults extends React.Component {
     const {type} = this.props;
     const genres = this.getGenres(type);
     const searchResults = this.getSearchResults();
-    const prevPaginationStatus = this.isPrevPaginationDisabled(type);
-    const nextPaginationStatus = this.isNextPaginationDisabled(type);
-    const prevPaginationStatusClass = this.isDisabledClass(prevPaginationStatus);
-    const nextPaginationStatusClass = this.isDisabledClass(nextPaginationStatus);
+
+    // const prevPaginationStatus = this.isPrevPaginationDisabled(type);
+    // const nextPaginationStatus = this.isNextPaginationDisabled(type);
+    // const prevPaginationStatusClass = this.isDisabledClass(prevPaginationStatus);
+    // const nextPaginationStatusClass = this.isDisabledClass(nextPaginationStatus);
 
     return (
       <section className="search_page">
@@ -121,7 +123,14 @@ class SearchResults extends React.Component {
           {this.displayResults(searchResults, type, genres)}
         </section>
 
-        <section className="pagination">
+        <Pagination
+          // prevPaginationStatusClass={prevPaginationStatusClass}
+          // nextPaginationStatusClass={nextPaginationStatusClass}
+          // prevPaginationStatus={prevPaginationStatus}
+          // nextPaginationStatus={nextPaginationStatus}
+        />
+
+        {/* <section className="pagination">
           <section className='pagination_left' >
             <section className={`pagination_button ${prevPaginationStatusClass}`}>
               {prevPaginationStatus &&  <i className="fas fa-3x fa-arrow-left"></i>}
@@ -139,7 +148,7 @@ class SearchResults extends React.Component {
               {!nextPaginationStatus && <i className="fas fa-3x fa-arrow-right" onClick={() => this.updateResults('next')}></i>}
             </section>
           </section>
-        </section>
+        </section> */}
 
       </section>
     );

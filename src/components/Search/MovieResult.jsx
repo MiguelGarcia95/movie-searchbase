@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './style/css/MovieResult.css';
 
 const getTitle = (movie, type) => {
@@ -40,18 +41,20 @@ const MovieResult = ({movie, type, genres}) => {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   }
-  
+
   return (
-    <section className="search_result">
-      <section className="search_result_movie">
-        <section className="search_result_movie_image" style={imageStyle}></section>
-        <p className="search_result_movie_rating">{movie.vote_average}</p>  
+    <Link to={`/${type}/${movie.id}`}>
+      <section className="search_result">
+        <section className="search_result_movie">
+          <section className="search_result_movie_image" style={imageStyle}></section>
+          <p className="search_result_movie_rating">{movie.vote_average}</p>  
+        </section>
+        <section className="search_result_movie_data">
+            <section className="search_result_movie_meta"><p>{getYear(movie, type)} / {getGenre(movie, genres)}</p></section>  
+            <section className="search_result_movie_title"><p>{getTitle(movie, type)}</p></section>  
+        </section>
       </section>
-      <section className="search_result_movie_data">
-          <section className="search_result_movie_meta"><p>{getYear(movie, type)} / {getGenre(movie, genres)}</p></section>  
-          <section className="search_result_movie_title"><p>{getTitle(movie, type)}</p></section>  
-      </section>
-    </section>
+    </Link>
   )
 }
 
