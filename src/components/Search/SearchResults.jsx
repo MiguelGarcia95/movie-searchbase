@@ -76,7 +76,7 @@ class SearchResults extends React.Component {
   updateResults = direction => {
     let moviePage = this.updatePage(this.props.moviesCurrentPage, direction);
     let showPage = this.updatePage(this.props.showsCurrentPage, direction)
-    
+
     if (this.isTypeMovie()) {
       this.props.fetchMoviesSearch(this.props.match.params.searchQuery, moviePage);
     } else {
@@ -90,11 +90,13 @@ class SearchResults extends React.Component {
 
   isDisabledClass = status => status ? 'disabled' : '';
 
+  getLastPage = () => this.isTypeMovie() ? this.props.moviesTotalPages : this.props.showsTotalPages;
+
+  getCurrentPage = () => this.isTypeMovie() ? this.props.moviesCurrentPage : this.props.showsCurrentPage;
 
   render() {
     const {type} = this.props;
     const genres = this.getGenres(type);
-    const {searchQuery} = this.props.match.params;
     const searchResults = this.getSearchResults();
     const prevPaginationStatus = this.isPrevPaginationDisabled(type);
     const nextPaginationStatus = this.isNextPaginationDisabled(type);
@@ -104,7 +106,7 @@ class SearchResults extends React.Component {
     return (
       <section className="search_page">
         <section className="search_data">
-          <h1>Search Results For: <span>{searchQuery}</span></h1>
+          <h1>Search Results For: <span>{this.props.match.params.searchQuery}</span></h1>
           <ResultSwitch />
         </section>
         <section className="results"><p>Results: {searchResults.length}</p></section>
