@@ -1,3 +1,65 @@
 // out: ../css/Pagination.css, compress: true, sourceMap: false
 
+.pagination {
+  width: 800px; height: 60px;
+  margin: auto;
+  padding-bottom: 100px;
 
+  .pagination_left, .pagination_right {
+    width: 100px; height: 60px;
+    &.disabled {
+      background-color: grey;
+    }
+    .pagination_button {
+      width: 42px; height: 48px;
+      margin: auto;
+      border-radius: 50%;
+      margin-top: 6px;
+      color: white;
+      i {
+        cursor: pointer;
+      }
+      &.disabled {
+        color: rgba(255,255,255,0.1);
+        i {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .pagination_left {
+    float: left;
+  }
+  .pagination_center {
+    width: 600px; height: 100%;
+    float: left;
+    .page {
+      height: 60px; width: 60px;
+      text-align: center;
+      p {
+        margin: 0 auto;
+        font-size: 2em; line-height: 60px;
+        color: white;
+        cursor: pointer;
+        &.disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
+    .first_page {
+      float: left;
+    }
+    .current_page {
+      border-radius: 50%;
+      margin: auto;
+      background-color: rgba(0,0,0,0.1);
+    }
+    .last_page {
+      float: right;
+    }
+  }
+  .pagination_right {
+    float: right;
+  }
+}
