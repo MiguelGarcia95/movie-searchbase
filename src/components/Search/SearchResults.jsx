@@ -67,6 +67,7 @@ class SearchResults extends React.Component {
           <ResultSwitch />
         </section>
         <section className="results"><p>Results: {searchResults.length}</p></section>
+        
         <section className="search_results">
           {this.displayResults(searchResults, type, genres)}
         </section>
