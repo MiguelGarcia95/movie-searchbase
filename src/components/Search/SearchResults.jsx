@@ -74,20 +74,17 @@ class SearchResults extends React.Component {
   }
 
   updateResults = direction => {
-    if (direction === 'next') {
-      if (this.props.type === 'movies') {
-        this.props.fetchMoviesSearch(this.props.match.params.searchQuery, this.props.moviesCurrentPage + 1);
-      } else {
-        this.props.fetchShowsSearch(this.props.match.params.searchQuery, this.props.moviesCurrentPage + 1);
-      }
+    let moviePage = this.updatePage(this.props.moviesCurrentPage, direction);
+    let showPage = this.updatePage(this.props.showsCurrentPage, direction)
+    
+    if (this.isTypeMovie()) {
+      this.props.fetchMoviesSearch(this.props.match.params.searchQuery, moviePage);
     } else {
-      if (this.props.type === 'movies') {
-        this.props.fetchMoviesSearch(this.props.match.params.searchQuery, this.props.moviesCurrentPage - 1);
-      } else {
-        this.props.fetchShowsSearch(this.props.match.params.searchQuery, this.props.moviesCurrentPage - 1);
-      }
+      this.props.fetchShowsSearch(this.props.match.params.searchQuery, showPage);
     }
   }
+
+  updatePage = (currentPage, direction) => direction === 'prev' ? currentPage - 1 : currentPage + 1; 
 
   isTypeMovie = () => this.props.type === 'movies' ? true : false;
 
