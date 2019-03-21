@@ -78,12 +78,26 @@
 
 @media (max-width: 700px) {
   .pagination {
-    width: 600px; 
+    width: 300px; 
+    .pagination_center {
+      width: 200px; 
+      .page {
+        p {
+          font-size: 1.2em; 
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .pagination {
+    width: 300px; 
     // height: 60px;
     // padding-bottom: 100px;
 
     .pagination_left, .pagination_right {
-      width: 50px; 
+      // width: 50px; 
       .pagination_button {
         // width: 42px; height: 48px;
         // margin-top: 6px;
@@ -93,11 +107,12 @@
     .pagination_left {
     }
     .pagination_center {
-      width: 500px; 
+      width: 200px; 
       .page {
         // width: 60px;
         p {
-          // font-size: 2em; line-height: 60px;
+          font-size: 1.2em; 
+          // line-height: 60px;
         }
       }
       .first_page {
