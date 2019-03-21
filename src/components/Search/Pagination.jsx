@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {fetchMoviesSearch, fetchShowsSearch} from '../../actions/searchActions';
 
 import './style/css/Pagination.css';
 
@@ -36,15 +37,30 @@ class Pagination extends React.Component {
     let showPage = this.updatePage(this.props.showsCurrentPage, direction)
 
     if (this.isTypeMovie()) {
-      this.props.fetchMoviesSearch(this.props.match.params.searchQuery, moviePage);
+      this.props.fetchMoviesSearch(this.props.searchQuery, moviePage);
     } else {
-      this.props.fetchShowsSearch(this.props.match.params.searchQuery, showPage);
+      this.props.fetchShowsSearch(this.props.searchQuery, showPage);
     }
   }
 
   updatePage = (currentPage, direction) => direction === 'prev' ? currentPage - 1 : currentPage + 1; 
 
+  goToPage = page => {
+    if (this.isTypeMovie()) {
+      this.props.fetchMoviesSearch(this.props.searchQuery, page)
+    } else {
+      this.props.fetchShowsSearch(this.props.searchQuery, page);
+    }
+  }
+
   render() {
+    const {type} = this.props;
+
+    const prevPaginationStatus = this.isPrevPaginationDisabled(type);
+    const nextPaginationStatus = this.isNextPaginationDisabled(type);
+    const prevPaginationStatusClass = this.isDisabledClass(prevPaginationStatus);
+    const nextPaginationStatusClass = this.isDisabledClass(nextPaginationStatus);
+
     return (
       <section className="pagination">
         <section className='pagination_left' >
