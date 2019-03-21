@@ -90,9 +90,36 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 350px) {
   .pagination {
-    width: 300px; 
+    width: 200px;
+    .pagination_center {
+      width: 100px; 
+      .page {
+        width: 50px;
+        p {
+          font-size: 0.8em; 
+        }
+      }
+      .first_page {
+        display: none;
+      }
+      .current_page {
+        width: 60px;
+        p {
+          font-size: 1.2em; 
+        }
+      }
+      .last_page {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .pagination {
+    width: 200px; 
     // height: 60px;
     // padding-bottom: 100px;
 
@@ -107,22 +134,25 @@
     .pagination_left {
     }
     .pagination_center {
-      width: 200px; 
+      width: 100px; 
       .page {
-        // width: 60px;
+        width: 50px;
         p {
-          font-size: 1.2em; 
+          font-size: 0.8em; 
           // line-height: 60px;
         }
       }
       .first_page {
+        display: none;
       }
-      // .current_page {
-      //   border-radius: 50%;
-      //   margin: auto;
-      //   background-color: rgba(0,0,0,0.1);
-      // }
+      .current_page {
+        width: 60px;
+        p {
+          font-size: 1.2em; 
+        }
+      }
       .last_page {
+        display: none;
       }
     }
     .pagination_right {
