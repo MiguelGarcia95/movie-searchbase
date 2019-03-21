@@ -64,10 +64,12 @@ class SearchResults extends React.Component {
       <section className="search_page">
         <section className="search_data">
           <h1>Search Results For: <span>{this.props.match.params.searchQuery}</span></h1>
+        </section>
+        <section className="results">
+          <p>Results: {searchResults.length}</p>
           <ResultSwitch />
         </section>
-        <section className="results"><p>Results: {searchResults.length}</p></section>
-        
+
         <section className="search_results">
           {this.displayResults(searchResults, type, genres)}
         </section>
