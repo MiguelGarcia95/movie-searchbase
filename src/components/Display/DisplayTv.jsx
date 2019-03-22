@@ -10,8 +10,18 @@ class DisplayTv extends React.Component {
   }
 
   render() {
+    console.log(this.props.currentShow);
     return (
       <section className="display_movie">
+        <section className="display_movie_header">
+          <section className="display_movie_header_image"></section>
+          <section className="display_movie_header_data">
+            <h1 className="title">Title Here</h1>
+            <p className="meta">Genre genre genre </p>
+            <h4 className="description">Description goes here</h4>
+            <section className="button">Trailer</section>
+          </section>
+        </section>
       </section>
     );
   }
