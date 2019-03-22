@@ -22,6 +22,7 @@
     .display_movie_header_data {
       position: absolute;
       background-color: @navbarBG;
+      background-color: rgba(0,0,0,0.5);
       color: white;
       left: 0; bottom: 0;
       width: 70%;
@@ -38,11 +39,14 @@
       }
       .description {
         padding: 5px 0;
+        font-size: 1.2em;
       }
       .companies {
+        width: 100%; height: 100px;
+        overflow: hidden;
         .company {
           width: 150px; height: 100px; float: left; position: relative;
-          background-color: rgba(0,0,0,0.5);
+          background-color: rgba(0,0,0,0.2);
           overflow: hidden;
           margin: 0 5px;
           img {
