@@ -65,11 +65,10 @@ export const fetchShowGenres = () => {
 export const fetchShow = id => {
   return async (dispatch) => {
     const result = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${MOVIEDBAPI}&language=en-US`);
-    console.log(result);
     dispatch({
       type: actionTypes.GET_SHOW,
       payload: {
-        currentShow: result
+        currentShow: result.data
       }
     })
   }

@@ -1,9 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {fetchMovie} from '../../actions/movieActions'; 
+
 import './style/css/Display.css';
 
 class DisplayMovie extends React.Component {
   componentDidMount() {
-    console.log(this.props.match.params.movieId);
+    this.props.fetchMovie(this.props.match.params.movieId);
   }
 
   render() {
@@ -14,4 +17,16 @@ class DisplayMovie extends React.Component {
   }
 }
 
-export default DisplayMovie;
+const mapStateToProps = state => {
+  return {
+    currentMovie: state.movies.currentMovie
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchMovie: id => dispatch(fetchMovie(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayMovie);
