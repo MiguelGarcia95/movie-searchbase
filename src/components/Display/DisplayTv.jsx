@@ -23,8 +23,9 @@ class DisplayTv extends React.Component {
     const {currentShow} = this.props;
     const imageStyle = {
       backgroundImage: `url(${this.getImage()})`,
-      backgroundSize: 'contain',
-      backgroundPosition: 'center center'
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      backgroundRepeat: 'no-repeat'
     }
     return (
       <section className="display_movie">
