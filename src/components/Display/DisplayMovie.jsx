@@ -1,13 +1,11 @@
 import React from 'react';
-
-import './App.css';
+import './style/css/Display.css';
 
 class DisplayMovie extends React.Component {
   render() {
     return (
-      <div>
-        <h1>DisplayMovie</h1>
-      </div>
+      <section className="display_movie">
+      </section>
     );
   }
 }
