@@ -37,9 +37,9 @@ class DisplayTv extends React.Component {
           <section className="display_movie_header">
             <section className="display_movie_header_image" style={imageStyle}></section>
             <section className="display_movie_header_data">
-              <h1 className="title">Title Here</h1>
+              <h1 className="title">{currentShow.original_name}</h1>
               <p className="meta">Genre genre genre </p>
-              <h4 className="description">Description goes here</h4>
+              <h4 className="description">{currentShow.overview}</h4>
               <section className="button">Trailer</section>
             </section>
           </section>
