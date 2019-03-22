@@ -23,6 +23,16 @@ class DisplayMovie extends React.Component {
     return image;
   }
 
+  displayCompanies = (companies) => {
+    return companies.map(company => {
+      return (
+        <section className="company">
+          <img src={`https://image.tmdb.org/t/p/original${company.logo_path}`} alt={`${company.name} logo`}/>
+        </section>
+      )
+    })
+  }
+
   render() {
     const {currentMovie} = this.props;
     const imageStyle = {
@@ -40,7 +50,9 @@ class DisplayMovie extends React.Component {
               <h1 className="title">{currentMovie.title}</h1>
               <p className="meta">Genre genre genre </p>
               <h4 className="description">{currentMovie.overview}</h4>
-              <section className="button">Trailer</section>
+              <section className="companies">
+                {this.displayCompanies(currentMovie.production_companies)}
+              </section>
             </section>
           </section>
         )}
