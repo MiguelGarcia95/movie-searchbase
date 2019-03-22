@@ -12,6 +12,7 @@
       &.active {
         .result_switch_select_color {
           width: 100%; 
+          right: 0;
           background: rgb(255,52,52);
           background: linear-gradient(90deg, rgba(255,52,52,1) 0%, rgba(250,91,129,1) 100%);
 
@@ -21,7 +22,8 @@
     .result_switch_select:last-of-type {
       &.active {
         .result_switch_select_color {
-          width: 100%; 
+          width: 100%;
+          left: 0; 
           background-color: rgb(250,91,129);
           background: linear-gradient(90deg, rgba(250,91,129,1) 0%, rgba(255,52,52,1) 100%);
         }
@@ -30,6 +32,7 @@
     .result_switch_select {
       width: 50%; height: 100%; float: left;
       position: relative;
+      cursor: pointer;
       .result_switch_select_content {
         position: absolute;
         width: 100%; line-height: 20px;
@@ -38,7 +41,7 @@
         z-index: 5;
       }
       .result_switch_select_color {
-        width: 100%; height: 100%;
+        width: 0; height: 100%;
         position: absolute;
         transition: 0.3s;
         z-index: 4;
