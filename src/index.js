@@ -25,7 +25,7 @@ const Root = () => {
           <Route path='/login' component={Login} />
           <Route path='/account' component={Account} />
           <Route path='/search/:searchQuery' component={SearchResults} />
-          <Route path='/shows/:tvId' component={DisplayTv} />
+          <Route path='/shows/:showId' component={DisplayTv} />
           <Route path='/movies/:movieId' component={DisplayMovie} />
           {/* add a redirect to home here */}
         </Switch>

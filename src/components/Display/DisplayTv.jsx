@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchShow} from '../../actions/tvShowActions'; 
+
 import './style/css/Display.css';
 
 class DisplayTv extends React.Component {
-  compoenntDidMount() {
+  componentDidMount() {
     this.props.fetchShow(this.props.match.params.showId);
   }
 
