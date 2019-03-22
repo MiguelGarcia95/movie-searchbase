@@ -37,7 +37,7 @@ class DisplayMovie extends React.Component {
           <section className="display_movie_header">
             <section className="display_movie_header_image" style={imageStyle}></section>
             <section className="display_movie_header_data">
-              <h1 className="title">{currentMovie.original_name}</h1>
+              <h1 className="title">{currentMovie.title}</h1>
               <p className="meta">Genre genre genre </p>
               <h4 className="description">{currentMovie.overview}</h4>
               <section className="button">Trailer</section>
