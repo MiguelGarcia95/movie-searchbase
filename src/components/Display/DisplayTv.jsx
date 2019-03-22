@@ -11,8 +11,12 @@ class DisplayTv extends React.Component {
 
   getImage = () => {
     let image = '';
-    if (this.props.backdrop_path) {
-      image = `https://image.tmdb.org/t/p/original${this.props.backdrop_path}`;
+    if (this.props.currentShow) {
+      if (this.props.currentShow.backdrop_path) {
+        image = `https://image.tmdb.org/t/p/original${this.props.currentShow.backdrop_path}`;
+      } else {
+        image = '/images/movie/movie_bg.jpeg';
+      }
     } else {
       image = '/images/movie/movie_bg.jpeg';
     }
