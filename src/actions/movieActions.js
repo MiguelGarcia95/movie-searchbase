@@ -61,3 +61,16 @@ export const fetchMovieGenres = () => {
     })
   }
 }
+
+export const fetchMovie = id => {
+  return async (dispatch) => {
+    const result = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${MOVIEDBAPI}&language=en-US`);
+    console.log(result);
+    dispatch({
+      type: actionTypes.GET_MOVIE,
+      payload: {
+        currentMovie: result
+      }
+    })
+  }
+}

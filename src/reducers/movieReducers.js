@@ -5,7 +5,8 @@ const initialState = {
   topRatedMovies: [],
   nowPlayingMovies: [],
   popularMovies: [],
-  movieGenres: []
+  movieGenres: [],
+  currentMovie: null
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -34,6 +35,11 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         upcomingMovies: action.payload.upcomingMovies
+      }
+    case actionTypes.GET_MOVIE:
+      return {
+        ...state,
+        currentMovie: action.payload.currentMovie
       }
     default:
       return state;

@@ -5,7 +5,8 @@ const initialState = {
   onTheAirShows: [],
   onTheAirTodayShows: [],
   popularShows: [],
-  showGenres: []
+  showGenres: [],
+  currentShow: null
 };
 
 const tvShowsReducer = (state = initialState, action) => {
@@ -34,6 +35,11 @@ const tvShowsReducer = (state = initialState, action) => {
       return {
         ...state,
         topRatedShows: action.payload.topRatedShows
+      }
+    case actionTypes.GET_SHOW:
+      return {
+        ...state,
+        currentShow: action.payload.currentShow
       }
     default:
       return state;
