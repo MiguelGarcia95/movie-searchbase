@@ -104,6 +104,8 @@ export const fetchMovieVideos = id => {
 
 export const fetchSimilarMovies = id => {
   return async (dispatch) => {
+    const result = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
+    console.log(result)
     dispatch({
       type: actionTypes.GET_SIMILAR_MOVIES
     })
