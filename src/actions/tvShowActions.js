@@ -76,40 +76,52 @@ export const fetchShow = id => {
 
 export const fetchShowCredits = id => {
   return async (dispatch) => {
-    const result = await axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=${MOVIEDBAPI}&language=en-US`);
-    console.log(result);
+    const results = await axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=${MOVIEDBAPI}&language=en-US`);
+    console.log(results);
     dispatch({
-      type: actionTypes.GET_SHOW_CREDITS
+      type: actionTypes.GET_SHOW_CREDITS,
+      payload: {
+        currentShowCredits: results
+      }
     })
   }
 }
 
 export const fetchShowReviews = id => {
   return async (dispatch) => {
-    const result = await axios.get(`https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
-    console.log(result);
+    const results = await axios.get(`https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
+    console.log(results);
     dispatch({
-      type: actionTypes.GET_SHOW_REVIEWS
+      type: actionTypes.GET_SHOW_REVIEWS,
+      payload: {
+        currentShowReviews: results
+      }
     })
   }
 }
 
 export const fetchShowVideos = id => {
   return async (dispatch) => {
-    const result = await axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${MOVIEDBAPI}&language=en-US`);
-    console.log(result);
+    const results = await axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${MOVIEDBAPI}&language=en-US`);
+    console.log(results);
     dispatch({
-      type: actionTypes.GET_SHOW_VIDEOS
+      type: actionTypes.GET_SHOW_VIDEOS,
+      payload: {
+        currentShowVideos: results
+      }
     })
   }
 }
 
 export const fetchSimilarShows = id => {
   return async (dispatch) => {
-    const result = await axios.get(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
-    console.log(result);
+    const results = await axios.get(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
+    console.log(results);
     dispatch({
-      type: actionTypes.GET_SIMILAR_SHOWS
+      type: actionTypes.GET_SIMILAR_SHOWS,
+      payload: {
+        similarShows: results
+      }
     })
   }
 }
