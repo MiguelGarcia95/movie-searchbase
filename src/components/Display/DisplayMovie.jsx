@@ -7,6 +7,10 @@ import './style/css/Display.css';
 class DisplayMovie extends React.Component {
   componentDidMount() {
     this.props.fetchMovie(this.props.match.params.movieId);
+    this.props.fetchMovieCredits(this.props.match.params.movieId);
+    this.props.fetchMovieReviews(this.props.match.params.movieId);
+    this.props.fetchMovieVideos(this.props.match.params.movieId);
+    this.props.fetchSimilarMovies(this.props.match.params.movieId);
   }
 
   getImage = () => {
