@@ -6,6 +6,15 @@ export const GET_TOKEN = 'GET_TOKEN';
 export const SET_TOKEN = 'SET_TOKEN';
 export const GET_SESSION  = 'GET_SESSION';
 export const SET_SESSION = 'SET_SESSION';
+export const GET_FAVORITE_SHOWS = 'GET_FAVORITE_SHOWS';
+export const GET_FAVORITE_MOVIES = 'GET_FAVORITE_MOVIES';
+export const MARK_FAVORITE = 'MARK_FAVORITE';
+
+export const GET_SHOW_WATCHLIST = 'GET_SHOW_WATCHLIST';
+export const GET_MOVIE_WATCHLIST = 'GET_MOVIE_WATCHLIST';
+
+export const GET_RATED_SHOWS = 'GET_RATED_SHOWS';
+export const GET_RATED_MOVIES = 'GET_RATED_MOVIES';
 
 export const SET_TYPE = 'SET_TYPE';
 

@@ -67,8 +67,8 @@ class DisplayMovie extends React.Component {
               </section>
             </section>
             <section className="display_movie_data">
-              <seciont className="display_movie_data_cast">
-              </seciont>
+              <section className="display_movie_data_cast">
+              </section>
               <section className="display_movie_data_trailers">
               </section>
               <section className="display_movie_data_reviews">
