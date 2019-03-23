@@ -96,6 +96,8 @@ export const fetchShowReviews = id => {
 
 export const fetchShowVideos = id => {
   return async (dispatch) => {
+    const result = await axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${MOVIEDBAPI}&language=en-US`);
+    console.log(result);
     dispatch({
       type: actionTypes.GET_SHOW_VIDEOS
     })
