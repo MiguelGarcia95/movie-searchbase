@@ -73,7 +73,11 @@ class DisplayMovie extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentMovie: state.movies.currentMovie
+    currentMovie: state.movies.currentMovie,
+    currentMoviesVideos: state.movies.currentMoviesVideos,
+    currentMoviesCredits: state.movies.currentMoviesCredits,
+    currentMoviesReviews: state.movies.currentMoviesReviews,
+    similarMovies: state.movies.similarMovies
   }
 }
 

@@ -55,7 +55,11 @@ class DisplayTv extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentShow: state.shows.currentShow
+    currentShow: state.shows.currentShow,
+    currentShowVideos: state.shows.currentShowVideos,
+    currentShowCredits: state.shows.currentShowCredits,
+    currentShowReviews: state.shows.currentShowReviews,
+    similarShows: state.shows.similarShows
   }
 }
 
