@@ -41,15 +41,15 @@ const movieReducer = (state = initialState, action) => {
         ...state,
         currentMovie: action.payload.currentMovie
       }
-    case actionTypes.GET_CREDITS:
+    case actionTypes.GET_MOVIE_CREDITS:
       return {
         ...state
       }
-    case actionTypes.GET_REVIEWS:
+    case actionTypes.GET_MOVIE_REVIEWS:
       return {
         ...state
       }
-    case actionTypes.GET_VIDEOS:
+    case actionTypes.GET_MOVIE_VIDEOS:
       return {
         ...state
       }

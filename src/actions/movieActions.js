@@ -77,7 +77,7 @@ export const fetchMovie = id => {
 export const fetchMovieCredits = id => {
   return async (dispatch) => {
     dispatch({
-      type: actionTypes.GET_CREDITS
+      type: actionTypes.GET_MOVIE_CREDITS
     })
   }
 }
@@ -85,7 +85,7 @@ export const fetchMovieCredits = id => {
 export const fetchMovieReviews = id => {
   return async (dispatch) => {
     dispatch({
-      type: actionTypes.GET_REVIEWS
+      type: actionTypes.GET_MOVIE_REVIEWS
     })
   }
 }
@@ -93,7 +93,7 @@ export const fetchMovieReviews = id => {
 export const fetchMovieVideos = id => {
   return async (dispatch) => {
     dispatch({
-      type: actionTypes.GET_VIDEOS
+      type: actionTypes.GET_MOVIE_VIDEOS
     })
   }
 }
