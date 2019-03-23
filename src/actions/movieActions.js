@@ -84,6 +84,8 @@ export const fetchMovieCredits = id => {
 
 export const fetchMovieReviews = id => {
   return async (dispatch) => {
+    const result = await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
+    console.log(result)
     dispatch({
       type: actionTypes.GET_MOVIE_REVIEWS
     })
@@ -92,6 +94,8 @@ export const fetchMovieReviews = id => {
 
 export const fetchMovieVideos = id => {
   return async (dispatch) => {
+    const result = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${MOVIEDBAPI}&language=en-US`);
+    console.log(result)
     dispatch({
       type: actionTypes.GET_MOVIE_VIDEOS
     })
