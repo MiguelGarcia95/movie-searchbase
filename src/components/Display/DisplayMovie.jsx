@@ -43,6 +43,12 @@ class DisplayMovie extends React.Component {
     })
   }
 
+  displayCast = cast => {
+    return cast.map(character => {
+      return <section className="cast_character" key={character.cast_id}></section>
+    })
+  }
+
   render() {
     const {currentMovie, currentMoviesVideos, currentMoviesCredits, currentMoviesReviews, similarMovies} = this.props;
     const imageStyle = {
@@ -51,10 +57,7 @@ class DisplayMovie extends React.Component {
       backgroundPosition: 'center center',
       backgroundRepeat: 'no-repeat'
     }
-    console.log(currentMoviesVideos);
-    console.log(currentMoviesCredits);
-    console.log(currentMoviesReviews);
-    console.log(similarMovies);
+    // console.log(currentMoviesCredits)
     return (
       <section className="display_movie">
         {currentMovie && (
@@ -72,6 +75,7 @@ class DisplayMovie extends React.Component {
             </section>
             <section className="display_movie_data">
               <section className="display_movie_data_cast">
+                {currentMoviesCredits && this.displayCast(currentMoviesCredits.cast)}
               </section>
               <section className="display_movie_data_trailers">
               </section>
