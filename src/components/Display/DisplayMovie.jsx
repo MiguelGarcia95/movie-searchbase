@@ -44,13 +44,17 @@ class DisplayMovie extends React.Component {
   }
 
   render() {
-    const {currentMovie} = this.props;
+    const {currentMovie, currentMoviesVideos, currentMoviesCredits, currentMoviesReviews, similarMovies} = this.props;
     const imageStyle = {
       backgroundImage: `url(${this.getImage()})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
       backgroundRepeat: 'no-repeat'
     }
+    console.log(currentMoviesVideos);
+    console.log(currentMoviesCredits);
+    console.log(currentMoviesReviews);
+    console.log(similarMovies);
     return (
       <section className="display_movie">
         {currentMovie && (
