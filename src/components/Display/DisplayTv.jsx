@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {fetchShow, fetchShowCredits, fetchShowReviews, fetchShowVideos, fetchSimilarShows} from '../../actions/tvShowActions'; 
 
 import './style/css/Display.css';
+import { throws } from 'assert';
 
 class DisplayTv extends React.Component {
   componentDidMount() {
@@ -27,6 +28,22 @@ class DisplayTv extends React.Component {
     return image;
   }
 
+  displayCompanies = (companies) => {
+    return companies.map(company => {
+      return (
+        <section key={company.name} title={company.name} className="company">
+          <img src={`https://image.tmdb.org/t/p/original${company.logo_path}`} alt={`${company.name} logo`}/>
+        </section>
+      )
+    })
+  }
+
+  displayGenres = (genres) => {
+    return genres.map(genre => {
+      return <span key={genre.id} className="genre">{genre.name}</span>
+    })
+  }
+
   render() {
     const {currentShow} = this.props;
     const imageStyle = {
@@ -42,9 +59,11 @@ class DisplayTv extends React.Component {
             <section className="display_movie_header_image" style={imageStyle}></section>
             <section className="display_movie_header_data">
               <h1 className="title">{currentShow.original_name}</h1>
-              <p className="meta">Genre genre genre </p>
+              <p className="meta">{this.displayGenres(currentShow.genres)}</p>
               <h4 className="description">{currentShow.overview}</h4>
-              <section className="button">Trailer</section>
+              <section className="companies">
+                {this.displayCompanies(currentShow.networks)}
+              </section>
             </section>
           </section>
         )}
