@@ -54,17 +54,29 @@ class DisplayTv extends React.Component {
     return (
       <section className="display_movie">
         {currentShow && (
-          <section className="display_movie_header">
-            <section className="display_movie_header_image" style={imageStyle}></section>
-            <section className="display_movie_header_data">
-              <h1 className="title">{currentShow.original_name}</h1>
-              <p className="meta">{this.displayGenres(currentShow.genres)}</p>
-              <h4 className="description">{currentShow.overview}</h4>
-              <section className="companies">
-                {this.displayCompanies(currentShow.networks)}
+          <React.Fragment>
+            <section className="display_movie_header">
+              <section className="display_movie_header_image" style={imageStyle}></section>
+              <section className="display_movie_header_data">
+                <h1 className="title">{currentShow.original_name}</h1>
+                <p className="meta">{this.displayGenres(currentShow.genres)}</p>
+                <h4 className="description">{currentShow.overview}</h4>
+                <section className="companies">
+                  {this.displayCompanies(currentShow.networks)}
+                </section>
               </section>
             </section>
-          </section>
+            <section className="display_movie_data">
+              <seciont className="display_movie_data_cast">
+              </seciont>
+              <section className="display_movie_data_trailers">
+              </section>
+              <section className="display_movie_data_reviews">
+              </section>
+              <section className="display_movie_data_similar">
+              </section>
+            </section>
+          </React.Fragment>
         )}
       </section>
     );

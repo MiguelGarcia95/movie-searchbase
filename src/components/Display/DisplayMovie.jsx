@@ -54,17 +54,29 @@ class DisplayMovie extends React.Component {
     return (
       <section className="display_movie">
         {currentMovie && (
-          <section className="display_movie_header">
-            <section className="display_movie_header_image" style={imageStyle}></section>
-            <section className="display_movie_header_data">
-              <h1 className="title">{currentMovie.title}</h1>
-              <p className="meta">{this.displayGenres(currentMovie.genres)}</p>
-              <h4 className="description">{currentMovie.overview}</h4>
-              <section className="companies">
-                {this.displayCompanies(currentMovie.production_companies)}
+          <React.Fragment>
+            <section className="display_movie_header">
+              <section className="display_movie_header_image" style={imageStyle}></section>
+              <section className="display_movie_header_data">
+                <h1 className="title">{currentMovie.title}</h1>
+                <p className="meta">{this.displayGenres(currentMovie.genres)}</p>
+                <h4 className="description">{currentMovie.overview}</h4>
+                <section className="companies">
+                  {this.displayCompanies(currentMovie.production_companies)}
+                </section>
               </section>
             </section>
-          </section>
+            <section className="display_movie_data">
+              <seciont className="display_movie_data_cast">
+              </seciont>
+              <section className="display_movie_data_trailers">
+              </section>
+              <section className="display_movie_data_reviews">
+              </section>
+              <section className="display_movie_data_similar">
+              </section>
+            </section>
+          </React.Fragment>
         )}
       </section>
     );
