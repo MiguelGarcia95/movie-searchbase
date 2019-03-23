@@ -1,12 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchShow} from '../../actions/tvShowActions'; 
+import {fetchShow, fetchShowCredits, fetchShowReviews, fetchShowVideos, fetchSimilarShows} from '../../actions/tvShowActions'; 
 
 import './style/css/Display.css';
 
 class DisplayTv extends React.Component {
   componentDidMount() {
     this.props.fetchShow(this.props.match.params.showId);
+    this.props.fetchShowCredits(this.props.match.params.showId);
+    this.props.fetchShowReviews(this.props.match.params.showId);
+    this.props.fetchShowVideos(this.props.match.params.showId);
+    this.props.fetchSimilarShows(this.props.match.params.showId);
   }
 
   getImage = () => {
@@ -57,7 +61,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchShow: id => dispatch(fetchShow(id))
+    fetchShow: id => dispatch(fetchShow(id)),
+    fetchShowCredits: id => dispatch(fetchShowCredits(id)),
+    fetchShowReviews: id => dispatch(fetchShowReviews(id)),
+    fetchShowVideos: id => dispatch(fetchShowVideos(id)),
+    fetchSimilarShows: id => dispatch(fetchSimilarShows(id))
   }
 }
 
