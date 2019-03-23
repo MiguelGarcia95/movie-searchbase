@@ -47,19 +47,23 @@ const movieReducer = (state = initialState, action) => {
       }
     case actionTypes.GET_MOVIE_CREDITS:
       return {
-        ...state
+        ...state,
+        currentMoviesCredits: action.payload.currentMoviesCredits,
       }
     case actionTypes.GET_MOVIE_REVIEWS:
       return {
-        ...state
+        ...state,
+        currentMoviesReviews: action.payload.currentMoviesReviews
       }
     case actionTypes.GET_MOVIE_VIDEOS:
       return {
-        ...state
+        ...state,
+        currentMoviesVideos: action.payload.currentMoviesVideos
       }
     case actionTypes.GET_SIMILAR_MOVIES:
       return {
-        ...state
+        ...state,
+        similarMovies: action.payload.similarMovies
       }
     default:
       return state;
