@@ -104,13 +104,13 @@ class Account extends React.Component {
               <section className="content_panel">
                 <section className="panel_info">
                   <h2 className="count">0</h2>
-                  <h2 className="category">Rated Movies</h2>
+                  <h2 className="category">Movie Watchlist</h2>
                 </section>
               </section>
               <section className="content_panel">
                 <section className="panel_info">
                   <h2 className="count">0</h2>
-                  <h2 className="category">Rated Shows</h2>
+                  <h2 className="category">Show Watchlist</h2>
                 </section>
               </section>
             </section>
