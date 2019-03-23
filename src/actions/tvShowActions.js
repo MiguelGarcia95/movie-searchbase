@@ -73,3 +73,35 @@ export const fetchShow = id => {
     })
   }
 }
+
+export const fetchShowCredits = id => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.GET_SHOW_CREDITS
+    })
+  }
+}
+
+export const fetchShowReviews = id => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.GET_SHOW_REVIEWS
+    })
+  }
+}
+
+export const fetchShowVideos = id => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.GET_SHOW_VIDEOS
+    })
+  }
+}
+
+export const fetchSimilarShows = id => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.GET_SIMILAR_SHOWS
+    })
+  }
+}

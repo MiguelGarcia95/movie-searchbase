@@ -101,7 +101,7 @@ export const fetchMovieVideos = id => {
 export const fetchSimilarMovies = id => {
   return async (dispatch) => {
     dispatch({
-      type: actionTypes.GET_SIMILAR_MOVES
+      type: actionTypes.GET_SIMILAR_MOVIES
     })
   }
 }

@@ -53,7 +53,7 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state
       }
-    case actionTypes.GET_SIMILAR_MOVES:
+    case actionTypes.GET_SIMILAR_MOVIES:
       return {
         ...state
       }
