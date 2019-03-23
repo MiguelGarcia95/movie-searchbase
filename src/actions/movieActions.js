@@ -73,3 +73,35 @@ export const fetchMovie = id => {
     })
   }
 }
+
+export const fetchMovieCredits = id => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.GET_CREDITS
+    })
+  }
+}
+
+export const fetchMovieReviews = id => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.GET_REVIEWS
+    })
+  }
+}
+
+export const fetchMovieVideos = id => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.GET_VIDEOS
+    })
+  }
+}
+
+export const fetchSimilarMovies = id => {
+  return async (dispatch) => {
+    dispatch({
+      type: actionTypes.GET_SIMILAR_MOVES
+    })
+  }
+}
