@@ -77,11 +77,11 @@ export const fetchShow = id => {
 export const fetchShowCredits = id => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=${MOVIEDBAPI}&language=en-US`);
-    console.log(results);
+    console.log(results.data);
     dispatch({
       type: actionTypes.GET_SHOW_CREDITS,
       payload: {
-        currentShowCredits: results
+        currentShowCredits: results.data
       }
     })
   }
@@ -90,11 +90,11 @@ export const fetchShowCredits = id => {
 export const fetchShowReviews = id => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
-    console.log(results);
+    console.log(results.data.results);
     dispatch({
       type: actionTypes.GET_SHOW_REVIEWS,
       payload: {
-        currentShowReviews: results
+        currentShowReviews: results.data.results
       }
     })
   }
@@ -103,11 +103,11 @@ export const fetchShowReviews = id => {
 export const fetchShowVideos = id => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${MOVIEDBAPI}&language=en-US`);
-    console.log(results);
+    console.log(results.data.results);
     dispatch({
       type: actionTypes.GET_SHOW_VIDEOS,
       payload: {
-        currentShowVideos: results
+        currentShowVideos: results.data.results
       }
     })
   }
@@ -116,11 +116,11 @@ export const fetchShowVideos = id => {
 export const fetchSimilarShows = id => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
-    console.log(results);
+    console.log(results.data.results);
     dispatch({
       type: actionTypes.GET_SIMILAR_SHOWS,
       payload: {
-        similarShows: results
+        similarShows: results.data.results
       }
     })
   }
