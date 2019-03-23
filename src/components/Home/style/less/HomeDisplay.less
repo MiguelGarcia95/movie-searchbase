@@ -57,9 +57,9 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
     float: left;
 
     .home_display_col:first-of-type {
-      padding: 10px;
-      box-sizing: border-box;
       transition: 0.3s;
+      box-sizing: border-box;
+      padding: 10px;
       cursor: pointer;
       &:hover {
         padding: 0px;
@@ -73,7 +73,10 @@ p, a, h1, h2, h3, h4, h5, h6, input, textarea, button, strong, small {
     }
     .home_display_col {
       width: 50%; height: 100%;
-      float: left;
+      float: left; 
+      &.second {
+        padding: 0px;
+      }
       .home_display_inner_row {
         width: 100%; height: 50%; float: left;
         .home_display_inner_col {

@@ -133,7 +133,7 @@ const HomeDisplay = ({movies, genres, fetchType}) => {
     <section className='home_display'>
       <section className="home_display_row">
         {movies.length > 0 && displayHomeCol(movies[0], genres, fetchType)}
-        <section className="home_display_col">
+        <section className="home_display_col second">
           <section className="home_display_inner_row">
             {movies && displayTopInnerCol(movies, genres, fetchType)}
           </section>  

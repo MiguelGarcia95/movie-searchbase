@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {fetchShow, fetchShowCredits, fetchShowReviews, fetchShowVideos, fetchSimilarShows} from '../../actions/tvShowActions'; 
 
 import './style/css/Display.css';
-import { throws } from 'assert';
 
 class DisplayTv extends React.Component {
   componentDidMount() {
