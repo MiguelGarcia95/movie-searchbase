@@ -30,7 +30,7 @@ class DisplayMovie extends React.Component {
   displayCompanies = (companies) => {
     return companies.map(company => {
       return (
-        <section className="company">
+        <section key={company.name} className="company">
           <img src={`https://image.tmdb.org/t/p/original${company.logo_path}`} alt={`${company.name} logo`}/>
         </section>
       )
@@ -39,7 +39,7 @@ class DisplayMovie extends React.Component {
 
   displayGenres = (genres) => {
     return genres.map(genre => {
-      return <span className="genre">{genre.name}</span>
+      return <span key={genre.id} className="genre">{genre.name}</span>
     })
   }
 
