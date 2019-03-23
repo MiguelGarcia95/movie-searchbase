@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchMovie} from '../../actions/movieActions'; 
+import {fetchMovie, fetchMovieCredits, fetchMovieReviews, fetchMovieVideos, fetchSimilarMovies} from '../../actions/movieActions'; 
 
 import './style/css/Display.css';
 
@@ -75,7 +75,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchMovie: id => dispatch(fetchMovie(id))
+    fetchMovie: id => dispatch(fetchMovie(id)),
+    fetchMovieCredits: id => dispatch(fetchMovieCredits(id)), 
+    fetchMovieReviews: id => dispatch(fetchMovieReviews(id)), 
+    fetchMovieVideos: id => dispatch(fetchMovieVideos(id)), 
+    fetchSimilarMovies: id => dispatch(fetchSimilarMovies(id))
   }
 }
 
