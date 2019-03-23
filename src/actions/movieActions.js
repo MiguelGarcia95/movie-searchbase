@@ -64,11 +64,11 @@ export const fetchMovieGenres = () => {
 
 export const fetchMovie = id => {
   return async (dispatch) => {
-    const result = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${MOVIEDBAPI}&language=en-US`);
+    const results = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${MOVIEDBAPI}&language=en-US`);
     dispatch({
       type: actionTypes.GET_MOVIE,
       payload: {
-        currentMovie: result.data
+        currentMovie: results.data
       }
     })
   }
@@ -76,8 +76,8 @@ export const fetchMovie = id => {
 
 export const fetchMovieCredits = id => {
   return async (dispatch) => {
-    const result = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${MOVIEDBAPI}`);
-    console.log(result.data);
+    const results = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${MOVIEDBAPI}`);
+    console.log(results.data);
     dispatch({
       type: actionTypes.GET_MOVIE_CREDITS
     })
@@ -86,8 +86,8 @@ export const fetchMovieCredits = id => {
 
 export const fetchMovieReviews = id => {
   return async (dispatch) => {
-    const result = await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
-    console.log(result.data.results)
+    const results = await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
+    console.log(results.data.results)
     dispatch({
       type: actionTypes.GET_MOVIE_REVIEWS
     })
@@ -96,8 +96,8 @@ export const fetchMovieReviews = id => {
 
 export const fetchMovieVideos = id => {
   return async (dispatch) => {
-    const result = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${MOVIEDBAPI}&language=en-US`);
-    console.log(result.data.results)
+    const results = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${MOVIEDBAPI}&language=en-US`);
+    console.log(results.data.results)
     dispatch({
       type: actionTypes.GET_MOVIE_VIDEOS
     })
@@ -106,8 +106,8 @@ export const fetchMovieVideos = id => {
 
 export const fetchSimilarMovies = id => {
   return async (dispatch) => {
-    const result = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
-    console.log(result.data.results)
+    const results = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
+    console.log(results.data.results)
     dispatch({
       type: actionTypes.GET_SIMILAR_MOVIES
     })
