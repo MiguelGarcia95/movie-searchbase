@@ -76,6 +76,8 @@ export const fetchMovie = id => {
 
 export const fetchMovieCredits = id => {
   return async (dispatch) => {
+    const result = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${MOVIEDBAPI}`);
+    console.log(result);
     dispatch({
       type: actionTypes.GET_MOVIE_CREDITS
     })
