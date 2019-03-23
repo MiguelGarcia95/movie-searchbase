@@ -47,19 +47,23 @@ const tvShowsReducer = (state = initialState, action) => {
       }
     case actionTypes.GET_SHOW_CREDITS:
       return {
-        ...state
+        ...state,
+        currentShowCredits: null
       }
     case actionTypes.GET_SHOW_REVIEWS:
       return {
-        ...state
+        ...state,
+        currentShowReviews: null
       }
     case actionTypes.GET_SHOW_VIDEOS:
       return {
-        ...state
+        ...state,
+        currentShowVideos: null
       }
     case actionTypes.GET_SIMILAR_SHOWS:
       return {
-        ...state
+        ...state,
+        similarShows: null
       }
     default:
       return state;
