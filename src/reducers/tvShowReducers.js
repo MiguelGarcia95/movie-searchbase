@@ -6,7 +6,11 @@ const initialState = {
   onTheAirTodayShows: [],
   popularShows: [],
   showGenres: [],
-  currentShow: null
+  currentShow: null,
+  currentShowVideos: null,
+  currentShowCredits: null,
+  currentShowReviews: null,
+  similarShows: null
 };
 
 const tvShowsReducer = (state = initialState, action) => {

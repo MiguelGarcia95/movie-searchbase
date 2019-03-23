@@ -6,7 +6,11 @@ const initialState = {
   nowPlayingMovies: [],
   popularMovies: [],
   movieGenres: [],
-  currentMovie: null
+  currentMovie: null,
+  currentMoviesVideos: null,
+  currentMoviesCredits: null,
+  currentMoviesReviews: null,
+  similarMovies: null
 };
 
 const movieReducer = (state = initialState, action) => {
