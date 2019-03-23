@@ -77,9 +77,11 @@ export const fetchMovie = id => {
 export const fetchMovieCredits = id => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${MOVIEDBAPI}`);
-    console.log(results.data);
     dispatch({
-      type: actionTypes.GET_MOVIE_CREDITS
+      type: actionTypes.GET_MOVIE_CREDITS,
+      payload: {
+        currentMoviesCredits: results.data
+      }
     })
   }
 }
@@ -87,9 +89,11 @@ export const fetchMovieCredits = id => {
 export const fetchMovieReviews = id => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
-    console.log(results.data.results)
     dispatch({
-      type: actionTypes.GET_MOVIE_REVIEWS
+      type: actionTypes.GET_MOVIE_REVIEWS,
+      payload: {
+        currentMoviesReviews: results.data.results
+      }
     })
   }
 }
@@ -97,9 +101,11 @@ export const fetchMovieReviews = id => {
 export const fetchMovieVideos = id => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${MOVIEDBAPI}&language=en-US`);
-    console.log(results.data.results)
     dispatch({
-      type: actionTypes.GET_MOVIE_VIDEOS
+      type: actionTypes.GET_MOVIE_VIDEOS,
+      payload: {
+        currentMoviesVideos: results.data.results
+      }
     })
   }
 }
@@ -107,9 +113,11 @@ export const fetchMovieVideos = id => {
 export const fetchSimilarMovies = id => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
-    console.log(results.data.results)
     dispatch({
-      type: actionTypes.GET_SIMILAR_MOVIES
+      type: actionTypes.GET_SIMILAR_MOVIES,
+      payload: {
+        similarMovies: results.data.results
+      }
     })
   }
 }
