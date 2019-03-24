@@ -23,7 +23,7 @@ class DisplayMovie extends React.Component {
     this.props.fetchMovie(this.props.match.params.movieId);
     this.props.fetchMovieCredits(this.props.match.params.movieId);
     this.props.fetchMovieReviews(this.props.match.params.movieId);
-    this.props.fetchMovieVideos(this.props.match.params.movieId);
+    // this.props.fetchMovieVideos(this.props.match.params.movieId);
     this.props.fetchSimilarMovies(this.props.match.params.movieId);
   }
 
@@ -51,7 +51,7 @@ class DisplayMovie extends React.Component {
   }
 
   render() {
-    const {currentMovie, currentMoviesVideos, currentMoviesCredits, currentMoviesReviews, similarMovies, movieGenres} = this.props;
+    const {currentMovie, currentMoviesCredits, currentMoviesReviews, similarMovies, movieGenres} = this.props;
 
     return (
       <section className="display_movie">
@@ -63,9 +63,9 @@ class DisplayMovie extends React.Component {
                 <h2>Cast {currentMoviesCredits && <small>({currentMoviesCredits.cast.slice(0, 20).length})</small>}</h2>
                 {currentMoviesCredits && this.displayCast(currentMoviesCredits.cast)}
               </section>
-              <section className="display_movie_data_trailers">
+              {/* <section className="display_movie_data_trailers">
                 <h2>Trailers</h2>
-              </section>
+              </section> */}
               <section className="display_movie_data_similar">
                 <h2>Similar Movies  {similarMovies && <small>({similarMovies.length})</small>} </h2>
                 {similarMovies && movieGenres && this.displaySimilarMovies(similarMovies, movieGenres)}
@@ -85,7 +85,7 @@ class DisplayMovie extends React.Component {
 const mapStateToProps = state => {
   return {
     currentMovie: state.movies.currentMovie,
-    currentMoviesVideos: state.movies.currentMoviesVideos,
+    // currentMoviesVideos: state.movies.currentMoviesVideos,
     currentMoviesCredits: state.movies.currentMoviesCredits,
     currentMoviesReviews: state.movies.currentMoviesReviews,
     similarMovies: state.movies.similarMovies,
@@ -98,7 +98,7 @@ const mapDispatchToProps = dispatch => {
     fetchMovie: id => dispatch(fetchMovie(id)),
     fetchMovieCredits: id => dispatch(fetchMovieCredits(id)), 
     fetchMovieReviews: id => dispatch(fetchMovieReviews(id)), 
-    fetchMovieVideos: id => dispatch(fetchMovieVideos(id)), 
+    // fetchMovieVideos: id => dispatch(fetchMovieVideos(id)), 
     fetchSimilarMovies: id => dispatch(fetchSimilarMovies(id)),
     fetchMovieGenres: () => dispatch(fetchMovieGenres())
   }
