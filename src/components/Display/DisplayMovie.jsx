@@ -65,6 +65,18 @@ class DisplayMovie extends React.Component {
     return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
   }
 
+  displayReviews = reviews => {
+    if (reviews.length > 0) {
+      return reviews.map(review => {
+        return (
+          <section className="review"></section>
+        )
+      })
+    } else {
+      return <section className='no_reviews'><h2>No Reviews ...</h2></section>
+    }
+  }
+
   render() {
     const {currentMovie, currentMoviesVideos, currentMoviesCredits, currentMoviesReviews, similarMovies, movieGenres} = this.props;
     const imageStyle = {
@@ -103,6 +115,7 @@ class DisplayMovie extends React.Component {
               </section>
               <section className="display_movie_data_reviews">
                 <h2>Reviews</h2>
+                {currentMoviesReviews && this.displayReviews(currentMoviesReviews)}
               </section>
             </section>
           </React.Fragment>
