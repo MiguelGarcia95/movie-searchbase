@@ -10,11 +10,11 @@ const displayCast = cast => {
 
 const CastSlider = ({cast, settings}) => {
   return (
-    <div>
+    <section className='cast_slider'>
       <Slider {...settings}>
         {displayCast(cast)}
       </Slider>
-    </div>
+    </section>
   );
 }
 
