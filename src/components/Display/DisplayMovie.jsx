@@ -46,22 +46,16 @@ class DisplayMovie extends React.Component {
   }
 
   displayCast = cast => {
-    return cast.slice(0, 8).map(character => {
-      const imageStyle = {
-        backgroundImage: `url(https://image.tmdb.org/t/p/original${character.profile_path})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat'
-      }
-      return (
-        <section className="cast_character" key={character.cast_id}>
-          <section className="cast_image" style={imageStyle}></section>
-          <section className="cast_data">
-            <p className="name" >{character.name}</p>
-          </section>
-        </section>
-      )
-    })
+    const settings = {
+      className: "center",
+      centerMode: true,
+      infinite: true,
+      centerPadding: "60px",
+      slidesToShow: 3,
+      speed: 500
+    };
+    
+    return <CastSlider cast={cast} settings={settings} />
   }
 
   render() {
@@ -71,15 +65,6 @@ class DisplayMovie extends React.Component {
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
       backgroundRepeat: 'no-repeat'
-    };
-    
-    const settings = {
-      className: "center",
-      centerMode: true,
-      infinite: true,
-      centerPadding: "60px",
-      slidesToShow: 3,
-      speed: 500
     };
 
     return (
