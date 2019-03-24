@@ -54,7 +54,7 @@ class DisplayMovie extends React.Component {
       slidesToShow: 3,
       speed: 500
     };
-    
+
     return <CastSlider cast={cast} settings={settings} />
   }
 
