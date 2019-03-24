@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import DisplayHeader from './DisplayHeader';
 import CastSlider from '../layout/CastSlider';
 import ContentSlider from '../layout/ContentSlider';
 import {fetchMovie, fetchMovieCredits, fetchMovieReviews, fetchMovieVideos, fetchSimilarMovies, fetchMovieGenres} from '../../actions/movieActions'; 
@@ -27,36 +27,6 @@ class DisplayMovie extends React.Component {
     this.props.fetchSimilarMovies(this.props.match.params.movieId);
   }
 
-  getImage = () => {
-    let image = '';
-    if (this.props.currentMovie) {
-      if (this.props.currentMovie.backdrop_path) {
-        image = `https://image.tmdb.org/t/p/original${this.props.currentMovie.backdrop_path}`;
-      } else {
-        image = '/images/movie/movie_bg.jpeg';
-      }
-    } else {
-      image = '/images/movie/movie_bg.jpeg';
-    }
-    return image;
-  }
-
-  displayCompanies = (companies) => {
-    return companies.map(company => {
-      return (
-        <section key={company.name} title={company.name} className="company">
-          <img src={`https://image.tmdb.org/t/p/original${company.logo_path}`} alt={`${company.name} logo`}/>
-        </section>
-      )
-    })
-  }
-
-  displayGenres = (genres) => {
-    return genres.map(genre => {
-      return <span key={genre.id} className="genre">{genre.name}</span>
-    })
-  }
-
   displayCast = cast => {
     return <CastSlider cast={cast} settings={castSliderSettings} />
   }
@@ -79,28 +49,12 @@ class DisplayMovie extends React.Component {
 
   render() {
     const {currentMovie, currentMoviesVideos, currentMoviesCredits, currentMoviesReviews, similarMovies, movieGenres} = this.props;
-    const imageStyle = {
-      backgroundImage: `url(${this.getImage()})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center center',
-      backgroundRepeat: 'no-repeat'
-    };
 
     return (
       <section className="display_movie">
         {currentMovie && currentMovie.id === Number(this.props.match.params.movieId) && (
           <React.Fragment>
-            <section className="display_movie_header">
-              <section className="display_movie_header_image" style={imageStyle}></section>
-              <section className="display_movie_header_data">
-                <h1 className="title">{currentMovie.title}</h1>
-                <p className="meta">{this.displayGenres(currentMovie.genres)}</p>
-                <h4 className="description">{currentMovie.overview}</h4>
-                <section className="companies">
-                  {this.displayCompanies(currentMovie.production_companies)}
-                </section>
-              </section>
-            </section>
+            <DisplayHeader currentMovie={currentMovie} />
             <section className="display_movie_data">
               <section className="display_movie_data_cast">
                 <h2>Cast</h2>
