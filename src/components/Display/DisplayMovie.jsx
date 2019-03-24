@@ -39,7 +39,10 @@ class DisplayMovie extends React.Component {
     if (reviews.length > 0) {
       return reviews.map(review => {
         return (
-          <section className="review"></section>
+          <section key={review.id} className="review">
+            <section className="review_username"><p>{review.author}</p></section>
+            <section className="review_content"><p>{review.content}</p></section>
+          </section>
         )
       })
     } else {
