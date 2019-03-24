@@ -44,8 +44,21 @@ class DisplayMovie extends React.Component {
   }
 
   displayCast = cast => {
-    return cast.map(character => {
-      return <section className="cast_character" key={character.cast_id}></section>
+    return cast.slice(0, 8).map(character => {
+      const imageStyle = {
+        backgroundImage: `url(https://image.tmdb.org/t/p/original${character.profile_path})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat'
+      }
+      return (
+        <section className="cast_character" key={character.cast_id}>
+          <section className="cast_image" style={imageStyle}></section>
+          <section className="cast_data">
+            <p className="name" >{character.name}</p>
+          </section>
+        </section>
+      )
     })
   }
 
@@ -75,6 +88,7 @@ class DisplayMovie extends React.Component {
             </section>
             <section className="display_movie_data">
               <section className="display_movie_data_cast">
+                <h2>Cast</h2>
                 {currentMoviesCredits && this.displayCast(currentMoviesCredits.cast)}
               </section>
               <section className="display_movie_data_trailers">
