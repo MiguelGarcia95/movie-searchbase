@@ -132,7 +132,7 @@ class DisplayMovie extends React.Component {
 
     return (
       <section className="display_movie">
-        {currentMovie && (
+        {currentMovie && currentMovie.id === Number(this.props.match.params.movieId) && (
           <React.Fragment>
             <section className="display_movie_header">
               <section className="display_movie_header_image" style={imageStyle}></section>
