@@ -8,7 +8,7 @@ import Slider from "react-slick";
 //   })
 // }
 
-displayCast = cast => {
+const displayCast = cast => {
   return cast.slice(0, 8).map(character => {
     const imageStyle = {
       backgroundImage: `url(https://image.tmdb.org/t/p/original${character.profile_path})`,
@@ -27,7 +27,7 @@ displayCast = cast => {
   })
 }
 
-const CastSlider = ({cast}) => {
+const CastSlider = ({cast, settings}) => {
   return (
     <div>
       <Slider {...settings}>

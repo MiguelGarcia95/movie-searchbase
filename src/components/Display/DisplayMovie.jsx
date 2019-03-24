@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+
+import CastSlider from '../layout/CastSlider';
 import {fetchMovie, fetchMovieCredits, fetchMovieReviews, fetchMovieVideos, fetchSimilarMovies} from '../../actions/movieActions'; 
 
 import './style/css/Display.css';
@@ -69,8 +71,17 @@ class DisplayMovie extends React.Component {
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
       backgroundRepeat: 'no-repeat'
-    }
-    // console.log(currentMoviesCredits)
+    };
+    
+    const settings = {
+      className: "center",
+      centerMode: true,
+      infinite: true,
+      centerPadding: "60px",
+      slidesToShow: 3,
+      speed: 500
+    };
+
     return (
       <section className="display_movie">
         {currentMovie && (
