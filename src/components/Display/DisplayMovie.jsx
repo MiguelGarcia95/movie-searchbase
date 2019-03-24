@@ -40,7 +40,7 @@ class DisplayMovie extends React.Component {
       return reviews.map(review => {
         return (
           <section key={review.id} className="review">
-            <section className="review_username"><p><span>From: </span> {review.author}</p></section>
+            <section className="review_username"><p><span>From: </span> <a href={review.url}>{review.author}</a></p></section>
             <section className="review_content"><p>{review.content}</p></section>
           </section>
         )
