@@ -4,25 +4,33 @@
   width: 200px; 
   height: 330px; // 30px extra for text
   background-color: rgba(0,0,0,0.3); 
-  float: left;
+  float: none;
+  margin: auto;
   transition: 0.3s;
+
   .cast_image {
     width: 190px; 
     height: 285px;
     margin: 5px;
+    transition: 0.3s;
+
   }
   .cast_data {
     color: white;
+    text-align: center;
     .name {
-      margin: 1px 0;
+      margin: 0;
       font-size: 0.9em;
+      line-height: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }
 
 .center .slick-current{
   .cast_character {
-    background-color: green !important;
     width: 250px; 
     height: 380px; // 30px extra for text
     position: relative;
