@@ -94,8 +94,10 @@ class DisplayMovie extends React.Component {
               <section className="display_movie_data_trailers">
               </section>
               <section className="display_movie_data_reviews">
+                <h2>Reviews</h2>
               </section>
               <section className="display_movie_data_similar">
+                <h2>Similar Movies</h2>
               </section>
             </section>
           </React.Fragment>
