@@ -40,14 +40,20 @@ const DisplayHeader = ({currentMovie}) => {
   return (
     <section className="display_movie_header">
       <section className="display_movie_header_image" style={imageStyle}></section>
-      <section className="display_movie_header_data">
+      <section className="display_movie_header_content">
+        <section className="display_movie_header_background">
+          <section className="top"></section>
+          <section className="bottom"></section>
+        </section>
+      </section>
+      {/* <section className="display_movie_header_data">
         <h1 className="title">{currentMovie.title}</h1>
         <p className="meta">{displayGenres(currentMovie.genres)}</p>
         <h4 className="description">{currentMovie.overview}</h4>
         <section className="companies">
           {displayCompanies(currentMovie.production_companies)}
         </section>
-      </section>
+      </section> */}
     </section>
   )
 }
