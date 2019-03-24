@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import CastSlider from '../layout/CastSlider';
-import {fetchMovie, fetchMovieCredits, fetchMovieReviews, fetchMovieVideos, fetchSimilarMovies} from '../../actions/movieActions'; 
+import ContentSlider from '../layout/ContentSlider';
+import {fetchMovie, fetchMovieCredits, fetchMovieReviews, fetchMovieVideos, fetchSimilarMovies, fetchMovieGenres} from '../../actions/movieActions'; 
 
 import './style/css/Display.css';
 
@@ -13,6 +14,17 @@ class DisplayMovie extends React.Component {
     this.props.fetchMovieReviews(this.props.match.params.movieId);
     this.props.fetchMovieVideos(this.props.match.params.movieId);
     this.props.fetchSimilarMovies(this.props.match.params.movieId);
+    this.props.fetchMovieGenres();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.movieId !== prevProps.match.params.movieId) {
+      this.props.fetchMovie(this.props.match.params.movieId);
+      this.props.fetchMovieCredits(this.props.match.params.movieId);
+      this.props.fetchMovieReviews(this.props.match.params.movieId);
+      this.props.fetchMovieVideos(this.props.match.params.movieId);
+      this.props.fetchSimilarMovies(this.props.match.params.movieId);
+    }
   }
 
   getImage = () => {
@@ -58,8 +70,59 @@ class DisplayMovie extends React.Component {
     return <CastSlider cast={cast} settings={settings} />
   }
 
+  displaySimilarMovies = (movies, genres) => {
+    const settings = {
+      infinite: true,
+      slidesToShow: 8,
+      arrows: true,
+      swipeToSlide: true,
+      speed: 500,
+      initialSlide: 0,
+      responsive: [
+        {
+          breakpoint: 1720,
+          settings: {
+            slidesToShow: 7
+          }
+        },
+        {
+          breakpoint: 1520,
+          settings: {
+            slidesToShow: 6
+          }
+        },
+        {
+          breakpoint: 1100,
+          settings: {
+            slidesToShow: 5
+          }
+        },
+        {
+          breakpoint: 850,
+          settings: {
+            slidesToShow: 4
+          }
+        },
+        {
+          breakpoint: 620,
+          settings: {
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    };
+
+    return  <ContentSlider movies={movies} genres={genres} type='movies' settings={settings} />
+  }
+
   render() {
-    const {currentMovie, currentMoviesVideos, currentMoviesCredits, currentMoviesReviews, similarMovies} = this.props;
+    const {currentMovie, currentMoviesVideos, currentMoviesCredits, currentMoviesReviews, similarMovies, movieGenres} = this.props;
     const imageStyle = {
       backgroundImage: `url(${this.getImage()})`,
       backgroundSize: 'cover',
@@ -92,6 +155,7 @@ class DisplayMovie extends React.Component {
               </section>
               <section className="display_movie_data_similar">
                 <h2>Similar Movies</h2>
+                {similarMovies && movieGenres && this.displaySimilarMovies(similarMovies, movieGenres)}
               </section>
               <section className="display_movie_data_reviews">
                 <h2>Reviews</h2>
@@ -110,7 +174,8 @@ const mapStateToProps = state => {
     currentMoviesVideos: state.movies.currentMoviesVideos,
     currentMoviesCredits: state.movies.currentMoviesCredits,
     currentMoviesReviews: state.movies.currentMoviesReviews,
-    similarMovies: state.movies.similarMovies
+    similarMovies: state.movies.similarMovies,
+    movieGenres: state.movies.movieGenres
   }
 }
 
@@ -120,7 +185,8 @@ const mapDispatchToProps = dispatch => {
     fetchMovieCredits: id => dispatch(fetchMovieCredits(id)), 
     fetchMovieReviews: id => dispatch(fetchMovieReviews(id)), 
     fetchMovieVideos: id => dispatch(fetchMovieVideos(id)), 
-    fetchSimilarMovies: id => dispatch(fetchSimilarMovies(id))
+    fetchSimilarMovies: id => dispatch(fetchSimilarMovies(id)),
+    fetchMovieGenres: () => dispatch(fetchMovieGenres())
   }
 }
 
