@@ -60,18 +60,18 @@ class DisplayMovie extends React.Component {
             <DisplayHeader currentMovie={currentMovie} />
             <section className="display_movie_data">
               <section className="display_movie_data_cast">
-                <h2>Cast <small>{currentMoviesCredits.cast.length}</small></h2>
+                <h2>Cast {currentMoviesCredits && <small>{currentMoviesCredits.cast.length}</small>}</h2>
                 {currentMoviesCredits && this.displayCast(currentMoviesCredits.cast)}
               </section>
               <section className="display_movie_data_trailers">
                 <h2>Trailers</h2>
               </section>
               <section className="display_movie_data_similar">
-                <h2>Similar Movies  <small>{similarMovies.length}</small></h2>
+                <h2>Similar Movies  {similarMovies && <small>{similarMovies.length}</small>} </h2>
                 {similarMovies && movieGenres && this.displaySimilarMovies(similarMovies, movieGenres)}
               </section>
               <section className="display_movie_data_reviews">
-                <h2>Reviews  <small>{currentMoviesReviews.length}</small></h2>
+                <h2>Reviews  {currentMoviesReviews && <small>{currentMoviesReviews.length}</small>}</h2>
                 {currentMoviesReviews && this.displayReviews(currentMoviesReviews)}
               </section>
             </section>
