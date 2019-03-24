@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import CastSlider from '../layout/CastSlider';
 import ContentSlider from '../layout/ContentSlider';
 import {fetchMovie, fetchMovieCredits, fetchMovieReviews, fetchMovieVideos, fetchSimilarMovies, fetchMovieGenres} from '../../actions/movieActions'; 
-
+import {castSliderSettings, movieTvSliderSettings} from '../../utils/settings';
 import './style/css/Display.css';
 
 class DisplayMovie extends React.Component {
@@ -58,67 +58,11 @@ class DisplayMovie extends React.Component {
   }
 
   displayCast = cast => {
-    const settings = {
-      className: "center",
-      centerMode: true,
-      infinite: true,
-      centerPadding: "60px",
-      slidesToShow: 3,
-      speed: 500
-    };
-
-    return <CastSlider cast={cast} settings={settings} />
+    return <CastSlider cast={cast} settings={castSliderSettings} />
   }
 
   displaySimilarMovies = (movies, genres) => {
-    const settings = {
-      infinite: true,
-      slidesToShow: 8,
-      arrows: true,
-      swipeToSlide: true,
-      speed: 500,
-      initialSlide: 0,
-      responsive: [
-        {
-          breakpoint: 1720,
-          settings: {
-            slidesToShow: 7
-          }
-        },
-        {
-          breakpoint: 1520,
-          settings: {
-            slidesToShow: 6
-          }
-        },
-        {
-          breakpoint: 1100,
-          settings: {
-            slidesToShow: 5
-          }
-        },
-        {
-          breakpoint: 850,
-          settings: {
-            slidesToShow: 4
-          }
-        },
-        {
-          breakpoint: 620,
-          settings: {
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 500,
-          settings: {
-            slidesToShow: 1
-          }
-        }
-      ]
-    };
-
-    return  <ContentSlider movies={movies} genres={genres} type='movies' settings={settings} />
+    return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
   }
 
   render() {
