@@ -88,12 +88,13 @@ class DisplayMovie extends React.Component {
                 {currentMoviesCredits && this.displayCast(currentMoviesCredits.cast)}
               </section>
               <section className="display_movie_data_trailers">
-              </section>
-              <section className="display_movie_data_reviews">
-                <h2>Reviews</h2>
+                <h2>Trailers</h2>
               </section>
               <section className="display_movie_data_similar">
                 <h2>Similar Movies</h2>
+              </section>
+              <section className="display_movie_data_reviews">
+                <h2>Reviews</h2>
               </section>
             </section>
           </React.Fragment>
