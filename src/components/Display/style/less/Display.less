@@ -26,6 +26,7 @@
       overflow: hidden;
       .display_movie_header_background {
         position: absolute;
+        z-index: 3;
         width: 100%; height: 100%;
         .top {
           height: 100px; width: 100%;
@@ -35,6 +36,22 @@
         .bottom {
           background-color:  @navbarBG;
           height: 300px; width: 100%;
+        }
+      }
+      .display_header_data {
+        position: absolute; z-index: 4;
+        width: 100%; height: 100%;
+        top: -50px;
+        box-sizing: border-box;
+        padding-top: 100px;
+        .display_poster {
+          width: 20%;
+          .display_poster_image {
+            width: 90%;
+            img {
+              width: 100%; height: 300px;
+            }
+          }
         }
       }
     }

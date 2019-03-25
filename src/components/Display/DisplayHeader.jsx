@@ -14,6 +14,20 @@ const getImage = (currentMovie) => {
   return image;
 }
 
+const getPoster = currentMovie => {
+  let image = '';
+  if (currentMovie) {
+    if (currentMovie.poster_path) {
+      image = `https://image.tmdb.org/t/p/original${currentMovie.poster_path}`;
+    } else {
+      image = '/images/movie/movie_cover.jpg';
+    }
+  } else {
+    image = '/images/movie/movie_cover.jpg';
+  }
+  return image;
+}
+
 const displayCompanies = (companies) => {
   return companies.map(company => {
     return (
@@ -44,6 +58,12 @@ const DisplayHeader = ({currentMovie}) => {
         <section className="display_movie_header_background">
           <section className="top"></section>
           <section className="bottom"></section>
+        </section>
+        <section className="display_header_data">
+          <section className="display_poster">
+          {/*  */}
+            <section className="display_poster_image"><img src={getPoster(currentMovie)} /></section>
+          </section>
         </section>
       </section>
       {/* <section className="display_movie_header_data">
