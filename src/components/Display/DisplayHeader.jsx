@@ -1,4 +1,5 @@
 import React from 'react';
+import {getTitle} from '../../utils/functions';
 
 const getImage = (currentMovie) => {
   if (currentMovie) {
@@ -40,14 +41,6 @@ const displayGenres = (genres) => {
   })
 }
 
-const getName = (currentMovie, type) => {
-  if (type === 'movies') {
-    return currentMovie.title;
-  } else {
-    return currentMovie.name;
-  }
-}
-
 const DisplayHeader = ({currentMovie, type}) => {
   const imageStyle = {
     backgroundImage: `url(${getImage(currentMovie)})`,
@@ -69,7 +62,7 @@ const DisplayHeader = ({currentMovie, type}) => {
             <section className="display_poster_image"><img src={getPoster(currentMovie)} /></section>
           </section>
           <section className="title_meta">
-            <h1 className="title">{getName(currentMovie, type)}</h1>
+            <h1 className="title">{getTitle(currentMovie, type)}</h1>
             <p className="meta">{displayGenres(currentMovie.genres)}</p>
           </section>
           <section className="display_header_content">
