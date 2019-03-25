@@ -4,7 +4,12 @@ export const castSliderSettings = {
   infinite: true,
   centerPadding: "60px",
   slidesToShow: 3,
-  speed: 500
+  speed: 500,
+  responsive: [
+    {
+
+    },
+  ]
 };
 
 export const movieTvSliderSettings = {
@@ -28,7 +33,7 @@ export const movieTvSliderSettings = {
       }
     },
     {
-      breakpoint: 1100,
+      breakpoint: 1300,
       settings: {
         slidesToShow: 5
       }
