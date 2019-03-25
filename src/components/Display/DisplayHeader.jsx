@@ -61,8 +61,11 @@ const DisplayHeader = ({currentMovie}) => {
         </section>
         <section className="display_header_data">
           <section className="display_poster">
-          {/*  */}
             <section className="display_poster_image"><img src={getPoster(currentMovie)} /></section>
+          </section>
+          <section className="title_meta">
+            <h1 className="title">{currentMovie.title}</h1>
+            <p className="meta">{displayGenres(currentMovie.genres)}</p>
           </section>
         </section>
       </section>
