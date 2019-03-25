@@ -12,12 +12,15 @@ const CastSlide = ({character}) => {
   }
 
   return (
-    <section className="cast_character">
-      <section className="cast_image" style={imageStyle}></section>
-      <section className="cast_data">
-        <p className="name" >{character.name}</p>
+    <Link to={`/people/${character.id}`}>
+      <section className="cast_character">
+        <section className="cast_image" style={imageStyle}></section>
+        <section className="cast_data">
+          <p className="name" >{character.name}</p>
+        </section>
       </section>
-    </section>
+    </Link>
+    
   );
 }
 
