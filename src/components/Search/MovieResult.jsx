@@ -1,11 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './style/css/MovieResult.css';
-import {getTitle, getYear, getGenre} from '../../utils/functions';
+import {getTitle, getYear, getGenre, getPoster} from '../../utils/functions';
 
 const MovieResult = ({movie, type, genres}) => {
   const imageStyle = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
+    backgroundImage: `url(${getPoster(movie)})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   }

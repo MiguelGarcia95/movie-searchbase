@@ -26,3 +26,27 @@ export const getGenreFromId = (genreId, genres) => {
 export const getGenre = (movie, genres) => {
   return getGenreFromId(movie.genre_ids[0], genres);
 }
+
+export const getPoster = currentMovie => {
+  if (currentMovie) {
+    if (currentMovie.poster_path) {
+      return `https://image.tmdb.org/t/p/original${currentMovie.poster_path}`;
+    } else {
+      return '/images/movie/movie_cover.jpg';
+    }
+  } else {
+    return '/images/movie/movie_cover.jpg';
+  }
+}
+
+export const getImage = (currentMovie) => {
+  if (currentMovie) {
+    if (currentMovie.backdrop_path) {
+      return `https://image.tmdb.org/t/p/original${currentMovie.backdrop_path}`;
+    } else {
+      return '/images/movie/movie_bg.jpeg';
+    }
+  } else {
+    return '/images/movie/movie_bg.jpeg';
+  }
+}

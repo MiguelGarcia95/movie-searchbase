@@ -1,29 +1,29 @@
 import React from 'react';
-import {getTitle} from '../../utils/functions';
+import {getTitle, getPoster, getImage} from '../../utils/functions';
 
-const getImage = (currentMovie) => {
-  if (currentMovie) {
-    if (currentMovie.backdrop_path) {
-      return `https://image.tmdb.org/t/p/original${currentMovie.backdrop_path}`;
-    } else {
-      return '/images/movie/movie_bg.jpeg';
-    }
-  } else {
-    return '/images/movie/movie_bg.jpeg';
-  }
-}
+// const getImage = (currentMovie) => {
+//   if (currentMovie) {
+//     if (currentMovie.backdrop_path) {
+//       return `https://image.tmdb.org/t/p/original${currentMovie.backdrop_path}`;
+//     } else {
+//       return '/images/movie/movie_bg.jpeg';
+//     }
+//   } else {
+//     return '/images/movie/movie_bg.jpeg';
+//   }
+// }
 
-const getPoster = currentMovie => {
-  if (currentMovie) {
-    if (currentMovie.poster_path) {
-      return `https://image.tmdb.org/t/p/original${currentMovie.poster_path}`;
-    } else {
-      return '/images/movie/movie_cover.jpg';
-    }
-  } else {
-    return '/images/movie/movie_cover.jpg';
-  }
-}
+// const getPoster = currentMovie => {
+//   if (currentMovie) {
+//     if (currentMovie.poster_path) {
+//       return `https://image.tmdb.org/t/p/original${currentMovie.poster_path}`;
+//     } else {
+//       return '/images/movie/movie_cover.jpg';
+//     }
+//   } else {
+//     return '/images/movie/movie_cover.jpg';
+//   }
+// }
 
 const displayCompanies = (companies) => {
   return companies.map(company => {
