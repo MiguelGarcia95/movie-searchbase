@@ -4,11 +4,12 @@ import {fetchPeople} from '../../actions/peopleActions';
 
 class DisplayPeople extends React.Component {
   componentDidMount() {
-    console.log(this.props.match.params.peopleId);
     this.props.fetchPeople(this.props.match.params.peopleId)
   }
 
   render() {
+    const {currentPerson} = this.props;
+    console.log(currentPerson)
     return (
       <section className="display_people"></section>
     )
