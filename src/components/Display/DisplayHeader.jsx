@@ -1,15 +1,15 @@
 import React from 'react';
 import {getTitle, getPoster, getImage} from '../../utils/functions';
 
-const displayCompanies = (companies) => {
-  return companies.map(company => {
-    return (
-      <section key={company.name} title={company.name} className="company">
-        <img src={`https://image.tmdb.org/t/p/original${company.logo_path}`} alt={`${company.name} logo`}/>
-      </section>
-    )
-  })
-}
+// const displayCompanies = (companies) => {
+//   return companies.map(company => {
+//     return (
+//       <section key={company.name} title={company.name} className="company">
+//         <img src={`https://image.tmdb.org/t/p/original${company.logo_path}`} alt={`${company.name} logo`}/>
+//       </section>
+//     )
+//   })
+// }
 
 const displayGenres = (genres) => {
   return genres.map(genre => {
