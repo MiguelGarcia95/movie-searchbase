@@ -89,35 +89,21 @@ class DisplayTv extends React.Component {
             <DisplayHeader currentMovie={currentShow} type='shows' />
             <section className="display_movie_data">
               <section className="display_movie_data_cast">
-              </section>
-              <section className="display_movie_data_trailers">
-              </section>
-              <section className="display_movie_data_reviews">
+                <h2>Cast {currentShowCredits && <small>({currentShowCredits.cast.slice(0, 20).length})</small>}</h2>
+                {currentShowCredits && this.displayCast(currentShowCredits.cast)}
               </section>
               <section className="display_movie_data_similar">
+                <h2>Similar Shows  {similarShows && <small>({similarShows.length})</small>} </h2>
+                {similarShows && showGenres && this.displaySimilarMovies(similarShows, showGenres)}
+              </section>
+              <section className="display_movie_data_reviews">
+                <h2>Reviews  {currentShowReviews && <small>({currentShowReviews.length})</small>}</h2>
+                {currentShowReviews && this.displayReviews(currentShowReviews)}
               </section>
             </section>
           </React.Fragment>
         )}
       </section>
-
-        //  <React.Fragment>
-        //    <DisplayHeader currentMovie={currentMovie} />
-        //    <section className="display_movie_data">
-        //      <section className="display_movie_data_cast">
-        //        <h2>Cast {currentMoviesCredits && <small>({currentMoviesCredits.cast.slice(0, 20).length})</small>}</h2>
-        //        {currentMoviesCredits && this.displayCast(currentMoviesCredits.cast)}
-        //      </section>
-        //      <section className="display_movie_data_similar">
-        //        <h2>Similar Movies  {similarMovies && <small>({similarMovies.length})</small>} </h2>
-        //        {similarMovies && movieGenres && this.displaySimilarMovies(similarMovies, movieGenres)}
-        //      </section>
-        //      <section className="display_movie_data_reviews">
-        //        <h2>Reviews  {currentMoviesReviews && <small>({currentMoviesReviews.length})</small>}</h2>
-        //        {currentMoviesReviews && this.displayReviews(currentMoviesReviews)}
-        //      </section>
-        //    </section>
-        //  </React.Fragment>
     );
   }
 }
