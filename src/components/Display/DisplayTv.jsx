@@ -49,36 +49,6 @@ class DisplayTv extends React.Component {
     }
   }
 
-  // getImage = () => {
-  //   let image = '';
-  //   if (this.props.currentShow) {
-  //     if (this.props.currentShow.backdrop_path) {
-  //       image = `https://image.tmdb.org/t/p/original${this.props.currentShow.backdrop_path}`;
-  //     } else {
-  //       image = '/images/movie/movie_bg.jpeg';
-  //     }
-  //   } else {
-  //     image = '/images/movie/movie_bg.jpeg';
-  //   }
-  //   return image;
-  // }
-
-  // displayCompanies = (companies) => {
-  //   return companies.map(company => {
-  //     return (
-  //       <section key={company.name} title={company.name} className="company">
-  //         <img src={`https://image.tmdb.org/t/p/original${company.logo_path}`} alt={`${company.name} logo`}/>
-  //       </section>
-  //     )
-  //   })
-  // }
-
-  // displayGenres = (genres) => {
-  //   return genres.map(genre => {
-  //     return <span key={genre.id} className="genre">{genre.name}</span>
-  //   })
-  // }
-
   render() {
     const {currentShow, currentShowCredits, currentShowReviews, similarShows, showGenres} = this.props;
 
@@ -94,7 +64,7 @@ class DisplayTv extends React.Component {
               </section>
               <section className="display_movie_data_similar">
                 <h2>Similar Shows  {similarShows && <small>({similarShows.length})</small>} </h2>
-                {similarShows && showGenres && this.displaySimilarMovies(similarShows, showGenres)}
+                {similarShows && showGenres && this.displaySimilarShows(similarShows, showGenres)}
               </section>
               <section className="display_movie_data_reviews">
                 <h2>Reviews  {currentShowReviews && <small>({currentShowReviews.length})</small>}</h2>
