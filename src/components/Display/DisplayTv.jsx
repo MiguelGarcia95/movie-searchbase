@@ -1,15 +1,27 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchShow, fetchShowCredits, fetchShowReviews, fetchShowVideos, fetchSimilarShows} from '../../actions/tvShowActions'; 
-
+import DisplayHeader from './DisplayHeader';
+import CastSlider from '../layout/CastSlider';
+import ContentSlider from '../layout/ContentSlider';
+import {fetchShow, fetchShowCredits, fetchShowReviews, fetchSimilarShows} from '../../actions/tvShowActions'; 
+import {castSliderSettings, movieTvSliderSettings} from '../../utils/settings';
 import './style/css/Display.css';
 
 class DisplayTv extends React.Component {
   componentDidMount() {
+    this.fetchShowData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.showId !== prevProps.match.params.showId) {
+      this.fetchShowData();
+    }
+  }
+
+  fetchShowData = () => {
     this.props.fetchShow(this.props.match.params.showId);
     this.props.fetchShowCredits(this.props.match.params.showId);
     this.props.fetchShowReviews(this.props.match.params.showId);
-    this.props.fetchShowVideos(this.props.match.params.showId);
     this.props.fetchSimilarShows(this.props.match.params.showId);
   }
 
@@ -86,7 +98,6 @@ class DisplayTv extends React.Component {
 const mapStateToProps = state => {
   return {
     currentShow: state.shows.currentShow,
-    currentShowVideos: state.shows.currentShowVideos,
     currentShowCredits: state.shows.currentShowCredits,
     currentShowReviews: state.shows.currentShowReviews,
     similarShows: state.shows.similarShows
@@ -98,7 +109,6 @@ const mapDispatchToProps = dispatch => {
     fetchShow: id => dispatch(fetchShow(id)),
     fetchShowCredits: id => dispatch(fetchShowCredits(id)),
     fetchShowReviews: id => dispatch(fetchShowReviews(id)),
-    fetchShowVideos: id => dispatch(fetchShowVideos(id)),
     fetchSimilarShows: id => dispatch(fetchSimilarShows(id))
   }
 }

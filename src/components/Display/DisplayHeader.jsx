@@ -67,16 +67,11 @@ const DisplayHeader = ({currentMovie}) => {
             <h1 className="title">{currentMovie.title}</h1>
             <p className="meta">{displayGenres(currentMovie.genres)}</p>
           </section>
+          <section className="display_header_content">
+            <p className="description">{currentMovie.overview}</p>
+          </section>
         </section>
       </section>
-      {/* <section className="display_movie_header_data">
-        <h1 className="title">{currentMovie.title}</h1>
-        <p className="meta">{displayGenres(currentMovie.genres)}</p>
-        <h4 className="description">{currentMovie.overview}</h4>
-        <section className="companies">
-          {displayCompanies(currentMovie.production_companies)}
-        </section>
-      </section> */}
     </section>
   )
 }
