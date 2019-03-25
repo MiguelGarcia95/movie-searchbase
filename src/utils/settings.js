@@ -39,7 +39,7 @@ export const movieTvSliderSettings = {
       }
     },
     {
-      breakpoint: 850,
+      breakpoint: 1000,
       settings: {
         slidesToShow: 4
       }
