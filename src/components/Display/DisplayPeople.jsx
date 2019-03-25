@@ -15,10 +15,16 @@ class DisplayPeople extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    currentPerson: state.people.currentPerson
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     fetchPeople: id => dispatch(fetchPeople(id))
   }
 }
  
-export default connect(null, mapDispatchToProps)(DisplayPeople);
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayPeople);
