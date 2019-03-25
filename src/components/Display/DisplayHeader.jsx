@@ -53,7 +53,8 @@ const DisplayHeader = ({currentMovie, type}) => {
     backgroundImage: `url(${getImage(currentMovie)})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed'
   };
   return (
     <section className="display_movie_header">

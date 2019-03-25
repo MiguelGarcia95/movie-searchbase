@@ -11,6 +11,7 @@ export const ADD_TO_WATCHLIST = 'ADD_TO_WATCHLIST';
 
 // SETTINGS
 export const SET_TYPE = 'SET_TYPE';
+export const FETCH_PEOPLE = 'FETCH_PEOPLE';
 
 // Search
 export const FETCH_SEARCH_RESULTS = 'FETCH_SEARCH_RESULTS';
