@@ -1,31 +1,27 @@
 import React from 'react';
 
 const getImage = (currentMovie) => {
-  let image = '';
   if (currentMovie) {
     if (currentMovie.backdrop_path) {
-      image = `https://image.tmdb.org/t/p/original${currentMovie.backdrop_path}`;
+      return `https://image.tmdb.org/t/p/original${currentMovie.backdrop_path}`;
     } else {
-      image = '/images/movie/movie_bg.jpeg';
+      return '/images/movie/movie_bg.jpeg';
     }
   } else {
-    image = '/images/movie/movie_bg.jpeg';
+    return '/images/movie/movie_bg.jpeg';
   }
-  return image;
 }
 
 const getPoster = currentMovie => {
-  let image = '';
   if (currentMovie) {
     if (currentMovie.poster_path) {
-      image = `https://image.tmdb.org/t/p/original${currentMovie.poster_path}`;
+      return `https://image.tmdb.org/t/p/original${currentMovie.poster_path}`;
     } else {
-      image = '/images/movie/movie_cover.jpg';
+      return '/images/movie/movie_cover.jpg';
     }
   } else {
-    image = '/images/movie/movie_cover.jpg';
+    return '/images/movie/movie_cover.jpg';
   }
-  return image;
 }
 
 const displayCompanies = (companies) => {
