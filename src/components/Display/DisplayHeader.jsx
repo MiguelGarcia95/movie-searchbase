@@ -44,7 +44,15 @@ const displayGenres = (genres) => {
   })
 }
 
-const DisplayHeader = ({currentMovie}) => {
+const getName = (currentMovie, type) => {
+  if (type === 'movies') {
+    return currentMovie.title;
+  } else {
+    return currentMovie.name;
+  }
+}
+
+const DisplayHeader = ({currentMovie, type}) => {
   const imageStyle = {
     backgroundImage: `url(${getImage(currentMovie)})`,
     backgroundSize: 'cover',
@@ -64,7 +72,7 @@ const DisplayHeader = ({currentMovie}) => {
             <section className="display_poster_image"><img src={getPoster(currentMovie)} /></section>
           </section>
           <section className="title_meta">
-            <h1 className="title">{currentMovie.title}</h1>
+            <h1 className="title">{getName(currentMovie, type)}</h1>
             <p className="meta">{displayGenres(currentMovie.genres)}</p>
           </section>
           <section className="display_header_content">

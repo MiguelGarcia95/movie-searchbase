@@ -86,7 +86,7 @@ class DisplayTv extends React.Component {
       <section className="display_movie">
         {currentShow && currentShow.id === Number(this.props.match.params.showId) && (
           <React.Fragment>
-            <DisplayHeader currentMovie={currentShow} />
+            <DisplayHeader currentMovie={currentShow} type='shows' />
             <section className="display_movie_data">
               <section className="display_movie_data_cast">
               </section>

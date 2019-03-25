@@ -56,7 +56,7 @@ class DisplayMovie extends React.Component {
       <section className="display_movie">
         {currentMovie && currentMovie.id === Number(this.props.match.params.movieId) && (
           <React.Fragment>
-            <DisplayHeader currentMovie={currentMovie} />
+            <DisplayHeader currentMovie={currentMovie} type='movies' />
             <section className="display_movie_data">
               <section className="display_movie_data_cast">
                 <h2>Cast {currentMoviesCredits && <small>({currentMoviesCredits.cast.slice(0, 20).length})</small>}</h2>
