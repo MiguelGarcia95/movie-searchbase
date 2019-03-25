@@ -3,23 +3,19 @@ import {Link} from 'react-router-dom';
 import './style/css/HomeDisplay.css';
 
 const getTitle = (movie, type) => {
-  let title = '';
   if (type === 'movies') {
-    title = movie.title
+    return movie.title
   } else {
-    title = movie.name
+    return movie.name
   }
-  return title;
 }
 
 const getYear = (movie, type) => {
-  let year = '';
   if (type === 'movies') {
-    year = movie.release_date.slice(0,4);
+    return movie.release_date.slice(0,4);
   } else {
-    year = movie.first_air_date.slice(0,4);
+    return movie.first_air_date.slice(0,4);
   }
-  return year;
 }
 
 const getGenreFromId = (genreId, genres) => {
