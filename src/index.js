@@ -11,6 +11,7 @@ import Account from './components/Account/Account';
 import SearchResults from './components/Search/SearchResults';
 import DisplayTv from './components/Display/DisplayTv';
 import DisplayMovie from './components/Display/DisplayMovie';
+import DisplayPeople from './components/Display/DisplayPeople';
 import MyNavbar from './components/layout/MyNavbar';
 import MyFooter from './components/layout/MyFooter';
 import * as serviceWorker from './serviceWorker';
@@ -27,6 +28,7 @@ const Root = () => {
           <Route path='/search/:searchQuery' component={SearchResults} />
           <Route path='/shows/:showId' component={DisplayTv} />
           <Route path='/movies/:movieId' component={DisplayMovie} />
+          <Route path='/people/:peopleId' component={DisplayPeople} />
           {/* add a redirect to home here */}
         </Switch>
         <Route path='/' component={MyFooter} />
