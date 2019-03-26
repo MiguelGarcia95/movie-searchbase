@@ -27,11 +27,19 @@ class DisplayMovie extends React.Component {
   }
 
   displayCast = cast => {
-    return <CastSlider cast={cast} settings={castSliderSettings} />
+    if (cast.length > 0) {
+      return <CastSlider cast={cast} settings={castSliderSettings} />
+    } else {
+      return <section className="empty_data"><h2>No Cast Available</h2></section>
+    }
   }
 
   displaySimilarMovies = (movies, genres) => {
-    return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
+    if (movies.length > 0) {
+      return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
+    } else {
+      return <section className="empty_data"><h2>No Similar Movies</h2></section>
+    }
   }
 
   displayReviews = reviews => {
