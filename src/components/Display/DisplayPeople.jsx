@@ -24,7 +24,7 @@ class DisplayPeople extends React.Component {
           </section>
         </section>
         <section className="works">
-          
+
         </section>
       </section>
     )
@@ -33,7 +33,12 @@ class DisplayPeople extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentPerson: state.people.currentPerson
+    currentPerson: state.people.currentPerson,
+    currentPersonMovieCredits: state.people.currentPersonMovieCredits,
+    currentPersonShowCredits: state.people.currentPersonShowCredits,
+    currentPersonCredits: state.people.currentPersonCredits,
+    currentPersonImages: state.people.currentPersonImages,
+    currentPersonTaggedImages: state.people.currentPersonTaggedImages
   }
 }
 

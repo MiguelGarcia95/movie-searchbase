@@ -16,6 +16,8 @@ export const fetchPeople = id => {
 
 export const fetchPeopleCredits = id => {
   return async (dispatch) => {
+    const results = await axios.get(`https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${MOVIEDBAPI}&language=en-US`);
+    console.log(results);
     dispatch({
       type: actionTypes.FETCH_PEOPLE_CREDITS,
       payload: {
@@ -27,6 +29,8 @@ export const fetchPeopleCredits = id => {
 
 export const fetchPeopleMovieCredits = id => {
   return async (dispatch) => {
+    const results = await axios.get(`https://api.themoviedb.org/3/person/${id}/tv_credits?api_key=${MOVIEDBAPI}&language=en-US`);
+    console.log(results);
     dispatch({
       type: actionTypes.FETCH_PEOPLE_MOVIE_CREDITS,
       payload: {
@@ -38,6 +42,8 @@ export const fetchPeopleMovieCredits = id => {
 
 export const fetchPeopleShowCredits = id => {
   return async (dispatch) => {
+    const results = await axios.get(`https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${MOVIEDBAPI}&language=en-US`);
+    console.log(results);
     dispatch({
       type: actionTypes.FETCH_PEOPLE_SHOW_CREDITS,
       payload: {
@@ -49,6 +55,8 @@ export const fetchPeopleShowCredits = id => {
 
 export const fetchPeopleImages = id => {
   return async (dispatch) => {
+    const results = await axios.get(`https://api.themoviedb.org/3/person/${id}/images?api_key=${MOVIEDBAPI}`);
+    console.log(results);
     dispatch({
       type: actionTypes.FETCH_PEOPLE_IMAGES,
       payload: {
@@ -60,6 +68,8 @@ export const fetchPeopleImages = id => {
 
 export const fetchPeopleTaggedImages = id => {
   return async (dispatch) => {
+    const results = await axios.get(`https://api.themoviedb.org/3/person/${id}/tagged_images?api_key=${MOVIEDBAPI}&language=en-US&page=1`);
+    console.log(results);
     dispatch({
       type: actionTypes.FETCH_PEOPLE_TAGGED_IMAGES,
       payload: {
