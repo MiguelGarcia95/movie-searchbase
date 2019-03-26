@@ -68,7 +68,7 @@ export const fetchPeopleTaggedImages = id => {
     dispatch({
       type: actionTypes.FETCH_PEOPLE_TAGGED_IMAGES,
       payload: {
-        currentPersonImages: results.data.results
+        currentPersonTaggedImages: results.data.results
       }
     })
   }
