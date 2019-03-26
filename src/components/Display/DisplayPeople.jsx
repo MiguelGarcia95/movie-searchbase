@@ -33,7 +33,9 @@ class DisplayPeople extends React.Component {
             <section className="display_people_header">
               <section className="display_people_image">
                 <section className="display_image">
-                  <img src={`https://image.tmdb.org/t/p/original/${currentPerson.profile_path}`} alt={currentPerson.name}/>
+                  <section className="display_image_bg">
+                    <img src={`https://image.tmdb.org/t/p/original/${currentPerson.profile_path}`} alt={currentPerson.name}/>
+                  </section>
                 </section>
               </section>
               <section className="display_people_data">
