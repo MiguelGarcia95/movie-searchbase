@@ -13,13 +13,13 @@ class DisplayPeople extends React.Component {
     this.props.fetchPeopleCredits(this.props.match.params.peopleId);
     this.props.fetchPeopleMovieCredits(this.props.match.params.peopleId);
     this.props.fetchPeopleShowCredits(this.props.match.params.peopleId);
-    // this.props.fetchPeopleImages(this.props.match.params.peopleId);
-    // this.props.fetchPeopleTaggedImages(this.props.match.params.peopleId);
+    this.props.fetchPeopleImages(this.props.match.params.peopleId);
+    this.props.fetchPeopleTaggedImages(this.props.match.params.peopleId);
   }
 
   render() {
     const {currentPerson} = this.props;
-    console.log(currentPerson)
+    // console.log(currentPerson)
     return (
       <section className="display_people">
         <section className="display_people_header">
