@@ -2,9 +2,9 @@ import * as actionTypes from '../actions/types';
 
 const initialState = {
   currentPerson: null,
-  currentPersonMovieCredits: [],
-  currentPersonShowCredits: [],
-  currentPersonCredits: [],
+  currentPersonMovieCredits: null,
+  currentPersonShowCredits: null,
+  currentPersonCredits: null,
   currentPersonImages: [],
   currentPersonTaggedImages: []
 };

@@ -1,10 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchPeople} from '../../actions/peopleActions';
+import {fetchPeople, fetchPeopleCredits, fetchPeopleMovieCredits, fetchPeopleShowCredits, fetchPeopleImages, fetchPeopleTaggedImages} from '../../actions/peopleActions';
 
 class DisplayPeople extends React.Component {
   componentDidMount() {
-    this.props.fetchPeople(this.props.match.params.peopleId)
+    // this.props.fetchPeople(this.props.match.params.peopleId);
+    this.fetchPeopleData();
+  }
+
+  fetchPeopleData = () => {
+    this.props.fetchPeople(this.props.match.params.peopleId);
+    this.props.fetchPeopleCredits(this.props.match.params.peopleId);
+    this.props.fetchPeopleMovieCredits(this.props.match.params.peopleId);
+    this.props.fetchPeopleShowCredits(this.props.match.params.peopleId);
+    // this.props.fetchPeopleImages(this.props.match.params.peopleId);
+    // this.props.fetchPeopleTaggedImages(this.props.match.params.peopleId);
   }
 
   render() {
@@ -44,7 +54,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchPeople: id => dispatch(fetchPeople(id))
+    fetchPeople: id => dispatch(fetchPeople(id)),
+    fetchPeopleCredits: id => dispatch(fetchPeopleCredits(id)),
+    fetchPeopleMovieCredits: id => dispatch(fetchPeopleMovieCredits(id)),
+    fetchPeopleShowCredits: id => dispatch(fetchPeopleShowCredits(id)),
+    fetchPeopleImages: id => dispatch(fetchPeopleImages(id)),
+    fetchPeopleTaggedImages: id => dispatch(fetchPeopleTaggedImages(id))
   }
 }
  
