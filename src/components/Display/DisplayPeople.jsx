@@ -11,7 +11,22 @@ class DisplayPeople extends React.Component {
     const {currentPerson} = this.props;
     console.log(currentPerson)
     return (
-      <section className="display_people"></section>
+      <section className="display_people">
+        <section className="display_people_header">
+          <section className="display_people_image">
+            <section className="display_image"></section>
+          </section>
+          <section className="display_people_data">
+            <section className="meta">
+              <h1 className='display_people_name'>Name</h1>
+              <p className='display_people_description'>data here</p>
+            </section>
+          </section>
+        </section>
+        <section className="works">
+          
+        </section>
+      </section>
     )
   }
 }
