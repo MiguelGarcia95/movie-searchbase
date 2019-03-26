@@ -164,35 +164,64 @@
   }
 }
 
-// @media (max-width: 450px) {
+@media (max-width: 400px) {
+  .cast_character {
+    width: 80px; 
+    height: 150px; // 30px extra for text
+    .cast_image {
+      width: 70px;
+      height: 105px;
+    }
+  }
+  
+  .center .slick-current{
+    .cast_character {
+      width: 120px; 
+      height: 210px; // 30px extra for text
+
+      .cast_image {
+        width: 110px;
+        height: 165px;
+      }
+    }   
+  }
+}
+
+// @media (max-width: 400px) {
 //   .cast_character {
-//     width: 100px; 
-//     height: 180px; // 30px extra for text
+//     // width: 100px; 
+//     // height: 180px; // 30px extra for text
+//     width: 80px; 
+//     height: 150px; // 30px extra for text
 //     .cast_image {
-//       width: 90px;
-//       height: 135px;
+//       width: 70px;
+//       height: 105px;
 //     }
 //     // .search_result_movie_link {
 //     //   font-size: 0.9em;
 //     //   height: 20px; line-height: 20px;
 //     //   width: 20px;
 //     // }
-//     .cast_data {
-//       .name {
-//         font-size: 0.8em;
-//         line-height: 30px;
-//       }
-//     }
+
+//     // .cast_data {
+//     //   .name {
+//     //     font-size: 0.8em;
+//     //     line-height: 30px;
+//     //   }
+//     // }
+    
 //   }
   
 //   .center .slick-current{
 //     .cast_character {
-//       width: 150px; 
-//       height: 255px; // 30px extra for text
+//       // width: 150px; 
+//       // height: 255px; // 30px extra for text
+//       width: 120px; 
+//       height: 210px; // 30px extra for text
 
 //       .cast_image {
-//         width: 140px;
-//         height: 210px;
+//         width: 110px;
+//         height: 165px;
 //       }
 //       .cast_data {
 //         .name {

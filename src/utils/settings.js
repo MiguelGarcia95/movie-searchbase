@@ -2,14 +2,15 @@ export const castSliderSettings = {
   className: "center",
   centerMode: true,
   infinite: true,
-  centerPadding: "60px",
+  centerPadding: "20px",
   slidesToShow: 3,
   speed: 500,
   responsive: [
     {
       breakpoint: 670,
       settings: {
-        slidesToShow: 1
+        slidesToShow: 1,
+        centerPadding: "0px",
       }
     },
   ]
