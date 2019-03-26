@@ -7,10 +7,10 @@ export const castSliderSettings = {
   speed: 500,
   responsive: [
     {
-      // breakpoint: 850,
-      // settings: {
-      //   slidesToShow: 1
-      // }
+      breakpoint: 670,
+      settings: {
+        slidesToShow: 1
+      }
     },
   ]
 };
@@ -48,7 +48,7 @@ export const movieTvSliderSettings = {
       }
     },
     {
-      breakpoint: 620,
+      breakpoint: 670,
       settings: {
         slidesToShow: 3
       }
