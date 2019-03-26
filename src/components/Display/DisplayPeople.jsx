@@ -1,6 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchPeople, fetchPeopleCredits, fetchPeopleMovieCredits, fetchPeopleShowCredits, fetchPeopleImages, fetchPeopleTaggedImages} from '../../actions/peopleActions';
+import {
+  fetchPeople, fetchPeopleCredits, fetchPeopleMovieCredits, fetchPeopleShowCredits, fetchPeopleImages, fetchPeopleTaggedImages
+} from '../../actions/peopleActions';
+
+import './style/css/DisplayPeople.css';
 
 class DisplayPeople extends React.Component {
   componentDidMount() {
@@ -19,23 +23,31 @@ class DisplayPeople extends React.Component {
 
   render() {
     const {currentPerson} = this.props;
-    // console.log(currentPerson)
+    // const imageProfile = {
+    //   backgroundImage: `https://image.tmdb.org/t/p/original/${currentPerson.profile_path}`
+    // }
     return (
       <section className="display_people">
-        <section className="display_people_header">
-          <section className="display_people_image">
-            <section className="display_image"></section>
-          </section>
-          <section className="display_people_data">
-            <section className="meta">
-              <h1 className='display_people_name'>Name</h1>
-              <p className='display_people_description'>data here</p>
+        {currentPerson && (
+          <React.Fragment>
+            <section className="display_people_header">
+              <section className="display_people_image">
+                <section className="display_image">
+                  <img src={`https://image.tmdb.org/t/p/original/${currentPerson.profile_path}`} alt={currentPerson.name}/>
+                </section>
+              </section>
+              <section className="display_people_data">
+                <section className="meta">
+                  <h1 className='display_people_name'>Name</h1>
+                  <p className='display_people_description'>data here</p>
+                </section>
+              </section>
             </section>
-          </section>
-        </section>
-        <section className="works">
+            <section className="works">
 
-        </section>
+            </section>
+          </React.Fragment>
+        )}
       </section>
     )
   }
