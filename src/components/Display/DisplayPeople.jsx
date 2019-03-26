@@ -31,28 +31,30 @@ class DisplayPeople extends React.Component {
         {currentPerson && (
           <React.Fragment>
             <section className="display_people_header">
-              <section className="display_people_image">
-                <section className="display_image">
-                  <section className="display_image_bg">
-                    <img src={`https://image.tmdb.org/t/p/original/${currentPerson.profile_path}`} alt={currentPerson.name}/>
-                  </section>
-                </section>
+              <section className="people_header_background">
+                <section className="top"></section>
+                <section className="bottom"></section>
               </section>
-              <section className="display_people_data">
-                <section className="meta">
-                  <section className='display_people_name'>
+              <section className="people_header_content">
+                <section className="people_profile_image">
+                  <img src={`https://image.tmdb.org/t/p/original/${currentPerson.profile_path}`} alt={currentPerson.name}/>
+                </section>
+                <section className="header_people_data">
+                  <section className="header_people_name">
                     <h2 className="name">{currentPerson.name}</h2>
                   </section>
-                  <section className="display_people_details">
+                  <section className="header_people_details">
                     <section className="dob"></section>
                     <section className="place_of_birth"></section>
                     <section className="role"></section>
                   </section>
-                  <section className='display_people_description'>
-                    <p className='bio'>data here</p>
-                  </section>
                 </section>
               </section>
+
+              <section className='display_people_description'>
+                <p className='bio'>data here</p>
+              </section>
+
             </section>
             <section className="works">
 
