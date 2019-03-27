@@ -44,6 +44,11 @@ class DisplayPeople extends React.Component {
                     <section className="header_people_name">
                       <h2 className="name">{currentPerson.name}</h2>
                     </section>
+                    <section className="header_people_details">
+                      <section className="dob"></section>
+                      <section className="place_of_birth"></section>
+                      <section className="role"></section>
+                    </section>
                   </section>
                   <section className="bottom">
                     <section className="header_people_details">
