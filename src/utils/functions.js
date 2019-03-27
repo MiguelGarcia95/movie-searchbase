@@ -6,22 +6,6 @@ export const getTitle = (movie, type) => {
   }
 }
 
-export const getTitleForCast = (movie, type, isCastResult) => {
-  if (type === 'movies' && !isCastResult) {
-    return movie.title
-  }  else {
-    return movie.name
-  }
-}
-
-export const getYearForCast = (movie, type, isCastResult) => {
-  if (type === 'movies' && !isCastResult) {
-    return movie.release_date.slice(0,4);
-  } else {
-    return movie.first_air_date.slice(0,4);
-  }
-}
-
 export const getYear = (movie, type) => {
   if (type === 'movies') {
     return movie.release_date.slice(0,4);
