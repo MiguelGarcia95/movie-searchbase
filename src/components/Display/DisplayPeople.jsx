@@ -41,6 +41,23 @@ class DisplayPeople extends React.Component {
   }
 
   displayImages = images => {
+    let allImages = this.sortImages(images);
+    return (
+      <section className="image_grid">
+        <section className="grid_col_1">
+          {this.displayColImages(allImages.firstCol)}
+        </section>
+        <section className="grid_col_2">
+          {this.displayColImages(allImages.secondCol)}
+        </section>
+        <section className="grid_col_2">
+          {this.displayColImages(allImages.thirdCol)}
+        </section>
+      </section>
+    );
+  }
+
+  displayColImages = images => {
     return images.map((image, index) => {
       return <img key={index} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
     })
@@ -57,33 +74,18 @@ class DisplayPeople extends React.Component {
     images.forEach(image => {
       if (!firstImage && !secondImage) {
         firstImage = true;
-        console.log('goes in first col');
         imageObject.firstCol.push(image);
       } else if (firstImage && !secondImage) {
         secondImage = true;
-        console.log('goes in second col');
         imageObject.secondCol.push(image);
       } else if (firstImage && secondImage) {
         firstImage = false;
         secondImage = false;
-        console.log('goes in third col');
         imageObject.thirdCol.push(image);
       }
     });
-    console.log(imageObject)
+    return imageObject;
   }
-
-  // imageCol = index => {
-  //   let imageColumn = 0;
-  //   let hasFoundColumn = false;
-  //   while (!hasFoundColumn) {
-
-  //   }
-  // }
-
-  // isNumberFromZero = number => {
-
-  // }
 
   render() {
     const {
@@ -131,9 +133,9 @@ class DisplayPeople extends React.Component {
               </section>
             </section>
             
-            <section className="image_grid">
+            <section className="person_images">
               <h2>Images</h2>
-              {currentPersonImages && currentPersonTaggedImages && this.sortImages([...currentPersonImages, ...currentPersonTaggedImages])}
+              {currentPersonImages && currentPersonTaggedImages && this.displayImages([...currentPersonImages, ...currentPersonTaggedImages])}
             </section>
           </React.Fragment>
         )}
