@@ -1,9 +1,9 @@
 import React from 'react';
 import './style/css/Slide.css';
 import {Link} from 'react-router-dom';
-import {getTitle, getYear, getGenre} from '../../utils/functions';
+import {getTitleForCast, getYearForCast, getGenre} from '../../utils/functions';
 
-const Slide = ({movie, type, genres}) => {
+const PeopleCastSlide = ({movie, type, genres, isCastResult}) => {
   const imageStyle = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
     backgroundRepeat: 'no-repeat',
@@ -19,11 +19,11 @@ const Slide = ({movie, type, genres}) => {
         </Link>
       </section>
       <section className="search_result_movie_data">
-          <section className="search_result_movie_meta"><p>{getYear(movie, type)} / {getGenre(movie, genres)}</p></section>  
-          <section className="search_result_movie_title"><p>{getTitle(movie, type)}</p></section>  
+          <section className="search_result_movie_meta"><p>{getYearForCast(movie, type, isCastResult)} / {getGenre(movie, genres)}</p></section>  
+          <section className="search_result_movie_title"><p>{getTitleForCast(movie, type, isCastResult)}</p></section>  
       </section>
     </section>
   );
 }
 
-export default Slide;
+export default PeopleCastSlide;

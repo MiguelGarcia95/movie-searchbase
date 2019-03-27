@@ -4,11 +4,6 @@ export const getTitle = (movie, type) => {
   }  else {
     return movie.name
   }
-  // if (type === 'movies') {
-  //   return movie.title
-  // } else {
-  //   return movie.name
-  // }
 }
 
 export const getTitleForCast = (movie, type, isCastResult) => {

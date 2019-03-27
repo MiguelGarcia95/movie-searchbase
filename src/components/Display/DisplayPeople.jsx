@@ -7,7 +7,7 @@ import CastSlider from '../layout/CastSlider';
 import {castSliderSettings, movieTvSliderSettings} from '../../utils/settings';
 import {fetchShowGenres} from '../../actions/tvShowActions'; 
 import {fetchMovieGenres} from '../../actions/movieActions'; 
-import ContentSlider from '../layout/ContentSlider';
+import PeopleContentSlider from '../layout/PeopleContentSlider';
 
 import './style/css/DisplayPeople.css';
 
@@ -26,7 +26,7 @@ class DisplayPeople extends React.Component {
 
   displayMovies = (movies, genres) => {
     if (movies.length > 0) {
-      return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} isCastResult={true} />
+      return  <PeopleContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} isCastResult={true} />
     } else {
       return <section className="empty_data"><h2>No Movies</h2></section>
     }
