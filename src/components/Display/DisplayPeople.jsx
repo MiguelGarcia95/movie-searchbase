@@ -78,11 +78,11 @@ class DisplayPeople extends React.Component {
             <section className="works">
               <section className="person_movies">
                 <h2>Movies</h2>
-                {currentPersonShowCredits && this.displayMovies(currentPersonShowCredits.cast, showGenres)}
+                {currentPersonMovieCredits && this.displayMovies(currentPersonMovieCredits.cast, movieGenres)}
               </section>
               <section className="person_movies">
                 <h2>Shows</h2>
-                {currentPersonMovieCredits && this.displayShows(currentPersonMovieCredits.cast, movieGenres)}
+                {currentPersonShowCredits && this.displayShows(currentPersonShowCredits.cast, showGenres)}
               </section>
             </section>
           </React.Fragment>
