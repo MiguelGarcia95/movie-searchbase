@@ -1,8 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {
-  fetchPeople, fetchPeopleCredits, fetchPeopleMovieCredits, fetchPeopleShowCredits, fetchPeopleImages, fetchPeopleTaggedImages
+  fetchPeople, fetchPeopleMovieCredits, fetchPeopleShowCredits, fetchPeopleImages, fetchPeopleTaggedImages
 } from '../../actions/peopleActions';
+import CastSlider from '../layout/CastSlider';
+import ContentSlider from '../layout/ContentSlider';
 
 import './style/css/DisplayPeople.css';
 
@@ -14,7 +16,6 @@ class DisplayPeople extends React.Component {
 
   fetchPeopleData = () => {
     this.props.fetchPeople(this.props.match.params.peopleId);
-    // this.props.fetchPeopleCredits(this.props.match.params.peopleId);
     this.props.fetchPeopleMovieCredits(this.props.match.params.peopleId);
     this.props.fetchPeopleShowCredits(this.props.match.params.peopleId);
     this.props.fetchPeopleImages(this.props.match.params.peopleId);
@@ -51,13 +52,6 @@ class DisplayPeople extends React.Component {
                       <section className="bio"><p>{currentPerson.biography}</p></section>
                     </section>
                   </section>
-                  <section className="bottom">
-                    <section className="header_people_details">
-                      <section className="dob"></section>
-                      <section className="place_of_birth"></section>
-                      <section className="role"></section>
-                    </section>
-                  </section>
                 </section>
               </section>
 
@@ -81,7 +75,6 @@ const mapStateToProps = state => {
     currentPerson: state.people.currentPerson,
     currentPersonMovieCredits: state.people.currentPersonMovieCredits,
     currentPersonShowCredits: state.people.currentPersonShowCredits,
-    // currentPersonCredits: state.people.currentPersonCredits,
     currentPersonImages: state.people.currentPersonImages,
     currentPersonTaggedImages: state.people.currentPersonTaggedImages
   }
@@ -90,7 +83,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchPeople: id => dispatch(fetchPeople(id)),
-    // fetchPeopleCredits: id => dispatch(fetchPeopleCredits(id)),
     fetchPeopleMovieCredits: id => dispatch(fetchPeopleMovieCredits(id)),
     fetchPeopleShowCredits: id => dispatch(fetchPeopleShowCredits(id)),
     fetchPeopleImages: id => dispatch(fetchPeopleImages(id)),
