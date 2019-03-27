@@ -40,6 +40,12 @@ class DisplayPeople extends React.Component {
     }
   }
 
+  displayImages = images => {
+    return images.map((image, index) => {
+      return <img src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
+    })
+  }
+
   render() {
     const {
       currentPerson, currentPersonMovieCredits, currentPersonShowCredits, currentPersonImages, 
@@ -84,6 +90,11 @@ class DisplayPeople extends React.Component {
                 <h2>Shows</h2>
                 {currentPersonShowCredits && this.displayShows(currentPersonShowCredits.cast, showGenres)}
               </section>
+            </section>
+            
+            <section className="image_grid">
+              <h2>Images</h2>
+              {currentPersonImages && this.displayImages(currentPersonImages)}
             </section>
           </React.Fragment>
         )}
