@@ -7,7 +7,7 @@ import CastSlider from '../layout/CastSlider';
 import {castSliderSettings, movieTvSliderSettings} from '../../utils/settings';
 import {fetchShowGenres} from '../../actions/tvShowActions'; 
 import {fetchMovieGenres} from '../../actions/movieActions'; 
-import PeopleContentSlider from '../layout/PeopleContentSlider';
+import ContentSlider from '../layout/ContentSlider';
 
 import './style/css/DisplayPeople.css';
 
@@ -26,9 +26,17 @@ class DisplayPeople extends React.Component {
 
   displayMovies = (movies, genres) => {
     if (movies.length > 0) {
-      return  <PeopleContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} isCastResult={true} />
+      return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
     } else {
       return <section className="empty_data"><h2>No Movies</h2></section>
+    }
+  }
+
+  displayShows = (movies, genres) => {
+    if (movies.length > 0) {
+      return  <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings} />
+    } else {
+      return <section className="empty_data"><h2>No Shows</h2></section>
     }
   }
 
@@ -70,7 +78,11 @@ class DisplayPeople extends React.Component {
             <section className="works">
               <section className="person_movies">
                 <h2>Movies</h2>
-                {currentPersonMovieCredits && this.displayMovies(currentPersonMovieCredits.cast, movieGenres)}
+                {currentPersonShowCredits && this.displayMovies(currentPersonShowCredits.cast, showGenres)}
+              </section>
+              <section className="person_movies">
+                <h2>Shows</h2>
+                {currentPersonMovieCredits && this.displayShows(currentPersonMovieCredits.cast, movieGenres)}
               </section>
             </section>
           </React.Fragment>
