@@ -5,7 +5,8 @@ import {
 } from '../../actions/peopleActions';
 // import CastSlider from '../layout/CastSlider';
 // import {castSliderSettings, movieTvSliderSettings} from '../../utils/settings';
-import {movieTvSliderSettings, movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7} from '../../utils/settings';
+// import {movieTvSliderSettings, movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7} from '../../utils/settings';
+import {movieTvSliderSettings, movieTvSliderSettings4} from '../../utils/settings';
 import {fetchShowGenres} from '../../actions/tvShowActions'; 
 import {fetchMovieGenres} from '../../actions/movieActions'; 
 import ContentSlider from '../layout/ContentSlider';
@@ -34,15 +35,7 @@ class DisplayPeople extends React.Component {
   }
 
   displayShows = (shows, genres) => {
-    if (shows.length > 7) {
-      return  <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings} />
-    } else if (shows.length > 6) {
-      return  <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings7} />
-    } else if (shows.length > 5) {
-      return  <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings6} />
-    } else if (shows.length > 4) {
-      return  <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings5} />
-    } else if (shows.length > 0) {
+     if (shows.length > 4) {
       return  <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings4} />
     } else {
       return <section className="empty_data"><h2>No Shows</h2></section>
