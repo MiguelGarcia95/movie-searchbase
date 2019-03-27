@@ -10,7 +10,7 @@ const Slide = ({movie, type, genres}) => {
     backgroundSize: 'cover',
   }
   return (
-    <section className="search_result">
+    <section className="search_result slide">
       <section className="search_result_movie">
         <section className="search_result_movie_image" style={imageStyle}></section>
         <p className="search_result_movie_rating">{movie.vote_average}</p>  
