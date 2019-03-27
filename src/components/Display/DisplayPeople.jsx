@@ -3,8 +3,9 @@ import {connect} from 'react-redux';
 import {
   fetchPeople, fetchPeopleMovieCredits, fetchPeopleShowCredits, fetchPeopleImages, fetchPeopleTaggedImages
 } from '../../actions/peopleActions';
-import CastSlider from '../layout/CastSlider';
-import {castSliderSettings, movieTvSliderSettings} from '../../utils/settings';
+// import CastSlider from '../layout/CastSlider';
+// import {castSliderSettings, movieTvSliderSettings} from '../../utils/settings';
+import {movieTvSliderSettings} from '../../utils/settings';
 import {fetchShowGenres} from '../../actions/tvShowActions'; 
 import {fetchMovieGenres} from '../../actions/movieActions'; 
 import ContentSlider from '../layout/ContentSlider';
