@@ -14,18 +14,6 @@ export const fetchPeople = id => {
   }
 }
 
-// export const fetchPeopleCredits = id => {
-//   return async (dispatch) => {
-//     const results = await axios.get(`https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${MOVIEDBAPI}&language=en-US`);
-//     dispatch({
-//       type: actionTypes.FETCH_PEOPLE_CREDITS,
-//       payload: {
-//         currentPersonCredits: results.data
-//       }
-//     })
-//   }
-// }
-
 export const fetchPeopleMovieCredits = id => {
   return async (dispatch) => {
     const results = await axios.get(`https://api.themoviedb.org/3/person/${id}/tv_credits?api_key=${MOVIEDBAPI}&language=en-US`);

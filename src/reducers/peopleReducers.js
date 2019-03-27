@@ -26,11 +26,6 @@ const peopleReducer = (state = initialState, action) => {
         ...state,
         currentPersonShowCredits: action.payload.currentPersonShowCredits
       }
-    // case actionTypes.FETCH_PEOPLE_CREDITS:
-    //   return {
-    //     ...state,
-    //     currentPersonCredits: action.payload.currentPersonCredits
-    //   }
     case actionTypes.FETCH_PEOPLE_IMAGES:
       return {
         ...state,
