@@ -40,8 +40,10 @@ class DisplayPeople extends React.Component {
                   <img src={`https://image.tmdb.org/t/p/original/${currentPerson.profile_path}`} alt={currentPerson.name}/>
                 </section>
                 <section className="header_people_data">
-                  <section className="header_people_name">
-                    <h2 className="name">{currentPerson.name}</h2>
+                  <section className="top">
+                    <section className="header_people_name">
+                      <h2 className="name">{currentPerson.name}</h2>
+                    </section>
                   </section>
                   <section className="header_people_details">
                     <section className="dob"></section>
