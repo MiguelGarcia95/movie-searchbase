@@ -5,7 +5,7 @@ import {
 } from '../../actions/peopleActions';
 // import CastSlider from '../layout/CastSlider';
 // import {castSliderSettings, movieTvSliderSettings} from '../../utils/settings';
-import {movieTvSliderSettings} from '../../utils/settings';
+import {movieTvSliderSettings, movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7} from '../../utils/settings';
 import {fetchShowGenres} from '../../actions/tvShowActions'; 
 import {fetchMovieGenres} from '../../actions/movieActions'; 
 import ContentSlider from '../layout/ContentSlider';
@@ -33,9 +33,9 @@ class DisplayPeople extends React.Component {
     }
   }
 
-  displayShows = (movies, genres) => {
-    if (movies.length > 0) {
-      return  <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings} />
+  displayShows = (shows, genres) => {
+    if (shows.length > 0) {
+      return  <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings} />
     } else {
       return <section className="empty_data"><h2>No Shows</h2></section>
     }
@@ -60,7 +60,7 @@ class DisplayPeople extends React.Component {
 
   displayColImages = images => {
     return images.map((image, index) => {
-      return <img key={index} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
+      return <img key={index} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} alt={'actor image'}/>
     })
   }
 
