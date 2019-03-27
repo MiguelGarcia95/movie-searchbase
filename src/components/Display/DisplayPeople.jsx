@@ -4,13 +4,15 @@ import {
   fetchPeople, fetchPeopleMovieCredits, fetchPeopleShowCredits, fetchPeopleImages, fetchPeopleTaggedImages
 } from '../../actions/peopleActions';
 import CastSlider from '../layout/CastSlider';
+import {castSliderSettings, movieTvSliderSettings} from '../../utils/settings';
+import {fetchShowGenres} from '../../actions/tvShowActions'; 
+import {fetchMovieGenres} from '../../actions/movieActions'; 
 import ContentSlider from '../layout/ContentSlider';
 
 import './style/css/DisplayPeople.css';
 
 class DisplayPeople extends React.Component {
   componentDidMount() {
-    // this.props.fetchPeople(this.props.match.params.peopleId);
     this.fetchPeopleData();
   }
 
@@ -22,11 +24,20 @@ class DisplayPeople extends React.Component {
     this.props.fetchPeopleTaggedImages(this.props.match.params.peopleId);
   }
 
+  displayMovies = (movies, genres) => {
+    if (movies.length > 0) {
+      return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} isCastResult={true} />
+    } else {
+      return <section className="empty_data"><h2>No Movies</h2></section>
+    }
+  }
+
   render() {
-    const {currentPerson} = this.props;
-    // const imageProfile = {
-    //   backgroundImage: `https://image.tmdb.org/t/p/original/${currentPerson.profile_path}`
-    // }
+    const {
+      currentPerson, currentPersonMovieCredits, currentPersonShowCredits, currentPersonImages, 
+      currentPersonTaggedImages, showGenres, movieGenres
+    } = this.props;
+
     return (
       <section className="display_people">
         {currentPerson && (
@@ -54,14 +65,13 @@ class DisplayPeople extends React.Component {
                   </section>
                 </section>
               </section>
-
-              <section className='display_people_description'>
-                <p className='bio'>data here</p>
-              </section>
-
             </section>
-            <section className="works">
 
+            <section className="works">
+              <section className="person_movies">
+                <h2>Movies</h2>
+                {currentPersonMovieCredits && this.displayMovies(currentPersonMovieCredits.cast, movieGenres)}
+              </section>
             </section>
           </React.Fragment>
         )}
@@ -76,7 +86,9 @@ const mapStateToProps = state => {
     currentPersonMovieCredits: state.people.currentPersonMovieCredits,
     currentPersonShowCredits: state.people.currentPersonShowCredits,
     currentPersonImages: state.people.currentPersonImages,
-    currentPersonTaggedImages: state.people.currentPersonTaggedImages
+    currentPersonTaggedImages: state.people.currentPersonTaggedImages,
+    showGenres: state.shows.showGenres,
+    movieGenres: state.movies.movieGenres
   }
 }
 
@@ -86,7 +98,9 @@ const mapDispatchToProps = dispatch => {
     fetchPeopleMovieCredits: id => dispatch(fetchPeopleMovieCredits(id)),
     fetchPeopleShowCredits: id => dispatch(fetchPeopleShowCredits(id)),
     fetchPeopleImages: id => dispatch(fetchPeopleImages(id)),
-    fetchPeopleTaggedImages: id => dispatch(fetchPeopleTaggedImages(id))
+    fetchPeopleTaggedImages: id => dispatch(fetchPeopleTaggedImages(id)),
+    fetchShowGenres: () => dispatch(fetchShowGenres()),
+    fetchMovieGenres: () => dispatch(fetchMovieGenres())
   }
 }
  
