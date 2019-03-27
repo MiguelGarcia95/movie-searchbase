@@ -44,13 +44,13 @@ class DisplayPeople extends React.Component {
     let allImages = this.sortImages(images);
     return (
       <section className="image_grid">
-        <section className="grid_col_1">
+        <section className="grid_col grid_col_one">
           {this.displayColImages(allImages.firstCol)}
         </section>
-        <section className="grid_col_2">
+        <section className="grid_col grid_col_two">
           {this.displayColImages(allImages.secondCol)}
         </section>
-        <section className="grid_col_2">
+        <section className="grid_col grid_col_three">
           {this.displayColImages(allImages.thirdCol)}
         </section>
       </section>
@@ -123,13 +123,17 @@ class DisplayPeople extends React.Component {
             </section>
 
             <section className="works">
-              <section className="person_movies">
+              <section className="person_data">
                 <h2>Movies</h2>
-                {currentPersonMovieCredits && this.displayMovies(currentPersonMovieCredits.cast, movieGenres)}
+                <section className="person_slider">
+                  {currentPersonMovieCredits && this.displayMovies(currentPersonMovieCredits.cast, movieGenres)}
+                </section>
               </section>
-              <section className="person_movies">
+              <section className="person_data">
                 <h2>Shows</h2>
-                {currentPersonShowCredits && this.displayShows(currentPersonShowCredits.cast, showGenres)}
+                <section className="person_slider">
+                  {currentPersonShowCredits && this.displayShows(currentPersonShowCredits.cast, showGenres)}
+                </section>
               </section>
             </section>
             
