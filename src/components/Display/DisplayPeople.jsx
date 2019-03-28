@@ -125,7 +125,8 @@ class DisplayPeople extends React.Component {
                       <section className="bio mobile mobile_six"><p>{currentPerson.biography.substring(0, 800)} {currentPerson.biography.length > 800 && '...'}</p></section>
                       <section className="bio mobile mobile_seven"><p>{currentPerson.biography.substring(0, 880)} {currentPerson.biography.length > 880 && '...'}</p></section>
                       <section className="bio mobile mobile_eight"><p>{currentPerson.biography.substring(0, 800)} {currentPerson.biography.length > 800 && '...'}</p></section>
-                      <section className="bio mobile mobile_nine"><p>{currentPerson.biography.substring(0, 800)} {currentPerson.biography.length > 800 && '...'}</p></section>
+                      <section className="bio mobile mobile_nine"><p>{currentPerson.biography.substring(0, 1500)} {currentPerson.biography.length > 1500 && '...'}</p></section>
+                      <section className="bio mobile mobile_ten"><p>{currentPerson.biography.substring(0, 1500)} {currentPerson.biography.length > 1500 && '...'}</p></section>
                     </section>
                   </section>
                 </section>
