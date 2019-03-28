@@ -77,6 +77,9 @@
               width: 100%;
               padding-right: 50px;
               box-sizing: border-box;
+              &.mobile {
+                display: none;
+              }
             }
           }
         }
@@ -126,6 +129,52 @@
   }
 }
 
+@media (max-width: 1400px) {
+  .display_people {
+    .display_people_header {
+      .people_header_content {
+        .header_people_data {
+          .top {
+            .header_people_details {
+              .bio {
+                &.normal {
+                  display: none;
+                }
+                &.mobile_one {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .display_people {
+    .display_people_header {
+      .people_header_content {
+        .header_people_data {
+          .top {
+            .header_people_details {
+              .bio {
+                &.mobile_one {
+                  display: none;
+                }
+                &.mobile_two {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 1200px) {
   .display_people {
     .display_people_header {
@@ -138,10 +187,45 @@
         }
         .header_people_data {
           width: 75%;
+          .top {
+            .header_people_details {
+              .bio {
+              padding-right: 25px;
+                &.mobile_two {
+                  display: none;
+                }
+                &.mobile_three {
+                  display: block;
+                }
+              }
+            }
+          }
         }
       }
     }
+  }
+}
 
+@media (max-width: 1150px) {
+  .display_people {
+    .display_people_header {
+      .people_header_content {
+        .header_people_data {
+          .top {
+            .header_people_details {
+              .bio {
+                &.mobile_three {
+                  display: none;
+                }
+                &.mobile_four {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -179,6 +263,16 @@
               .name {
                 margin: 5px 0;
                 font-size: 1.8em;
+              }
+            }
+            .header_people_details {
+              .bio {
+                &.mobile_four {
+                  display: none;
+                }
+                &.mobile_five {
+                  display: block;
+                }
               }
             }
           }

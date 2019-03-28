@@ -3,7 +3,10 @@ import {connect} from 'react-redux';
 import {
   fetchPeople, fetchPeopleMovieCredits, fetchPeopleShowCredits, fetchPeopleImages, fetchPeopleTaggedImages
 } from '../../actions/peopleActions';
-import {movieTvSliderSettings4} from '../../utils/settings';
+import {
+  castSliderSettings, movieTvSliderSettings, movieTvSliderSettings1, movieTvSliderSettings2, movieTvSliderSettings3,
+  movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7, castSliderSettings1
+} from '../../utils/settings';
 import {fetchShowGenres} from '../../actions/tvShowActions'; 
 import {fetchMovieGenres} from '../../actions/movieActions'; 
 import ContentSlider from '../layout/ContentSlider';
@@ -113,10 +116,13 @@ class DisplayPeople extends React.Component {
                     <section className="header_people_details">
                       <section className="dob"><p><span>DOB: </span> {currentPerson.birthday}</p></section>
                       <section className="place_of_birth"><p><span>Birth Place: </span> {currentPerson.place_of_birth}</p></section>
-                      <section className="bio"><p>{currentPerson.biography.substring(0, 1000)} {currentPerson.biography.length > 1000 && '...'}</p></section>
-                      {/* mobile class will show only when mobile */}
-                      {/* <section className="bio mobile"><p>{currentPerson.biography.substring(0, 1000)} {currentPerson.biography.length > 1000 && '...'}</p></section> */}
-
+                      <section className="bio normal"><p>{currentPerson.biography} </p></section>
+                      <section className="bio mobile mobile_one"><p>{currentPerson.biography.substring(0, 1300)} {currentPerson.biography.length > 1300 && '...'}</p></section>
+                      <section className="bio mobile mobile_two"><p>{currentPerson.biography.substring(0, 1200)} {currentPerson.biography.length > 1200 && '...'}</p></section>
+                      <section className="bio mobile mobile_three"><p>{currentPerson.biography.substring(0, 1030)} {currentPerson.biography.length > 1030 && '...'}</p></section>
+                      <section className="bio mobile mobile_four"><p>{currentPerson.biography.substring(0, 900)} {currentPerson.biography.length > 900 && '...'}</p></section>
+                      <section className="bio mobile mobile_five"><p>{currentPerson.biography.substring(0, 900)} {currentPerson.biography.length > 900 && '...'}</p></section>
+                      <section className="bio mobile mobile_six"><p>{currentPerson.biography.substring(0, 1200)} {currentPerson.biography.length > 1200 && '...'}</p></section>
                     </section>
                   </section>
                 </section>
