@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect, Link} from 'react-router-dom';
 
-import {getSession, setSession, getAccount, setAccount, setToken} from '../../actions/authActions';
+import {getSession, setSession, setToken} from '../../actions/authActions';
+import {getAccount, setAccount} from '../../actions/accountActions';
 
 import ContentSlider from '../layout/ContentSlider';
 
@@ -144,7 +145,7 @@ const mapStateToProps = state => {
   return {
     session_id: state.auth.session_id,
     token_id: state.auth.token_id,
-    account: state.auth.account
+    account: state.account.account
   }
 }
 
