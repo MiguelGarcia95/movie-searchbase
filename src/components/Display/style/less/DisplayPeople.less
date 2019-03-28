@@ -237,14 +237,79 @@
 
 @media (max-width: 600px) {
   @headerHeight: 420px;
-  @headerTop: 350px;
-  @headerBottom: 70px;
+  @headerTop: 300px;
+  @headerBottom: 120px;
+  .display_people {
+    .display_people_header {
+      min-height: @headerHeight;
+      height: auto;
+      overflow: auto;
+      padding-bottom: 150px;
+      .people_header_background {
+        height: @headerHeight;
+        .top {
+          height: @headerTop;
+        }
+        .bottom {
+          height: @headerBottom;
+        }
+      }
+  
+      .people_header_content {
+        height: auto;
+        .people_profile_image {
+          width: 100%; 
+          height: 250px;
+          img {
+            margin: 0 auto;
+            top: 10px;
+            width: 150px;
+          }
+        }
+        .header_people_data {
+          width: 100%; 
+          .top {
+            height: @headerTop;
+            .header_people_name {
+              width: 100%;
+              .name {
+                font-size: 1.5em;
+                text-align: center;
+              }
+            }
+            .header_people_details {
+              height: auto;
+              overflow: auto;
+              width: 100%;
+              margin-top: 30px;
+              .dob, .place_of_birth {
+                display: none;
+              }
+              .bio {
+                font-size: 0.9em;
+                padding: 0 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  @headerHeight: 420px;
+  @headerTop: 300px;
+  @headerBottom: 120px;
   .display_people {
     // min-height: 600px;
     // padding-top: @navbarHeight;
     .display_people_header {
       // width: 100%;
-      height: @headerHeight;
+      min-height: @headerHeight;
+      height: auto;
+      overflow: auto;
+      padding-bottom: 150px;
       .people_header_background {
         // width: 100%; 
         height: @headerHeight;
@@ -255,26 +320,31 @@
         }
         .bottom {
           height: @headerBottom;
+          // box-shadow: 0px 10px 50px 0px black;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
         }
       }
   
       .people_header_content {
-        // width: 100%; height: 100%;
+        // width: 100%; 
+        height: auto;
         .people_profile_image {
-          // float: left;
-          width: 35%; 
-          height: @headerHeight;
+          width: 100%; 
+          // height: @headerHeight;
+          height: 250px;
           img {
             // border-radius: 20px;
             // bottom: 0; left: 0; right: 0; top: 0;
             // box-shadow: 0px 0px 10px 2px black;
-            // width: 180px;
-            width: 80%;
+            margin: 0 auto;
+            top: 10px;
+            width: 150px;
+            // width: 50%;
           }
         }
         .header_people_data {
-          width: 65%; 
-          // float: left;
+          width: 100%; 
           .top {
             height: @headerTop;
             // width: 100%;
@@ -284,15 +354,21 @@
                 // font-weight: 300;
                 // margin: 5px 0;
                 font-size: 1.5em;
+                text-align: center;
               }
             }
             .header_people_details {
+              height: auto;
+              overflow: auto;
+              width: 100%;
+              margin-top: 30px;
               .dob, .place_of_birth, .bio {
                 // float: left; 
                 // p {margin: 5px 0;}
                 // span {font-size: 0.7em;}
               }
               .dob, .place_of_birth {
+                display: none;
                 // font-size: 0.9em;
               }
               .place_of_birth {
@@ -300,8 +376,8 @@
               }
               .bio {
                 // width: 100%;
-                // padding-right: 50px;
                 font-size: 0.9em;
+                padding: 0 25px;
               }
             }
           }
