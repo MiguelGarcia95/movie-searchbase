@@ -26,9 +26,11 @@ export const setAccount = account => {
   }
 }
 
-export const getFavoriteShows = id => {
+export const getFavoriteShows = (accountId, sessionId) => {
   return (dispatch) => {
-    console.log(id);
+    const url = `https://api.themoviedb.org/3/account/${accountId}/favorite/tv?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
+    const response = await axios.get(url);
+    console.log(response);
     dispatch({
       type: actionTypes.GET_FAVORITE_SHOWS,
       payload: {
@@ -38,9 +40,11 @@ export const getFavoriteShows = id => {
   }
 }
 
-export const getFavoriteMovies = id => {
+export const getFavoriteMovies = (accountId, sessionId) => {
   return (dispatch) => {
-    console.log(id);
+    const url = `https://api.themoviedb.org/3/account/${accountId}/favorite/movies?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
+    const response = await axios.get(url);
+    console.log(response);
     dispatch({
       type: actionTypes.GET_FAVORITE_MOVIES,
       payload: {
@@ -50,9 +54,11 @@ export const getFavoriteMovies = id => {
   }
 }
 
-export const getShowWatchlist = id => {
+export const getShowWatchlist = (accountId, sessionId) => {
   return (dispatch) => {
-    console.log(id);
+    const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist/tv?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
+    const response = await axios.get(url);
+    console.log(response);
     dispatch({
       type: actionTypes.GET_SHOW_WATCHLIST,
       payload: {
@@ -62,9 +68,11 @@ export const getShowWatchlist = id => {
   }
 }
 
-export const getMovieWatchlist = id => {
+export const getMovieWatchlist = (accountId, sessionId) => {
   return (dispatch) => {
-    console.log(id);
+    const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist/movie?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
+    const response = await axios.get(url);
+    console.log(response);
     dispatch({
       type: actionTypes.GET_MOVIE_WATCHLIST,
       payload: {
