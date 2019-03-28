@@ -5,6 +5,7 @@ import tvShowReducers from './tvShowReducers';
 import searchReducers from './searchReducers';
 import settingsReducers from './settingsReducers';
 import peopleReducers from './peopleReducers';
+import accountReducers from './accountReducers';
 
 const rootReducer = combineReducers({
   movies: movieReducers,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   auth: authReducers,
   results: searchReducers,
   settings: settingsReducers,
-  people: peopleReducers
+  people: peopleReducers,
+  account: accountReducers
 });
 
 export default rootReducer;
