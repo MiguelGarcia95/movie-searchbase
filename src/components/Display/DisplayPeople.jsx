@@ -112,7 +112,7 @@ class DisplayPeople extends React.Component {
                     </section>
                     <section className="header_people_details">
                       <section className="dob"><p><span>DOB: </span> {currentPerson.birthday}</p></section>
-                      <section className="place_of_birth"><p>{currentPerson.place_of_birth}</p></section>
+                      <section className="place_of_birth"><p><span>Birth Place: </span> {currentPerson.place_of_birth}</p></section>
                       <section className="bio"><p>{currentPerson.biography}</p></section>
                     </section>
                   </section>

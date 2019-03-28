@@ -62,12 +62,19 @@
             }
           }
           .header_people_details {
-            .dob, .place_of_birth {float: left;}
-            .dob {}
-            .place_of_birth {}
+            .dob, .place_of_birth, .bio {
+              float: left; 
+              p {margin: 5px 0;}
+              span {font-size: 0.7em;}
+            }
+            .dob, .place_of_birth {
+              font-size: 0.9em;
+            }
+            .place_of_birth {
+              margin-left: 10px;
+            }
             .bio {
               width: 100%;
-              float: left;
               padding-right: 50px;
               box-sizing: border-box;
             }
@@ -113,8 +120,127 @@
           padding: 5px; 
           width: 100%;
         }
-        &.grid_col_one {
+      }
+    }
+  }
+}
 
+@media (max-width: 1200px) {
+  .display_people {
+    width: 100vw;
+    max-width:100%;
+    min-height: 600px;
+    padding-top: @navbarHeight;
+    .display_people_header {
+      width: 100%;
+      height: @headerHeight;
+      .people_header_background {
+        width: 100%; 
+        height: @headerHeight;
+        position: absolute;
+        .top {
+          height: @headerTop;
+          background: rgb(136,36,254);
+          background: linear-gradient(90deg, rgba(136,36,254,1) 0%, rgba(91,176,255,1) 100%);
+        }
+        .bottom {
+          height: @headerBottom;
+        }
+      }
+  
+      .people_header_content {
+        position: absolute;
+        width: 100%; height: 100%;
+        color: white;
+        .people_profile_image {
+          width: 20%; float: left;
+          overflow: hidden;
+          position: relative;
+          height: @headerHeight;
+          img {
+            margin: auto;
+            position: absolute;
+            border-radius: 20px;
+            bottom: 0; left: 0; right: 0; top: 0;
+            box-shadow: 0px 0px 10px 2px black;
+            width: 180px;
+          }
+        }
+        .header_people_data {
+          width: 80%; float: left;
+          .top {
+            height: @headerTop;
+            width: 100%;
+            .header_people_name {
+              width: 100%;
+              .name {
+                font-weight: 300;
+                margin: 10px 0;
+                font-size: 2em;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+            .header_people_details {
+              .dob, .place_of_birth, .bio {
+                float: left; 
+                p {margin: 5px 0;}
+                span {font-size: 0.7em;}
+              }
+              .dob, .place_of_birth {
+                font-size: 0.9em;
+              }
+              .place_of_birth {
+                margin-left: 10px;
+              }
+              .bio {
+                width: 100%;
+                padding-right: 50px;
+                box-sizing: border-box;
+              }
+            }
+          }
+        }
+      }
+    }
+    .works {
+      width: 100%;
+      padding: 100px 50px;
+      box-sizing: border-box;
+      .person_data {
+        padding-top: 100px;
+        h2 {
+          color: white;
+          font-weight: 300;
+        }
+        .person_slider {
+          padding-top: 50px;
+        }
+      }
+    }
+  
+    .person_images {
+      width: 100%;
+      padding: 100px 50px;
+      box-sizing: border-box;
+      h2 {
+        color: white;
+        font-weight: 300;
+      }
+      .image_grid {
+        padding-top: 50px;
+        width: 100%;
+        height: auto;
+        overflow: auto;
+        .grid_col {
+          float: left;
+          width: 33%;
+          img {
+            box-sizing: border-box;
+            padding: 5px; 
+            width: 100%;
+          }
         }
       }
     }
