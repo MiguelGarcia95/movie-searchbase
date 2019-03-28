@@ -6,8 +6,9 @@ import ContentSlider from '../layout/ContentSlider';
 import {fetchMovie, fetchMovieCredits, fetchMovieReviews, fetchSimilarMovies, fetchMovieGenres} from '../../actions/movieActions'; 
 import {
   castSliderSettings, movieTvSliderSettings, movieTvSliderSettings1, movieTvSliderSettings2, movieTvSliderSettings3,
-  movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7
+  movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7, castSliderSettings1
 } from '../../utils/settings';
+
 import './style/css/Display.css';
 
 class DisplayMovie extends React.Component {
@@ -31,8 +32,8 @@ class DisplayMovie extends React.Component {
 
   displayCast = cast => {
     switch (cast.length) {
-      case 0: <section className="empty_data"><h2>No Cast Available</h2></section>
-        return 
+      case 0: 
+        return <section className="empty_data"><h2>No Cast Available</h2></section>
       case 1:
         return <CastSlider cast={cast} settings={movieTvSliderSettings1} />
       case 2:
@@ -53,14 +54,32 @@ class DisplayMovie extends React.Component {
   }
 
 
-  
-
   displaySimilarMovies = (movies, genres) => {
-    if (movies.length > 0) {
-      return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
-    } else {
-      return <section className="empty_data"><h2>No Similar Movies</h2></section>
+    switch (movies.length) {
+      case 0: 
+        return  <section className="empty_data"><h2>No Similar Movies</h2></section>
+      case 1:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings1} />
+      case 2:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings2} />
+      case 3:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings3} />
+      case 4:
+        return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings4} />
+      case 5:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings5} /> 
+      case 6:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings6} /> 
+      case 7:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings7} /> 
+      default:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
     }
+    // if (movies.length > 0) {
+    //   return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
+    // } else {
+    //   return <section className="empty_data"><h2>No Similar Movies</h2></section>
+    // }
   }
 
   displayReviews = reviews => {

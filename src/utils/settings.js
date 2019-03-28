@@ -16,6 +16,15 @@ export const castSliderSettings = {
   ]
 };
 
+export const castSliderSettings1 = {
+  className: "center",
+  centerMode: true,
+  infinite: true,
+  centerPadding: "20px",
+  slidesToShow: 1,
+  speed: 500
+};
+
 export const movieTvSliderSettings = {
   infinite: true,
   slidesToShow: 8,

@@ -4,7 +4,10 @@ import DisplayHeader from './DisplayHeader';
 import CastSlider from '../layout/CastSlider';
 import ContentSlider from '../layout/ContentSlider';
 import {fetchShow, fetchShowCredits, fetchShowReviews, fetchSimilarShows, fetchShowGenres} from '../../actions/tvShowActions'; 
-import {castSliderSettings, movieTvSliderSettings} from '../../utils/settings';
+import {
+  castSliderSettings, movieTvSliderSettings, movieTvSliderSettings1, movieTvSliderSettings2, movieTvSliderSettings3,
+  movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7
+} from '../../utils/settings';
 import './style/css/Display.css';
 
 class DisplayTv extends React.Component {
@@ -27,11 +30,32 @@ class DisplayTv extends React.Component {
   }
 
   displayCast = cast => {
-    if (cast.length > 0) {
-      return <CastSlider cast={cast} settings={castSliderSettings} />
-    } else {
-      return <section className="empty_data"><h2>No Cast Available</h2></section>
+    switch (cast.length) {
+      case 0: 
+        return <section className="empty_data"><h2>No Cast Available</h2></section>
+      case 1:
+        return <CastSlider cast={cast} settings={movieTvSliderSettings1} />
+      case 2:
+        return <CastSlider cast={cast} settings={movieTvSliderSettings2} />
+      case 3:
+        return <CastSlider cast={cast} settings={movieTvSliderSettings3} />
+      case 4:
+        return <CastSlider cast={cast} settings={movieTvSliderSettings4} />
+      case 5:
+        return <CastSlider cast={cast} settings={movieTvSliderSettings5} />
+      case 6:
+        return <CastSlider cast={cast} settings={movieTvSliderSettings6} />
+      case 7:
+        return <CastSlider cast={cast} settings={movieTvSliderSettings7} />
+      default:
+        return <CastSlider cast={cast} settings={movieTvSliderSettings} />
     }
+
+    // if (cast.length > 0) {
+    //   return <CastSlider cast={cast} settings={castSliderSettings} />
+    // } else {
+    //   return <section className="empty_data"><h2>No Cast Available</h2></section>
+    // }
   }
 
   displaySimilarShows = (movies, genres) => {
