@@ -344,6 +344,35 @@
             .header_people_details {
               .bio {
                 font-size: 0.9em;
+                &.mobile_six {
+                  display: none;
+                }
+                &.mobile_seven {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .display_people {
+    .display_people_header {
+      .people_header_content {
+        .header_people_data {
+          .top {
+            .header_people_details {
+              .bio {
+                &.mobile_seven {
+                  display: none;
+                }
+                &.mobile_eight {
+                  display: block;
+                }
               }
             }
           }
