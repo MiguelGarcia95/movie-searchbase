@@ -282,6 +282,29 @@
   }
 }
 
+@media (max-width: 800px) {
+  .display_people {
+    .display_people_header {
+      .people_header_content {
+        .header_people_data {
+          .top {
+            .header_people_details {
+              .bio {
+                &.mobile_five {
+                  display: none;
+                }
+                &.mobile_six {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 750px) {
   @headerHeight: 420px;
   @headerTop: 350px;
