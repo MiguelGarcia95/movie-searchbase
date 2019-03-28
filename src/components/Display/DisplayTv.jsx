@@ -6,7 +6,7 @@ import ContentSlider from '../layout/ContentSlider';
 import {fetchShow, fetchShowCredits, fetchShowReviews, fetchSimilarShows, fetchShowGenres} from '../../actions/tvShowActions'; 
 import {
   castSliderSettings, movieTvSliderSettings, movieTvSliderSettings1, movieTvSliderSettings2, movieTvSliderSettings3,
-  movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7
+  movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7, castSliderSettings1
 } from '../../utils/settings';
 import './style/css/Display.css';
 
@@ -34,35 +34,32 @@ class DisplayTv extends React.Component {
       case 0: 
         return <section className="empty_data"><h2>No Cast Available</h2></section>
       case 1:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings1} />
-      case 2:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings2} />
-      case 3:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings3} />
-      case 4:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings4} />
-      case 5:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings5} />
-      case 6:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings6} />
-      case 7:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings7} />
+        return <CastSlider cast={cast} settings={castSliderSettings1} />
       default:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings} />
+        return <CastSlider cast={cast} settings={castSliderSettings} />
     }
-
-    // if (cast.length > 0) {
-    //   return <CastSlider cast={cast} settings={castSliderSettings} />
-    // } else {
-    //   return <section className="empty_data"><h2>No Cast Available</h2></section>
-    // }
   }
 
   displaySimilarShows = (movies, genres) => {
-    if (movies.length > 0) {
-      return  <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings} />
-    } else {
-      return <section className="empty_data"><h2>No Similar Shows</h2></section>
+    switch (movies.length) {
+      case 0: 
+        return  <section className="empty_data"><h2>No Similar Shows</h2></section>
+      case 1:
+        return <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings1} />
+      case 2:
+        return <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings2} />
+      case 3:
+        return <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings3} />
+      case 4:
+        return  <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings4} />
+      case 5:
+        return <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings5} /> 
+      case 6:
+        return <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings6} /> 
+      case 7:
+        return <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings7} /> 
+      default:
+        return <ContentSlider movies={movies} genres={genres} type='shows' settings={movieTvSliderSettings} />
     }
   }
 

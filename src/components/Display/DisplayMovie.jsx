@@ -35,21 +35,9 @@ class DisplayMovie extends React.Component {
       case 0: 
         return <section className="empty_data"><h2>No Cast Available</h2></section>
       case 1:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings1} />
-      case 2:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings2} />
-      case 3:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings3} />
-      case 4:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings4} />
-      case 5:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings5} />
-      case 6:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings6} />
-      case 7:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings7} />
+        return <CastSlider cast={cast} settings={castSliderSettings1} />
       default:
-        return <CastSlider cast={cast} settings={movieTvSliderSettings} />
+        return <CastSlider cast={cast} settings={castSliderSettings} />
     }
   }
 
@@ -75,11 +63,6 @@ class DisplayMovie extends React.Component {
       default:
         return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
     }
-    // if (movies.length > 0) {
-    //   return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
-    // } else {
-    //   return <section className="empty_data"><h2>No Similar Movies</h2></section>
-    // }
   }
 
   displayReviews = reviews => {
