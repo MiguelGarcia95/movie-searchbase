@@ -147,8 +147,49 @@
 
 
 @media (max-width: 900px) {
-  @headerHeight: 400px;
-  @headerTop: 330px;
+  @headerHeight: 410px;
+  @headerTop: 340px;
+  @headerBottom: 70px;
+  .display_people {
+    .display_people_header {
+      height: @headerHeight;
+      .people_header_background {
+        height: @headerHeight;
+        .top {
+          height: @headerTop;
+        }
+        .bottom {
+          height: @headerBottom;
+        }
+      }
+      .people_header_content {
+        .people_profile_image {
+          width: 30%; 
+          height: @headerHeight;
+          img {
+            width: 80%;
+          }
+        }
+        .header_people_data {
+          width: 70%; 
+          .top {
+            height: @headerTop;
+            .header_people_name {
+              .name {
+                margin: 5px 0;
+                font-size: 1.8em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  @headerHeight: 410px;
+  @headerTop: 340px;
   @headerBottom: 70px;
   .display_people {
     // min-height: 600px;
