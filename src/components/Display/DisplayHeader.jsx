@@ -38,7 +38,16 @@ const DisplayHeader = ({currentMovie, type}) => {
             <p className="description"> {currentMovie.overview.substring(0, 1190)} {currentMovie.overview.length > 1190 && ' ...'}</p>
           </section>
           <section className="display_header_content mobile mobile_two">
-            <p className="description"> {currentMovie.overview.substring(0, 1190)} {currentMovie.overview.length > 1190 && ' ...'}</p>
+            <p className="description"> {currentMovie.overview.substring(0, 700)} {currentMovie.overview.length > 700 && ' ...'}</p>
+          </section>
+          <section className="display_header_content mobile mobile_three">
+            <p className="description"> {currentMovie.overview.substring(0, 480)} {currentMovie.overview.length > 480 && ' ...'}</p>
+          </section>
+          <section className="display_header_content mobile mobile_four">
+            <p className="description"> {currentMovie.overview.substring(0, 470)} {currentMovie.overview.length > 470 && ' ...'}</p>
+          </section>
+          <section className="display_header_content mobile mobile_five">
+            <p className="description"> {currentMovie.overview.substring(0, 350)} {currentMovie.overview.length > 350 && ' ...'}</p>
           </section>
         </section>
       </section>
