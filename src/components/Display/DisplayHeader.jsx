@@ -1,16 +1,6 @@
 import React from 'react';
 import {getTitle, getPoster, getImage} from '../../utils/functions';
 
-// const displayCompanies = (companies) => {
-//   return companies.map(company => {
-//     return (
-//       <section key={company.name} title={company.name} className="company">
-//         <img src={`https://image.tmdb.org/t/p/original${company.logo_path}`} alt={`${company.name} logo`}/>
-//       </section>
-//     )
-//   })
-// }
-
 const displayGenres = (genres) => {
   return genres.map(genre => {
     return <span key={genre.id} className="genre">{genre.name}</span>
@@ -43,6 +33,10 @@ const DisplayHeader = ({currentMovie, type}) => {
           </section>
           <section className="display_header_content">
             <p className="description">{currentMovie.overview}</p>
+          </section>
+          <section className="display_header_content mobile">
+          {/* mobile class will show only when mobile */}
+            {/* <p className="description">{currentMovie.overview.substring(0, 1500)}</p> */}
           </section>
         </section>
       </section>

@@ -191,3 +191,29 @@ export const movieTvSliderSettings4 = {
     }
   ]
 };
+
+export const movieTvSliderSettings3 = {
+  infinite: true,
+  slidesToShow: 3,
+  arrows: true,
+  swipeToSlide: true,
+  speed: 500,
+  initialSlide: 0,
+  responsive: [
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 1
+      }
+    }
+  ]
+};
+
+export const movieTvSliderSettings1 = {
+  infinite: true,
+  slidesToShow: 1,
+  arrows: true,
+  swipeToSlide: true,
+  speed: 500,
+  initialSlide: 0
+};

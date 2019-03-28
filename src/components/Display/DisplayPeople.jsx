@@ -114,6 +114,9 @@ class DisplayPeople extends React.Component {
                       <section className="dob"><p><span>DOB: </span> {currentPerson.birthday}</p></section>
                       <section className="place_of_birth"><p><span>Birth Place: </span> {currentPerson.place_of_birth}</p></section>
                       <section className="bio"><p>{currentPerson.biography.substring(0, 1000)} {currentPerson.biography.length > 1000 && '...'}</p></section>
+                      {/* mobile class will show only when mobile */}
+                      {/* <section className="bio mobile"><p>{currentPerson.biography.substring(0, 1000)} {currentPerson.biography.length > 1000 && '...'}</p></section> */}
+
                     </section>
                   </section>
                 </section>
