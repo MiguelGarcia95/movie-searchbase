@@ -25,3 +25,51 @@ export const setAccount = account => {
     })
   }
 }
+
+export const getFavoriteShows = id => {
+  return (dispatch) => {
+    console.log(id);
+    dispatch({
+      type: actionTypes.GET_FAVORITE_SHOWS,
+      payload: {
+        favoriteShows: []
+      }
+    })
+  }
+}
+
+export const getFavoriteMovies = id => {
+  return (dispatch) => {
+    console.log(id);
+    dispatch({
+      type: actionTypes.GET_FAVORITE_MOVIES,
+      payload: {
+        favoriteMovies: []
+      }
+    })
+  }
+}
+
+export const getShowWatchlist = id => {
+  return (dispatch) => {
+    console.log(id);
+    dispatch({
+      type: actionTypes.GET_SHOW_WATCHLIST,
+      payload: {
+        showWatchlist: []
+      }
+    })
+  }
+}
+
+export const getMovieWatchlist = id => {
+  return (dispatch) => {
+    console.log(id);
+    dispatch({
+      type: actionTypes.GET_MOVIE_WATCHLIST,
+      payload: {
+        movieWatchlist: []
+      }
+    })
+  }
+}
