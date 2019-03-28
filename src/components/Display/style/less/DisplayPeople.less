@@ -188,8 +188,56 @@
 }
 
 @media (max-width: 750px) {
-  @headerHeight: 410px;
-  @headerTop: 340px;
+  @headerHeight: 420px;
+  @headerTop: 350px;
+  @headerBottom: 70px;
+  .display_people {
+    .display_people_header {
+      height: @headerHeight;
+      .people_header_background {
+        // width: 100%; 
+        height: @headerHeight;
+        .top {
+          height: @headerTop;
+        }
+        .bottom {
+          height: @headerBottom;
+        }
+      }
+  
+      .people_header_content {
+        .people_profile_image {
+          width: 35%; 
+          height: @headerHeight;
+          img {
+            width: 80%;
+          }
+        }
+        .header_people_data {
+          width: 65%; 
+          .top {
+            height: @headerTop;
+            .header_people_name {
+              width: 100%;
+              .name {
+                font-size: 1.5em;
+              }
+            }
+            .header_people_details {
+              .bio {
+                font-size: 0.9em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  @headerHeight: 420px;
+  @headerTop: 350px;
   @headerBottom: 70px;
   .display_people {
     // min-height: 600px;
@@ -214,8 +262,7 @@
         // width: 100%; height: 100%;
         .people_profile_image {
           // float: left;
-          // width: 25%; 
-          width: 30%; 
+          width: 35%; 
           height: @headerHeight;
           img {
             // border-radius: 20px;
@@ -226,8 +273,7 @@
           }
         }
         .header_people_data {
-          // width: 75%; 
-          width: 70%; 
+          width: 65%; 
           // float: left;
           .top {
             height: @headerTop;
@@ -236,8 +282,8 @@
               width: 100%;
               .name {
                 // font-weight: 300;
-                // margin: 10px 0;
-                // font-size: 2em;
+                // margin: 5px 0;
+                font-size: 1.5em;
               }
             }
             .header_people_details {
@@ -255,6 +301,7 @@
               .bio {
                 // width: 100%;
                 // padding-right: 50px;
+                font-size: 0.9em;
               }
             }
           }
