@@ -97,6 +97,9 @@
           .description {
             font-size: 1em;
             overflow: hidden;
+            &.mobile {
+              display: none;
+            } 
           }
         }
       }
@@ -189,6 +192,16 @@
           .title_meta {width: 75%;}
           .display_header_content {
             width: 75%; 
+            &.normal {
+              display: none;
+            }
+            &.mobile {
+              display: block;
+            } 
+            .description {
+              font-size: 1em;
+              overflow: hidden;
+            }
           }
         }
       }

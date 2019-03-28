@@ -31,12 +31,14 @@ const DisplayHeader = ({currentMovie, type}) => {
             <h1 className="title">{getTitle(currentMovie, type)}</h1>
             <p className="meta">{displayGenres(currentMovie.genres)}</p>
           </section>
-          <section className="display_header_content">
+          <section className="display_header_content normal">
             <p className="description">{currentMovie.overview}</p>
           </section>
-          <section className="display_header_content mobile">
-          {/* mobile class will show only when mobile */}
-            {/* <p className="description">{currentMovie.overview.substring(0, 1500)}</p> */}
+          <section className="display_header_content mobile mobile_one">
+            <p className="description"> {currentMovie.overview.substring(0, 1190)} {currentMovie.overview.length > 1190 && ' ...'}</p>
+          </section>
+          <section className="display_header_content mobile mobile_two">
+            <p className="description"> {currentMovie.overview.substring(0, 1190)} {currentMovie.overview.length > 1190 && ' ...'}</p>
           </section>
         </section>
       </section>
