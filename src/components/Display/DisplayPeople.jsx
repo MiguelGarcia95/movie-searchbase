@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {
   fetchPeople, fetchPeopleMovieCredits, fetchPeopleShowCredits, fetchPeopleImages, fetchPeopleTaggedImages
 } from '../../actions/peopleActions';
-import {movieTvSliderSettings, movieTvSliderSettings4} from '../../utils/settings';
+import {movieTvSliderSettings4} from '../../utils/settings';
 import {fetchShowGenres} from '../../actions/tvShowActions'; 
 import {fetchMovieGenres} from '../../actions/movieActions'; 
 import ContentSlider from '../layout/ContentSlider';
@@ -25,7 +25,7 @@ class DisplayPeople extends React.Component {
 
   displayMovies = (movies, genres) => {
     if (movies.length > 0) {
-      return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
+      return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings4} />
     } else {
       return <section className="empty_data"><h2>No Movies</h2></section>
     }
@@ -113,7 +113,6 @@ class DisplayPeople extends React.Component {
                     <section className="header_people_details">
                       <section className="dob"><p><span>DOB: </span> {currentPerson.birthday}</p></section>
                       <section className="place_of_birth"><p>{currentPerson.place_of_birth}</p></section>
-                      <section className="role"><p>{currentPerson.known_for_department}</p></section>
                       <section className="bio"><p>{currentPerson.biography}</p></section>
                     </section>
                   </section>

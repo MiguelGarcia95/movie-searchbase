@@ -1,7 +1,7 @@
 // out: ../css/DisplayPeople.css, compress: true, sourceMap: false
 
-@headerHeight: 340px;
-@headerTop: 270px;
+@headerHeight: 370px;
+@headerTop: 300px;
 @headerBottom: 70px;
 @navbarHeight: 80px;
 
@@ -62,9 +62,15 @@
             }
           }
           .header_people_details {
+            .dob, .place_of_birth {float: left;}
             .dob {}
             .place_of_birth {}
-            .role {}
+            .bio {
+              width: 100%;
+              float: left;
+              padding-right: 50px;
+              box-sizing: border-box;
+            }
           }
         }
       }
