@@ -30,17 +30,13 @@ export const getFavoriteShows = (accountId, sessionId) => {
   return async (dispatch) => {
     const url = `https://api.themoviedb.org/3/account/${accountId}/favorite/tv?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
     const response = await axios.get(url);
-    console.log(response.data.results);
-    console.log(response.data.page);
-    console.log(response.data.total_pages);
-    console.log(response.data.total_resulst);
     dispatch({
       type: actionTypes.GET_FAVORITE_SHOWS,
       payload: {
-        favoriteShows: [],
-        favoriteShowsPage: [],
-        favoriteShowsTotalPages: [],
-        favoriteShowsTotalResults: []
+        favoriteShows: response.data.results,
+        favoriteShowsPage: response.data.page,
+        favoriteShowsTotalPages: response.data.total_pages,
+        favoriteShowsTotalResults: response.data.total_resulst
       }
     })
   }
@@ -50,17 +46,13 @@ export const getFavoriteMovies = (accountId, sessionId) => {
   return async (dispatch) => {
     const url = `https://api.themoviedb.org/3/account/${accountId}/favorite/movies?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
     const response = await axios.get(url);
-    console.log(response.data.results);
-    console.log(response.data.page);
-    console.log(response.data.total_pages);
-    console.log(response.data.total_resulst);
     dispatch({
       type: actionTypes.GET_FAVORITE_MOVIES,
       payload: {
-        favoriteMovies: [],
-        favoriteMoviesPage: [],
-        favoriteMoviesTotalPages: [],
-        favoriteMoviesTotalResults: []
+        favoriteMovies: response.data.results,
+        favoriteMoviesPage: response.data.page,
+        favoriteMoviesTotalPages: response.data.total_pages,
+        favoriteMoviesTotalResults: response.data.total_resulst
       }
     })
   }
@@ -70,17 +62,13 @@ export const getShowWatchlist = (accountId, sessionId) => {
   return async (dispatch) => {
     const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist/tv?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
     const response = await axios.get(url);
-    console.log(response.data.results);
-    console.log(response.data.page);
-    console.log(response.data.total_pages);
-    console.log(response.data.total_resulst);
     dispatch({
       type: actionTypes.GET_SHOW_WATCHLIST,
       payload: {
-        showWatchlist: [],
-        showWatchlistPage: [],
-        showWatchlistTotalPages: [],
-        showWatchlistTotalResults: []
+        showWatchlist: response.data.results,
+        showWatchlistPage: response.data.page,
+        showWatchlistTotalPages: response.data.total_pages,
+        showWatchlistTotalResults: response.data.total_resulst
       }
     })
   }
@@ -90,17 +78,13 @@ export const getMovieWatchlist = (accountId, sessionId) => {
   return async (dispatch) => {
     const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist/movies?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
     const response = await axios.get(url);
-    console.log(response.data.results);
-    console.log(response.data.page);
-    console.log(response.data.total_pages);
-    console.log(response.data.total_resulst);
     dispatch({
       type: actionTypes.GET_MOVIE_WATCHLIST,
       payload: {
-        movieWatchlist: [],
-        movieWatchlistPage: [],
-        movieWatchlistTotalPages: [],
-        movieWatchlistTotalResults: []
+        movieWatchlist: response.data.results,
+        movieWatchlistPage: response.data.page,
+        movieWatchlistTotalPages: response.data.total_pages,
+        movieWatchlistTotalResults: response.data.total_resulst
       }
     })
   }
