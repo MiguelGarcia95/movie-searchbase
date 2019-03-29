@@ -22,7 +22,7 @@ class Account extends React.Component {
       this.props.getSession(this.getRequestToken(path))
       this.props.setToken(this.getRequestToken(path))
     } else if (localStorage.getItem('account')) {
-      this.props.setAccount(JSON.parse(localStorage.getItem('account')))
+      this.props.setAccount(JSON.parse(localStorage.getItem('account')));
     }
   }
 
@@ -56,6 +56,10 @@ class Account extends React.Component {
   
   setAccount = () => {
     this.props.setAccount(JSON.parse(localStorage.getItem('account')))
+    this.props.getFavoriteMovies(JSON.parse(localStorage.getItem('account')).id, this.props.session_id);
+    this.props.getFavoriteShows(JSON.parse(localStorage.getItem('account')).id, this.props.session_id);
+    this.props.getMovieWatchlist(JSON.parse(localStorage.getItem('account')).id, this.props.session_id);
+    this.props.getShowWatchlist(JSON.parse(localStorage.getItem('account')).id, this.props.session_id);
   }
 
   shouldRedirectToLogin = () => {
