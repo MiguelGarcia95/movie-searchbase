@@ -27,7 +27,7 @@ class Account extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    let tryToRedirect = false;
+    // let tryToRedirect = false;
     if (nextProps.session_id && !localStorage.getItem('account') && !nextProps.account) {
       nextProps.getAccount(nextProps.session_id)
     } else if (nextProps.session_id  && localStorage.getItem('account') && !nextProps.account) {
@@ -35,9 +35,13 @@ class Account extends React.Component {
     }
     
     if (nextProps.session_id) {
-      tryToRedirect = true;
+      // tryToRedirect = true;
+      this.setAccountDetails(nextProps.account.id, nextProps.session_id);
+      // console.log(nextProps.account.id)
+      // console.log(nextProps.session_id)
     }
-    this.setState({tryToRedirect});
+
+    // this.setState({tryToRedirect});
   }
 
   // componentDidUpdate(prevProps) {
@@ -54,12 +58,12 @@ class Account extends React.Component {
   //   this.setState({tryToRedirect});
   // }
   
-  setAccount = () => {
-    this.props.setAccount(JSON.parse(localStorage.getItem('account')))
-    this.props.getFavoriteMovies(JSON.parse(localStorage.getItem('account')).id, this.props.session_id);
-    this.props.getFavoriteShows(JSON.parse(localStorage.getItem('account')).id, this.props.session_id);
-    this.props.getMovieWatchlist(JSON.parse(localStorage.getItem('account')).id, this.props.session_id);
-    this.props.getShowWatchlist(JSON.parse(localStorage.getItem('account')).id, this.props.session_id);
+  setAccountDetails = (accountId, sessionId) => {
+    // this.props.setAccount(JSON.parse(localStorage.getItem('account')))
+    this.props.getFavoriteMovies(accountId, sessionId);
+    this.props.getFavoriteShows(accountId, sessionId);
+    this.props.getMovieWatchlist(accountId, sessionId);
+    this.props.getShowWatchlist(accountId, sessionId);
   }
 
   shouldRedirectToLogin = () => {
