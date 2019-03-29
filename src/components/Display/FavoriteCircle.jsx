@@ -8,7 +8,7 @@ const isFavorite = (itemId, favorites) => {
 const FavoriteCircle = () => {
   return (
     <section className="favorite_circle circle">
-      <i className="far fa-heart fa-3x" ></i>
+      <i className="far fa-heart fa-2x" ></i>
     </section>
   );
 }
