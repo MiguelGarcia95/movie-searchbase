@@ -22,6 +22,7 @@ const DisplayHeader = ({currentMovie, type}) => {
     <section className="display_movie_header">
       <section className="display_movie_header_image" style={imageStyle}></section>
       <FavoriteCircle />
+      <RatingCircle rating={currentMovie.vote_average} />
       <section className="display_movie_header_content">
         <section className="display_movie_header_background">
           <section className="top"></section>
