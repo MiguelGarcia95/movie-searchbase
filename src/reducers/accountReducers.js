@@ -3,9 +3,21 @@ import * as actionTypes from '../actions/types';
 const initialState = {
   account: null,
   favoriteShows: [],
+  favoriteShowsPage: [],
+  favoriteShowsTotalPages: [],
+  favoriteShowsTotalResults: [],
   favoriteMovies: [],
+  favoriteMoviesPage: [],
+  favoriteMoviesTotalPages: [],
+  favoriteMoviesTotalResults: [],
   showWatchlist: [],
-  movieWatchlist: []
+  showWatchlistPage: [],
+  showWatchlistTotalPages: [],
+  showWatchlistTotalResults: [],
+  movieWatchlist: [],
+  movieWatchlistPage: [],
+  movieWatchlistTotalPages: [],
+  movieWatchlistTotalResults: []
 };
 
 const accountReducers = (state = initialState, action) => {
