@@ -107,6 +107,3 @@ export const addToWatchlist = (id) => {
     })
   }
 }
-
-// export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
-// export const ADD_TO_WATCHLIST = 'ADD_TO_WATCHLIST';
