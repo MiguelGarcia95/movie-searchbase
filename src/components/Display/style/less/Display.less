@@ -15,10 +15,10 @@
       position: absolute;
       top: @navbarHeight;
       z-index: 10px;
-      width: 60px; height: 60px;
       text-align: center; 
     }
     .favorite_circle {
+      width: 60px; height: 60px;
       i {
         margin-top: 6px;
         cursor: pointer;
@@ -38,10 +38,19 @@
     }
 
     .rating_circle {
+      width: 100px; height: 100px;
       right: 0;
+      border-radius: 50%;
+      background-color: rgb(87, 250, 120);
       .inner_circle {
+        width: 90px; height: 90px;
+        margin-left: 5px; margin-top: 5px;
+        background-color: @navbarBG;
+        border-radius: 50%;
+        text-align: center;
         h2 {
-          color: white;
+          color: rgb(87, 250, 120); margin: 0;
+          line-height: 90px;
         }
       }
     }
