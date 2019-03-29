@@ -1,5 +1,7 @@
 import React from 'react';
 import {getTitle, getPoster, getImage} from '../../utils/functions';
+import FavoriteCircle from './FavoriteCircle';
+import RatingCircle from './RatingCircle';
 
 const displayGenres = (genres) => {
   return genres.map(genre => {
@@ -15,9 +17,11 @@ const DisplayHeader = ({currentMovie, type}) => {
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed'
   };
+
   return (
     <section className="display_movie_header">
       <section className="display_movie_header_image" style={imageStyle}></section>
+      <FavoriteCircle />
       <section className="display_movie_header_content">
         <section className="display_movie_header_background">
           <section className="top"></section>

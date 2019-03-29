@@ -6,10 +6,32 @@
   width: 100vw;
   max-width:100%;
   min-height: 600px;
+
   .display_movie_header {
     width: 100%; height: 100vh;
     min-height: 600px;
     position: relative;
+    .favorite_circle, .rating_circle {
+      position: absolute;
+      top: @navbarHeight;
+      z-index: 10px;
+      width: 60px; height: 60px;
+      text-align: center; 
+      i {
+        margin-top: 6px;
+      }
+    }
+    .favorite_circle {
+      i {
+        color: white;
+        &:hover {
+          
+        }
+      }
+    }
+    .rating_circle {
+
+    }
     .display_movie_header_image {
       width: 100%; height: 100%;
       padding-top: @navbarHeight;
