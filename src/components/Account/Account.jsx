@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect, Link} from 'react-router-dom';
 
 import {getSession, setSession, setToken} from '../../actions/authActions';
-import {getAccount, setAccount} from '../../actions/accountActions';
+import {getAccount, setAccount, getFavoriteMovies, getFavoriteShows, getMovieWatchlist, getShowWatchlist} from '../../actions/accountActions';
 
 import ContentSlider from '../layout/ContentSlider';
 
@@ -37,8 +37,25 @@ class Account extends React.Component {
     if (nextProps.session_id) {
       tryToRedirect = true;
     }
-
     this.setState({tryToRedirect});
+  }
+
+  // componentDidUpdate(prevProps) {
+  //   let tryToRedirect = false;
+  //   if (this.props.session_id && !localStorage.getItem('account') && !this.props.account) {
+  //     this.props.getAccount(this.props.session_id)
+  //   } else if (this.props.session_id  && localStorage.getItem('account') && !this.props.account) {
+  //     this.props.setAccount(JSON.parse(localStorage.getItem('account')))
+  //   }
+
+  //   if (this.props.session_id) {
+  //     tryToRedirect = true;
+  //   }
+  //   this.setState({tryToRedirect});
+  // }
+  
+  setAccount = () => {
+    this.props.setAccount(JSON.parse(localStorage.getItem('account')))
   }
 
   shouldRedirectToLogin = () => {
@@ -145,7 +162,11 @@ const mapStateToProps = state => {
   return {
     session_id: state.auth.session_id,
     token_id: state.auth.token_id,
-    account: state.account.account
+    account: state.account.account,
+    getFavoriteMovies: state.account.getFavoriteMovies,
+    getFavoriteShows: state.account.getFavoriteShows,
+    getMovieWatchlist: state.account.getMovieWatchlist,
+    getShowWatchlist: state.account.getShowWatchlist
   }
 }
 
@@ -155,7 +176,11 @@ const mapDispatchToProps = dispatch => {
     setSession: tokenId => dispatch(setSession(tokenId)),
     getAccount: session_id => dispatch(getAccount(session_id)),
     setAccount: account => dispatch(setAccount(account)),
-    setToken: token => dispatch(setToken(token))
+    setToken: token => dispatch(setToken(token)),
+    getFavoriteMovies: (accountId, sessionId) => dispatch(getFavoriteMovies(accountId, sessionId)),
+    getFavoriteShows: (accountId, sessionId) => dispatch(getFavoriteShows(accountId, sessionId)),
+    getMovieWatchlist: (accountId, sessionId) => dispatch(getMovieWatchlist(accountId, sessionId)),
+    getShowWatchlist: (accountId, sessionId) => dispatch(getShowWatchlist(accountId, sessionId))
   }
 }
 

@@ -27,7 +27,7 @@ export const setAccount = account => {
 }
 
 export const getFavoriteShows = (accountId, sessionId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     const url = `https://api.themoviedb.org/3/account/${accountId}/favorite/tv?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
     const response = await axios.get(url);
     console.log(response);
@@ -41,7 +41,7 @@ export const getFavoriteShows = (accountId, sessionId) => {
 }
 
 export const getFavoriteMovies = (accountId, sessionId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     const url = `https://api.themoviedb.org/3/account/${accountId}/favorite/movies?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
     const response = await axios.get(url);
     console.log(response);
@@ -55,7 +55,7 @@ export const getFavoriteMovies = (accountId, sessionId) => {
 }
 
 export const getShowWatchlist = (accountId, sessionId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist/tv?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
     const response = await axios.get(url);
     console.log(response);
@@ -69,7 +69,7 @@ export const getShowWatchlist = (accountId, sessionId) => {
 }
 
 export const getMovieWatchlist = (accountId, sessionId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist/movie?api_key=${MOVIEDBAPI}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`;
     const response = await axios.get(url);
     console.log(response);
