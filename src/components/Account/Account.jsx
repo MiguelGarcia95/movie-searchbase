@@ -12,10 +12,6 @@ import './style/css/Account.css';
 
 
 class Account extends React.Component {
-  state = {
-    tryToRedirect: false
-  }
-
   componentDidMount() {
     const path = this.props.location.search;
     if (this.getApproved(path)) {
@@ -27,7 +23,6 @@ class Account extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    // let tryToRedirect = false;
     if (nextProps.session_id && !localStorage.getItem('account') && !nextProps.account) {
       nextProps.getAccount(nextProps.session_id)
     } else if (nextProps.session_id  && localStorage.getItem('account') && !nextProps.account) {
@@ -35,13 +30,9 @@ class Account extends React.Component {
     }
     
     if (nextProps.session_id) {
-      // tryToRedirect = true;
       this.setAccountDetails(nextProps.account.id, nextProps.session_id);
-      // console.log(nextProps.account.id)
-      // console.log(nextProps.session_id)
     }
 
-    // this.setState({tryToRedirect});
   }
 
   // componentDidUpdate(prevProps) {
@@ -171,10 +162,22 @@ const mapStateToProps = state => {
     session_id: state.auth.session_id,
     token_id: state.auth.token_id,
     account: state.account.account,
-    getFavoriteMovies: state.account.getFavoriteMovies,
-    getFavoriteShows: state.account.getFavoriteShows,
-    getMovieWatchlist: state.account.getMovieWatchlist,
-    getShowWatchlist: state.account.getShowWatchlist
+    favoriteMovies: state.account.favoriteMovies,
+    favoriteMoviesPage: state.account.favoriteMoviesPage,
+    favoriteMoviesTotalPages: state.account.favoriteMoviesTotalPages,
+    favoriteMoviesTotalResults: state.account.favoriteMoviesTotalResults,
+    favoriteShows: state.account.favoriteShows,
+    favoriteShowsPage: state.account.favoriteShowsPage,
+    favoriteShowsTotalPages: state.account.favoriteShowsTotalPages,
+    favoriteShowsTotalResults: state.account.favoriteShowsTotalResults,
+    movieWatchlist: state.account.movieWatchlist,
+    movieWatchlistPage: state.account.movieWatchlistPage,
+    movieWatchlistTotalPages: state.account.movieWatchlistTotalPages,
+    movieWatchlistTotalResults: state.account.movieWatchlistTotalResults,
+    showWatchlist: state.account.showWatchlist,
+    showWatchlistPage: state.account.showWatchlistPage,
+    showWatchlistTotalPages: state.account.showWatchlistTotalPages,
+    showWatchlistTotalResults: state.account.showWatchlistTotalResults
   }
 }
 
