@@ -1,9 +1,9 @@
 import React from 'react';
 
-const RatingCircle = () => {
+const RatingCircle = ({rating}) => {
   return (
     <section className="rating_circle">
-    
+
     </section>
   );
 }
