@@ -6,6 +6,8 @@ import {getSession, setSession, setToken} from '../../actions/authActions';
 import {getAccount, setAccount, getFavoriteMovies, getFavoriteShows, getMovieWatchlist, getShowWatchlist} from '../../actions/accountActions';
 
 import ContentSlider from '../layout/ContentSlider';
+import UserPanel from './UserPanel';
+import SidepanelPanel from './SidepanelPanel';
 
 import '../App.css';
 import './style/css/Account.css';
@@ -82,6 +84,11 @@ class Account extends React.Component {
     const redirectToAccount = this.shouldRedirectToAccount();
     const redirectToLogin = this.shouldRedirectToLogin();
     const {account} = this.props;
+    const {favoriteMovies, favoriteMoviesPage, favoriteMoviesTotalPages, favoriteMoviesTotalResults} = this.props;
+    const {favoriteShows, favoriteShowsPage, favoriteShowsTotalPages, favoriteShowsTotalResults} = this.props;
+    const {movieWatchlist, movieWatchlistPage, movieWatchlistTotalPages, movieWatchlistTotalResults} = this.props;
+    const {showWatchlist, showWatchlistPage, showWatchlistTotalPages, showWatchlistTotalResults} = this.props;    
+
     return (
       <section className="account_page">
         {redirectToLogin && <Redirect to='/login'/>}
@@ -89,34 +96,11 @@ class Account extends React.Component {
         {account ? (
           <React.Fragment>
             <section className="account_sidepanel">
-              <section className="user_panel">
-                <section className="user_avatar"><img src={`https://gravatar.com/avatar/${account.avatar.gravatar.hash}?d=identicon`} alt={`${account.username} avatar`} /></section>
-                <section className="user_name"><h1>{account.username}</h1></section>
-              </section>
-              <section className="content_panel">
-                <section className="panel_info">
-                  <h2 className="count">0</h2>
-                  <h2 className="category">Favorite Movies</h2>
-                </section>
-              </section>
-              <section className="content_panel">
-                <section className="panel_info">
-                  <h2 className="count">0</h2>
-                  <h2 className="category">Favorite Tv Shows</h2>
-                </section>
-              </section>
-              <section className="content_panel">
-                <section className="panel_info">
-                  <h2 className="count">0</h2>
-                  <h2 className="category">Movie Watchlist</h2>
-                </section>
-              </section>
-              <section className="content_panel">
-                <section className="panel_info">
-                  <h2 className="count">0</h2>
-                  <h2 className="category">Show Watchlist</h2>
-                </section>
-              </section>
+              <UserPanel account={account} />
+              <SidepanelPanel count={favoriteMoviesTotalResults} title='Favorite Movies' />
+              <SidepanelPanel count={favoriteShowsTotalResults} title='Favorite Tv Shows' />
+              <SidepanelPanel count={movieWatchlistTotalResults} title='Movie Watchlist' />
+              <SidepanelPanel count={showWatchlistTotalResults} title='Show Watchlist' />
             </section>
 
             <section className="account_content">
