@@ -89,3 +89,24 @@ export const getMovieWatchlist = (accountId, sessionId) => {
     })
   }
 }
+
+export const addToFavorites = (id) => {
+  return (dispatch) => {
+    console.log(id);
+    dispatch({
+      type: actionTypes.ADD_TO_FAVORITES
+    })
+  }
+}
+
+export const addToWatchlist = (id) => {
+  return (dispatch) => {
+    console.log(id);
+    dispatch({
+      type: actionTypes.ADD_TO_WATCHLIST
+    })
+  }
+}
+
+// export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
+// export const ADD_TO_WATCHLIST = 'ADD_TO_WATCHLIST';
