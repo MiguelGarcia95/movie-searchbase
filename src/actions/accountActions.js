@@ -36,7 +36,7 @@ export const getFavoriteShows = (accountId, sessionId) => {
         favoriteShows: response.data.results,
         favoriteShowsPage: response.data.page,
         favoriteShowsTotalPages: response.data.total_pages,
-        favoriteShowsTotalResults: response.data.total_resulst
+        favoriteShowsTotalResults: response.data.total_results
       }
     })
   }
@@ -52,7 +52,7 @@ export const getFavoriteMovies = (accountId, sessionId) => {
         favoriteMovies: response.data.results,
         favoriteMoviesPage: response.data.page,
         favoriteMoviesTotalPages: response.data.total_pages,
-        favoriteMoviesTotalResults: response.data.total_resulst
+        favoriteMoviesTotalResults: response.data.total_results
       }
     })
   }
@@ -68,7 +68,7 @@ export const getShowWatchlist = (accountId, sessionId) => {
         showWatchlist: response.data.results,
         showWatchlistPage: response.data.page,
         showWatchlistTotalPages: response.data.total_pages,
-        showWatchlistTotalResults: response.data.total_resulst
+        showWatchlistTotalResults: response.data.total_results
       }
     })
   }
@@ -84,7 +84,7 @@ export const getMovieWatchlist = (accountId, sessionId) => {
         movieWatchlist: response.data.results,
         movieWatchlistPage: response.data.page,
         movieWatchlistTotalPages: response.data.total_pages,
-        movieWatchlistTotalResults: response.data.total_resulst
+        movieWatchlistTotalResults: response.data.total_results
       }
     })
   }
