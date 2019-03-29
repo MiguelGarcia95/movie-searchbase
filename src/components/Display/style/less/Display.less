@@ -13,14 +13,16 @@
     position: relative;
     .favorite_circle, .rating_circle {
       position: absolute;
-      top: @navbarHeight;
       z-index: 10px;
       text-align: center; 
+      width: 100px; height: 100px;
+      background-color: @navbarBG;
     }
     .favorite_circle {
-      width: 60px; height: 60px;
+      top: 90px;
+      left: 10px;
       i {
-        margin-top: 6px;
+        margin-top: 26px;
         cursor: pointer;
       }
       .far {
@@ -36,21 +38,29 @@
         }
       }
     }
-
-    .rating_circle {
-      width: 100px; height: 100px;
-      right: 0;
+    .circle {
       border-radius: 50%;
-      background-color: rgb(87, 250, 120);
-      .inner_circle {
-        width: 90px; height: 90px;
-        margin-left: 5px; margin-top: 5px;
-        background-color: @navbarBG;
-        border-radius: 50%;
-        text-align: center;
-        h2 {
-          color: rgb(87, 250, 120); margin: 0;
-          line-height: 90px;
+    }
+    .rating_circle {
+      bottom: 10px;
+      left: 10px;
+      .outer_circle {
+        position: relative;
+        background: rgb(36,139,254);
+        background: linear-gradient(90deg, rgba(36,254,186,1) 0%, rgba(70,252,116,1) 50%, rgba(188,250,87,1) 100%);
+        width: 80px; height: 80px;
+        margin-left: 10px; margin-top: 10px;
+        .inner_circle {
+          position: absolute;
+          width: 75px; height: 75px;
+          left: 2.5px;
+          top: 2.5px;
+          background-color: @navbarBG;
+          text-align: center;
+          h2 {
+            color: rgb(87, 250, 120); margin: 0;
+            line-height: 75px;
+          }
         }
       }
     }

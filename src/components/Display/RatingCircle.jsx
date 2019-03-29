@@ -2,9 +2,11 @@ import React from 'react';
 
 const RatingCircle = ({rating}) => {
   return (
-    <section className="rating_circle">
-      <section className="inner_circle">
-        <h2>{rating}</h2>
+    <section title='rating' className="rating_circle circle">
+      <section className="outer_circle circle">
+        <section className="inner_circle circle">
+          <h2>{rating}</h2>
+        </section>
       </section>
     </section>
   );
