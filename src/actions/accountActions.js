@@ -37,7 +37,10 @@ export const getFavoriteShows = (accountId, sessionId) => {
     dispatch({
       type: actionTypes.GET_FAVORITE_SHOWS,
       payload: {
-        favoriteShows: []
+        favoriteShows: [],
+        favoriteShowsPage: [],
+        favoriteShowsTotalPages: [],
+        favoriteShowsTotalResults: []
       }
     })
   }
@@ -54,7 +57,10 @@ export const getFavoriteMovies = (accountId, sessionId) => {
     dispatch({
       type: actionTypes.GET_FAVORITE_MOVIES,
       payload: {
-        favoriteMovies: []
+        favoriteMovies: [],
+        favoriteMoviesPage: [],
+        favoriteMoviesTotalPages: [],
+        favoriteMoviesTotalResults: []
       }
     })
   }
@@ -71,7 +77,10 @@ export const getShowWatchlist = (accountId, sessionId) => {
     dispatch({
       type: actionTypes.GET_SHOW_WATCHLIST,
       payload: {
-        showWatchlist: []
+        showWatchlist: [],
+        showWatchlistPage: [],
+        showWatchlistTotalPages: [],
+        showWatchlistTotalResults: []
       }
     })
   }
@@ -88,7 +97,10 @@ export const getMovieWatchlist = (accountId, sessionId) => {
     dispatch({
       type: actionTypes.GET_MOVIE_WATCHLIST,
       payload: {
-        movieWatchlist: []
+        movieWatchlist: [],
+        movieWatchlistPage: [],
+        movieWatchlistTotalPages: [],
+        movieWatchlistTotalResults: []
       }
     })
   }
