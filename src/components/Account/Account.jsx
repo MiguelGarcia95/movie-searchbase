@@ -121,6 +121,7 @@ class Account extends React.Component {
                 <section className="account_content_slide"></section>
               </section>
             </section>
+            
           </React.Fragment>
         ) : (<Link to='account' className='tryagain'>Try Again</Link>)}
       </section>
