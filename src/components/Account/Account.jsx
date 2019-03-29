@@ -12,6 +12,10 @@ import './style/css/Account.css';
 
 
 class Account extends React.Component {
+  state = {
+    fetchedAccountData: false
+  }
+
   componentDidMount() {
     const path = this.props.location.search;
     if (this.getApproved(path)) {
@@ -22,32 +26,31 @@ class Account extends React.Component {
     }
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.session_id && !localStorage.getItem('account') && !nextProps.account) {
-      nextProps.getAccount(nextProps.session_id)
-    } else if (nextProps.session_id  && localStorage.getItem('account') && !nextProps.account) {
-      nextProps.setAccount(JSON.parse(localStorage.getItem('account')))
-    }
+  // UNSAFE_componentWillReceiveProps(nextProps) {
+  //   if (nextProps.session_id && !localStorage.getItem('account') && !nextProps.account) {
+  //     nextProps.getAccount(nextProps.session_id)
+  //   } else if (nextProps.session_id  && localStorage.getItem('account') && !nextProps.account) {
+  //     nextProps.setAccount(JSON.parse(localStorage.getItem('account')))
+  //   } else {
+  //     console.log(nextProps.account.id)
+  //   }
     
-    if (nextProps.session_id) {
-      this.setAccountDetails(nextProps.account.id, nextProps.session_id);
-    }
-
-  }
-
-  // componentDidUpdate(prevProps) {
-  //   let tryToRedirect = false;
-  //   if (this.props.session_id && !localStorage.getItem('account') && !this.props.account) {
-  //     this.props.getAccount(this.props.session_id)
-  //   } else if (this.props.session_id  && localStorage.getItem('account') && !this.props.account) {
-  //     this.props.setAccount(JSON.parse(localStorage.getItem('account')))
+  //   if (nextProps.session_id) {
+  //     // this.setAccountDetails(nextProps.account.id, nextProps.session_id);
   //   }
-
-  //   if (this.props.session_id) {
-  //     tryToRedirect = true;
-  //   }
-  //   this.setState({tryToRedirect});
   // }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.session_id && !localStorage.getItem('account') && !this.props.account) {
+      this.props.getAccount(this.props.session_id)
+    } else if (this.props.session_id  && localStorage.getItem('account') && !this.props.account) {
+      this.props.setAccount(JSON.parse(localStorage.getItem('account')))
+    } else if (!this.state.fetchedAccountData) {
+      this.setState({fetchedAccountData: true});
+      console.log(this.props.account.id)
+      this.setAccountDetails(this.props.account.id, this.props.session_id);
+    }
+  }
   
   setAccountDetails = (accountId, sessionId) => {
     // this.props.setAccount(JSON.parse(localStorage.getItem('account')))
