@@ -26,20 +26,6 @@ class Account extends React.Component {
     }
   }
 
-  // UNSAFE_componentWillReceiveProps(nextProps) {
-  //   if (nextProps.session_id && !localStorage.getItem('account') && !nextProps.account) {
-  //     nextProps.getAccount(nextProps.session_id)
-  //   } else if (nextProps.session_id  && localStorage.getItem('account') && !nextProps.account) {
-  //     nextProps.setAccount(JSON.parse(localStorage.getItem('account')))
-  //   } else {
-  //     console.log(nextProps.account.id)
-  //   }
-    
-  //   if (nextProps.session_id) {
-  //     // this.setAccountDetails(nextProps.account.id, nextProps.session_id);
-  //   }
-  // }
-
   componentDidUpdate(prevProps) {
     if (this.props.session_id && !localStorage.getItem('account') && !this.props.account) {
       this.props.getAccount(this.props.session_id)
@@ -47,13 +33,11 @@ class Account extends React.Component {
       this.props.setAccount(JSON.parse(localStorage.getItem('account')))
     } else if (!this.state.fetchedAccountData) {
       this.setState({fetchedAccountData: true});
-      console.log(this.props.account.id)
       this.setAccountDetails(this.props.account.id, this.props.session_id);
     }
   }
   
   setAccountDetails = (accountId, sessionId) => {
-    // this.props.setAccount(JSON.parse(localStorage.getItem('account')))
     this.props.getFavoriteMovies(accountId, sessionId);
     this.props.getFavoriteShows(accountId, sessionId);
     this.props.getMovieWatchlist(accountId, sessionId);
