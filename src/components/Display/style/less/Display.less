@@ -429,10 +429,48 @@
     .display_movie_header {
       height: auto;
       min-height: 700px;
+      .favorite_circle, .rating_circle {
+        width: 60px; height: 60px;
+      }
+      .favorite_circle {
+        top: 90px;
+        left: 10px;
+        i {
+          margin-top: 14px;
+        }
+        // .far {
+        //   color: white;
+        //   &:hover {
+        //     color: red;
+        //   }
+        // }
+        // .fas {
+        //   color: red;
+        //   &:hover {
+        //     color: rgba(255,0,0,0.3);
+        //   }
+        // }
+      }
+      .rating_circle {
+        top: 90px;
+        right: 10px;
+        .outer_circle {
+          width: 40px; height: 40px;
+          margin-left: 10px; margin-top: 10px;
+          .inner_circle {
+            width: 35px; height: 35px;
+            // left: 2.5px;
+            // top: 2.5px;
+            h2 {
+              line-height: 35px;
+            }
+          }
+        }
+      }
+      
       .display_movie_header_content {
         width: 250px;
         height: 500px;
-
         .display_header_data {
           padding: 0 15px;
           .display_poster {

@@ -90,7 +90,7 @@ export const getMovieWatchlist = (accountId, sessionId) => {
   }
 }
 
-export const addToFavorites = (id) => {
+export const addToFavorites = (accountId, sessionId, mediaType, mediaId) => {
   return (dispatch) => {
     console.log(id);
     dispatch({
