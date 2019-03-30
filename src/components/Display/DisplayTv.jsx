@@ -26,7 +26,7 @@ class DisplayTv extends React.Component {
       this.fetchShowData();
     }
 
-    if (this.props.message !== prevProps.message) {
+    if (this.props.message !== prevProps.message && this.props.message) {
       this.setState({displayMessage: true});
       setTimeout( () => {
         this.setState({displayMessage: false})

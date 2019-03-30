@@ -90,14 +90,14 @@ export const getMovieWatchlist = (accountId, sessionId) => {
   }
 }
 
-export const addToFavorites = (accountId, sessionId, mediaType, mediaId) => {
+export const addToFavorites = (accountId, sessionId, mediaType, mediaId, action) => {
   return (dispatch) => {
     let type = mediaType === 'movies' ? 'movie' : 'tv';
     const url = `https://api.themoviedb.org/3/account/${accountId}/favorite?api_key=${MOVIEDBAPI}&session_id=${sessionId}`;
     axios.post(url, {
       media_type: type,
       media_id: mediaId,
-      favorite: true
+      favorite: action
     }).then(response => {
       dispatch({
         type: actionTypes.ADD_TO_FAVORITES,
@@ -111,14 +111,14 @@ export const addToFavorites = (accountId, sessionId, mediaType, mediaId) => {
   }
 }
 
-export const addToWatchlist = (accountId, sessionId, mediaType, mediaId) => {
+export const addToWatchlist = (accountId, sessionId, mediaType, mediaId, action) => {
   return (dispatch) => {
     let type = mediaType === 'movies' ? 'movie' : 'tv';
     const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist?api_key=${MOVIEDBAPI}&session_id=${sessionId}`;
     axios.post(url, {
       media_type: type,
       media_id: mediaId,
-      watchlist: true
+      watchlist: action
     }).then(response => {
       dispatch({
         type: actionTypes.ADD_TO_WATCHLIST,

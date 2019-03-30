@@ -23,7 +23,7 @@ class DisplayMovie extends React.Component {
       this.fetchMovieData();
     }
   
-    if (this.props.message !== prevProps.message) {
+    if (this.props.message !== prevProps.message && this.props.message) {
       this.setState({displayMessage: true});
       setTimeout( () => {
         this.setState({displayMessage: false})
