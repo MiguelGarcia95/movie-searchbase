@@ -13,6 +13,10 @@ import {
 import './style/css/Display.css';
 
 class DisplayMovie extends React.Component {
+  state = {
+    displayMessage: false
+  }
+
   componentDidMount() {
     this.fetchMovieData();
     this.props.fetchMovieGenres();
@@ -90,12 +94,17 @@ class DisplayMovie extends React.Component {
   }
 
   render() {
-    const {currentMovie, currentMoviesCredits, currentMoviesReviews, similarMovies, movieGenres} = this.props;
-
+    const {currentMovie, currentMoviesCredits, currentMoviesReviews, similarMovies, movieGenres, message} = this.props;
+    const {displayMessage} = this.state;
     return (
       <section className="display_movie">
         {currentMovie && currentMovie.id === Number(this.props.match.params.movieId) && (
           <React.Fragment>
+            {displayMessage && message && (
+              <section className="message_popup">
+                <h2 className="message">{message}</h2>
+              </section>
+            )}
             <DisplayHeader currentMovie={currentMovie} type='movies' />
             <section className="display_movie_data">
               <section className="display_movie_data_cast">

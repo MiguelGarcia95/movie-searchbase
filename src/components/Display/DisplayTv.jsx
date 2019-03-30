@@ -92,12 +92,18 @@ class DisplayTv extends React.Component {
   }
 
   render() {
-    const {currentShow, currentShowCredits, currentShowReviews, similarShows, showGenres} = this.props;
+    const {currentShow, currentShowCredits, currentShowReviews, similarShows, showGenres, message} = this.props;
+    const {displayMessage} = this.state;
 
     return (
       <section className="display_movie">
         {currentShow && currentShow.id === Number(this.props.match.params.showId) && (
           <React.Fragment>
+            {displayMessage && message && (
+              <section className="message_popup">
+                <h2 className="message">{message}</h2>
+              </section>
+            )}
             <DisplayHeader currentMovie={currentShow} type='shows' />
             <section className="display_movie_data">
               <section className="display_movie_data_cast">
