@@ -6,6 +6,20 @@
   width: 100vw;
   max-width:100%;
   min-height: 600px;
+  .message_popup {
+    position: sticky;
+    top: @navbarHeight;
+    padding: 10px;
+    max-width: 100%;
+    background-color: green;
+    z-index: 100;
+    .message {
+      color: white;
+      margin: 0;
+      font-weight: 300;
+      font-size: 2em;
+    }
+  }
 
   .display_movie_header {
     width: 100%; height: 100vh;
