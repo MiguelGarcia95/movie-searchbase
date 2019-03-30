@@ -131,3 +131,14 @@ export const addToWatchlist = (accountId, sessionId, mediaType, mediaId) => {
     })
   }
 }
+
+export const deleteMessage = () => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.DELETE_MESSAGE,
+      payload: {
+        message: null
+      }
+    })
+  }
+}

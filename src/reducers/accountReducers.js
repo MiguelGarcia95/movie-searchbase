@@ -46,7 +46,7 @@ const accountReducers = (state = initialState, action) => {
     case actionTypes.DELETE_MESSAGE:
       return {
         ...state,
-        message: null
+        message: action.payload.message
       }
     case actionTypes.GET_FAVORITE_SHOWS:
       return {

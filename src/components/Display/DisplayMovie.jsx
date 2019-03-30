@@ -4,6 +4,7 @@ import DisplayHeader from './DisplayHeader';
 import CastSlider from '../layout/CastSlider';
 import ContentSlider from '../layout/ContentSlider';
 import {fetchMovie, fetchMovieCredits, fetchMovieReviews, fetchSimilarMovies, fetchMovieGenres} from '../../actions/movieActions'; 
+import {deleteMessage} from '../../actions/accountActions'; 
 import {
   castSliderSettings, movieTvSliderSettings, movieTvSliderSettings1, movieTvSliderSettings2, movieTvSliderSettings3,
   movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7, castSliderSettings1
@@ -115,7 +116,8 @@ const mapStateToProps = state => {
     currentMoviesCredits: state.movies.currentMoviesCredits,
     currentMoviesReviews: state.movies.currentMoviesReviews,
     similarMovies: state.movies.similarMovies,
-    movieGenres: state.movies.movieGenres
+    movieGenres: state.movies.movieGenres,
+    message: state.account.message
   }
 }
 
