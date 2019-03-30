@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/types';
 
 const initialState = {
   account: null,
+  message: null,
   favoriteShows: [],
   favoriteShowsPage: null,
   favoriteShowsTotalPages: null,
@@ -31,6 +32,21 @@ const accountReducers = (state = initialState, action) => {
       return {
         ...state,
         account: action.payload.account
+      }
+    case actionTypes.ADD_TO_FAVORITES:
+      return {
+        ...state,
+        message: action.payload.account
+      }
+    case actionTypes.ADD_TO_WATCHLIST:
+      return {
+        ...state,
+        message: action.payload.account
+      }
+    case actionTypes.DELETE_MESSAGE:
+      return {
+        ...state,
+        message: null
       }
     case actionTypes.GET_FAVORITE_SHOWS:
       return {
