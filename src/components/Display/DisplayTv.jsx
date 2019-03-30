@@ -100,7 +100,7 @@ class DisplayTv extends React.Component {
         {currentShow && currentShow.id === Number(this.props.match.params.showId) && (
           <React.Fragment>
             <section className={`message_popup ${displayMessage ? 'active' : ''}`}>
-              {message && <h2 className="message">{currentShow.name} {message}</h2> }
+              {message && <h2 className="message">{message}</h2> }
             </section>
             <DisplayHeader currentMovie={currentShow} type='shows' />
             <section className="display_movie_data">
