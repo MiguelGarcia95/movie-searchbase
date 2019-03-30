@@ -11,7 +11,7 @@ const displayGenres = (genres) => {
   })
 }
 
-const DisplayHeader = ({currentMovie, type}) => {
+const DisplayHeader = ({currentMovie, type, addToFavorites, account, session_id}) => {
   const imageStyle = {
     backgroundImage: `url(${getImage(currentMovie)})`,
     backgroundSize: 'cover',
@@ -23,7 +23,7 @@ const DisplayHeader = ({currentMovie, type}) => {
   return (
     <section className="display_movie_header">
       <section className="display_movie_header_image" style={imageStyle}></section>
-      <FavoriteCircle />
+      <FavoriteCircle addToFavorites={addToFavorites} type={type} account={account} sessionId={session_id} movie={currentMovie} />
       <RatingCircle rating={currentMovie.vote_average} />
       <section className="display_movie_header_content">
         <section className="display_movie_header_background">
@@ -64,7 +64,8 @@ const DisplayHeader = ({currentMovie, type}) => {
 
 const mapStateToProps = state => {
   return {
-    session_id: state.auth.session_id
+    session_id: state.auth.session_id,
+    account: state.account.account
   }
 }
 

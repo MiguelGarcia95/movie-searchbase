@@ -5,9 +5,9 @@ const isFavorite = (itemId, favorites) => {
   return 'far';
 }
 
-const FavoriteCircle = () => {
+const FavoriteCircle = ({movie, type, addToFavorites, account, sessionId}) => {
   return (
-    <section className="favorite_circle circle">
+    <section className="favorite_circle circle" onClick={() => addToFavorites(account.id, sessionId, type, movie.id)} >
       <i className="far fa-heart fa-2x" ></i>
     </section>
   );

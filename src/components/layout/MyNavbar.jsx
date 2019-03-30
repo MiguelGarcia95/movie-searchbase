@@ -2,6 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setSession, logout} from '../../actions/authActions';
+import {setAccount} from '../../actions/accountActions';
 import './style/css/MyNavbar.css';
 
 class MyNavbar extends React.Component {
@@ -15,6 +16,9 @@ class MyNavbar extends React.Component {
     this.onWindowResize();
     if (localStorage.getItem('session_id')) {
       this.props.setSession(localStorage.getItem('session_id'));
+    }
+    if (localStorage.getItem('account')) {
+      this.props.setAccount(JSON.parse(localStorage.getItem('account')));
     }
     window.addEventListener('resize', this.onWindowResize);
   }
@@ -91,6 +95,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     setSession: session_id => dispatch(setSession(session_id)),
+    setAccount: account => dispatch(setAccount(account)),
     logout: () => dispatch(logout())
   }
 }
