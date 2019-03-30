@@ -92,7 +92,10 @@ export const getMovieWatchlist = (accountId, sessionId) => {
 
 export const addToFavorites = (accountId, sessionId, mediaType, mediaId) => {
   return (dispatch) => {
-    console.log(id);
+    console.log('accountId: ', accountId);
+    console.log('sessionId: ', sessionId);
+    console.log('mediaType: ', mediaType);
+    console.log('mediaId: ', mediaId);
     dispatch({
       type: actionTypes.ADD_TO_FAVORITES
     })
