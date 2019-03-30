@@ -7,9 +7,9 @@ const wantToWatch = (itemId, favorites) => {
 
 const WatchCircle = () => {
   return (
-    <section className="favorite_circle circle">
-      <i className="fas fa-eye-slash"></i>
-      {/* <i className="fas fa-eye "></i> */}
+    <section className="watch_circle circle">
+      {/* <i className="fas fa-eye-slash"></i> */}
+      <i className="fas fa-eye fa-2x"></i>
     </section>
   );
 }

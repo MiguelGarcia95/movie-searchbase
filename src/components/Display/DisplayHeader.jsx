@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {addToFavorites, addToWatchlist} from '../../actions/accountActions';
 import {getTitle, getPoster, getImage} from '../../utils/functions';
 import FavoriteCircle from './FavoriteCircle';
+import WatchCircle from './WatchCircle';
 import RatingCircle from './RatingCircle';
 
 const displayGenres = (genres) => {
@@ -24,7 +25,8 @@ const DisplayHeader = ({currentMovie, type, addToFavorites, addToWatchlist, acco
     <section className="display_movie_header">
       <section className="display_movie_header_image" style={imageStyle}></section>
       <FavoriteCircle addToFavorites={addToFavorites} type={type} account={account} sessionId={session_id} movie={currentMovie} />
-      <RatingCircle rating={currentMovie.vote_average} />
+      <WatchCircle addToFavorites={addToFavorites} type={type} account={account} sessionId={session_id} movie={currentMovie} />
+      {/* <RatingCircle rating={currentMovie.vote_average} /> */}
       <section className="display_movie_header_content">
         <section className="display_movie_header_background">
           <section className="top"></section>
