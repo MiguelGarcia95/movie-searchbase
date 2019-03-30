@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {addToFavorites} from '../../actions/accountActions';
 import {getTitle, getPoster, getImage} from '../../utils/functions';
 import FavoriteCircle from './FavoriteCircle';
 import RatingCircle from './RatingCircle';
@@ -60,4 +62,16 @@ const DisplayHeader = ({currentMovie, type}) => {
   )
 }
 
-export default DisplayHeader;
+const mapStateToProps = state => {
+  return {
+    session_id: state.auth.session_id
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addToFavorites: (accountId, sessionId, mediaType, mediaId) => dispatch(addToFavorites(accountId, sessionId, mediaType, mediaId))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayHeader);
