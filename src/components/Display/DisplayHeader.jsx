@@ -26,7 +26,6 @@ const DisplayHeader = ({currentMovie, type, addToFavorites, addToWatchlist, acco
       <section className="display_movie_header_image" style={imageStyle}></section>
       <FavoriteCircle addToFavorites={addToFavorites} type={type} account={account} sessionId={session_id} movie={currentMovie} />
       <WatchCircle addToWatchlist={addToWatchlist} type={type} account={account} sessionId={session_id} movie={currentMovie} />
-      {/* <RatingCircle rating={currentMovie.vote_average} /> */}
       <section className="display_movie_header_content">
         <section className="display_movie_header_background">
           <section className="top"></section>
@@ -34,6 +33,7 @@ const DisplayHeader = ({currentMovie, type, addToFavorites, addToWatchlist, acco
         </section>
         <section className="display_header_data">
           <section className="display_poster">
+            <RatingCircle rating={currentMovie.vote_average} />
             <section className="display_poster_image"><img src={getPoster(currentMovie)} /></section>
           </section>
           <section className="title_meta">
