@@ -102,7 +102,7 @@ export const addToFavorites = (accountId, sessionId, mediaType, mediaId, action)
       dispatch({
         type: actionTypes.ADD_TO_FAVORITES,
         payload: {
-          message: 'Added To Favorites!'
+          message: 'Was Added To Favorites!'
         }
       })
     }).catch(err => {
@@ -123,7 +123,7 @@ export const addToWatchlist = (accountId, sessionId, mediaType, mediaId, action)
       dispatch({
         type: actionTypes.ADD_TO_WATCHLIST,
         payload: {
-          message: 'Added To Watchlist!'
+          message: 'Was Added To Watchlist!'
         }
       })
     }).catch(err => {

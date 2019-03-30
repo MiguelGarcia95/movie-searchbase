@@ -100,11 +100,9 @@ class DisplayMovie extends React.Component {
       <section className="display_movie">
         {currentMovie && currentMovie.id === Number(this.props.match.params.movieId) && (
           <React.Fragment>
-            {displayMessage && message && (
-              <section className="message_popup">
-                <h2 className="message">{message}</h2>
-              </section>
-            )}
+            <section className={`message_popup ${displayMessage ? 'active' : ''}`}>
+              {message && <h2 className="message">{currentMovie.title} {message}</h2> }
+            </section>
             <DisplayHeader currentMovie={currentMovie} type='movies' />
             <section className="display_movie_data">
               <section className="display_movie_data_cast">
