@@ -22,6 +22,14 @@ class DisplayMovie extends React.Component {
     if (this.props.match.params.movieId !== prevProps.match.params.movieId) {
       this.fetchMovieData();
     }
+  
+    if (this.props.message !== prevProps.message) {
+      this.setState({displayMessage: true});
+      setTimeout( () => {
+        this.setState({displayMessage: false})
+        this.props.deleteMessage();
+      }, 5000);
+    }
   }
 
   fetchMovieData = () => {
@@ -127,7 +135,8 @@ const mapDispatchToProps = dispatch => {
     fetchMovieCredits: id => dispatch(fetchMovieCredits(id)), 
     fetchMovieReviews: id => dispatch(fetchMovieReviews(id)), 
     fetchSimilarMovies: id => dispatch(fetchSimilarMovies(id)),
-    fetchMovieGenres: () => dispatch(fetchMovieGenres())
+    fetchMovieGenres: () => dispatch(fetchMovieGenres()),
+    deleteMessage: () => dispatch(deleteMessage())
   }
 }
 

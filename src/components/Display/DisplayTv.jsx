@@ -4,6 +4,7 @@ import DisplayHeader from './DisplayHeader';
 import CastSlider from '../layout/CastSlider';
 import ContentSlider from '../layout/ContentSlider';
 import {fetchShow, fetchShowCredits, fetchShowReviews, fetchSimilarShows, fetchShowGenres} from '../../actions/tvShowActions'; 
+import {deleteMessage} from '../../actions/accountActions'; 
 import {
   castSliderSettings, movieTvSliderSettings, movieTvSliderSettings1, movieTvSliderSettings2, movieTvSliderSettings3,
   movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7, castSliderSettings1
@@ -11,6 +12,10 @@ import {
 import './style/css/Display.css';
 
 class DisplayTv extends React.Component {
+  state = {
+    displayMessage: false
+  };
+
   componentDidMount() {
     this.props.fetchShowGenres()
     this.fetchShowData();
@@ -19,6 +24,14 @@ class DisplayTv extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.match.params.showId !== prevProps.match.params.showId) {
       this.fetchShowData();
+    }
+
+    if (this.props.message !== prevProps.message) {
+      this.setState({displayMessage: true});
+      setTimeout( () => {
+        this.setState({displayMessage: false})
+        this.props.deleteMessage();
+      }, 5000);
     }
   }
 
@@ -113,7 +126,8 @@ const mapStateToProps = state => {
     currentShowCredits: state.shows.currentShowCredits,
     currentShowReviews: state.shows.currentShowReviews,
     similarShows: state.shows.similarShows,
-    showGenres: state.shows.showGenres
+    showGenres: state.shows.showGenres,
+    message: state.account.message
   }
 }
 
@@ -123,7 +137,8 @@ const mapDispatchToProps = dispatch => {
     fetchShowCredits: id => dispatch(fetchShowCredits(id)),
     fetchShowReviews: id => dispatch(fetchShowReviews(id)),
     fetchSimilarShows: id => dispatch(fetchSimilarShows(id)),
-    fetchShowGenres: () => dispatch(fetchShowGenres())
+    fetchShowGenres: () => dispatch(fetchShowGenres()),
+    deleteMessage: () => dispatch(deleteMessage())
   }
 }
 
