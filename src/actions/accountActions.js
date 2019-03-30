@@ -111,11 +111,23 @@ export const addToFavorites = (accountId, sessionId, mediaType, mediaId) => {
   }
 }
 
-export const addToWatchlist = (id) => {
+export const addToWatchlist = (accountId, sessionId, mediaType, mediaId) => {
   return (dispatch) => {
-    console.log(id);
-    dispatch({
-      type: actionTypes.ADD_TO_WATCHLIST
+    let type = mediaType === 'movies' ? 'movie' : 'tv';
+    const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist?api_key=${MOVIEDBAPI}&session_id=${sessionId}`;
+    axios.post(url, {
+      media_type: type,
+      media_id: mediaId,
+      watchlist: true
+    }).then(response => {
+      dispatch({
+        type: actionTypes.ADD_TO_WATCHLIST,
+        payload: {
+          message: 'Added To Watchlist!'
+        }
+      })
+    }).catch(err => {
+      console.log(err)
     })
   }
 }

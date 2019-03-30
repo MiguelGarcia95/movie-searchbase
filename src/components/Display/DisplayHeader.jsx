@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addToFavorites} from '../../actions/accountActions';
+import {addToFavorites, addToWatchlist} from '../../actions/accountActions';
 import {getTitle, getPoster, getImage} from '../../utils/functions';
 import FavoriteCircle from './FavoriteCircle';
 import RatingCircle from './RatingCircle';
@@ -11,7 +11,7 @@ const displayGenres = (genres) => {
   })
 }
 
-const DisplayHeader = ({currentMovie, type, addToFavorites, account, session_id}) => {
+const DisplayHeader = ({currentMovie, type, addToFavorites, addToWatchlist, account, session_id}) => {
   const imageStyle = {
     backgroundImage: `url(${getImage(currentMovie)})`,
     backgroundSize: 'cover',
@@ -71,7 +71,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addToFavorites: (accountId, sessionId, mediaType, mediaId) => dispatch(addToFavorites(accountId, sessionId, mediaType, mediaId))
+    addToFavorites: (accountId, sessionId, mediaType, mediaId) => dispatch(addToFavorites(accountId, sessionId, mediaType, mediaId)),
+    addToWatchlist: (accountId, sessionId, mediaType, mediaId) => dispatch(addToWatchlist(accountId, sessionId, mediaType, mediaId))
+    
   }
 }
 

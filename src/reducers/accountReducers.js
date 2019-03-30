@@ -36,12 +36,12 @@ const accountReducers = (state = initialState, action) => {
     case actionTypes.ADD_TO_FAVORITES:
       return {
         ...state,
-        message: action.payload.account
+        message: action.payload.message
       }
     case actionTypes.ADD_TO_WATCHLIST:
       return {
         ...state,
-        message: action.payload.account
+        message: action.payload.message
       }
     case actionTypes.DELETE_MESSAGE:
       return {
