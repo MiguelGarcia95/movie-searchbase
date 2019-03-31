@@ -15,7 +15,7 @@ const MovieResult = ({movie, type, genres}) => {
       <section className="search_result">
         <section className="search_result_movie">
           <section className="search_result_movie_image" style={imageStyle}></section>
-          <p className="search_result_movie_rating">{movie.vote_average}</p>  
+          <p className="search_result_movie_rating">{movie.vote_average.toFixed(1)}</p>  
         </section>
         <section className="search_result_movie_data">
             <section className="search_result_movie_meta"><p>{getYear(movie, type)} / {getGenre(movie, genres)}</p></section>  

@@ -8,18 +8,30 @@ const displayMovies = (movies, type, genres) => {
   })
 }
 
+const getSlidesToShow = (movies, width) => {
+  if (!width) {
+    if (movies.length >= 4) {
+      return 4;
+    } else if (movies.length < 4) {
+      return movies.length;
+    }
+  } else {
+
+  }
+}
+
 const AccountSlider = ({currentPage, totalPages, movies, totalResults, sliderName, type, genres}) => {
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 3
+    slidesToShow: getSlidesToShow(movies),
+    slidesToScroll: 1
   };
 
   return (
     <section className="account_content_section">
-      <section className="account_content_name"><h2>{sliderName}</h2></section>
+      <section className="account_content_name"><h2>{sliderName} <span>({totalResults})</span></h2></section>
       <section className="account_content_slider">
         <Slider {...settings}>
           {displayMovies(movies, type, genres)}
