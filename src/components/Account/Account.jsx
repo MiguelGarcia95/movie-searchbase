@@ -8,6 +8,7 @@ import {getAccount, setAccount, getFavoriteMovies, getFavoriteShows, getMovieWat
 import ContentSlider from '../layout/ContentSlider';
 import UserPanel from './UserPanel';
 import SidepanelPanel from './SidepanelPanel';
+import AccountSlider from './AccountSlider';
 
 import '../App.css';
 import './style/css/Account.css';
@@ -121,7 +122,7 @@ class Account extends React.Component {
                 <section className="account_content_slide"></section>
               </section>
             </section>
-            
+
           </React.Fragment>
         ) : (<Link to='account' className='tryagain'>Try Again</Link>)}
       </section>
