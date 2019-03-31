@@ -181,7 +181,39 @@
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 520px) {
+  .account_page {
+    .account_sidepanel {
+      width: 100%;
+      position: static;
+      min-height: 200px;
+      margin-bottom: 100px;
+      .user_panel {
+        width: 100%;
+      }
+      .content_panel {
+        width: 50%;
+        .panel_info {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 30px 20px;
+          h2 {
+            font-size: 0.9em;
+          }
+          .category {
+            width: 130px;
+          }
+          .count {
+            width: 35px; 
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 410px) {
   .account_page {
     // margin-bottom: 100px;
     .account_sidepanel {
@@ -217,13 +249,13 @@
         width: 50%;
         // width: 100%;
         .panel_info {
-          // width: 100%;
+          width: 100%;
           box-sizing: border-box;
           // float: left;
           // height: 90px;
           padding: 30px 20px;
           h2 {
-            font-size: 1em;
+            font-size: 0.9em;
             // line-height: 30px;
             // height: 30px;
             // float: left;
@@ -233,8 +265,9 @@
             // text-align: left;
           }
           .count {
-            // width: 30px; 
+            width: 35px; 
             // text-align: left;
+            font-size: 0.8em;
           }
         }
       }
