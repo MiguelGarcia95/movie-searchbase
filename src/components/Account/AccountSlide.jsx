@@ -1,5 +1,5 @@
 import React from 'react';
-import './style/css/Slide.css';
+import './style/css/AccountSlide.css';
 import {Link} from 'react-router-dom';
 import {getTitle, getYear, getGenre} from '../../utils/functions';
 
