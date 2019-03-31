@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {getTitle, getYear, getGenre} from '../../utils/functions';
 import './style/css/AccountSlide.css';
 
-const AccountSlide = ({movie, type, genres}) => {
+const AccountSlide = ({movie, type, genres, sliderType}) => {
   const imageStyle = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
     backgroundRepeat: 'no-repeat',
@@ -16,7 +16,8 @@ const AccountSlide = ({movie, type, genres}) => {
         <section className="account_movie_image" style={imageStyle}></section>
         <p className="account_movie_image_rating">{movie.vote_average}</p>  
         <Link to={`/${type}/${movie.id}`}>
-          <p className="account_movie_image_link"><i className="fas fa-expand-arrows-alt "></i></p>  
+          <p className="account_movie_image_link" ><i className="fas fa-expand-arrows-alt "></i></p>  
+          <p className="account_movie_image_remove" title={`Remove From ${sliderType} list`}><i className="fas fa-times-circle"></i></p>  
         </Link>
       </section>
 

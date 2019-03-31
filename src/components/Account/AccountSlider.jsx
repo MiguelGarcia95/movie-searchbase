@@ -2,9 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 import AccountSlide from './AccountSlide';
 
-const displayMovies = (movies, type, genres) => {
+const displayMovies = (movies, type, genres, sliderType) => {
   return movies.map(movie => {
-    return <AccountSlide key={movie.id} movie={movie} type={type} genres={genres} />
+    return <AccountSlide key={movie.id} movie={movie} type={type} genres={genres} sliderType={sliderType} />
   })
 }
 
@@ -20,7 +20,7 @@ const getSlidesToShow = (movies, width) => {
   }
 }
 
-const AccountSlider = ({currentPage, totalPages, movies, totalResults, sliderName, type, genres}) => {
+const AccountSlider = ({currentPage, totalPages, movies, totalResults, sliderName, type, genres, sliderType}) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -34,7 +34,7 @@ const AccountSlider = ({currentPage, totalPages, movies, totalResults, sliderNam
       <section className="account_content_name"><h2>{sliderName} <span>({totalResults})</span></h2></section>
       <section className="account_content_slider">
         <Slider {...settings}>
-          {displayMovies(movies, type, genres)}
+          {displayMovies(movies, type, genres, sliderType)}
         </Slider>
       </section>
     </section>

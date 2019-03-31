@@ -116,6 +116,7 @@ class Account extends React.Component {
                 movies={favoriteMovies} 
                 totalResults={favoriteMoviesTotalResults}
                 type='movies'
+                sliderType='favorite'
                 genres={movieGenres}
               />
               <AccountSlider 
@@ -126,6 +127,7 @@ class Account extends React.Component {
                 totalResults={favoriteShowsTotalResults} 
                 type='shows'
                 genres={showGenres}
+                sliderType='favorite'
               />
               <AccountSlider 
                 sliderName='Movie Watchlist' 
@@ -135,6 +137,7 @@ class Account extends React.Component {
                 totalResults={movieWatchlistTotalResults}
                 type='movies'
                 genres={movieGenres}
+                sliderType='watchlist'
               />
               <AccountSlider 
                 sliderName='Show Watchlist' 
@@ -144,6 +147,7 @@ class Account extends React.Component {
                 totalResults={showWatchlistTotalResults} 
                 type='shows'
                 genres={showGenres}
+                sliderType='watchlist'
               />
             </section>
 
