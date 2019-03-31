@@ -8,12 +8,15 @@ const displayCast = cast => {
   })
 }
 
-const AccountSlider = ({cast, settings}) => {
+const AccountSlider = ({cast, settings, sliderName}) => {
   return (
-    <section className='cast_slider'>
-      <Slider {...settings}>
-        {displayCast(cast)}
-      </Slider>
+    <section className="account_content_section">
+      <section className="account_content_name"><h2>{sliderName}</h2></section>
+      <section className="account_content_slider">
+        {/* <Slider {...settings}>
+          {displayCast(cast)}
+        </Slider> */}
+      </section>
     </section>
   );
 }
