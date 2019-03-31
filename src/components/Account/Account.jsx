@@ -110,7 +110,9 @@ class Account extends React.Component {
                 currentPage={favoriteMoviesPage} 
                 totalPages={favoriteMoviesTotalPages} 
                 movies={favoriteMovies} 
-                totalResults={favoriteMoviesTotalResults} 
+                totalResults={favoriteMoviesTotalResults}
+                type='movies'
+                genres={[]}
               />
               <AccountSlider 
                 sliderName='Favorite Tv Shows' 
@@ -118,6 +120,8 @@ class Account extends React.Component {
                 totalPages={favoriteShowsTotalPages} 
                 movies={favoriteShows} 
                 totalResults={favoriteShowsTotalResults} 
+                type='shows'
+                genres={[]}
               />
               <AccountSlider 
                 sliderName='Movie Watchlist' 
@@ -125,6 +129,8 @@ class Account extends React.Component {
                 totalPages={movieWatchlistTotalPages} 
                 movies={movieWatchlist}
                 totalResults={movieWatchlistTotalResults}
+                type='movies'
+                genres={[]}
               />
               <AccountSlider 
                 sliderName='Show Watchlist' 
@@ -132,6 +138,8 @@ class Account extends React.Component {
                 totalPages={showWatchlistTotalPages}
                 movies={showWatchlist} 
                 totalResults={showWatchlistTotalResults} 
+                type='shows'
+                genres={[]}
               />
             </section>
 
