@@ -1,5 +1,7 @@
 // out: ../css/AccountSlide.css, compress: true, sourceMap: false
 
+@navbarBG: #1a1a1a;
+
 .account_slide {
   width: 200px; height: 340px; 
   float: left;
@@ -41,13 +43,13 @@
       padding: 5px;
       border-radius: 50%;
       margin: 0;
-      color: white;
       font-size: 0.9em;
       height: 20px; line-height: 20px;
       width: 20px;
       text-align: center;
-      top: -10px; right: 0px;
-      background-color: rgb(175, 0, 0);
+      top: -10px; right: -10px;
+      background-color: @navbarBG;
+      color: rgb(175, 0, 0);
     }
   }
   .account_movie_data {

@@ -17,7 +17,7 @@ const AccountSlide = ({movie, type, genres, sliderType}) => {
         <p className="account_movie_image_rating">{movie.vote_average}</p>  
         <Link to={`/${type}/${movie.id}`}>
           <p className="account_movie_image_link" ><i className="fas fa-expand-arrows-alt "></i></p>  
-          <p className="account_movie_image_remove" title={`Remove From ${sliderType} list`}><i className="fas fa-times-circle"></i></p>  
+          <p className="account_movie_image_remove" title={`Remove From ${sliderType} list`}><i className="fas fa-times fa-lg"></i></p>  
         </Link>
       </section>
 
