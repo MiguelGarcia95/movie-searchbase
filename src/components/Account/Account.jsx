@@ -29,6 +29,8 @@ class Account extends React.Component {
     } else if (localStorage.getItem('account')) {
       this.props.setAccount(JSON.parse(localStorage.getItem('account')));
     }
+    this.props.fetchMovieGenres();
+    this.props.fetchShowGenres();
   }
 
   componentDidUpdate(prevProps) {
