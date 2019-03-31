@@ -4,6 +4,8 @@ import {Redirect, Link} from 'react-router-dom';
 
 import {getSession, setSession, setToken} from '../../actions/authActions';
 import {getAccount, setAccount, getFavoriteMovies, getFavoriteShows, getMovieWatchlist, getShowWatchlist} from '../../actions/accountActions';
+import {fetchMovieGenres} from '../actions/movieActions';
+import {fetchShowGenres} from '../actions/tvShowActions';
 
 import ContentSlider from '../layout/ContentSlider';
 import UserPanel from './UserPanel';
@@ -84,7 +86,7 @@ class Account extends React.Component {
   render() {
     const redirectToAccount = this.shouldRedirectToAccount();
     const redirectToLogin = this.shouldRedirectToLogin();
-    const {account} = this.props;
+    const {account, showGenres, movieGenres} = this.props;
     const {favoriteMovies, favoriteMoviesPage, favoriteMoviesTotalPages, favoriteMoviesTotalResults} = this.props;
     const {favoriteShows, favoriteShowsPage, favoriteShowsTotalPages, favoriteShowsTotalResults} = this.props;
     const {movieWatchlist, movieWatchlistPage, movieWatchlistTotalPages, movieWatchlistTotalResults} = this.props;
@@ -112,7 +114,7 @@ class Account extends React.Component {
                 movies={favoriteMovies} 
                 totalResults={favoriteMoviesTotalResults}
                 type='movies'
-                genres={[]}
+                genres={movieGenres}
               />
               <AccountSlider 
                 sliderName='Favorite Tv Shows' 
@@ -121,7 +123,7 @@ class Account extends React.Component {
                 movies={favoriteShows} 
                 totalResults={favoriteShowsTotalResults} 
                 type='shows'
-                genres={[]}
+                genres={showGenres}
               />
               <AccountSlider 
                 sliderName='Movie Watchlist' 
@@ -130,7 +132,7 @@ class Account extends React.Component {
                 movies={movieWatchlist}
                 totalResults={movieWatchlistTotalResults}
                 type='movies'
-                genres={[]}
+                genres={movieGenres}
               />
               <AccountSlider 
                 sliderName='Show Watchlist' 
@@ -139,7 +141,7 @@ class Account extends React.Component {
                 movies={showWatchlist} 
                 totalResults={showWatchlistTotalResults} 
                 type='shows'
-                genres={[]}
+                genres={showGenres}
               />
             </section>
 
@@ -170,7 +172,9 @@ const mapStateToProps = state => {
     showWatchlist: state.account.showWatchlist,
     showWatchlistPage: state.account.showWatchlistPage,
     showWatchlistTotalPages: state.account.showWatchlistTotalPages,
-    showWatchlistTotalResults: state.account.showWatchlistTotalResults
+    showWatchlistTotalResults: state.account.showWatchlistTotalResults,
+    movieGenres: state.movies.movieGenres,
+    showGenres: state.shows.showGenres
   }
 }
 
@@ -184,7 +188,9 @@ const mapDispatchToProps = dispatch => {
     getFavoriteMovies: (accountId, sessionId) => dispatch(getFavoriteMovies(accountId, sessionId)),
     getFavoriteShows: (accountId, sessionId) => dispatch(getFavoriteShows(accountId, sessionId)),
     getMovieWatchlist: (accountId, sessionId) => dispatch(getMovieWatchlist(accountId, sessionId)),
-    getShowWatchlist: (accountId, sessionId) => dispatch(getShowWatchlist(accountId, sessionId))
+    getShowWatchlist: (accountId, sessionId) => dispatch(getShowWatchlist(accountId, sessionId)),
+    fetchMovieGenres: () => dispatch(fetchMovieGenres()),
+    fetchShowGenres: () => dispatch(fetchShowGenres())
   }
 }
 
