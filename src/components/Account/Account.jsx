@@ -103,7 +103,7 @@ class Account extends React.Component {
             <section className="account_sidepanel">
               <UserPanel account={account} />
               <SidepanelPanel count={favoriteMoviesTotalResults} title='Favorite Movies' />
-              <SidepanelPanel count={favoriteShowsTotalResults} title='Favorite Tv Shows' />
+              <SidepanelPanel count={2000} title='Favorite Tv Shows' />
               <SidepanelPanel count={movieWatchlistTotalResults} title='Movie Watchlist' />
               <SidepanelPanel count={showWatchlistTotalResults} title='Show Watchlist' />
             </section>
