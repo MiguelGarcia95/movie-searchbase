@@ -15,8 +15,12 @@ const getSlidesToShow = (movies, width) => {
     } else if (movies.length < 4) {
       return movies.length;
     }
-  } else {
-
+  } else if (width === 1080) {
+    if (movies.length >= 3) {
+      return 3;
+    } else if (movies.length < 3) {
+      return movies.length;
+    }
   }
 }
 
@@ -26,7 +30,16 @@ const AccountSlider = ({currentPage, totalPages, movies, totalResults, sliderNam
     infinite: true,
     speed: 500,
     slidesToShow: getSlidesToShow(movies),
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1080,
+        settings: {
+          slidesToShow: getSlidesToShow(movies, 1080),
+          centerPadding: "0px",
+        }
+      },
+    ]
   };
 
   return (
