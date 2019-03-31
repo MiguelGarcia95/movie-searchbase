@@ -105,10 +105,34 @@ class Account extends React.Component {
             </section>
 
             <section className="account_content">
-              <AccountSlider sliderName='Favorite Movies' />
-              <AccountSlider sliderName='Favorite Shows' />
-              <AccountSlider sliderName='Rated Movies' />
-              <AccountSlider sliderName='Rated Shows' />
+              <AccountSlider 
+                sliderName='Favorite Movies' 
+                currentPage={favoriteMoviesPage} 
+                totalPages={favoriteMoviesTotalPages} 
+                movies={favoriteMovies} 
+                totalResults={favoriteMoviesTotalResults} 
+              />
+              <AccountSlider 
+                sliderName='Favorite Tv Shows' 
+                currentPage={favoriteShowsPage} 
+                totalPages={favoriteShowsTotalPages} 
+                movies={favoriteShows} 
+                totalResults={favoriteShowsTotalResults} 
+              />
+              <AccountSlider 
+                sliderName='Movie Watchlist' 
+                currentPage={movieWatchlistPage} 
+                totalPages={movieWatchlistTotalPages} 
+                movies={movieWatchlist}
+                totalResults={movieWatchlistTotalResults}
+              />
+              <AccountSlider 
+                sliderName='Show Watchlist' 
+                currentPage={showWatchlistPage} 
+                totalPages={showWatchlistTotalPages}
+                movies={showWatchlist} 
+                totalResults={showWatchlistTotalResults} 
+              />
             </section>
 
           </React.Fragment>
