@@ -8,14 +8,22 @@ const displayMovies = (movies, type, genres) => {
   })
 }
 
-const AccountSlider = ({currentPage, totalPages, movies, totalResults, sliderName, settings}) => {
+const AccountSlider = ({currentPage, totalPages, movies, totalResults, sliderName, type, genres}) => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3
+  };
+
   return (
     <section className="account_content_section">
       <section className="account_content_name"><h2>{sliderName}</h2></section>
       <section className="account_content_slider">
-        {/* <Slider {...settings}>
+        <Slider {...settings}>
           {displayMovies(movies, type, genres)}
-        </Slider> */}
+        </Slider>
       </section>
     </section>
   );

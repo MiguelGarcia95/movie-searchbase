@@ -4,8 +4,8 @@ import {Redirect, Link} from 'react-router-dom';
 
 import {getSession, setSession, setToken} from '../../actions/authActions';
 import {getAccount, setAccount, getFavoriteMovies, getFavoriteShows, getMovieWatchlist, getShowWatchlist} from '../../actions/accountActions';
-import {fetchMovieGenres} from '../actions/movieActions';
-import {fetchShowGenres} from '../actions/tvShowActions';
+import {fetchMovieGenres} from '../../actions/movieActions';
+import {fetchShowGenres} from '../../actions/tvShowActions';
 
 import ContentSlider from '../layout/ContentSlider';
 import UserPanel from './UserPanel';
