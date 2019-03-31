@@ -21,6 +21,14 @@ const getSlidesToShow = (movies, width) => {
     } else if (movies.length < 3) {
       return movies.length;
     }
+  } else if (width === 700) {
+    if (movies.length >= 2) {
+      return 2;
+    } else if (movies.length < 2) {
+      return movies.length;
+    }
+  } else if (width === 530) {
+    return 1;
   }
 }
 
@@ -35,8 +43,19 @@ const AccountSlider = ({currentPage, totalPages, movies, totalResults, sliderNam
       {
         breakpoint: 1080,
         settings: {
-          slidesToShow: getSlidesToShow(movies, 1080),
-          centerPadding: "0px",
+          slidesToShow: getSlidesToShow(movies, 1080)
+        }
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: getSlidesToShow(movies, 700)
+        }
+      },
+      {
+        breakpoint: 530,
+        settings: {
+          slidesToShow: getSlidesToShow(movies, 530)
         }
       },
     ]
