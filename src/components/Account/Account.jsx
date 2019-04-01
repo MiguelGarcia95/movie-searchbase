@@ -42,7 +42,7 @@ class Account extends React.Component {
       this.props.getAccount(this.props.session_id)
     } else if (this.props.session_id  && localStorage.getItem('account') && !this.props.account) {
       this.props.setAccount(JSON.parse(localStorage.getItem('account')))
-    } else if (!this.state.fetchedAccountData) {
+    } else if (!this.state.fetchedAccountData && this.props.account) {
       this.setState({fetchedAccountData: true});
       this.setAccountDetails(this.props.account.id, this.props.session_id);
     }
