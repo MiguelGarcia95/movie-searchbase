@@ -21,6 +21,7 @@ class App extends React.Component {
     this.props.fetchUpcomingMovies();
     this.props.fetchPopularMovies();
     this.props.fetchMovieGenres();
+    this.scrollToTop();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -35,6 +36,10 @@ class App extends React.Component {
 
   shouldComponentFetchShows = (newType, oldType, showArray) => {
     return newType !== oldType && newType === 'shows' && showArray.length === 0;
+  }
+
+  scrollToTop = () => {
+    this.pageTop.scrollIntoView({behavior: 'smooth'});
   }
 
   homeDisplayMovies = fetchType => fetchType === 'movies' ? this.props.topRatedMovies : this.props.topRatedShows;
@@ -66,6 +71,7 @@ class App extends React.Component {
     const genres = this.getGenres(type);
     return (
       <section className="App">
+        <div ref={node => this.pageTop = node}></div>
         <HomeDisplay movies={displayMovies} genres={genres} fetchType={type} />
         <HomeContent movies={contentMovies} genres={genres}/>
       </section>
