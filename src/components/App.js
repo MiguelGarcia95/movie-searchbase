@@ -16,11 +16,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchTopRatedMovies();
-    this.props.fetchNowPlayingMovies();
-    this.props.fetchUpcomingMovies();
-    this.props.fetchPopularMovies();
-    this.props.fetchMovieGenres();
+    if (this.shouldComponentFetchMovies()) {
+      this.props.fetchTopRatedMovies();
+      this.props.fetchNowPlayingMovies();
+      this.props.fetchUpcomingMovies();
+      this.props.fetchPopularMovies();
+      this.props.fetchMovieGenres();
+    }
     this.scrollToTop();
   }
 
@@ -36,6 +38,17 @@ class App extends React.Component {
 
   shouldComponentFetchShows = (newType, oldType, showArray) => {
     return newType !== oldType && newType === 'shows' && showArray.length === 0;
+  }
+
+  shouldComponentFetchMovies = () => {
+    if ( 
+      this.props.topRatedMovies.length === 0 || this.props.nowPlayingMovies.length === 0 || this.props.upcomingMovies.length === 0 || 
+      this.props.popularMovies.length === 0 || this.props.movieGenres.length === 0
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   scrollToTop = () => {
