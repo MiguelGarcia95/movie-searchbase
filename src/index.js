@@ -17,18 +17,26 @@ import MyFooter from './components/layout/MyFooter';
 import * as serviceWorker from './serviceWorker';
 
 const Root = () => {
+  // <BrowserRouter basename='/movie-searchbase'>
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <React.Fragment>
         <Route path='/' component={MyNavbar} />
         <Switch>
-          <Route exact path='/' component={App} />
-          <Route path='/login' component={Login} />
-          <Route path='/account' component={Account} />
-          <Route path='/search/:searchQuery' component={SearchResults} />
-          <Route path='/shows/:showId' component={DisplayTv} />
-          <Route path='/movies/:movieId' component={DisplayMovie} />
-          <Route path='/people/:peopleId' component={DisplayPeople} />
+          <Route exact path={`${process.env.PUBLIC_URL} + /`} component={App} /> 
+          {/* <Route exact path='/' component={App} /> */}
+          <Route path={`${process.env.PUBLIC_URL} + /login`} component={Login} />
+          {/* <Route path='/login' component={Login} /> */}
+          <Route path={`${process.env.PUBLIC_URL} + /account`} component={Account} />
+          {/* <Route path='/account' component={Account} /> */}
+          <Route path={`${process.env.PUBLIC_URL} + /search/:searchQuery`} component={SearchResults} />
+          {/* <Route path='/search/:searchQuery' component={SearchResults} /> */}
+          <Route path={`${process.env.PUBLIC_URL} + /shows/:showId`} component={DisplayTv} />
+          {/* <Route path='/shows/:showId' component={DisplayTv} /> */}
+          <Route path={`${process.env.PUBLIC_URL} + /movies/:movieId`} component={DisplayMovie} />
+          {/* <Route path='/movies/:movieId' component={DisplayMovie} /> */}
+          <Route path={`${process.env.PUBLIC_URL} + /people/:peopleId`} component={DisplayPeople} /> 
+          {/* <Route path='/people/:peopleId' component={DisplayPeople} /> */}
           {/* add a redirect to home here */}
         </Switch>
         <Route path='/' component={MyFooter} />
@@ -55,3 +63,11 @@ ReactDOM.render(<RootWithRouter />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+{/* <Route exact path={`${process.env.PUBLIC_URL} + /`} component={App} />
+<Route path={`${process.env.PUBLIC_URL} + /login`} component={Login} />
+<Route path={`${process.env.PUBLIC_URL} + /account`} component={Account} />
+<Route path={`${process.env.PUBLIC_URL} + /search/:searchQuery`} component={SearchResults} />
+<Route path={`${process.env.PUBLIC_URL} + /shows/:showId`} component={DisplayTv} />
+<Route path={`${process.env.PUBLIC_URL} + /movies/:movieId`} component={DisplayMovie} />
+<Route path={`${process.env.PUBLIC_URL} + /people/:peopleId`} component={DisplayPeople} /> */}

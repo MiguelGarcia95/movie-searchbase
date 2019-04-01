@@ -32,10 +32,10 @@ export const getPoster = currentMovie => {
     if (currentMovie.poster_path) {
       return `https://image.tmdb.org/t/p/original${currentMovie.poster_path}`;
     } else {
-      return '/images/movie/movie_cover.jpg';
+      return '/movie-searchbase/images/movie/movie_cover.jpg';
     }
   } else {
-    return '/images/movie/movie_cover.jpg';
+    return '/movie-searchbase/images/movie/movie_cover.jpg';
   }
 }
 
@@ -44,10 +44,10 @@ export const getCastImage = character => {
     if (character.profile_path) {
       return `https://image.tmdb.org/t/p/original${character.profile_path}`;
     } else {
-      return '/images/movie/movie_cover.jpg';
+      return '/movie-searchbase/images/movie/movie_cover.jpg';
     }
   } else {
-    return '/images/movie/movie_cover.jpg';
+    return '/movie-searchbase/images/movie/movie_cover.jpg';
   }
 }
 
@@ -56,10 +56,10 @@ export const getImage = (currentMovie) => {
     if (currentMovie.backdrop_path) {
       return `https://image.tmdb.org/t/p/original${currentMovie.backdrop_path}`;
     } else {
-      return '/images/movie/movie_bg.jpeg';
+      return '/movie-searchbase/images/movie/movie_bg.jpeg';
     }
   } else {
-    return '/images/movie/movie_bg.jpeg';
+    return '/movie-searchbase/images/movie/movie_bg.jpeg';
   }
 }
 
