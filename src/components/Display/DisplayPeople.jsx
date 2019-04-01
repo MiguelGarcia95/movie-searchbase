@@ -27,18 +27,53 @@ class DisplayPeople extends React.Component {
   }
 
   displayMovies = (movies, genres) => {
-    if (movies.length > 0) {
-      return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings4} />
-    } else {
-      return <section className="empty_data"><h2>No Movies</h2></section>
+    // if (movies.length > 0) {
+    //   return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings4} />
+    // } else {
+    //   return <section className="empty_data"><h2>No Movies</h2></section>
+    // }
+    switch (movies.length) {
+      case 0: 
+        return  <section className="empty_data"><h2>No Movies</h2></section>
+      case 1:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings1} />
+      case 2:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings2} />
+      case 3:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings3} />
+      case 4:
+        return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings4} />
+      case 5:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings5} /> 
+      case 6:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings6} /> 
+      case 7:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings7} /> 
+      default:
+        return <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings} />
     }
   }
 
   displayShows = (shows, genres) => {
-     if (shows.length > 4) {
-      return  <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings4} />
-    } else {
-      return <section className="empty_data"><h2>No Shows</h2></section>
+    switch (shows.length) {
+      case 0: 
+        return  <section className="empty_data"><h2>No Shows</h2></section>
+      case 1:
+        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings1} />
+      case 2:
+        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings2} />
+      case 3:
+        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings3} />
+      case 4:
+        return  <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings4} />
+      case 5:
+        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings5} /> 
+      case 6:
+        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings6} /> 
+      case 7:
+        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings7} /> 
+      default:
+        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings} />
     }
   }
 
