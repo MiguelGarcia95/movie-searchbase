@@ -3,11 +3,10 @@ import {connect} from 'react-redux';
 import {Redirect, Link} from 'react-router-dom';
 
 import {getSession, setSession, setToken} from '../../actions/authActions';
-import {getAccount, setAccount, getFavoriteMovies, getFavoriteShows, getMovieWatchlist, getShowWatchlist} from '../../actions/accountActions';
+import {getAccount, setAccount, getFavoriteMovies, getFavoriteShows, getMovieWatchlist, getShowWatchlist, removeFromFavorites} from '../../actions/accountActions';
 import {fetchMovieGenres} from '../../actions/movieActions';
 import {fetchShowGenres} from '../../actions/tvShowActions';
 
-import ContentSlider from '../layout/ContentSlider';
 import UserPanel from './UserPanel';
 import SidepanelPanel from './SidepanelPanel';
 import AccountSlider from './AccountSlider';
@@ -88,7 +87,7 @@ class Account extends React.Component {
   render() {
     const redirectToAccount = this.shouldRedirectToAccount();
     const redirectToLogin = this.shouldRedirectToLogin();
-    const {account, showGenres, movieGenres} = this.props;
+    const {account, showGenres, movieGenres, removeFromFavorites, session_id} = this.props;
     const {favoriteMovies, favoriteMoviesPage, favoriteMoviesTotalPages, favoriteMoviesTotalResults} = this.props;
     const {favoriteShows, favoriteShowsPage, favoriteShowsTotalPages, favoriteShowsTotalResults} = this.props;
     const {movieWatchlist, movieWatchlistPage, movieWatchlistTotalPages, movieWatchlistTotalResults} = this.props;
@@ -118,6 +117,9 @@ class Account extends React.Component {
                 type='movies'
                 sliderType='Favorite'
                 genres={movieGenres}
+                removeFromFavorites={removeFromFavorites}
+                sessionId={session_id}
+                accountId={account.id}
               />
               <AccountSlider 
                 sliderName='Favorite Tv Shows' 
@@ -128,6 +130,9 @@ class Account extends React.Component {
                 type='shows'
                 genres={showGenres}
                 sliderType='Favorite'
+                removeFromFavorites={removeFromFavorites}
+                sessionId={session_id}
+                accountId={account.id}
               />
               <AccountSlider 
                 sliderName='Movie Watchlist' 
@@ -138,6 +143,9 @@ class Account extends React.Component {
                 type='movies'
                 genres={movieGenres}
                 sliderType='Watchlist'
+                removeFromFavorites={removeFromFavorites}
+                sessionId={session_id}
+                accountId={account.id}
               />
               <AccountSlider 
                 sliderName='Show Watchlist' 
@@ -148,6 +156,9 @@ class Account extends React.Component {
                 type='shows'
                 genres={showGenres}
                 sliderType='Watchlist'
+                removeFromFavorites={removeFromFavorites}
+                sessionId={session_id}
+                accountId={account.id}
               />
             </section>
 
@@ -195,6 +206,7 @@ const mapDispatchToProps = dispatch => {
     getFavoriteShows: (accountId, sessionId) => dispatch(getFavoriteShows(accountId, sessionId)),
     getMovieWatchlist: (accountId, sessionId) => dispatch(getMovieWatchlist(accountId, sessionId)),
     getShowWatchlist: (accountId, sessionId) => dispatch(getShowWatchlist(accountId, sessionId)),
+    removeFromFavorites: (accountId, sessionId, mediaType, mediaId, action) => dispatch(removeFromFavorites(accountId, sessionId, mediaType, mediaId, action)),
     fetchMovieGenres: () => dispatch(fetchMovieGenres()),
     fetchShowGenres: () => dispatch(fetchShowGenres())
   }

@@ -90,19 +90,44 @@ export const getMovieWatchlist = (accountId, sessionId) => {
   }
 }
 
-export const addToFavorites = (accountId, sessionId, mediaType, mediaId, action) => {
+export const addToFavorites = (accountId, sessionId, mediaType, mediaId) => {
+  return (dispatch) => {
+    console.log(accountId)
+    console.log(sessionId)
+    console.log(mediaType)
+    console.log(mediaId)
+    console.log(action)
+    let type = mediaType === 'movies' ? 'movie' : 'tv';
+    const url = `https://api.themoviedb.org/3/account/${accountId}/favorite?api_key=${MOVIEDBAPI}&session_id=${sessionId}`;
+    axios.post(url, {
+      media_type: type,
+      media_id: mediaId,
+      favorite: true
+    }).then(response => {
+      dispatch({
+        type: actionTypes.ADD_TO_FAVORITES,
+        payload: {
+          message: 'Was Added To Favorites!'
+        }
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+}
+export const removeFromFavorites = (accountId, sessionId, mediaType, mediaId) => {
   return (dispatch) => {
     let type = mediaType === 'movies' ? 'movie' : 'tv';
     const url = `https://api.themoviedb.org/3/account/${accountId}/favorite?api_key=${MOVIEDBAPI}&session_id=${sessionId}`;
     axios.post(url, {
       media_type: type,
       media_id: mediaId,
-      favorite: action
+      favorite: false
     }).then(response => {
       dispatch({
-        type: actionTypes.ADD_TO_FAVORITES,
+        type: actionTypes.REMOVE_FROM_FAVORITES,
         payload: {
-          message: 'Was Added To Favorites!'
+          message: 'Was Removed From Favorites!'
         }
       })
     }).catch(err => {
@@ -124,6 +149,27 @@ export const addToWatchlist = (accountId, sessionId, mediaType, mediaId, action)
         type: actionTypes.ADD_TO_WATCHLIST,
         payload: {
           message: 'Was Added To Watchlist!'
+        }
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+}
+
+export const removeFromWatchlist = (accountId, sessionId, mediaType, mediaId, action) => {
+  return (dispatch) => {
+    let type = mediaType === 'movies' ? 'movie' : 'tv';
+    const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist?api_key=${MOVIEDBAPI}&session_id=${sessionId}`;
+    axios.post(url, {
+      media_type: type,
+      media_id: mediaId,
+      watchlist: action
+    }).then(response => {
+      dispatch({
+        type: actionTypes.REMOVE_FROM_WATCHLIST,
+        payload: {
+          message: 'Was Removed From Watchlist!'
         }
       })
     }).catch(err => {
