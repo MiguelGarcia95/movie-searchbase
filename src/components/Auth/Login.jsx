@@ -20,7 +20,6 @@ class Login extends React.Component {
           <section className="login_header"><h1>Login</h1></section>
           <section className="login_buttons">
             <section className="login_button"><a href={loginHref} >Login</a></section>
-            <section className="login_button"><a href="/guest">Continue As Guest</a></section>
           </section>
         </section>
       </section>

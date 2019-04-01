@@ -7,7 +7,6 @@ export const SET_TOKEN = 'SET_TOKEN';
 export const GET_SESSION  = 'GET_SESSION';
 export const SET_SESSION = 'SET_SESSION';
 
-
 // SETTINGS
 export const SET_TYPE = 'SET_TYPE';
 
