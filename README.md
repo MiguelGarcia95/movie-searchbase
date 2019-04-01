@@ -3,5 +3,5 @@
 
 This project is a movie search App made using react, redux, and the TMDB API.
 
-## Try out -> [Movie Search Base](https://miguelgarcia95.github.io/movie-searchbase/).
+## Try out -> [Movie Search Base](https://movie-searchbase.firebaseapp.com/).
 
