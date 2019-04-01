@@ -136,7 +136,6 @@ class Account extends React.Component {
                   sessionId={session_id}
                   accountId={account.id}
                 />
-                {/* removeFromWatchlist */}
                 <AccountSlider 
                   sliderName='Favorite Tv Shows' 
                   movies={favoriteShows} 
