@@ -1,15 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './style/css/MovieResult.css';
-import {getTitle, getYear, getGenre, getPoster} from '../../utils/functions';
-
-const roundRating = (rating) => {
-  if (rating.toFixed(0).length === 2) {
-    return rating.toFixed(0);
-  } else {
-    return rating.toFixed(1);
-  }
-}
+import {getTitle, getYear, getGenre, getPoster, roundRating} from '../../utils/functions';
 
 const MovieResult = ({movie, type, genres}) => {
   const imageStyle = {

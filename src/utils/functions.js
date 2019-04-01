@@ -23,6 +23,14 @@ export const getGenreFromId = (genreId, genres) => {
   }, '');
 }
 
+export const roundRating = (rating) => {
+  if (rating.toFixed(0).length === 2) {
+    return rating.toFixed(0);
+  } else {
+    return rating.toFixed(1);
+  }
+}
+
 export const getGenre = (movie, genres) => {
   return getGenreFromId(movie.genre_ids[0], genres);
 }

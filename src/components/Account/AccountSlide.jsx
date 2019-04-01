@@ -1,7 +1,7 @@
 import React from 'react';
 import './style/css/AccountSlide.css';
 import {Link} from 'react-router-dom';
-import {getTitle, getYear, getGenre} from '../../utils/functions';
+import {getTitle, getYear, getGenre, roundRating} from '../../utils/functions';
 import './style/css/AccountSlide.css';
 
 const AccountSlide = ({movie, type, genres, sliderType, removeFromList, sessionId, accountId}) => {
@@ -14,7 +14,7 @@ const AccountSlide = ({movie, type, genres, sliderType, removeFromList, sessionI
     <section className="account_slide">
       <section className="account_movie">
         <section className="account_movie_image" style={imageStyle}></section>
-        <p className="account_movie_image_rating">{movie.vote_average}</p>  
+        <p className="account_movie_image_rating">{roundRating(movie.vote_average)}</p>  
         <Link to={`/${type}/${movie.id}`}>
           <p className="account_movie_image_link" ><i className="fas fa-expand-arrows-alt "></i></p>  
         </Link>
