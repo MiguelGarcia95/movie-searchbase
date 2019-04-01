@@ -73,9 +73,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addToFavorites: (accountId, sessionId, mediaType, mediaId, action) => dispatch(addToFavorites(accountId, sessionId, mediaType, mediaId, action)),
+    addToFavorites: (accountId, sessionId, mediaType, mediaId) => dispatch(addToFavorites(accountId, sessionId, mediaType, mediaId)),
     addToWatchlist: (accountId, sessionId, mediaType, mediaId, action) => dispatch(addToWatchlist(accountId, sessionId, mediaType, mediaId, action))
-    
   }
 }
 
