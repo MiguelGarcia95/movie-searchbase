@@ -121,12 +121,9 @@ class Account extends React.Component {
                 <SidepanelPanel count={movieWatchlistTotalResults} title='Movie Watchlist' />
                 <SidepanelPanel count={showWatchlistTotalResults} title='Show Watchlist' />
               </section>
-
               <section className="account_content">
                 <AccountSlider 
                   sliderName='Favorite Movies' 
-                  currentPage={favoriteMoviesPage} 
-                  totalPages={favoriteMoviesTotalPages} 
                   movies={favoriteMovies} 
                   totalResults={favoriteMovies.length}
                   type='movies'
@@ -138,8 +135,6 @@ class Account extends React.Component {
                 />
                 <AccountSlider 
                   sliderName='Favorite Tv Shows' 
-                  currentPage={favoriteShowsPage} 
-                  totalPages={favoriteShowsTotalPages} 
                   movies={favoriteShows} 
                   totalResults={favoriteShows.length} 
                   type='shows'
@@ -151,8 +146,6 @@ class Account extends React.Component {
                 />
                 <AccountSlider 
                   sliderName='Movie Watchlist' 
-                  currentPage={movieWatchlistPage} 
-                  totalPages={movieWatchlistTotalPages} 
                   movies={movieWatchlist}
                   totalResults={movieWatchlistTotalResults}
                   type='movies'
@@ -164,8 +157,6 @@ class Account extends React.Component {
                 />
                 <AccountSlider 
                   sliderName='Show Watchlist' 
-                  currentPage={showWatchlistPage} 
-                  totalPages={showWatchlistTotalPages}
                   movies={showWatchlist} 
                   totalResults={showWatchlistTotalResults} 
                   type='shows'

@@ -43,7 +43,7 @@ const getSlidesToShow = (movies, width) => {
   }
 }
 
-const AccountSlider = ({currentPage, totalPages, movies, totalResults, sliderName, type, genres, sliderType, removeFromFavorites, sessionId, accountId}) => {
+const AccountSlider = ({movies, totalResults, sliderName, type, genres, sliderType, removeFromFavorites, sessionId, accountId}) => {
   const settings = {
     dots: false,
     infinite: true,
