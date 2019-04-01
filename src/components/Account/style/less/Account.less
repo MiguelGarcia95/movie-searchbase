@@ -1,5 +1,6 @@
 // out: ../css/Account.css, compress: true, sourceMap: false
 @navbarHeight: 80px;
+@navbarBG: #1a1a1a;
 
 .tryagain {
   width: 150px; height: 40px;
@@ -17,32 +18,33 @@
   // }
 }
 
-.account_page {
-  .message_popup {
-    position: sticky;
-    top: @navbarHeight;
-    max-width: 100%;
-    padding: 0 10px;
-    background-color: @navbarBG;
-    z-index: 100;
-    height: 0px;
-    transition: height 0.2s;
-    overflow: hidden;
-    &.active {
-      height: 48px;
-    }
-    .message {
-      text-align: center;
-      color: white;
-      margin: 0;
-      font-weight: 300;
-      line-height: 48px;
-      font-size: 1.5em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+.message_popup {
+  position: sticky;
+  top: @navbarHeight;
+  max-width: 100%;
+  padding: 0 10px;
+  background-color: @navbarBG;
+  z-index: 100;
+  height: 0px;
+  transition: height 0.2s;
+  overflow: hidden;
+  &.active {
+    height: 48px;
   }
+  .message {
+    text-align: center;
+    color: white;
+    margin: 0;
+    font-weight: 300;
+    line-height: 48px;
+    font-size: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.account_page {
   width: 100vw;
   max-width:100%;
   min-height: 100vh;

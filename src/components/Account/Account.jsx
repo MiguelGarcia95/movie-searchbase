@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect, Link} from 'react-router-dom';
 
 import {getSession, setSession, setToken} from '../../actions/authActions';
-import {getAccount, setAccount, getFavoriteMovies, getFavoriteShows, getMovieWatchlist, getShowWatchlist, removeFromFavorites} from '../../actions/accountActions';
+import {getAccount, setAccount, getFavoriteMovies, getFavoriteShows, getMovieWatchlist, getShowWatchlist, removeFromFavorites, deleteMessage} from '../../actions/accountActions';
 import {fetchMovieGenres} from '../../actions/movieActions';
 import {fetchShowGenres} from '../../actions/tvShowActions';
 
@@ -17,8 +17,10 @@ import './style/css/Account.css';
 
 class Account extends React.Component {
   state = {
-    fetchedAccountData: false
+    fetchedAccountData: false,
+    displayMessage: false
   }
+
 
   componentDidMount() {
     const path = this.props.location.search;
@@ -40,6 +42,14 @@ class Account extends React.Component {
     } else if (!this.state.fetchedAccountData) {
       this.setState({fetchedAccountData: true});
       this.setAccountDetails(this.props.account.id, this.props.session_id);
+    }
+
+    if (this.props.message !== prevProps.message && this.props.message) {
+      this.setState({displayMessage: true});
+      setTimeout( () => {
+        this.setState({displayMessage: false})
+        this.props.deleteMessage();
+      }, 5000);
     }
   }
   
@@ -87,84 +97,90 @@ class Account extends React.Component {
   render() {
     const redirectToAccount = this.shouldRedirectToAccount();
     const redirectToLogin = this.shouldRedirectToLogin();
-    const {account, showGenres, movieGenres, removeFromFavorites, session_id} = this.props;
+    const {displayMessage} = this.state;
+    const {account, showGenres, movieGenres, removeFromFavorites, session_id, message} = this.props;
     const {favoriteMovies, favoriteMoviesPage, favoriteMoviesTotalPages, favoriteMoviesTotalResults} = this.props;
     const {favoriteShows, favoriteShowsPage, favoriteShowsTotalPages, favoriteShowsTotalResults} = this.props;
     const {movieWatchlist, movieWatchlistPage, movieWatchlistTotalPages, movieWatchlistTotalResults} = this.props;
     const {showWatchlist, showWatchlistPage, showWatchlistTotalPages, showWatchlistTotalResults} = this.props;    
 
     return (
-      <section className="account_page">
-        {redirectToLogin && <Redirect to='/login'/>}
-        {redirectToAccount && <Redirect to='/account'/>}
-        {account ? (
-          <React.Fragment>
-            <section className="account_sidepanel">
-              <UserPanel account={account} />
-              <SidepanelPanel count={favoriteMoviesTotalResults} title='Favorite Movies' />
-              <SidepanelPanel count={favoriteShowsTotalResults} title='Favorite Tv Shows' />
-              <SidepanelPanel count={movieWatchlistTotalResults} title='Movie Watchlist' />
-              <SidepanelPanel count={showWatchlistTotalResults} title='Show Watchlist' />
-            </section>
+      <React.Fragment>
+        <section className={`message_popup ${displayMessage ? 'active' : ''}`}>
+          {message && <h2 className="message">{message}</h2> }
+        </section>
+        <section className="account_page">
+          {redirectToLogin && <Redirect to='/login'/>}
+          {redirectToAccount && <Redirect to='/account'/>}
+          {account ? (
+            <React.Fragment>
+              <section className="account_sidepanel">
+                <UserPanel account={account} />
+                <SidepanelPanel count={favoriteMoviesTotalResults} title='Favorite Movies' />
+                <SidepanelPanel count={favoriteShowsTotalResults} title='Favorite Tv Shows' />
+                <SidepanelPanel count={movieWatchlistTotalResults} title='Movie Watchlist' />
+                <SidepanelPanel count={showWatchlistTotalResults} title='Show Watchlist' />
+              </section>
 
-            <section className="account_content">
-              <AccountSlider 
-                sliderName='Favorite Movies' 
-                currentPage={favoriteMoviesPage} 
-                totalPages={favoriteMoviesTotalPages} 
-                movies={favoriteMovies} 
-                totalResults={favoriteMoviesTotalResults}
-                type='movies'
-                sliderType='Favorite'
-                genres={movieGenres}
-                removeFromFavorites={removeFromFavorites}
-                sessionId={session_id}
-                accountId={account.id}
-              />
-              <AccountSlider 
-                sliderName='Favorite Tv Shows' 
-                currentPage={favoriteShowsPage} 
-                totalPages={favoriteShowsTotalPages} 
-                movies={favoriteShows} 
-                totalResults={favoriteShowsTotalResults} 
-                type='shows'
-                genres={showGenres}
-                sliderType='Favorite'
-                removeFromFavorites={removeFromFavorites}
-                sessionId={session_id}
-                accountId={account.id}
-              />
-              <AccountSlider 
-                sliderName='Movie Watchlist' 
-                currentPage={movieWatchlistPage} 
-                totalPages={movieWatchlistTotalPages} 
-                movies={movieWatchlist}
-                totalResults={movieWatchlistTotalResults}
-                type='movies'
-                genres={movieGenres}
-                sliderType='Watchlist'
-                removeFromFavorites={removeFromFavorites}
-                sessionId={session_id}
-                accountId={account.id}
-              />
-              <AccountSlider 
-                sliderName='Show Watchlist' 
-                currentPage={showWatchlistPage} 
-                totalPages={showWatchlistTotalPages}
-                movies={showWatchlist} 
-                totalResults={showWatchlistTotalResults} 
-                type='shows'
-                genres={showGenres}
-                sliderType='Watchlist'
-                removeFromFavorites={removeFromFavorites}
-                sessionId={session_id}
-                accountId={account.id}
-              />
-            </section>
+              <section className="account_content">
+                <AccountSlider 
+                  sliderName='Favorite Movies' 
+                  currentPage={favoriteMoviesPage} 
+                  totalPages={favoriteMoviesTotalPages} 
+                  movies={favoriteMovies} 
+                  totalResults={favoriteMoviesTotalResults}
+                  type='movies'
+                  sliderType='Favorite'
+                  genres={movieGenres}
+                  removeFromFavorites={removeFromFavorites}
+                  sessionId={session_id}
+                  accountId={account.id}
+                />
+                <AccountSlider 
+                  sliderName='Favorite Tv Shows' 
+                  currentPage={favoriteShowsPage} 
+                  totalPages={favoriteShowsTotalPages} 
+                  movies={favoriteShows} 
+                  totalResults={favoriteShowsTotalResults} 
+                  type='shows'
+                  genres={showGenres}
+                  sliderType='Favorite'
+                  removeFromFavorites={removeFromFavorites}
+                  sessionId={session_id}
+                  accountId={account.id}
+                />
+                <AccountSlider 
+                  sliderName='Movie Watchlist' 
+                  currentPage={movieWatchlistPage} 
+                  totalPages={movieWatchlistTotalPages} 
+                  movies={movieWatchlist}
+                  totalResults={movieWatchlistTotalResults}
+                  type='movies'
+                  genres={movieGenres}
+                  sliderType='Watchlist'
+                  removeFromFavorites={removeFromFavorites}
+                  sessionId={session_id}
+                  accountId={account.id}
+                />
+                <AccountSlider 
+                  sliderName='Show Watchlist' 
+                  currentPage={showWatchlistPage} 
+                  totalPages={showWatchlistTotalPages}
+                  movies={showWatchlist} 
+                  totalResults={showWatchlistTotalResults} 
+                  type='shows'
+                  genres={showGenres}
+                  sliderType='Watchlist'
+                  removeFromFavorites={removeFromFavorites}
+                  sessionId={session_id}
+                  accountId={account.id}
+                />
+              </section>
 
-          </React.Fragment>
-        ) : (<Link to='account' className='tryagain'>Try Again</Link>)}
-      </section>
+            </React.Fragment>
+          ) : (<Link to='account' className='tryagain'>Try Again</Link>)}
+        </section>
+      </React.Fragment>
     );
   }
 }
@@ -191,7 +207,8 @@ const mapStateToProps = state => {
     showWatchlistTotalPages: state.account.showWatchlistTotalPages,
     showWatchlistTotalResults: state.account.showWatchlistTotalResults,
     movieGenres: state.movies.movieGenres,
-    showGenres: state.shows.showGenres
+    showGenres: state.shows.showGenres,
+    message: state.account.message
   }
 }
 
@@ -208,7 +225,8 @@ const mapDispatchToProps = dispatch => {
     getShowWatchlist: (accountId, sessionId) => dispatch(getShowWatchlist(accountId, sessionId)),
     removeFromFavorites: (accountId, sessionId, mediaType, mediaId, action) => dispatch(removeFromFavorites(accountId, sessionId, mediaType, mediaId, action)),
     fetchMovieGenres: () => dispatch(fetchMovieGenres()),
-    fetchShowGenres: () => dispatch(fetchShowGenres())
+    fetchShowGenres: () => dispatch(fetchShowGenres()),
+    deleteMessage: () => dispatch(deleteMessage())
   }
 }
 
