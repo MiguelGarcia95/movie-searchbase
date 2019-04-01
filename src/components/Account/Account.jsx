@@ -128,7 +128,7 @@ class Account extends React.Component {
                   currentPage={favoriteMoviesPage} 
                   totalPages={favoriteMoviesTotalPages} 
                   movies={favoriteMovies} 
-                  totalResults={favoriteMoviesTotalResults}
+                  totalResults={favoriteMovies.length}
                   type='movies'
                   sliderType='Favorite'
                   genres={movieGenres}
@@ -141,7 +141,7 @@ class Account extends React.Component {
                   currentPage={favoriteShowsPage} 
                   totalPages={favoriteShowsTotalPages} 
                   movies={favoriteShows} 
-                  totalResults={favoriteShowsTotalResults} 
+                  totalResults={favoriteShows.length} 
                   type='shows'
                   genres={showGenres}
                   sliderType='Favorite'

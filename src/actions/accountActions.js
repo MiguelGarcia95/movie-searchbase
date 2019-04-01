@@ -123,7 +123,7 @@ export const removeFromFavorites = (accountId, sessionId, mediaType, mediaId) =>
         type: actionTypes.REMOVE_FROM_FAVORITES,
         payload: {
           message: 'Was Removed From Favorites!',
-          removedId: accountId,
+          removedId: mediaId,
           type: mediaType
         }
       })

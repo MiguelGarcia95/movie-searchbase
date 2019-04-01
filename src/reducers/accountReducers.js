@@ -51,6 +51,7 @@ const accountReducers = (state = initialState, action) => {
         }
       } else {
         let movies = removeItemFromList(state.favoriteShows, action.payload.removedId);
+        console.log(action.payload.removedId)
         return {
           ...state,
           message: action.payload.message,
