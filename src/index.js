@@ -56,11 +56,3 @@ ReactDOM.render(<RootWithRouter />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-{/* <Route exact path={`${process.env.PUBLIC_URL} + /`} component={App} />
-<Route path={`${process.env.PUBLIC_URL} + /login`} component={Login} />
-<Route path={`${process.env.PUBLIC_URL} + /account`} component={Account} />
-<Route path={`${process.env.PUBLIC_URL} + /search/:searchQuery`} component={SearchResults} />
-<Route path={`${process.env.PUBLIC_URL} + /shows/:showId`} component={DisplayTv} />
-<Route path={`${process.env.PUBLIC_URL} + /movies/:movieId`} component={DisplayMovie} />
-<Route path={`${process.env.PUBLIC_URL} + /people/:peopleId`} component={DisplayPeople} /> */}

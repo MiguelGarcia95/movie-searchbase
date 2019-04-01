@@ -4,8 +4,8 @@ import {
   fetchPeople, fetchPeopleMovieCredits, fetchPeopleShowCredits, fetchPeopleImages, fetchPeopleTaggedImages
 } from '../../actions/peopleActions';
 import {
-  castSliderSettings, movieTvSliderSettings, movieTvSliderSettings1, movieTvSliderSettings2, movieTvSliderSettings3,
-  movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7, castSliderSettings1
+  movieTvSliderSettings, movieTvSliderSettings1, movieTvSliderSettings2, movieTvSliderSettings3,
+  movieTvSliderSettings4, movieTvSliderSettings5, movieTvSliderSettings6, movieTvSliderSettings7
 } from '../../utils/settings';
 import {fetchShowGenres} from '../../actions/tvShowActions'; 
 import {fetchMovieGenres} from '../../actions/movieActions'; 

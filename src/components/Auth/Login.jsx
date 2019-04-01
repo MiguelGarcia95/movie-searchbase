@@ -13,7 +13,7 @@ class Login extends React.Component {
   onLoginClick = url => this.props.getSession(url);
 
   render() {
-    const loginHref = `https://www.themoviedb.org/authenticate/${this.props.token_id}?redirect_to=https://miguelgarcia95.github.io/movie-searchbase/account/approved`;
+    const loginHref = `https://www.themoviedb.org/authenticate/${this.props.token_id}?redirect_to=https://movie-searchbase.firebaseapp.com/account/approved`;
     return (
       <section className='login_page'>
         <section className="login_content">

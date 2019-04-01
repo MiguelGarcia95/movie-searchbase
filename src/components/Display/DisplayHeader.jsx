@@ -34,7 +34,7 @@ const DisplayHeader = ({currentMovie, type, addToFavorites, addToWatchlist, acco
         <section className="display_header_data">
           <section className="display_poster">
             <RatingCircle rating={currentMovie.vote_average} />
-            <section className="display_poster_image"><img src={getPoster(currentMovie)} /></section>
+            <section className="display_poster_image"><img src={getPoster(currentMovie)} atl={`${getTitle(currentMovie, type)} poster`} /></section>
           </section>
           <section className="title_meta">
             <h1 className="title">{getTitle(currentMovie, type)}</h1>
