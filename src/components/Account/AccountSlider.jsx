@@ -74,7 +74,9 @@ const AccountSlider = ({currentPage, totalPages, movies, totalResults, sliderNam
 
   return (
     <section className="account_content_section">
-      <section className="account_content_name"><h2>{sliderName} <span>({totalResults})</span></h2></section>
+      <section className="account_content_name">
+        <h2>{sliderName} (<span className='slider_count'>{totalResults}</span>) <span className='slider_count_text'>20 max</span></h2>
+      </section>
       <section className="account_content_slider">
         <Slider {...settings}>
           {displayMovies(movies, type, genres, sliderType, sessionId, accountId, removeFromFavorites)}
