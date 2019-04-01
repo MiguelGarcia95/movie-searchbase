@@ -16,7 +16,9 @@ import './style/css/DisplayPeople.css';
 class DisplayPeople extends React.Component {
   componentDidMount() {
     this.fetchPeopleData();
-    this.scrollToTop()
+    this.scrollToTop();
+    this.props.fetchShowGenres();
+    this.props.fetchMovieGenres();
   }
 
   fetchPeopleData = () => {

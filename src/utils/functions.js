@@ -8,9 +8,17 @@ export const getTitle = (movie, type) => {
 
 export const getYear = (movie, type) => {
   if (type === 'movies') {
-    return movie.release_date.slice(0,4);
+    if (movie.release_date) {
+      return movie.release_date.slice(0,4);
+    } else {
+      return 'N/A';
+    }
   } else {
-    return movie.first_air_date.slice(0,4);
+    if (movie.first_air_date) {
+      return movie.first_air_date.slice(0,4);
+    } else {
+      return 'N/A';
+    }
   }
 }
 
