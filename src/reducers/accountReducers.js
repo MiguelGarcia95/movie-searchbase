@@ -32,8 +32,6 @@ const accountReducers = (state = initialState, action) => {
         message: action.payload.message
       }
     case actionTypes.REMOVE_FROM_FAVORITES:
-      // console.log(action.payload.removedId);
-      // console.log(action.payload.type);
       if (action.payload.type === 'movies') {
         let movies = removeItemFromList(state.favoriteMovies, action.payload.removedId);
         return {
@@ -43,7 +41,6 @@ const accountReducers = (state = initialState, action) => {
         }
       } else {
         let movies = removeItemFromList(state.favoriteShows, action.payload.removedId);
-        console.log(action.payload.removedId)
         return {
           ...state,
           message: action.payload.message,
