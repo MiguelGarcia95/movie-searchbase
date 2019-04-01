@@ -59,21 +59,21 @@ class DisplayPeople extends React.Component {
       case 0: 
         return  <section className="empty_data"><h2>No Shows</h2></section>
       case 1:
-        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings1} />
+        return <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings1} />
       case 2:
-        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings2} />
+        return <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings2} />
       case 3:
-        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings3} />
+        return <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings3} />
       case 4:
-        return  <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings4} />
+        return  <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings4} />
       case 5:
-        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings5} /> 
+        return <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings5} /> 
       case 6:
-        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings6} /> 
+        return <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings6} /> 
       case 7:
-        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings7} /> 
+        return <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings7} /> 
       default:
-        return <ContentSlider movies={shows} genres={genres} type='movies' settings={movieTvSliderSettings} />
+        return <ContentSlider movies={shows} genres={genres} type='shows' settings={movieTvSliderSettings} />
     }
   }
 
