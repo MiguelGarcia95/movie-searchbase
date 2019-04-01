@@ -151,7 +151,7 @@ class Account extends React.Component {
                 <AccountSlider 
                   sliderName='Movie Watchlist' 
                   movies={movieWatchlist}
-                  totalResults={movieWatchlistTotalResults}
+                  totalResults={movieWatchlist.length}
                   type='movies'
                   genres={movieGenres}
                   sliderType='Watchlist'
@@ -162,7 +162,7 @@ class Account extends React.Component {
                 <AccountSlider 
                   sliderName='Show Watchlist' 
                   movies={showWatchlist} 
-                  totalResults={showWatchlistTotalResults} 
+                  totalResults={showWatchlist.length} 
                   type='shows'
                   genres={showGenres}
                   sliderType='Watchlist'

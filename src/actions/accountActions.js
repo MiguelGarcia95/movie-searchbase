@@ -158,7 +158,9 @@ export const removeFromWatchlist = (accountId, sessionId, mediaType, mediaId) =>
       dispatch({
         type: actionTypes.REMOVE_FROM_WATCHLIST,
         payload: {
-          message: 'Was Removed From Watchlist!'
+          message: 'Was Removed From Watchlist!',
+          removedId: mediaId,
+          type: mediaType
         }
       })
     }).catch(err => {

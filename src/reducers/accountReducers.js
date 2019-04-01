@@ -37,14 +37,16 @@ const accountReducers = (state = initialState, action) => {
         return {
           ...state,
           message: action.payload.message,
-          favoriteShows: movies
+          favoriteMovies: movies,
+          favoriteMoviesTotalResults: --state.favoriteMoviesTotalResults
         }
       } else {
         let movies = removeItemFromList(state.favoriteShows, action.payload.removedId);
         return {
           ...state,
           message: action.payload.message,
-          favoriteShows: movies
+          favoriteShows: movies,
+          favoriteShowsTotalResults: --state.favoriteShowsTotalResults 
         }
       }
     case actionTypes.ADD_TO_WATCHLIST:
@@ -58,14 +60,16 @@ const accountReducers = (state = initialState, action) => {
         return {
           ...state,
           message: action.payload.message,
-          movieWatchlist: movies
+          movieWatchlist: movies,
+          movieWatchlistTotalResults: --state.movieWatchlistTotalResults
         }
       } else {
         let movies = removeItemFromList(state.showWatchlist, action.payload.removedId);
         return {
           ...state,
           message: action.payload.message,
-          showWatchlist: movies
+          showWatchlist: movies,
+        showWatchlistTotalResults: --state.showWatchlistTotalResults
         }
       }
     case actionTypes.DELETE_MESSAGE:
