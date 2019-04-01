@@ -27,11 +27,6 @@ class DisplayPeople extends React.Component {
   }
 
   displayMovies = (movies, genres) => {
-    // if (movies.length > 0) {
-    //   return  <ContentSlider movies={movies} genres={genres} type='movies' settings={movieTvSliderSettings4} />
-    // } else {
-    //   return <section className="empty_data"><h2>No Movies</h2></section>
-    // }
     switch (movies.length) {
       case 0: 
         return  <section className="empty_data"><h2>No Movies</h2></section>

@@ -1,11 +1,11 @@
 import React from 'react';
 import './style/css/Slide.css';
 import {Link} from 'react-router-dom';
-import {getTitle, getYear, getGenre} from '../../utils/functions';
+import {getTitle, getYear, getGenre, getPoster} from '../../utils/functions';
 
 const Slide = ({movie, type, genres}) => {
   const imageStyle = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
+    backgroundImage: `url(${getPoster(movie)})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   }

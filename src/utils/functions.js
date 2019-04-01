@@ -39,6 +39,18 @@ export const getPoster = currentMovie => {
   }
 }
 
+export const getCastImage = character => {
+  if (character) {
+    if (character.profile_path) {
+      return `https://image.tmdb.org/t/p/original${character.profile_path}`;
+    } else {
+      return '/images/movie/movie_cover.jpg';
+    }
+  } else {
+    return '/images/movie/movie_cover.jpg';
+  }
+}
+
 export const getImage = (currentMovie) => {
   if (currentMovie) {
     if (currentMovie.backdrop_path) {
