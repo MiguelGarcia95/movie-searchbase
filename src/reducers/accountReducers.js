@@ -53,9 +53,20 @@ const accountReducers = (state = initialState, action) => {
         message: action.payload.message
       }
     case actionTypes.REMOVE_FROM_WATCHLIST:
-      return {
-        ...state,
-        message: action.payload.message
+      if (action.payload.type === 'movies') {
+        let movies = removeItemFromList(state.movieWatchlist, action.payload.removedId);
+        return {
+          ...state,
+          message: action.payload.message,
+          movieWatchlist: movies
+        }
+      } else {
+        let movies = removeItemFromList(state.showWatchlist, action.payload.removedId);
+        return {
+          ...state,
+          message: action.payload.message,
+          showWatchlist: movies
+        }
       }
     case actionTypes.DELETE_MESSAGE:
       return {

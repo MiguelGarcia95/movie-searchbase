@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import AccountSlide from './AccountSlide';
 
-const displayMovies = (movies, type, genres, sliderType, sessionId, accountId, removeFromFavorites) => {
+const displayMovies = (movies, type, genres, sliderType, sessionId, accountId, removeFromList) => {
   return movies.map(movie => {
     return (
       <AccountSlide 
@@ -13,7 +13,7 @@ const displayMovies = (movies, type, genres, sliderType, sessionId, accountId, r
         sessionId={sessionId} 
         accountId={accountId} 
         sliderType={sliderType} 
-        removeFromFavorites={removeFromFavorites} 
+        removeFromList={removeFromList} 
       />
     )
   })
@@ -43,7 +43,7 @@ const getSlidesToShow = (movies, width) => {
   }
 }
 
-const AccountSlider = ({movies, totalResults, sliderName, type, genres, sliderType, removeFromFavorites, sessionId, accountId}) => {
+const AccountSlider = ({movies, totalResults, sliderName, type, genres, sliderType, removeFromList, sessionId, accountId}) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -79,7 +79,7 @@ const AccountSlider = ({movies, totalResults, sliderName, type, genres, sliderTy
       </section>
       <section className="account_content_slider">
         <Slider {...settings}>
-          {displayMovies(movies, type, genres, sliderType, sessionId, accountId, removeFromFavorites)}
+          {displayMovies(movies, type, genres, sliderType, sessionId, accountId, removeFromList)}
         </Slider>
       </section>
     </section>

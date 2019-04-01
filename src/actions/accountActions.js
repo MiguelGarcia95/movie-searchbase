@@ -125,14 +125,14 @@ export const removeFromFavorites = (accountId, sessionId, mediaType, mediaId) =>
   }
 }
 
-export const addToWatchlist = (accountId, sessionId, mediaType, mediaId, action) => {
+export const addToWatchlist = (accountId, sessionId, mediaType, mediaId) => {
   return (dispatch) => {
     let type = mediaType === 'movies' ? 'movie' : 'tv';
     const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist?api_key=${MOVIEDBAPI}&session_id=${sessionId}`;
     axios.post(url, {
       media_type: type,
       media_id: mediaId,
-      watchlist: action
+      watchlist: true
     }).then(response => {
       dispatch({
         type: actionTypes.ADD_TO_WATCHLIST,
@@ -146,14 +146,14 @@ export const addToWatchlist = (accountId, sessionId, mediaType, mediaId, action)
   }
 }
 
-export const removeFromWatchlist = (accountId, sessionId, mediaType, mediaId, action) => {
+export const removeFromWatchlist = (accountId, sessionId, mediaType, mediaId) => {
   return (dispatch) => {
     let type = mediaType === 'movies' ? 'movie' : 'tv';
     const url = `https://api.themoviedb.org/3/account/${accountId}/watchlist?api_key=${MOVIEDBAPI}&session_id=${sessionId}`;
     axios.post(url, {
       media_type: type,
       media_id: mediaId,
-      watchlist: action
+      watchlist: false
     }).then(response => {
       dispatch({
         type: actionTypes.REMOVE_FROM_WATCHLIST,
