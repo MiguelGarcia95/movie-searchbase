@@ -17,6 +17,7 @@ class SearchResults extends React.Component {
     } else {
       this.fetchShows(1);
     }
+    this.scrollToTop();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -29,6 +30,10 @@ class SearchResults extends React.Component {
         this.fetchShows(1);
       }
     }
+  }
+
+  scrollToTop = () => {
+    this.pageTop.scrollIntoView({behavior: 'smooth'});
   }
 
   fetchMovies = page => {
@@ -62,6 +67,7 @@ class SearchResults extends React.Component {
 
     return (
       <section className="search_page">
+        <div ref={node => this.pageTop = node}></div>
         <section className="search_data">
           <h1>Search Results For: <span>{this.props.match.params.searchQuery}</span></h1>
         </section>
