@@ -92,11 +92,6 @@ export const getMovieWatchlist = (accountId, sessionId) => {
 
 export const addToFavorites = (accountId, sessionId, mediaType, mediaId) => {
   return (dispatch) => {
-    console.log(accountId)
-    console.log(sessionId)
-    console.log(mediaType)
-    console.log(mediaId)
-    console.log(action)
     let type = mediaType === 'movies' ? 'movie' : 'tv';
     const url = `https://api.themoviedb.org/3/account/${accountId}/favorite?api_key=${MOVIEDBAPI}&session_id=${sessionId}`;
     axios.post(url, {
@@ -127,7 +122,9 @@ export const removeFromFavorites = (accountId, sessionId, mediaType, mediaId) =>
       dispatch({
         type: actionTypes.REMOVE_FROM_FAVORITES,
         payload: {
-          message: 'Was Removed From Favorites!'
+          message: 'Was Removed From Favorites!',
+          removedId: accountId,
+          type: mediaType
         }
       })
     }).catch(err => {

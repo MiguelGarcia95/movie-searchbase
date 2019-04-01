@@ -38,7 +38,19 @@ const accountReducers = (state = initialState, action) => {
         ...state,
         message: action.payload.message
       }
+    case actionTypes.REMOVE_FROM_FAVORITES:
+      console.log(action.payload.removedId);
+      console.log(action.payload.mediaType);
+      return {
+        ...state,
+        message: action.payload.message
+      }
     case actionTypes.ADD_TO_WATCHLIST:
+      return {
+        ...state,
+        message: action.payload.message
+      }
+    case actionTypes.REMOVE_FROM_WATCHLIST:
       return {
         ...state,
         message: action.payload.message
