@@ -33,6 +33,7 @@ class Pagination extends React.Component {
   }
 
   updateResults = direction => {
+    this.props.scrollToTop();
     let moviePage = this.updatePage(this.props.moviesCurrentPage, direction);
     let showPage = this.updatePage(this.props.showsCurrentPage, direction)
 
@@ -46,6 +47,7 @@ class Pagination extends React.Component {
   updatePage = (currentPage, direction) => direction === 'prev' ? currentPage - 1 : currentPage + 1; 
 
   goToPage = page => {
+    this.props.scrollToTop();
     if (this.isTypeMovie()) {
       this.props.fetchMoviesSearch(this.props.searchQuery, page)
     } else {

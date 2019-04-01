@@ -12,12 +12,12 @@ import Pagination from './Pagination';
 
 class SearchResults extends React.Component {
   componentDidMount() {
+    this.scrollToTop();
     if (this.props.type === 'movies') {
       this.fetchMovies(1);
     } else {
       this.fetchShows(1);
     }
-    this.scrollToTop();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -80,7 +80,7 @@ class SearchResults extends React.Component {
           {this.displayResults(searchResults, type, genres)}
         </section>
 
-        <Pagination searchQuery={this.props.match.params.searchQuery} />
+        <Pagination scrollToTop={this.scrollToTop} searchQuery={this.props.match.params.searchQuery} />
 
       </section>
     );

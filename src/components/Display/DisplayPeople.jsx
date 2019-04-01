@@ -152,7 +152,7 @@ class DisplayPeople extends React.Component {
                     <section className="header_people_details">
                       <section className="dob"><p><span>DOB: </span> {currentPerson.birthday}</p></section>
                       <section className="place_of_birth"><p><span>Birth Place: </span> {currentPerson.place_of_birth}</p></section>
-                      <section className="bio normal"><p>{currentPerson.biography} </p></section>
+                      <section className="bio normal"><p>{currentPerson.biography.substring(0, 2200)} {currentPerson.biography.length > 2200 && '...'}</p></section>
                       <section className="bio mobile mobile_one"><p>{currentPerson.biography.substring(0, 1300)} {currentPerson.biography.length > 1300 && '...'}</p></section>
                       <section className="bio mobile mobile_two"><p>{currentPerson.biography.substring(0, 1200)} {currentPerson.biography.length > 1200 && '...'}</p></section>
                       <section className="bio mobile mobile_three"><p>{currentPerson.biography.substring(0, 1030)} {currentPerson.biography.length > 1030 && '...'}</p></section>
