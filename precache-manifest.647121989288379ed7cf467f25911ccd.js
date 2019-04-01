@@ -20,23 +20,23 @@ self.__precacheManifest = [
     "url": "/movie-searchbase/static/js/runtime~main.493d70e5.js"
   },
   {
-    "revision": "52d0b7fe1144bcbed46c",
-    "url": "/movie-searchbase/static/js/main.52d0b7fe.chunk.js"
+    "revision": "2696fedcfa71be31dbc1",
+    "url": "/movie-searchbase/static/js/main.2696fedc.chunk.js"
   },
   {
-    "revision": "c1bb3c5c31b19e72d417",
-    "url": "/movie-searchbase/static/js/2.c1bb3c5c.chunk.js"
+    "revision": "43244711816f8f6960fa",
+    "url": "/movie-searchbase/static/js/2.43244711.chunk.js"
   },
   {
-    "revision": "52d0b7fe1144bcbed46c",
+    "revision": "2696fedcfa71be31dbc1",
     "url": "/movie-searchbase/static/css/main.3b773220.chunk.css"
   },
   {
-    "revision": "c1bb3c5c31b19e72d417",
+    "revision": "43244711816f8f6960fa",
     "url": "/movie-searchbase/static/css/2.5fb07535.chunk.css"
   },
   {
-    "revision": "a63b6e77323cca762fe7e21c0e215430",
+    "revision": "e023a64b823e656542130f9da9ba75a8",
     "url": "/movie-searchbase/index.html"
   }
 ];
