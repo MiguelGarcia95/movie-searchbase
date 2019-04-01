@@ -50,3 +50,12 @@ export const getImage = (currentMovie) => {
     return '/images/movie/movie_bg.jpeg';
   }
 }
+
+export const removeItemFromList = (movies, id) => {
+  return movies.reduce((newItemArray, item) => {
+    if (item.id !== id) {
+      newItemArray.push(item);
+    }
+    return newItemArray;
+  }, [])
+}

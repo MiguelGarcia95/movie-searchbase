@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/types';
+import {removeItemFromList} from '../utils/functions';
 
 const initialState = {
   account: null,
@@ -39,17 +40,21 @@ const accountReducers = (state = initialState, action) => {
         message: action.payload.message
       }
     case actionTypes.REMOVE_FROM_FAVORITES:
-      console.log(action.payload.removedId);
-      console.log(action.payload.mediaType);
-      if (action.payload.mediaType === 'movies') {
+      // console.log(action.payload.removedId);
+      // console.log(action.payload.type);
+      if (action.payload.type === 'movies') {
+        let movies = removeItemFromList(state.favoriteMovies, action.payload.removedId);
         return {
           ...state,
-          message: action.payload.message
+          message: action.payload.message,
+          favoriteShows: movies
         }
       } else {
+        let movies = removeItemFromList(state.favoriteShows, action.payload.removedId);
         return {
           ...state,
-          message: action.payload.message
+          message: action.payload.message,
+          favoriteShows: movies
         }
       }
     case actionTypes.ADD_TO_WATCHLIST:
