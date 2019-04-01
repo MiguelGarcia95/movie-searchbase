@@ -34,8 +34,6 @@ export const getFavoriteShows = (accountId, sessionId) => {
       type: actionTypes.GET_FAVORITE_SHOWS,
       payload: {
         favoriteShows: response.data.results,
-        favoriteShowsPage: response.data.page,
-        favoriteShowsTotalPages: response.data.total_pages,
         favoriteShowsTotalResults: response.data.total_results
       }
     })
@@ -50,8 +48,6 @@ export const getFavoriteMovies = (accountId, sessionId) => {
       type: actionTypes.GET_FAVORITE_MOVIES,
       payload: {
         favoriteMovies: response.data.results,
-        favoriteMoviesPage: response.data.page,
-        favoriteMoviesTotalPages: response.data.total_pages,
         favoriteMoviesTotalResults: response.data.total_results
       }
     })
@@ -66,8 +62,6 @@ export const getShowWatchlist = (accountId, sessionId) => {
       type: actionTypes.GET_SHOW_WATCHLIST,
       payload: {
         showWatchlist: response.data.results,
-        showWatchlistPage: response.data.page,
-        showWatchlistTotalPages: response.data.total_pages,
         showWatchlistTotalResults: response.data.total_results
       }
     })
@@ -82,8 +76,6 @@ export const getMovieWatchlist = (accountId, sessionId) => {
       type: actionTypes.GET_MOVIE_WATCHLIST,
       payload: {
         movieWatchlist: response.data.results,
-        movieWatchlistPage: response.data.page,
-        movieWatchlistTotalPages: response.data.total_pages,
         movieWatchlistTotalResults: response.data.total_results
       }
     })
