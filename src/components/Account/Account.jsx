@@ -99,10 +99,10 @@ class Account extends React.Component {
     const redirectToLogin = this.shouldRedirectToLogin();
     const {displayMessage} = this.state;
     const {account, showGenres, movieGenres, removeFromFavorites, session_id, message} = this.props;
-    const {favoriteMovies, favoriteMoviesPage, favoriteMoviesTotalPages, favoriteMoviesTotalResults} = this.props;
-    const {favoriteShows, favoriteShowsPage, favoriteShowsTotalPages, favoriteShowsTotalResults} = this.props;
-    const {movieWatchlist, movieWatchlistPage, movieWatchlistTotalPages, movieWatchlistTotalResults} = this.props;
-    const {showWatchlist, showWatchlistPage, showWatchlistTotalPages, showWatchlistTotalResults} = this.props;    
+    const {favoriteMovies, favoriteMoviesTotalResults} = this.props;
+    const {favoriteShows, favoriteShowsTotalResults} = this.props;
+    const {movieWatchlist, movieWatchlistTotalResults} = this.props;
+    const {showWatchlist, showWatchlistTotalResults} = this.props;    
 
     return (
       <React.Fragment>
@@ -182,20 +182,12 @@ const mapStateToProps = state => {
     token_id: state.auth.token_id,
     account: state.account.account,
     favoriteMovies: state.account.favoriteMovies,
-    favoriteMoviesPage: state.account.favoriteMoviesPage,
-    favoriteMoviesTotalPages: state.account.favoriteMoviesTotalPages,
     favoriteMoviesTotalResults: state.account.favoriteMoviesTotalResults,
     favoriteShows: state.account.favoriteShows,
-    favoriteShowsPage: state.account.favoriteShowsPage,
-    favoriteShowsTotalPages: state.account.favoriteShowsTotalPages,
     favoriteShowsTotalResults: state.account.favoriteShowsTotalResults,
     movieWatchlist: state.account.movieWatchlist,
-    movieWatchlistPage: state.account.movieWatchlistPage,
-    movieWatchlistTotalPages: state.account.movieWatchlistTotalPages,
     movieWatchlistTotalResults: state.account.movieWatchlistTotalResults,
     showWatchlist: state.account.showWatchlist,
-    showWatchlistPage: state.account.showWatchlistPage,
-    showWatchlistTotalPages: state.account.showWatchlistTotalPages,
     showWatchlistTotalResults: state.account.showWatchlistTotalResults,
     movieGenres: state.movies.movieGenres,
     showGenres: state.shows.showGenres,

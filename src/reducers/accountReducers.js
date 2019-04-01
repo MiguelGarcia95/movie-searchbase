@@ -5,20 +5,12 @@ const initialState = {
   account: null,
   message: null,
   favoriteShows: [],
-  favoriteShowsPage: null,
-  favoriteShowsTotalPages: null,
   favoriteShowsTotalResults: null,
   favoriteMovies: [],
-  favoriteMoviesPage: null,
-  favoriteMoviesTotalPages: null,
   favoriteMoviesTotalResults: null,
   showWatchlist: [],
-  showWatchlistPage: null,
-  showWatchlistTotalPages: null,
   showWatchlistTotalResults: null,
   movieWatchlist: [],
-  movieWatchlistPage: null,
-  movieWatchlistTotalPages: null,
   movieWatchlistTotalResults: null
 };
 
@@ -77,32 +69,24 @@ const accountReducers = (state = initialState, action) => {
       return {
         ...state,
         favoriteShows: action.payload.favoriteShows,
-        favoriteShowsPage: action.payload.favoriteShowsPage,
-        favoriteShowsTotalPages: action.payload.favoriteShowsTotalPages,
         favoriteShowsTotalResults: action.payload.favoriteShowsTotalResults
       }
     case actionTypes.GET_FAVORITE_MOVIES:
       return {
         ...state,
         favoriteMovies: action.payload.favoriteMovies,
-        favoriteMoviesPage: action.payload.favoriteMoviesPage,
-        favoriteMoviesTotalPages: action.payload.favoriteMoviesTotalPages,
         favoriteMoviesTotalResults: action.payload.favoriteMoviesTotalResults
       }
     case actionTypes.GET_SHOW_WATCHLIST:
       return {
         ...state,
         showWatchlist: action.payload.showWatchlist,
-        showWatchlistPage: action.payload.showWatchlistPage,
-        showWatchlistTotalPages: action.payload.showWatchlistTotalPages,
         showWatchlistTotalResults: action.payload.showWatchlistTotalResults
       }
     case actionTypes.GET_MOVIE_WATCHLIST:
       return {
         ...state,
         movieWatchlist: action.payload.movieWatchlist,
-        movieWatchlistPage: action.payload.movieWatchlistPage,
-        movieWatchlistTotalPages: action.payload.movieWatchlistTotalPages,
         movieWatchlistTotalResults: action.payload.movieWatchlistTotalResults
       }
     default:
