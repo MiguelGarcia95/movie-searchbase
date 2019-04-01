@@ -19,6 +19,7 @@ class DisplayTv extends React.Component {
   componentDidMount() {
     this.props.fetchShowGenres()
     this.fetchShowData();
+    this.scrollToTop();
   }
 
   componentDidUpdate(prevProps) {
@@ -40,6 +41,10 @@ class DisplayTv extends React.Component {
     this.props.fetchShowCredits(this.props.match.params.showId);
     this.props.fetchShowReviews(this.props.match.params.showId);
     this.props.fetchSimilarShows(this.props.match.params.showId);
+  }
+
+  scrollToTop = () => {
+    this.pageTop.scrollIntoView({behavior: 'smooth'});
   }
 
   displayCast = cast => {
@@ -97,6 +102,7 @@ class DisplayTv extends React.Component {
 
     return (
       <section className="display_movie">
+        <div ref={node => this.pageTop = node}></div>
         {currentShow && currentShow.id === Number(this.props.match.params.showId) && (
           <React.Fragment>
             <section className={`message_popup ${displayMessage ? 'active' : ''}`}>

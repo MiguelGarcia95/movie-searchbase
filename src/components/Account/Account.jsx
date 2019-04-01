@@ -35,6 +35,7 @@ class Account extends React.Component {
     }
     this.props.fetchMovieGenres();
     this.props.fetchShowGenres();
+    this.scrollToTop();
   }
 
   componentDidUpdate(prevProps) {
@@ -54,6 +55,10 @@ class Account extends React.Component {
         this.props.deleteMessage();
       }, 5000);
     }
+  }
+
+  scrollToTop = () => {
+    this.pageTop.scrollIntoView({behavior: 'smooth'});
   }
   
   setAccountDetails = (accountId, sessionId) => {
@@ -113,6 +118,7 @@ class Account extends React.Component {
           {message && <h2 className="message">{message}</h2> }
         </section>
         <section className="account_page">
+          <div ref={node => this.pageTop = node}></div>
           {redirectToLogin && <Redirect to='/login'/>}
           {redirectToAccount && <Redirect to='/account'/>}
           {account ? (
