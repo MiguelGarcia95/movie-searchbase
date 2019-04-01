@@ -19,6 +19,7 @@ class DisplayMovie extends React.Component {
 
   componentDidMount() {
     this.fetchMovieData();
+    this.scrollToTop();
     this.props.fetchMovieGenres();
   }
 
@@ -34,6 +35,10 @@ class DisplayMovie extends React.Component {
         this.props.deleteMessage();
       }, 5000);
     }
+  }
+
+  scrollToTop = () => {
+    this.pageTop.scrollIntoView({behavior: 'smooth'});
   }
 
   fetchMovieData = () => {
@@ -98,6 +103,7 @@ class DisplayMovie extends React.Component {
     const {displayMessage} = this.state;
     return (
       <section className="display_movie">
+        <div ref={node => this.pageTop = node}></div>
         {currentMovie && currentMovie.id === Number(this.props.match.params.movieId) && (
           <React.Fragment>
             <section className={`message_popup ${displayMessage ? 'active' : ''}`}>

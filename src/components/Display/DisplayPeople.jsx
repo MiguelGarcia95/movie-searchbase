@@ -16,6 +16,7 @@ import './style/css/DisplayPeople.css';
 class DisplayPeople extends React.Component {
   componentDidMount() {
     this.fetchPeopleData();
+    this.scrollToTop()
   }
 
   fetchPeopleData = () => {
@@ -24,6 +25,10 @@ class DisplayPeople extends React.Component {
     this.props.fetchPeopleShowCredits(this.props.match.params.peopleId);
     this.props.fetchPeopleImages(this.props.match.params.peopleId);
     this.props.fetchPeopleTaggedImages(this.props.match.params.peopleId);
+  }
+
+  scrollToTop = () => {
+    this.pageTop.scrollIntoView({behavior: 'smooth'});
   }
 
   displayMovies = (movies, genres) => {
@@ -127,6 +132,7 @@ class DisplayPeople extends React.Component {
 
     return (
       <section className="display_people">
+        <div ref={node => this.pageTop = node}></div>
         {currentPerson && (
           <React.Fragment>
             <section className="display_people_header">
